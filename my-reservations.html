@@ -1,0 +1,684 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>پیگیری رزرو | افرا سفر</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", sans-serif;
+      background: #f5f8f6;
+      color: #18352d;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: #123d32;
+      color: white;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e5ebe8;
+      padding: 18px 25px;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: #123d32;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: #789087;
+      margin-top: 2px;
+    }
+
+    .back-btn {
+      border: 1px solid #dce5e1;
+      padding: 9px 16px;
+      border-radius: 10px;
+      color: #31564b;
+      background: white;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 55px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .intro p {
+      margin: 0;
+      color: #71817b;
+    }
+
+    .search-box {
+      background: white;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 35px rgba(18, 61, 50, 0.08);
+      margin-bottom: 25px;
+    }
+
+    .search-box label {
+      display: block;
+      margin-bottom: 9px;
+      font-weight: 700;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    input {
+      flex: 1;
+      height: 50px;
+      border: 1px solid #d9e4df;
+      border-radius: 12px;
+      padding: 0 15px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #28705d;
+    }
+
+    .search-btn {
+      border: none;
+      background: #123d32;
+      color: white;
+      padding: 0 25px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .search-btn:hover {
+      background: #0d3027;
+    }
+
+    .message {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .message.error {
+      display: block;
+      background: #fff0f0;
+      color: #a32929;
+    }
+
+    .message.success {
+      display: block;
+      background: #edf8f2;
+      color: #17633e;
+    }
+
+    .reservation-card {
+      display: none;
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 35px rgba(18, 61, 50, 0.08);
+    }
+
+    .reservation-card.show {
+      display: block;
+    }
+
+    .property-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .property-location {
+      color: #74837e;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .info {
+      background: #f7faf8;
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .info small {
+      display: block;
+      color: #7a8984;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    .info strong {
+      font-size: 15px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 20px;
+    }
+
+    .status.pending {
+      background: #fff6df;
+      color: #9a6800;
+    }
+
+    .status.confirmed {
+      background: #e8f7ee;
+      color: #187044;
+    }
+
+    .status.rejected {
+      background: #ffeded;
+      color: #a52d2d;
+    }
+
+    .status.cancelled {
+      background: #eeeeee;
+      color: #666;
+    }
+
+    .contact-box {
+      margin-top: 22px;
+      padding: 17px;
+      border-radius: 14px;
+      background: #eef7f3;
+      color: #31564b;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 12px;
+      background: #16844b;
+      color: white;
+      padding: 10px 17px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: #81908b;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .search-row {
+        flex-direction: column;
+      }
+
+      .search-btn {
+        height: 50px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        margin-top: 35px;
+      }
+
+      .intro h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    🌿 افرا سفر | همراه شما برای یک اقامت خاطره‌انگیز
+  </div>
+
+  <header>
+    <div class="nav">
+      <a href="index.html" class="logo">
+        افرا سفر
+        <span>سفر، آرامش، خاطره</span>
+      </a>
+
+      <a href="index.html" class="back-btn">
+        ← بازگشت به سایت
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="intro">
+      <h1>پیگیری رزرو</h1>
+      <p>
+        کد پیگیری رزرو خود را وارد کنید تا وضعیت رزرو را مشاهده کنید.
+      </p>
+    </div>
+
+    <div class="search-box">
+
+      <label for="reservationCode">
+        کد پیگیری رزرو
+      </label>
+
+      <div class="search-row">
+        <input
+          id="reservationCode"
+          type="text"
+          placeholder="مثلاً AFRA-123456"
+          autocomplete="off"
+        >
+
+        <button class="search-btn" id="searchBtn">
+          پیگیری رزرو
+        </button>
+      </div>
+
+      <div id="message" class="message"></div>
+
+    </div>
+
+    <div id="reservationCard" class="reservation-card">
+
+      <div class="property-title" id="propertyTitle">
+        -
+      </div>
+
+      <div class="property-location" id="propertyLocation">
+        -
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info">
+          <small>نام مهمان</small>
+          <strong id="guestName">-</strong>
+        </div>
+
+        <div class="info">
+          <small>تعداد نفرات</small>
+          <strong id="guestCount">-</strong>
+        </div>
+
+        <div class="info">
+          <small>تاریخ ورود</small>
+          <strong id="checkIn">-</strong>
+        </div>
+
+        <div class="info">
+          <small>تاریخ خروج</small>
+          <strong id="checkOut">-</strong>
+        </div>
+
+      </div>
+
+      <div id="reservationStatus" class="status pending">
+        در انتظار تأیید مالک
+      </div>
+
+      <div class="contact-box">
+        <strong>📞 نیاز به راهنمایی دارید؟</strong>
+        <br>
+        برای پیگیری رزرو یا دریافت اطلاعات بیشتر با افرا سفر در ارتباط باشید.
+
+        <br>
+
+        <a
+          class="whatsapp-btn"
+          href="https://wa.me/989117999884"
+          target="_blank"
+        >
+          💬 تماس با واتساپ
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © افرا سفر — رزرو آسان اقامتگاه‌های شمال ایران
+  </footer>
+
+  <script>
+
+    const SUPABASE_URL =
+      "https://chrdvpwympsskclbvnsz.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_IvWJnRsU3BeAXuiG0kR8og_iWw4bwkj";
+
+    const { createClient } = supabase;
+
+    const afraSupabase = createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+    const reservationCode =
+      document.getElementById("reservationCode");
+
+    const searchBtn =
+      document.getElementById("searchBtn");
+
+    const message =
+      document.getElementById("message");
+
+    const reservationCard =
+      document.getElementById("reservationCard");
+
+
+    function showMessage(text, type) {
+
+      message.textContent = text;
+
+      message.className =
+        "message " + type;
+
+    }
+
+
+    function hideMessage() {
+
+      message.textContent = "";
+
+      message.className =
+        "message";
+
+    }
+
+
+    function formatDate(dateString) {
+
+      if (!dateString) return "-";
+
+      const date =
+        new Date(dateString);
+
+      return date.toLocaleDateString(
+        "fa-IR"
+      );
+
+    }
+
+
+    function getStatusText(status) {
+
+      switch (status) {
+
+        case "pending":
+          return "⏳ در انتظار تأیید مالک";
+
+        case "confirmed":
+          return "✅ رزرو تأیید شد";
+
+        case "rejected":
+          return "❌ رزرو رد شد";
+
+        case "cancelled":
+          return "⚪ رزرو لغو شده";
+
+        default:
+          return "وضعیت نامشخص";
+
+      }
+
+    }
+
+
+    async function searchReservation() {
+
+      const code =
+        reservationCode.value.trim();
+
+      reservationCard.classList.remove("show");
+
+      hideMessage();
+
+      if (!code) {
+
+        showMessage(
+          "لطفاً کد پیگیری رزرو را وارد کنید.",
+          "error"
+        );
+
+        return;
+      }
+
+
+      searchBtn.disabled = true;
+
+      searchBtn.textContent =
+        "در حال بررسی...";
+
+
+      try {
+
+        const { data, error } =
+          await afraSupabase
+
+            .from("reservations")
+
+            .select(`
+              id,
+              reservation_code,
+              guest_name,
+              guest_phone,
+              check_in,
+              check_out,
+              guest_count,
+              status,
+              properties (
+                title,
+                location
+              )
+            `)
+
+            .eq(
+              "reservation_code",
+              code
+            )
+
+            .maybeSingle();
+
+
+        if (error) {
+
+          console.error(error);
+
+          throw error;
+
+        }
+
+
+        if (!data) {
+
+          showMessage(
+            "رزروی با این کد پیگیری پیدا نشد. کد را دوباره بررسی کنید.",
+            "error"
+          );
+
+          return;
+        }
+
+
+        document.getElementById(
+          "propertyTitle"
+        ).textContent =
+          data.properties?.title ||
+          "اقامتگاه";
+
+
+        document.getElementById(
+          "propertyLocation"
+        ).textContent =
+          data.properties?.location ||
+          "موقعیت ثبت نشده";
+
+
+        document.getElementById(
+          "guestName"
+        ).textContent =
+          data.guest_name || "-";
+
+
+        document.getElementById(
+          "guestCount"
+        ).textContent =
+          data.guest_count
+            ? data.guest_count + " نفر"
+            : "-";
+
+
+        document.getElementById(
+          "checkIn"
+        ).textContent =
+          formatDate(data.check_in);
+
+
+        document.getElementById(
+          "checkOut"
+        ).textContent =
+          formatDate(data.check_out);
+
+
+        const statusElement =
+          document.getElementById(
+            "reservationStatus"
+          );
+
+
+        statusElement.textContent =
+          getStatusText(data.status);
+
+
+        statusElement.className =
+          "status " +
+          (data.status || "pending");
+
+
+        reservationCard.classList.add(
+          "show"
+        );
+
+
+        showMessage(
+          "رزرو شما با موفقیت پیدا شد.",
+          "success"
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        showMessage(
+          "خطایی هنگام دریافت اطلاعات رزرو رخ داد.",
+          "error"
+        );
+
+      } finally {
+
+        searchBtn.disabled = false;
+
+        searchBtn.textContent =
+          "پیگیری رزرو";
+
+      }
+
+    }
+
+
+    searchBtn.addEventListener(
+      "click",
+      searchReservation
+    );
+
+
+    reservationCode.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Enter") {
+
+          searchReservation();
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
+```

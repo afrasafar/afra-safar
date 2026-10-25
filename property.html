@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123d32">
+<title>جزئیات اقامتگاه | افرا سفر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#123d32;
+  --green2:#1d624b;
+  --cream:#f6f8f4;
+  --text:#20332b;
+  --muted:#718078;
+  --line:#e2e9e3;
+  --shadow:0 12px 36px rgba(18,61,50,.08);
+  --booked-bg:#ffdcd5;
+  --booked-border:#d94831;
+  --booked-text:#7f1d1d;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--text);font-family:'Vazirmatn',sans-serif;line-height:1.9}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font-family:inherit}
+.topbar{background:var(--green);color:#fff;padding:12px 5%;font-size:13px}
+.nav{background:#fff;border-bottom:1px solid var(--line);padding:17px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:23px;font-weight:800;color:var(--green)}
+.brand small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+.back{color:var(--green2);font-weight:700;font-size:14px}
+.container{max-width:1180px;margin:30px auto;padding:0 20px}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,.85fr);gap:24px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+.gallery{position:relative;background:#e5ece6}
+.main-image{width:100%;height:500px;object-fit:cover;display:block;cursor:zoom-in;background:#e5ece6}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.9);color:var(--green);font-size:25px;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 18px #0002;z-index:2}
+.gallery-arrow:hover{background:#fff;transform:translateY(-50%) scale(1.04)}
+.gallery-prev{right:16px}
+.gallery-next{left:16px}
+.gallery-counter{position:absolute;left:16px;top:16px;background:#123d32d1;color:#fff;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:700;z-index:2}
+.thumbnails{display:flex;gap:10px;padding:12px;overflow-x:auto;background:#fff;border-top:1px solid var(--line)}
+.thumbnail{width:88px;height:68px;flex:0 0 auto;border:2px solid transparent;border-radius:11px;overflow:hidden;padding:0;background:#edf2ee;cursor:pointer}
+.thumbnail img{width:100%;height:100%;object-fit:cover;display:block}
+.thumbnail.active{border-color:var(--green2)}
+.content{padding:25px}
+.tag{display:inline-block;background:#e9f4ed;color:var(--green2);border-radius:30px;padding:4px 12px;font-size:12px;font-weight:700}
+.title{font-size:clamp(24px,3vw,34px);line-height:1.6;margin:10px 0 0}
+.location{color:var(--muted);font-size:14px;margin:4px 0 20px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0}
+.fact{background:#f5f8f5;border:1px solid #edf1ed;border-radius:14px;padding:13px;text-align:center;font-size:13px}
+.fact strong{display:block;font-size:15px;color:var(--green);margin-top:3px}
+.section-title{font-size:19px;margin:25px 0 8px}
+.description{white-space:pre-line;color:#53635a;font-size:15px}
+.booking{padding:24px;position:sticky;top:20px}
+.price-label{color:var(--muted);font-size:13px}
+.price{font-size:25px;font-weight:800;color:var(--green);margin:2px 0 0;overflow-wrap:anywhere}
+.per-night{font-size:12px;color:var(--muted)}
+.divider{height:1px;background:var(--line);margin:20px 0}
+.book-btn{display:block;background:var(--green);color:#fff;text-align:center;border-radius:13px;padding:13px 16px;font-weight:800;margin-top:16px;transition:.2s;border:0}
+.book-btn:hover{background:var(--green2)}
+.whatsapp-btn{background:#edf5ef;color:#174c3a}
+.note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+.booking-form{margin-top:24px;border-top:1px solid var(--line);padding-top:20px}
+.booking-form h2{font-size:19px;margin:0 0 6px}
+.form-help{font-size:12px;color:var(--muted);margin:0 0 15px}
+.form-field{margin:12px 0}
+.form-field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.form-field input,.form-field textarea,.form-field select{width:100%;border:1px solid #dce5de;border-radius:11px;padding:11px 12px;font:inherit;font-size:14px;background:#fff;color:var(--text);outline:none}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--green2);box-shadow:0 0 0 3px #1d624b1a}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.submit-btn{width:100%;cursor:pointer;font-size:14px}
+.submit-btn:disabled{opacity:.6;cursor:wait}
+.form-message{display:none;margin-top:13px;padding:11px 12px;border-radius:11px;font-size:13px;line-height:1.8;overflow-wrap:anywhere}
+.form-message.show{display:block}
+.form-message.success{background:#eaf6ed;color:#175a37}
+.form-message.error{background:#fff0ed;color:#9a2d1c}
+.state{background:#fff;border:1px solid var(--line);border-radius:18px;text-align:center;padding:45px 20px;color:var(--muted)}
+.footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 15px}
+.lightbox{position:fixed;inset:0;background:#05120eee;z-index:9999;display:none;align-items:center;justify-content:center;padding:25px}
+.lightbox.open{display:flex}
+.lightbox-image{max-width:min(1100px,94vw);max-height:88vh;object-fit:contain;border-radius:12px}
+.lightbox-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:var(--green);font-size:25px;cursor:pointer}
+.lightbox-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fff;background:#0006;padding:5px 14px;border-radius:20px;font-size:12px}
+
+/* تقویم شمسی */
+.calendar-wrap{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:16px;background:#fbfdfb}
+.calendar-heading{font-size:15px;font-weight:800;color:var(--green);margin:0 0 4px}
+.calendar-description{font-size:12px;color:var(--muted);margin:0 0 12px}
+.calendar-selected{background:#edf5ef;border-radius:10px;padding:10px;font-size:12px;margin-bottom:12px;line-height:2}
+.calendar-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.calendar-month{font-size:14px;font-weight:800;color:var(--green);text-align:center}
+.month-btn{border:1px solid var(--line);background:white;color:var(--green);border-radius:9px;width:36px;height:36px;font-size:19px;cursor:pointer}
+.month-btn:disabled{opacity:.35;cursor:not-allowed}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.weekday{text-align:center;font-size:10px;color:var(--muted);font-weight:700;padding:4px 0}
+.day{position:relative;min-width:0;min-height:48px;border:1px solid transparent;border-radius:10px;background:white;color:var(--text);font-size:13px;font-weight:600;cursor:pointer;padding:5px 1px;display:flex;align-items:center;justify-content:center;flex-direction:column;line-height:1.35;transition:background .15s,border-color .15s,transform .15s}
+.day:hover:not(:disabled){border-color:var(--green2);background:#f0f7f1}
+.day:disabled{cursor:not-allowed}
+.day.booked{background:var(--booked-bg);border:2px solid var(--booked-border);color:var(--booked-text);font-weight:800;box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);opacity:1}
+.day.booked::after{content:"🌿";display:block;font-size:15px;line-height:1.1;margin-top:3px}
+.day.booked:disabled{background:var(--booked-bg);color:var(--booked-text);opacity:1}
+.day.booked:hover:not(:disabled){background:#ffc7bb;border-color:#b92d20}
+.day.selected{background:var(--green)!important;border:2px solid var(--green)!important;color:white!important;opacity:1;box-shadow:0 2px 7px rgba(18,61,50,.2)}
+.day.selected.booked{background:var(--green)!important;border-color:var(--green)!important;color:white!important}
+.day.range{background:#e3f1e7;border-color:#c6e1cf;color:var(--green);opacity:1}
+.day.today:not(.selected){box-shadow:inset 0 0 0 2px var(--green2)}
+.day:focus-visible{outline:3px solid #78a990;outline-offset:2px}
+.calendar-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;font-size:11px;color:var(--muted)}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-dot{display:inline-flex;align-items:center;justify-content:center;width:23px;height:23px;border-radius:6px;background:var(--booked-bg);border:2px solid var(--booked-border);font-size:13px;flex-shrink:0}
+.legend-dot::after{content:"🌿"}
+.legend-free{width:13px;height:13px;border-radius:4px;background:white;border:1px solid var(--line);flex-shrink:0}
+.calendar-status{font-size:12px;color:var(--muted);margin-top:10px;min-height:22px}
+.calendar-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:8px}
+.clear-dates,.refresh-dates{background:transparent;border:0;color:var(--green2);font-size:12px;font-weight:700;cursor:pointer;padding:5px 0;text-decoration:underline}
+.refresh-dates:disabled{opacity:.5;cursor:wait}
+.refresh-dates{display:inline-flex;align-items:center;gap:6px}
+@media(max-width:780px){
+  .layout{grid-template-columns:1fr}
+  .main-image{height:330px}
+  .booking{position:static}
+  .container{margin:20px auto;padding:0 13px}
+  .content{padding:19px}
+  .facts{grid-template-columns:1fr 1fr}
+  .nav{padding:13px 4%}
+  .gallery-arrow{width:38px;height:38px;font-size:21px}
+  .thumbnail{width:76px;height:60px}
+  .calendar-wrap{padding:10px}
+  .calendar-grid{gap:4px}
+  .day{min-height:45px;font-size:12px}
+  .day.booked::after{font-size:14px}
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">🌿 افرا سفر؛ همراه شما برای یک اقامت خاطره‌انگیز</div>
+
+<header class="nav">
+  <a class="brand" href="index.html">افرا سفر<small>سفر، آرامش، خاطره</small></a>
+  <a class="back" href="index.html">← بازگشت به اقامتگاه‌ها</a>
+</header>
+
+<main class="container">
+  <div class="crumb"><a href="index.html">صفحه اصلی</a> / جزئیات اقامتگاه</div>
+  <div id="pageState" class="state">در حال دریافت اطلاعات اقامتگاه…</div>
+
+  <div id="propertyLayout" class="layout" hidden>
+    <section class="panel">
+      <div class="gallery" id="gallery">
+        <img id="propertyImage" class="main-image" src="" alt="تصویر اقامتگاه">
+        <button class="gallery-arrow gallery-prev" id="prevImage" type="button" aria-label="تصویر قبلی">›</button>
+        <button class="gallery-arrow gallery-next" id="nextImage" type="button" aria-label="تصویر بعدی">‹</button>
+        <div class="gallery-counter" id="galleryCounter">۱ / ۱</div>
+      </div>
+      <div class="thumbnails" id="thumbnails"></div>
+
+      <div class="content">
+        <span id="categoryTag" class="tag">اقامتگاه</span>
+        <h1 id="propertyTitle" class="title"></h1>
+        <div id="propertyLocation" class="location"></div>
+        <div class="facts">
+          <div class="fact">👥 ظرفیت<strong id="propertyCapacity">قابل استعلام</strong></div>
+          <div class="fact">💰 هزینه اقامت<strong id="propertyPriceSmall">استعلام قیمت</strong></div>
+          <div class="fact">🌿 نوع اقامت<strong id="propertyCategory">ویلا</strong></div>
+        </div>
+        <h2 class="section-title">درباره این اقامتگاه</h2>
+        <div id="propertyDescription" class="description">برای دریافت اطلاعات بیشتر با میزبان تماس بگیرید.</div>
+      </div>
+    </section>
+
+    <aside class="panel booking">
+      <div class="price-label">هزینه اقامت برای هر شب</div>
+      <div id="propertyPrice" class="price">استعلام قیمت</div>
+      <div class="per-night">قیمت نهایی و تاریخ خالی با هماهنگی میزبان تأیید می‌شود.</div>
+      <div class="divider"></div>
+      <div>درخواستت را ثبت کن تا برای بررسی تاریخ و هماهنگی با تو تماس بگیریم.</div>
+
+      <form id="reservationForm" class="booking-form">
+        <h2>ثبت درخواست رزرو</h2>
+        <p class="form-help">تاریخ‌ها را از تقویم شمسی انتخاب کن. رزرو پس از بررسی و تأیید میزبان قطعی می‌شود.</p>
+
+        <div class="form-field">
+          <label for="guestName">نام و نام خانوادگی *</label>
+          <input id="guestName" name="guest_name" type="text" minlength="2" maxlength="100" autocomplete="name" required placeholder="نام شما">
+        </div>
+        <div class="form-field">
+          <label for="guestPhone">شماره تماس *</label>
+          <input id="guestPhone" name="guest_phone" type="tel" minlength="7" maxlength="20" autocomplete="tel" required placeholder="مثلاً 09123456789" inputmode="tel">
+        </div>
+
+        <input id="checkIn" name="check_in" type="hidden" required>
+        <input id="checkOut" name="check_out" type="hidden" required>
+
+        <div class="calendar-wrap">
+          <h3 class="calendar-heading">📅 تقویم شمسی اقامتگاه</h3>
+          <p class="calendar-description">روزهای دارای نشان 🌿 و پس‌زمینه قرمز، رزرو تأییدشده دارند.</p>
+
+          <div id="calendarSelected" class="calendar-selected">ابتدا تاریخ ورود و سپس تاریخ خروج را انتخاب کن.</div>
+
+          <div class="calendar-top">
+            <button id="prevMonth" class="month-btn" type="button" aria-label="ماه قبل">›</button>
+            <div id="calendarMonth" class="calendar-month">در حال آماده‌سازی…</div>
+            <button id="nextMonth" class="month-btn" type="button" aria-label="ماه بعد">‹</button>
+          </div>
+
+          <div id="calendarGrid" class="calendar-grid"></div>
+
+          <div class="calendar-legend">
+            <span class="legend-item"><span class="legend-dot"></span> رزرو تأییدشده</span>
+            <span class="legend-item"><span class="legend-free"></span> قابل انتخاب؛ نیازمند تأیید</span>
+          </div>
+
+          <div id="calendarStatus" class="calendar-status" role="status" aria-live="polite">در حال دریافت تاریخ‌های رزروشده…</div>
+
+          <div class="calendar-actions">
+            <button id="refreshDates" class="refresh-dates" type="button">↻ بروزرسانی تاریخ‌های رزرو</button>
+            <button id="clearDates" class="clear-dates" type="button">پاک کردن تاریخ‌های انتخاب‌شده</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="checkInDisplay">تاریخ ورود</label>
+            <input id="checkInDisplay" type="text" readonly placeholder="انتخاب از تقویم" aria-label="تاریخ ورود شمسی">
+          </div>
+          <div class="form-field">
+            <label for="checkOutDisplay">تاریخ خروج</label>
+            <input id="checkOutDisplay" type="text" readonly placeholder="انتخاب از تقویم" aria-label="تاریخ خروج شمسی">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="guestCount">تعداد نفرات *</label>
+          <input id="guestCount" name="guest_count" type="number" min="1" max="50" value="2" required>
+        </div>
+        <div class="form-field">
+          <label for="guestMessage">توضیحات (اختیاری)</label>
+          <textarea id="guestMessage" name="guest_message" rows="3" maxlength="1000" placeholder="اگر درخواست خاصی داری بنویس"></textarea>
+        </div>
+
+        <button id="reservationSubmit" class="book-btn submit-btn" type="submit">ثبت درخواست رزرو</button>
+        <div id="reservationMessage" class="form-message" role="status" aria-live="polite"></div>
+      </form>
+
+      <a class="book-btn whatsapp-btn" href="https://wa.me/989117999884" target="_blank" rel="noopener">پیام در واتساپ</a>
+      <div class="note">درخواست ثبت‌شده به معنی رزرو قطعی نیست؛ ابتدا تاریخ و ظرفیت بررسی می‌شود.</div>
+    </aside>
+  </div>
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="بستن">×</button>
+  <img class="lightbox-image" id="lightboxImage" src="" alt="تصویر بزرگ اقامتگاه">
+  <div class="lightbox-counter" id="lightboxCounter">۱ / ۱</div>
+</div>
+
+<footer class="footer">© افرا سفر | سفر، آرامش، خاطره</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
+<script>
+const $ = id => document.getElementById(id);
+
+const categoryNames = {
+  villa:'ویلا',
+  forest:'کلبه جنگلی',
+  pool:'اقامتگاه استخردار',
+  luxury:'اقامتگاه لوکس'
+};
+
+let galleryImages = [];
+let currentImageIndex = 0;
+let currentProperty = null;
+let bookedRanges = [];
+let calendarYear = 0;
+let calendarMonth = 0;
+let selecting = 'checkin';
+let calendarLoaded = false;
+let bookedDatesLoading = false;
+
+const faNumber = value => Number(value).toLocaleString('fa-IR');
+
+const jalaliFormatter = new Intl.DateTimeFormat('en-US-u-ca-persian-nu-latn',{
+  year:'numeric',month:'numeric',day:'numeric',timeZone:'UTC'
+});
+
+const jalaliMonthFormatter = new Intl.DateTimeFormat('fa-IR-u-ca-persian',{
+  year:'numeric',month:'long',timeZone:'UTC'
+});
+
+const jalaliDisplayFormatter = new Intl.DateTimeFormat('fa-IR-u-ca-persian',{
+  year:'numeric',month:'long',day:'numeric',timeZone:'UTC'
+});
+
+function money(value){
+  const n=Number(value);
+  return Number.isFinite(n)&&n>0?n.toLocaleString('fa-IR')+' تومان':'استعلام قیمت';
+}
+
+function isoDate(date){
+  return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+}
+
+function dateFromISO(value){
+  const [y,m,d]=String(value).split('-').map(Number);
+  return new Date(y,m-1,d,12,0,0);
+}
+
+function todayISO(){
+  return isoDate(new Date());
+}
+
+function jalaliParts(date){
+  const parts=jalaliFormatter.formatToParts(
+    new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()))
+  );
+  const result={};
+  for(const part of parts){
+    if(part.type==='year'||part.type==='month'||part.type==='day'){
+      result[part.type]=Number(part.value);
+    }
+  }
+  return result;
+}
+
+function findGregorianDate(jYear,jMonth,jDay){
+  const start=new Date(Date.UTC(jYear+621,2,1));
+  for(let i=0;i<370;i++){
+    const candidate=new Date(start.getTime()+i*86400000);
+    const p=jalaliParts(candidate);
+    if(p.year===jYear&&p.month===jMonth&&p.day===jDay){
+      return new Date(candidate.getUTCFullYear(),candidate.getUTCMonth(),candidate.getUTCDate(),12);
+    }
+  }
+  return null;
+}
+
+function jalaliISO(jYear,jMonth,jDay){
+  const date=findGregorianDate(jYear,jMonth,jDay);
+  return date?isoDate(date):null;
+}
+
+function jalaliText(iso){
+  if(!iso)return '—';
+  const d=dateFromISO(iso);
+  return jalaliDisplayFormatter.format(
+    new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()))
+  );
+}
+
+/* گالری تصاویر */
+function updateGallery(){
+  if(!galleryImages.length)return;
+  const image=galleryImages[currentImageIndex];
+
+  $('propertyImage').src=image.url;
+  $('propertyImage').alt=image.alt||'تصویر اقامتگاه';
+  $('galleryCounter').textContent=`${faNumber(currentImageIndex+1)} / ${faNumber(galleryImages.length)}`;
+  $('lightboxImage').src=image.url;
+  $('lightboxImage').alt=image.alt||'تصویر بزرگ اقامتگاه';
+  $('lightboxCounter').textContent=`${faNumber(currentImageIndex+1)} / ${faNumber(galleryImages.length)}`;
+
+  document.querySelectorAll('.thumbnail').forEach((button,index)=>{
+    button.classList.toggle('active',index===currentImageIndex);
+  });
+}
+
+function renderThumbnails(){
+  const box=$('thumbnails');
+  box.innerHTML='';
+
+  if(galleryImages.length<=1){
+    box.hidden=true;
+    return;
+  }
+
+  box.hidden=false;
+  galleryImages.forEach((image,index)=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='thumbnail';
+    button.setAttribute('aria-label',`نمایش تصویر ${index+1}`);
+
+    const img=document.createElement('img');
+    img.src=image.url;
+    img.alt=image.alt||'تصویر اقامتگاه';
+    img.loading='lazy';
+
+    button.appendChild(img);
+    button.addEventListener('click',()=>{
+      currentImageIndex=index;
+      updateGallery();
+    });
+    box.appendChild(button);
+  });
+}
+
+function setGallery(images){
+  galleryImages=images.filter(item=>item&&item.url);
+  if(!galleryImages.length){
+    galleryImages=[{url:'images/villa1.jpg',alt:'تصویر اقامتگاه'}];
+  }
+  currentImageIndex=0;
+  renderThumbnails();
+  updateGallery();
+}
+
+function nextImage(){
+  if(galleryImages.length){
+    currentImageIndex=(currentImageIndex+1)%galleryImages.length;
+    updateGallery();
+  }
+}
+
+function prevImage(){
+  if(galleryImages.length){
+    currentImageIndex=(currentImageIndex-1+galleryImages.length)%galleryImages.length;
+    updateGallery();
+  }
+}
+
+function openLightbox(){
+  if(galleryImages.length){
+    $('lightbox').classList.add('open');
+    $('lightbox').setAttribute('aria-hidden','false');
+    updateGallery();
+  }
+}
+
+function closeLightbox(){
+  $('lightbox').classList.remove('open');
+  $('lightbox').setAttribute('aria-hidden','true');
+}
+
+/* دریافت و بروزرسانی تاریخ‌های رزروشده */
+async function loadBookedDates(){
+  if(bookedDatesLoading)return;
+
+  if(typeof afraSupabase==='undefined'||!currentProperty){
+    calendarLoaded=false;
+    $('calendarStatus').textContent='اتصال تقویم برقرار نیست؛ تاریخ‌ها را با پشتیبانی بررسی کن.';
+    renderCalendar();
+    return;
+  }
+
+  bookedDatesLoading=true;
+  calendarLoaded=false;
+
+  const refreshButton=$('refreshDates');
+  refreshButton.disabled=true;
+  refreshButton.textContent='↻ در حال بروزرسانی…';
+  $('calendarStatus').textContent='در حال دریافت دوباره تاریخ‌های رزروشده؛ لطفاً صبر کن…';
+  renderCalendar();
+
+  try{
+    const {data,error}=await afraSupabase.rpc('get_public_booked_dates',{
+      p_property_id:currentProperty.id
+    });
+
+    if(error)throw error;
+
+    const freshRanges=(Array.isArray(data)?data:[])
+      .filter(row=>row.check_in&&row.check_out)
+      .map(row=>({
+        start:String(row.check_in).slice(0,10),
+        end:String(row.check_out).slice(0,10)
+      }))
+      .filter(range=>range.start<range.end);
+
+    bookedRanges=freshRanges;
+    calendarLoaded=true;
+
+    /* اگر بازه انتخاب‌شده اکنون رزرو شده باشد، انتخاب را پاک کن */
+    const checkIn=$('checkIn').value;
+    const checkOut=$('checkOut').value;
+
+    if(checkIn&&checkOut&&conflictsWithBooking(checkIn,checkOut)){
+      $('checkIn').value='';
+      $('checkOut').value='';
+      selecting='checkin';
+      updateSelectedDates();
+      $('calendarStatus').textContent='تقویم بروزرسانی شد؛ تاریخ‌های انتخاب‌شده با رزرو قطعی جدید تداخل داشتند و پاک شدند. تاریخ دیگری انتخاب کن.';
+    }else{
+      $('calendarStatus').textContent=bookedRanges.length
+        ? 'تقویم بروزرسانی شد. تاریخ‌های دارای رزرو قطعی با نشان 🌿 مشخص شده‌اند.'
+        : 'تقویم بروزرسانی شد؛ رزرو قطعی فعالی از دیتابیس دریافت نشد. آزادبودن نهایی هنگام ثبت درخواست بررسی می‌شود.';
+    }
+
+  }catch(error){
+    console.error('بروزرسانی تاریخ‌های رزروشده ناموفق بود:',error);
+    calendarLoaded=false;
+    $('calendarStatus').textContent='بروزرسانی ناموفق بود؛ برای جلوگیری از تداخل، انتخاب تاریخ موقتاً غیرفعال است. اتصال را بررسی کن و دوباره تلاش کن.';
+  }finally{
+    bookedDatesLoading=false;
+    refreshButton.disabled=false;
+    refreshButton.textContent='↻ بروزرسانی تاریخ‌های رزرو';
+    renderCalendar();
+  }
+}
+
+function isBookedNight(iso){
+  return bookedRanges.some(range=>iso>=range.start&&iso<range.end);
+}
+
+function conflictsWithBooking(start,end){
+  return bookedRanges.some(range=>start<range.end&&end>range.start);
+}
+
+function updateSelectedDates(){
+  $('checkInDisplay').value=jalaliText($('checkIn').value);
+  $('checkOutDisplay').value=jalaliText($('checkOut').value);
+
+  if($('checkIn').value&&$('checkOut').value){
+    $('calendarSelected').textContent='ورود: '+jalaliText($('checkIn').value)+' | خروج: '+jalaliText($('checkOut').value);
+  }else if($('checkIn').value){
+    $('calendarSelected').textContent='تاریخ ورود: '+jalaliText($('checkIn').value)+' — حالا تاریخ خروج را انتخاب کن.';
+  }else{
+    $('calendarSelected').textContent='ابتدا تاریخ ورود و سپس تاریخ خروج را انتخاب کن.';
+  }
+}
+
+function clearDates(){
+  $('checkIn').value='';
+  $('checkOut').value='';
+  selecting='checkin';
+  updateSelectedDates();
+  renderCalendar();
+  $('calendarStatus').textContent='تاریخ‌ها پاک شدند. ابتدا تاریخ ورود را انتخاب کن.';
+}
+
+function selectCalendarDate(iso){
+  if(!calendarLoaded||bookedDatesLoading){
+    $('calendarStatus').textContent='تقویم در حال بروزرسانی است یا تاریخ‌ها دریافت نشده‌اند؛ کمی بعد دوباره تلاش کن.';
+    return;
+  }
+
+  if(iso<todayISO()){
+    $('calendarStatus').textContent='امکان انتخاب تاریخ گذشته وجود ندارد.';
+    return;
+  }
+
+  if(selecting==='checkin'){
+    if(isBookedNight(iso)){
+      $('calendarStatus').textContent='این روز رزرو شده است؛ یک تاریخ ورود دیگر انتخاب کن.';
+      return;
+    }
+
+    $('checkIn').value=iso;
+    $('checkOut').value='';
+    selecting='checkout';
+    updateSelectedDates();
+    renderCalendar();
+    $('calendarStatus').textContent='تاریخ ورود انتخاب شد؛ حالا تاریخ خروج را انتخاب کن.';
+    return;
+  }
+
+  const checkIn=$('checkIn').value;
+
+  if(!checkIn||iso<=checkIn){
+    if(!isBookedNight(iso)){
+      $('checkIn').value=iso;
+      $('checkOut').value='';
+      selecting='checkout';
+      updateSelectedDates();
+      renderCalendar();
+      $('calendarStatus').textContent='تاریخ ورود تغییر کرد؛ حالا تاریخ خروج را انتخاب کن.';
+    }else{
+      $('calendarStatus').textContent='این روز رزرو شده است؛ تاریخ دیگری انتخاب کن.';
+    }
+    return;
+  }
+
+  if(conflictsWithBooking(checkIn,iso)){
+    $('calendarStatus').textContent='این بازه با یک رزرو تأییدشده تداخل دارد؛ تاریخ خروج دیگری انتخاب کن.';
+    return;
+  }
+
+  $('checkOut').value=iso;
+  selecting='checkin';
+  updateSelectedDates();
+  renderCalendar();
+  $('calendarStatus').textContent='تاریخ‌ها انتخاب شدند. آزادبودن نهایی هنگام ثبت درخواست دوباره بررسی می‌شود.';
+}
+
+function moveCalendarMonth(delta){
+  calendarMonth+=delta;
+  if(calendarMonth<1){
+    calendarMonth=12;
+    calendarYear--;
+  }
+  if(calendarMonth>12){
+    calendarMonth=1;
+    calendarYear++;
+  }
+  renderCalendar();
+}
+
+function renderCalendar(){
+  const grid=$('calendarGrid');
+  grid.innerHTML='';
+
+  if(!calendarYear||!calendarMonth){
+    const p=jalaliParts(new Date());
+    calendarYear=p.year;
+    calendarMonth=p.month;
+  }
+
+  const firstISO=jalaliISO(calendarYear,calendarMonth,1);
+  if(!firstISO){
+    $('calendarMonth').textContent='تقویم در دسترس نیست';
+    return;
+  }
+
+  const firstDate=dateFromISO(firstISO);
+  $('calendarMonth').textContent=jalaliMonthFormatter.format(
+    new Date(Date.UTC(firstDate.getFullYear(),firstDate.getMonth(),firstDate.getDate()))
+  );
+
+  ['ش','ی','د','س','چ','پ','ج'].forEach(name=>{
+    const el=document.createElement('div');
+    el.className='weekday';
+    el.textContent=name;
+    grid.appendChild(el);
+  });
+
+  const leading=(firstDate.getDay()+1)%7;
+  for(let i=0;i<leading;i++){
+    const blank=document.createElement('div');
+    blank.setAttribute('aria-hidden','true');
+    grid.appendChild(blank);
+  }
+
+  for(let day=1;day<=31;day++){
+    const iso=jalaliISO(calendarYear,calendarMonth,day);
+    if(!iso)break;
+
+    const parts=jalaliParts(dateFromISO(iso));
+    if(parts.year!==calendarYear||parts.month!==calendarMonth)break;
+
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='day';
+    btn.textContent=faNumber(day);
+    btn.setAttribute('aria-label',jalaliText(iso));
+
+    const booked=isBookedNight(iso);
+    if(booked){
+      btn.classList.add('booked');
+      btn.setAttribute('aria-label',jalaliText(iso)+'؛ رزرو تأییدشده');
+      btn.title='رزرو تأییدشده';
+    }
+
+    const checkIn=$('checkIn').value;
+    const checkOut=$('checkOut').value;
+
+    if(iso===checkIn||iso===checkOut){
+      btn.classList.add('selected');
+    }else if(checkIn&&checkOut&&iso>checkIn&&iso<checkOut){
+      btn.classList.add('range');
+    }
+
+    if(iso===todayISO())btn.classList.add('today');
+
+    let disabled=iso<todayISO()||!calendarLoaded||bookedDatesLoading;
+
+    if(selecting==='checkin'&&booked)disabled=true;
+    if(selecting==='checkout'&&checkIn&&iso<=checkIn)disabled=true;
+    if(selecting==='checkout'&&checkIn&&iso>checkIn&&conflictsWithBooking(checkIn,iso))disabled=true;
+
+    btn.disabled=disabled;
+    btn.addEventListener('click',()=>selectCalendarDate(iso));
+    grid.appendChild(btn);
+  }
+
+  const current=jalaliParts(new Date());
+  $('prevMonth').disabled=calendarYear<current.year||(calendarYear===current.year&&calendarMonth<=current.month);
+  $('nextMonth').disabled=calendarYear>current.year+2;
+
+  updateSelectedDates();
+}
+
+$('prevMonth').addEventListener('click',()=>moveCalendarMonth(-1));
+$('nextMonth').addEventListener('click',()=>moveCalendarMonth(1));
+$('clearDates').addEventListener('click',clearDates);
+$('refreshDates').addEventListener('click',loadBookedDates);
+
+/* بروزرسانی خودکار هنگام بازگشت کاربر به صفحه */
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='visible'&&currentProperty){
+    loadBookedDates();
+  }
+});
+
+/* بررسی مجدد هر ۶۰ ثانیه؛ تایمر در صورت نبودن صفحه فعال نمی‌شود */
+setInterval(()=>{
+  if(document.visibilityState==='visible'&&currentProperty&&!bookedDatesLoading){
+    loadBookedDates();
+  }
+},60000);
+
+/* ثبت درخواست رزرو */
+$('reservationForm').addEventListener('submit',submitReservation);
+
+async function submitReservation(event){
+  event.preventDefault();
+
+  const message=$('reservationMessage');
+  const button=$('reservationSubmit');
+
+  const showFormMessage=(text,type)=>{
+    message.textContent=text;
+    message.className=`form-message show ${type}`;
+  };
+
+  if(!currentProperty){
+    showFormMessage('اطلاعات اقامتگاه هنوز آماده نیست. صفحه را تازه‌سازی کن و دوباره تلاش کن.','error');
+    return;
+  }
+
+  const guestName=$('guestName').value.trim();
+  const guestPhone=$('guestPhone').value.trim();
+  const checkIn=$('checkIn').value;
+  const checkOut=$('checkOut').value;
+  const guestCount=Number($('guestCount').value);
+  const guestMessage=$('guestMessage').value.trim();
+
+  if(guestName.length<2){
+    showFormMessage('لطفاً نام و نام خانوادگی را وارد کن.','error');
+    return;
+  }
+
+  if(guestPhone.length<7||guestPhone.length>20){
+    showFormMessage('لطفاً شماره تماس معتبر وارد کن.','error');
+    return;
+  }
+
+  if(!checkIn||!checkOut||checkIn<todayISO()||checkOut<=checkIn){
+    showFormMessage('لطفاً تاریخ ورود و خروج را از تقویم انتخاب کن.','error');
+    return;
+  }
+
+  if(!calendarLoaded||bookedDatesLoading){
+    showFormMessage('تقویم هنوز بروزرسانی نشده است؛ برای جلوگیری از تداخل، فعلاً درخواست ثبت نمی‌شود. دوباره تاریخ‌ها را بروزرسانی کن.','error');
+    return;
+  }
+
+  if(conflictsWithBooking(checkIn,checkOut)){
+    showFormMessage('این بازه با رزرو تأییدشده تداخل دارد. تاریخ‌ها را دوباره انتخاب کن.','error');
+    clearDates();
+    return;
+  }
+
+  if(!Number.isInteger(guestCount)||guestCount<1||guestCount>50){
+    showFormMessage('تعداد نفرات باید بین ۱ تا ۵۰ نفر باشد.','error');
+    return;
+  }
+
+  if(Number(currentProperty.capacity)>0&&guestCount>Number(currentProperty.capacity)){
+    showFormMessage(`ظرفیت ثبت‌شده این اقامتگاه ${faNumber(Number(currentProperty.capacity))} نفر است. تعداد نفرات را بررسی کن.`,'error');
+    return;
+  }
+
+  if(typeof afraSupabase==='undefined'){
+    showFormMessage('اتصال دیتابیس برقرار نیست. تنظیمات Supabase را بررسی کن.','error');
+    return;
+  }
+
+  button.disabled=true;
+  button.textContent='در حال ثبت درخواست…';
+  message.className='form-message';
+
+  try{
+    const {data,error}=await afraSupabase.rpc('create_public_reservation',{
+      p_property_id:currentProperty.id,
+      p_guest_name:guestName,
+      p_guest_phone:guestPhone,
+      p_check_in:checkIn,
+      p_check_out:checkOut,
+      p_guest_count:guestCount,
+      p_guest_message:guestMessage||null
+    });
+
+    if(error)throw error;
+
+    const savedReservation=Array.isArray(data)?data[0]:data;
+
+    if(!savedReservation||!savedReservation.reservation_code){
+      throw new Error('کد پیگیری دریافت نشد. وضعیت ثبت درخواست را در دیتابیس بررسی کن.');
+    }
+
+    showFormMessage(
+      'درخواست رزرو با موفقیت ثبت شد. کد پیگیری شما: '+
+      savedReservation.reservation_code+
+      '. درخواست تا زمان تأیید تاریخ، ظرفیت و قیمت از سوی میزبان قطعی نیست.',
+      'success'
+    );
+
+    $('reservationForm').reset();
+    $('guestCount').value='2';
+    clearDates();
+    await loadBookedDates();
+
+  }catch(error){
+    console.error('ثبت درخواست رزرو ناموفق بود:',error);
+    showFormMessage(
+      'ثبت درخواست انجام نشد: '+(error?.message||'خطای ناشناخته')+
+      ' — اگر خطا ادامه داشت، متن آن را برای پشتیبانی بفرست.',
+      'error'
+    );
+  }finally{
+    button.disabled=false;
+    button.textContent='ثبت درخواست رزرو';
+  }
+}
+
+/* کنترل گالری و نمایش بزرگ تصویر */
+$('nextImage').addEventListener('click',nextImage);
+$('prevImage').addEventListener('click',prevImage);
+$('propertyImage').addEventListener('click',openLightbox);
+$('lightboxClose').addEventListener('click',closeLightbox);
+
+$('lightbox').addEventListener('click',event=>{
+  if(event.target===$('lightbox'))closeLightbox();
+});
+
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape')closeLightbox();
+  if(event.key==='ArrowLeft')nextImage();
+  if(event.key==='ArrowRight')prevImage();
+});
+
+/* دریافت اطلاعات اقامتگاه */
+async function loadProperty(){
+  const id=new URLSearchParams(location.search).get('id');
+
+  if(!id){
+    showError('شناسه اقامتگاه در نشانی صفحه وجود ندارد. از صفحه اصلی یک اقامتگاه انتخاب کن.');
+    return;
+  }
+
+  try{
+    if(typeof afraSupabase==='undefined'){
+      throw new Error('اتصال Supabase بارگذاری نشده است');
+    }
+
+    const {data,error}=await afraSupabase
+      .from('properties')
+      .select('id,title,location,category,capacity,price,description,image_url,is_active,created_at')
+      .eq('id',id)
+      .eq('is_active',true)
+      .maybeSingle();
+
+    if(error)throw error;
+
+    if(!data){
+      showError('این اقامتگاه پیدا نشد یا در حال حاضر فعال نیست.');
+      return;
+    }
+
+    let images=[];
+
+    try{
+      const result=await afraSupabase
+        .from('property_images')
+        .select('id,image_url,sort_order,created_at')
+        .eq('property_id',data.id)
+        .order('sort_order',{ascending:true})
+        .order('created_at',{ascending:true});
+
+      if(!result.error&&Array.isArray(result.data)){
+        images=result.data.map(row=>({url:row.image_url,alt:data.title})).filter(item=>item.url);
+      }
+    }catch(galleryError){
+      console.warn('گالری چندعکسه در دسترس نیست:',galleryError);
+    }
+
+    if(data.image_url)images.unshift({url:data.image_url,alt:data.title});
+
+    const uniqueImages=[];
+    const seen=new Set();
+
+    images.forEach(item=>{
+      if(item.url&&!seen.has(item.url)){
+        seen.add(item.url);
+        uniqueImages.push(item);
+      }
+    });
+
+    renderProperty(data,uniqueImages);
+
+    const nowParts=jalaliParts(new Date());
+    calendarYear=nowParts.year;
+    calendarMonth=nowParts.month;
+
+    renderCalendar();
+    await loadBookedDates();
+
+  }catch(error){
+    console.error(error);
+    showError('دریافت اطلاعات انجام نشد. اتصال اینترنت و تنظیمات Supabase را بررسی کن.');
+  }
+}
+
+function renderProperty(p,images){
+  currentProperty=p;
+  document.title=(p.title||'جزئیات اقامتگاه')+' | افرا سفر';
+  $('propertyTitle').textContent=p.title||'اقامتگاه';
+  $('propertyLocation').textContent='⌖ '+(p.location||'موقعیت با هماهنگی میزبان');
+  $('propertyCapacity').textContent=p.capacity?faNumber(Number(p.capacity))+' نفر':'قابل استعلام';
+  $('propertyPrice').textContent=money(p.price);
+  $('propertyPriceSmall').textContent=money(p.price);
+  $('propertyCategory').textContent=categoryNames[p.category]||'اقامتگاه';
+  $('categoryTag').textContent=categoryNames[p.category]||'اقامتگاه';
+  $('propertyDescription').textContent=p.description||
+    'توضیحات بیشتری برای این اقامتگاه ثبت نشده است. برای اطلاع از امکانات، قوانین، تاریخ‌های خالی و قیمت نهایی با ما تماس بگیرید.';
+
+  setGallery(images);
+  $('pageState').hidden=true;
+  $('propertyLayout').hidden=false;
+}
+
+function showError(message){
+  $('pageState').textContent=message;
+  $('pageState').hidden=false;
+  $('propertyLayout').hidden=true;
+}
+
+loadProperty();
+</script>
+</body>
+</html>

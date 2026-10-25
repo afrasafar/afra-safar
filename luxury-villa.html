@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#174c3a">
+  <title>ویلای لوکس نوشهر | افرا سفر</title>
+  <meta name="description" content="مشاهده تصاویر، امکانات و شرایط رزرو ویلای لوکس نوشهر با افرا سفر.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .luxury-page {
+      font-family: "Vazirmatn", sans-serif;
+      color: #23352c;
+      background: #f8faf7;
+      min-height: 100vh;
+    }
+
+    .luxury-container {
+      width: min(1160px, 92%);
+      margin-inline: auto;
+    }
+
+    .luxury-breadcrumb {
+      padding: 22px 0 12px;
+      color: #748078;
+      font-size: 13px;
+    }
+
+    .luxury-breadcrumb a {
+      color: #28694e;
+      text-decoration: none;
+    }
+
+    .luxury-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .luxury-heading h1 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 4vw, 36px);
+      color: #174c3a;
+    }
+
+    .luxury-location {
+      color: #758078;
+      font-size: 14px;
+    }
+
+    .luxury-price {
+      background: #e8f2e9;
+      color: #174c3a;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .luxury-gallery {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-rows: 190px 190px;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .luxury-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+      background: #e7ece6;
+    }
+
+    .luxury-gallery .luxury-main-image {
+      grid-row: 1 / 3;
+    }
+
+    .luxury-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(290px, .85fr);
+      gap: 26px;
+      align-items: start;
+      padding-bottom: 60px;
+    }
+
+    .luxury-panel {
+      background: #fff;
+      border: 1px solid #e8eee8;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 28px rgba(25, 60, 40, .035);
+    }
+
+    .luxury-panel h2 {
+      font-size: 20px;
+      color: #174c3a;
+      margin: 0 0 18px;
+    }
+
+    .luxury-features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .luxury-feature {
+      padding: 14px;
+      background: #f5f8f4;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    .luxury-feature strong {
+      display: block;
+      color: #174c3a;
+      margin-bottom: 5px;
+    }
+
+    .luxury-description {
+      line-height: 2.1;
+      font-size: 14px;
+      color: #58665d;
+    }
+
+    .luxury-rules {
+      padding-right: 20px;
+      line-height: 2.2;
+      color: #58665d;
+      font-size: 14px;
+    }
+
+    .luxury-booking {
+      position: sticky;
+      top: 20px;
+    }
+
+    .luxury-booking h2 {
+      margin-bottom: 8px;
+    }
+
+    .luxury-booking-note {
+      color: #778078;
+      font-size: 12px;
+      line-height: 1.9;
+      margin: 0 0 18px;
+    }
+
+    .luxury-field {
+      margin-bottom: 15px;
+    }
+
+    .luxury-field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .luxury-field input,
+    .luxury-field select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid #dce5dc;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      font-size: 14px;
+      color: #23352c;
+      box-sizing: border-box;
+    }
+
+    .luxury-submit {
+      width: 100%;
+      min-height: 49px;
+      border: 0;
+      border-radius: 12px;
+      background: #1b6247;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+
+    .luxury-submit:hover {
+      background: #124832;
+    }
+
+    .luxury-contact {
+      display: block;
+      text-align: center;
+      color: #1b6247;
+      font-size: 14px;
+      margin-top: 16px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .luxury-message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      background: #fff4df;
+      color: #75531c;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .luxury-disclaimer {
+      font-size: 12px;
+      color: #7b847d;
+      line-height: 1.9;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 800px) {
+      .luxury-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 230px 140px 140px;
+      }
+
+      .luxury-gallery .luxury-main-image {
+        grid-column: 1 / 3;
+        grid-row: auto;
+      }
+
+      .luxury-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .luxury-booking {
+        position: static;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .luxury-panel {
+        padding: 18px;
+      }
+
+      .luxury-features {
+        grid-template-columns: 1fr;
+      }
+
+      .luxury-gallery {
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body class="luxury-page">
+
+  <header class="site-header">
+    <div class="luxury-container">
+      <div class="header-inner">
+        <a class="logo" href="index.html">افرا <span>سفر</span></a>
+
+        <button class="menu-toggle" id="menuToggle" type="button"
+          aria-label="باز کردن منو" aria-expanded="false">☰</button>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html">صفحه اصلی</a>
+          <a href="index.html#villas">ویلاها</a>
+          <a href="index.html#cottages">کلبه‌ها</a>
+          <a href="index.html#contact">تماس با ما</a>
+        </nav>
+
+        <a class="header-phone" href="tel:09117999884">09117999884</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="luxury-container">
+
+    <div class="luxury-breadcrumb">
+      <a href="index.html">صفحه اصلی</a>
+      <span> / </span>
+      <a href="index.html#villas">ویلاها</a>
+      <span> / ویلای لوکس نوشهر</span>
+    </div>
+
+    <section class="luxury-heading">
+      <div>
+        <h1>ویلای لوکس نوشهر</h1>
+        <div class="luxury-location">📍 نوشهر، مازندران</div>
+      </div>
+      <div class="luxury-price">💰 قیمت و تقویم: استعلام تلفنی</div>
+    </section>
+
+    <section class="luxury-gallery" aria-label="تصاویر ویلا">
+      <img class="luxury-main-image"
+        src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=85"
+        alt="نمای بیرونی ویلای لوکس" fetchpriority="high">
+
+      <img
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=85"
+        alt="نمای مدرن ویلا" loading="lazy">
+
+      <img
+        src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85"
+        alt="فضای داخلی ویلا" loading="lazy">
+
+      <img
+        src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85"
+        alt="دکوراسیون داخلی" loading="lazy">
+
+      <img
+        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=85"
+        alt="فضای نشیمن ویلا" loading="lazy">
+    </section>
+
+    <div class="luxury-layout">
+
+      <div>
+        <section class="luxury-panel">
+          <h2>امکانات ویلا</h2>
+
+          <div class="luxury-features">
+            <div class="luxury-feature">
+              <strong>👥 ظرفیت پیشنهادی</strong>
+              ۲ تا ۸ نفر؛ نیازمند تأیید میزبان
+            </div>
+
+            <div class="luxury-feature">
+              <strong>🛏️ تعداد اتاق خواب</strong>
+              پیش از رزرو استعلام شود
+            </div>
+
+            <div class="luxury-feature">
+              <strong>📍 موقعیت</strong>
+              نوشهر، مازندران
+            </div>
+
+            <div class="luxury-feature">
+              <strong>🏊 امکانات ویژه</strong>
+              درباره استخر و سایر امکانات سؤال کنید
+            </div>
+
+            <div class="luxury-feature">
+              <strong>🚗 پارکینگ</strong>
+              ظرفیت پارکینگ را از میزبان بپرسید
+            </div>
+
+            <div class="luxury-feature">
+              <strong>🕒 زمان ورود و خروج</strong>
+              طبق توافق با میزبان
+            </div>
+          </div>
+        </section>
+
+        <section class="luxury-panel">
+          <h2>درباره ویلا</h2>
+          <p class="luxury-description">
+            اگر دنبال اقامتی متفاوت در نوشهر هستید، این صفحه برای معرفی ویلای لوکس
+            شما آماده شده است. پیش از نهایی کردن رزرو، تصاویر واقعی، امکانات،
+            آدرس دقیق، ظرفیت مجاز، شرایط ورود و خروج و قیمت نهایی را از میزبان
+            استعلام کنید.
+          </p>
+          <p class="luxury-description">
+            اطلاعات این صفحه فعلاً نمونه است و باید با مشخصات واقعی ویلا جایگزین شود.
+          </p>
+        </section>
+
+        <section class="luxury-panel">
+          <h2>قوانین و شرایط</h2>
+          <ul class="luxury-rules">
+            <li>ظرفیت نهایی اقامت را پیش از پرداخت تأیید کنید.</li>
+            <li>ساعت تحویل و تخلیه با میزبان هماهنگ شود.</li>
+            <li>شرایط لغو رزرو و مبلغ بیعانه را قبل از پرداخت بپرسید.</li>
+            <li>وجود استخر، جکوزی و سایر امکانات را پیش از رزرو تأیید کنید.</li>
+            <li>آدرس و تصاویر واقعی ملک را از میزبان دریافت کنید.</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="luxury-panel luxury-booking">
+        <h2>درخواست رزرو</h2>
+        <p class="luxury-booking-note">
+          تاریخ اقامت و تعداد نفرات را وارد کن تا درخواستت در واتساپ آماده شود.
+        </p>
+
+        <form id="luxuryBookingForm">
+          <div class="luxury-field">
+            <label for="luxuryCheckin">تاریخ ورود</label>
+            <input type="date" id="luxuryCheckin" required>
+          </div>
+
+          <div class="luxury-field">
+            <label for="luxuryCheckout">تاریخ خروج</label>
+            <input type="date" id="luxuryCheckout" required>
+          </div>
+
+          <div class="luxury-field">
+            <label for="luxuryGuests">تعداد نفرات</label>
+            <select id="luxuryGuests" required>
+              <option value="2">۲ نفر</option>
+              <option value="3">۳ نفر</option>
+              <option value="4">۴ نفر</option>
+              <option value="5">۵ نفر</option>
+              <option value="6">۶ نفر</option>
+              <option value="7">۷ نفر</option>
+              <option value="8">۸ نفر</option>
+            </select>
+          </div>
+
+          <button class="luxury-submit" type="submit">
+            ارسال درخواست در واتساپ
+          </button>
+
+          <div class="luxury-message" id="luxuryMessage" role="status"></div>
+        </form>
+
+        <a class="luxury-contact" href="tel:09117999884">
+          ☎ تماس مستقیم: 09117999884
+        </a>
+
+        <p class="luxury-disclaimer">
+          توجه: ارسال پیام به معنی ثبت قطعی رزرو نیست. موجودی تاریخ‌ها، قیمت و
+          امکانات باید توسط میزبان تأیید شود.
+        </p>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="luxury-container">
+      <p>افرا سفر | همراه شما برای انتخاب اقامت در شمال</p>
+      <p>
+        برای اطلاعات و هماهنگی رزرو با ما تماس بگیرید:
+        <a href="tel:09117999884">09117999884</a>
+      </p>
+      <p>© افرا سفر</p>
+    </div>
+  </footer>
+
+  <script>
+    const luxuryToday = new Date();
+    luxuryToday.setMinutes(
+      luxuryToday.getMinutes() - luxuryToday.getTimezoneOffset()
+    );
+
+    const luxuryTodayString = luxuryToday.toISOString().split("T")[0];
+
+    const luxuryCheckin = document.getElementById("luxuryCheckin");
+    const luxuryCheckout = document.getElementById("luxuryCheckout");
+    const luxuryForm = document.getElementById("luxuryBookingForm");
+    const luxuryMessage = document.getElementById("luxuryMessage");
+
+    luxuryCheckin.min = luxuryTodayString;
+    luxuryCheckout.min = luxuryTodayString;
+
+    luxuryCheckin.addEventListener("change", function () {
+      luxuryCheckout.min = luxuryCheckin.value || luxuryTodayString;
+
+      if (
+        luxuryCheckout.value &&
+        luxuryCheckout.value <= luxuryCheckin.value
+      ) {
+        luxuryCheckout.value = "";
+      }
+    });
+
+    luxuryForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!luxuryCheckin.value || !luxuryCheckout.value) {
+        luxuryMessage.style.display = "block";
+        luxuryMessage.textContent = "لطفاً تاریخ ورود و خروج را انتخاب کن.";
+        return;
+      }
+
+      if (luxuryCheckout.value <= luxuryCheckin.value) {
+        luxuryMessage.style.display = "block";
+        luxuryMessage.textContent = "تاریخ خروج باید بعد از تاریخ ورود باشد.";
+        return;
+      }
+
+      const guests = document.getElementById("luxuryGuests").value;
+
+      const message =
+        "سلام، برای ویلای لوکس نوشهر درخواست رزرو دارم.%0A" +
+        "تاریخ ورود: " + luxuryCheckin.value + "%0A" +
+        "تاریخ خروج: " + luxuryCheckout.value + "%0A" +
+        "تعداد نفرات: " + guests + "%0A" +
+        "لطفاً قیمت، امکانات و خالی بودن تاریخ‌ها را اعلام کنید.";
+
+      const whatsappURL =
+        "https://wa.me/989117999884?text=" + message;
+
+      luxuryMessage.style.display = "block";
+      luxuryMessage.textContent =
+        "در حال باز کردن واتساپ هستیم. درخواست تا قبل از تأیید میزبان، رزرو قطعی نیست.";
+
+      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener("click", function () {
+        const isOpen = mainNav.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
+  </script>
+
+</body>
+</html>

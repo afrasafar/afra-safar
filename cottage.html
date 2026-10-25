@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123d32">
+    <meta name="description" content="مشاهده امکانات، تصاویر و شرایط رزرو کلبه جنگلی رامسر با افرا سفر.">
+    <title>کلبه جنگلی رامسر | افرا سفر</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .cottage-page {
+            background: #f7f8f5;
+            color: #23352e;
+            padding-bottom: 50px;
+        }
+
+        .cottage-container {
+            width: min(1160px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .cottage-breadcrumb {
+            padding: 24px 0 16px;
+            color: #718078;
+            font-size: 13px;
+        }
+
+        .cottage-breadcrumb a {
+            color: #24765b;
+            text-decoration: none;
+        }
+
+        .cottage-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .cottage-heading h1 {
+            font-size: clamp(24px, 4vw, 36px);
+            margin: 0 0 12px;
+            color: #173f32;
+        }
+
+        .cottage-heading p {
+            margin: 0;
+            color: #718078;
+            line-height: 1.9;
+        }
+
+        .cottage-tag {
+            display: inline-block;
+            margin-top: 12px;
+            background: #e3efe7;
+            color: #226448;
+            border-radius: 30px;
+            padding: 7px 13px;
+            font-size: 12px;
+        }
+
+        .cottage-gallery {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr 1fr;
+            grid-template-rows: 210px 210px;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .cottage-gallery img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            object-fit: cover;
+            border-radius: 15px;
+            background: #e0e8e1;
+        }
+
+        .cottage-gallery img:first-child {
+            grid-row: 1 / 3;
+            grid-column: 1;
+        }
+
+        .cottage-content-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 26px;
+            align-items: start;
+        }
+
+        .cottage-main,
+        .cottage-booking,
+        .cottage-section {
+            background: #fff;
+            border: 1px solid #e9eee9;
+            border-radius: 18px;
+        }
+
+        .cottage-section {
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .cottage-section h2 {
+            margin: 0 0 18px;
+            color: #173f32;
+            font-size: 21px;
+        }
+
+        .cottage-description {
+            color: #66736b;
+            line-height: 2.1;
+            margin: 0;
+        }
+
+        .cottage-features {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .cottage-feature {
+            border: 1px solid #e7ede7;
+            background: #fbfcfa;
+            border-radius: 13px;
+            padding: 17px 10px;
+            text-align: center;
+        }
+
+        .cottage-feature span {
+            display: block;
+            font-size: 25px;
+            margin-bottom: 9px;
+        }
+
+        .cottage-feature strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .cottage-feature small {
+            color: #7b877f;
+            font-size: 12px;
+        }
+
+        .cottage-rules {
+            margin: 0;
+            padding-right: 20px;
+            color: #66736b;
+            line-height: 2.2;
+        }
+
+        .cottage-booking {
+            padding: 24px;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 12px 35px rgba(30, 65, 45, 0.06);
+        }
+
+        .cottage-booking h2 {
+            margin: 0 0 8px;
+            font-size: 21px;
+            color: #173f32;
+        }
+
+        .cottage-booking > p {
+            margin: 0 0 20px;
+            color: #7b877f;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .cottage-price {
+            padding: 17px;
+            border-radius: 13px;
+            background: #f0f6f0;
+            margin-bottom: 18px;
+        }
+
+        .cottage-price strong {
+            display: block;
+            font-size: 20px;
+            color: #236749;
+            margin-bottom: 5px;
+        }
+
+        .cottage-price small {
+            color: #718078;
+        }
+
+        .cottage-form label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .cottage-form input,
+        .cottage-form select {
+            width: 100%;
+            min-height: 46px;
+            border: 1px solid #dfe7df;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: #fff;
+            color: #23352e;
+            font: inherit;
+            font-size: 13px;
+        }
+
+        .cottage-form input:focus,
+        .cottage-form select:focus {
+            outline: 2px solid #b9d9c4;
+            border-color: #24765b;
+        }
+
+        .cottage-submit,
+        .cottage-call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 48px;
+            border-radius: 11px;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cottage-submit {
+            border: none;
+            background: #176448;
+            color: #fff;
+        }
+
+        .cottage-submit:hover {
+            background: #104b36;
+        }
+
+        .cottage-call {
+            margin-top: 10px;
+            border: 1px solid #176448;
+            color: #176448;
+            background: #fff;
+        }
+
+        .cottage-message {
+            display: none;
+            margin-top: 14px;
+            padding: 12px;
+            background: #f0f6f0;
+            color: #245b40;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .cottage-related {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .cottage-related a {
+            display: inline-block;
+            margin: 6px;
+            padding: 10px 16px;
+            border: 1px solid #dfe7df;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #176448;
+            background: #fff;
+            font-size: 13px;
+        }
+
+        @media (max-width: 850px) {
+            .cottage-content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cottage-booking {
+                position: static;
+            }
+
+            .cottage-gallery {
+                grid-template-rows: 250px 150px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .cottage-container {
+                width: min(100% - 22px, 1160px);
+            }
+
+            .cottage-gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 230px 115px 115px;
+                gap: 7px;
+            }
+
+            .cottage-gallery img:first-child {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+
+            .cottage-gallery img {
+                border-radius: 10px;
+            }
+
+            .cottage-heading {
+                display: block;
+            }
+
+            .cottage-section,
+            .cottage-booking {
+                padding: 18px;
+            }
+
+            .cottage-features {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <span>🌿 تجربه یک اقامت متفاوت در شمال ایران</span>
+            <span class="topbar-contact">همراه شما برای یک سفر خاطره‌انگیز</span>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo" aria-label="صفحه اصلی افرا سفر">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">
+                    <strong>افرا سفر</strong>
+                    <small>سفر، آرامش، خاطره</small>
+                </span>
+            </a>
+
+            <nav class="nav" id="mainNav">
+                <a href="index.html#home" class="nav-link">صفحه اصلی</a>
+                <a href="index.html#stays" class="nav-link active">اقامتگاه‌ها</a>
+                <a href="index.html#categories" class="nav-link">دسته‌بندی‌ها</a>
+                <a href="index.html#about" class="nav-link">درباره ما</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="index.html#stays" class="header-button">اقامتگاه‌های دیگر</a>
+
+                <button class="menu-toggle" id="menuToggle"
+                    type="button"
+                    aria-label="باز کردن منو"
+                    aria-expanded="false"
+                    aria-controls="mainNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="cottage-page">
+        <div class="cottage-container">
+
+            <div class="cottage-breadcrumb">
+                <a href="index.html">صفحه اصلی</a>
+                ←
+                <a href="index.html#stays">اقامتگاه‌ها</a>
+                ←
+                کلبه جنگلی رامسر
+            </div>
+
+            <section class="cottage-heading">
+                <div>
+                    <h1>کلبه جنگلی دنج در رامسر</h1>
+                    <p>📍 رامسر، مازندران · اقامتی آرام در میان طبیعت سرسبز</p>
+                    <span class="cottage-tag">🌲 فضای جنگلی و آرام</span>
+                </div>
+            </section>
+
+            <!-- تصاویر نمونه؛ بعداً با عکس واقعی کلبه جایگزین شوند -->
+            <section class="cottage-gallery" aria-label="تصاویر کلبه">
+                <img
+                    src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1100&q=85"
+                    alt="نمای اصلی کلبه در طبیعت"
+                    fetchpriority="high">
+
+                <img
+                    src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=700&q=80"
+                    alt="محیط سبز اطراف کلبه"
+                    loading="lazy">
+
+                <img
+                    src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=710&q=80"
+                    alt="نمایی از اقامتگاه در جنگل"
+                    loading="lazy">
+
+                <img
+                    src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=720&q=80"
+                    alt="فضای طبیعی اطراف اقامتگاه"
+                    loading="lazy">
+
+                <img
+                    src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=730&q=80"
+                    alt="چشم‌انداز سبز کلبه"
+                    loading="lazy">
+            </section>
+
+            <div class="cottage-content-grid">
+
+                <div class="cottage-main">
+
+                    <section class="cottage-section">
+                        <h2>درباره این اقامتگاه</h2>
+                        <p class="cottage-description">
+                            اگر دنبال چند روز آرامش دور از شلوغی شهر هستی،
+                            این کلبه جنگلی نمونه می‌تونه انتخاب مناسبی برای سفرت باشه.
+                            فضای سبز اطراف، حال‌وهوای طبیعت و محیط دنج،
+                            فرصت خوبی برای استراحت در کنار خانواده یا دوستان فراهم می‌کنه.
+                            <br>
+                            <strong>توجه:</strong>
+                            این مشخصات فعلاً نمونه هستند و باید قبل از رزرو،
+                            امکانات و شرایط واقعی اقامتگاه بررسی شوند.
+                        </p>
+                    </section>
+
+                    <section class="cottage-section">
+                        <h2>امکانات کلبه</h2>
+
+                        <div class="cottage-features">
+                            <div class="cottage-feature">
+                                <span>👥</span>
+                                <strong>ظرفیت</strong>
+                                <small>۲ تا ۶ نفر</small>
+                            </div>
+
+                            <div class="cottage-feature">
+                                <span>🛏️</span>
+                                <strong>اتاق خواب</strong>
+                                <small>۲ اتاق</small>
+                            </div>
+
+                            <div class="cottage-feature">
+                                <span>🌲</span>
+                                <strong>محیط</strong>
+                                <small>جنگلی</small>
+                            </div>
+
+                            <div class="cottage-feature">
+                                <span>🍳</span>
+                                <strong>آشپزخانه</strong>
+                                <small>مجهز</small>
+                            </div>
+
+                            <div class="cottage-feature">
+                                <span>🚿</span>
+                                <strong>حمام</strong>
+                                <small>اختصاصی</small>
+                            </div>
+
+                            <div class="cottage-feature">
+                                <span>🚗</span>
+                                <strong>پارکینگ</strong>
+                                <small>استعلام شود</small>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="cottage-section">
+                        <h2>قوانین اقامت</h2>
+                        <ul class="cottage-rules">
+                            <li>ساعت ورود و خروج باید هنگام رزرو هماهنگ شود.</li>
+                            <li>ظرفیت نهایی و هزینه نفرات اضافه را قبل از رزرو بپرسید.</li>
+                            <li>شرایط ورود حیوانات خانگی باید با میزبان بررسی شود.</li>
+                            <li>مبلغ بیعانه و شرایط لغو رزرو را پیش از پرداخت تأیید کنید.</li>
+                            <li>امکانات درج‌شده نمونه‌اند و باید با مشخصات واقعی تطبیق داده شوند.</li>
+                        </ul>
+                    </section>
+
+                </div>
+
+                <!-- کارت درخواست رزرو -->
+                <aside class="cottage-booking">
+                    <h2>درخواست رزرو کلبه</h2>
+                    <p>تاریخ سفرت رو انتخاب کن تا بتونی برای بررسی شرایط با ما تماس بگیری.</p>
+
+                    <div class="cottage-price">
+                        <strong>استعلام قیمت</strong>
+                        <small>قیمت هر شب پس از هماهنگی اعلام می‌شود.</small>
+                    </div>
+
+                    <form class="cottage-form" id="cottageBookingForm">
+
+                        <label for="cottageCheckin">تاریخ ورود</label>
+                        <input type="date" id="cottageCheckin" required>
+
+                        <label for="cottageCheckout">تاریخ خروج</label>
+                        <input type="date" id="cottageCheckout" required>
+
+                        <label for="cottageGuests">تعداد مهمانان</label>
+                        <select id="cottageGuests" required>
+                            <option value="2">۲ نفر</option>
+                            <option value="3">۳ نفر</option>
+                            <option value="4">۴ نفر</option>
+                            <option value="5">۵ نفر</option>
+                            <option value="6">۶ نفر</option>
+                        </select>
+
+                        <button class="cottage-submit" type="submit">
+                            بررسی شرایط رزرو
+                        </button>
+
+                        <div class="cottage-message" id="cottageMessage" role="status"></div>
+                    </form>
+
+                    <a class="cottage-call" id="cottageCall" href="tel:09024452826">
+                        ☎ تماس برای هماهنگی
+                    </a>
+                </aside>
+
+            </div>
+
+            <div class="cottage-related">
+                <h2>اقامتگاه‌های دیگر افرا سفر</h2>
+                <a href="villa.html">ویلای سخاوه استخردار فرهنگ</a>
+                <a href="luxury-villa.html">ویلای لوکس نوشهر</a>
+                <a href="index.html#stays">مشاهده همه اقامتگاه‌ها</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+
+            <a href="index.html" class="logo footer-logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">
+                    <strong>افرا سفر</strong>
+                    <small>سفر، آرامش، خاطره</small>
+                </span>
+            </a>
+
+            <p>برای سفرهای قشنگ‌تر، با افرا سفر همراه شو.</p>
+
+            <span class="copyright">
+                © تمامی حقوق این وب‌سایت محفوظ است.
+            </span>
+
+        </div>
+    </footer>
+
+    <script>
+        const cottageMenuToggle = document.getElementById("menuToggle");
+        const cottageMainNav = document.getElementById("mainNav");
+
+        cottageMenuToggle.addEventListener("click", () => {
+            const isOpen = cottageMainNav.classList.toggle("nav-open");
+            cottageMenuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        cottageMainNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                cottageMainNav.classList.remove("nav-open");
+                cottageMenuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        const cottageCheckin = document.getElementById("cottageCheckin");
+        const cottageCheckout = document.getElementById("cottageCheckout");
+        const cottageBookingForm = document.getElementById("cottageBookingForm");
+        const cottageMessage = document.getElementById("cottageMessage");
+        const cottageCall = document.getElementById("cottageCall");
+
+        const now = new Date();
+        const today = new Date(
+            now.getTime() - now.getTimezoneOffset() * 60000
+        ).toISOString().split("T")[0];
+
+        cottageCheckin.min = today;
+        cottageCheckout.min = today;
+
+        cottageCheckin.addEventListener("change", () => {
+            cottageCheckout.min = cottageCheckin.value || today;
+
+            if (
+                cottageCheckout.value &&
+                cottageCheckin.value &&
+                cottageCheckout.value <= cottageCheckin.value
+            ) {
+                cottageCheckout.value = "";
+            }
+        });
+
+        cottageBookingForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const checkin = cottageCheckin.value;
+            const checkout = cottageCheckout.value;
+            const guests = document.getElementById("cottageGuests").value;
+
+            if (checkin < today) {
+                alert("تاریخ ورود نمی‌تواند در گذشته باشد.");
+                return;
+            }
+
+            if (checkout <= checkin) {
+                alert("تاریخ خروج باید بعد از تاریخ ورود باشد.");
+                cottageCheckout.focus();
+                return;
+            }
+
+            const dateOptions = {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                calendar: "persian"
+            };
+
+            const formattedCheckin = new Date(
+                checkin + "T12:00:00"
+            ).toLocaleDateString("fa-IR", dateOptions);
+
+            const formattedCheckout = new Date(
+                checkout + "T12:00:00"
+            ).toLocaleDateString("fa-IR", dateOptions);
+
+            const message =
+                "درخواست شما آماده است. " +
+                "ورود: " + formattedCheckin +
+                "، خروج: " + formattedCheckout +
+                "، تعداد مهمان: " + guests +
+                " نفر. برای تأیید موجودی و قیمت با ما تماس بگیرید.";
+
+            cottageMessage.textContent = message;
+            cottageMessage.style.display = "block";
+
+            const phoneMessage =
+                "سلام، برای کلبه جنگلی رامسر درخواست رزرو دارم. " +
+                "تاریخ ورود: " + formattedCheckin +
+                "، تاریخ خروج: " + formattedCheckout +
+                "، تعداد مهمان: " + guests + " نفر.";
+
+            cottageCall.href =
+                "https://wa.me/989024452826?text=" +
+                encodeURIComponent(phoneMessage);
+
+            cottageCall.textContent = "ارسال درخواست در واتساپ";
+        });
+    </script>
+
+</body>
+</html>

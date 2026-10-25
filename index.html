@@ -1,0 +1,2476 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123d32">
+    <meta name="description" content="رزرو ویلا، کلبه جنگلی و اقامتگاه استخردار در شمال ایران با افرا سفر.">
+    <title>افرا سفر | رزرو ویلا و کلبه در شمال</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        [hidden] {
+            display: none !important;
+        }
+
+        .search-extra-fields {
+            display: contents;
+        }
+
+        .search-field select,
+        .search-field input {
+            width: 100%;
+            min-width: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: inherit;
+            font: inherit;
+        }
+
+        .search-field select {
+            cursor: pointer;
+        }
+
+        /* اصلاح ظاهر دکمه جست‌وجو در صفحه اصلی */
+        #searchForm .search-button {
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 9px !important;
+            box-sizing: border-box !important;
+            min-width: 145px !important;
+            min-height: 54px !important;
+            padding: 13px 22px !important;
+            border: 1px solid #174c3a !important;
+            border-radius: 14px !important;
+            background: linear-gradient(135deg, #1d654b, #123d32) !important;
+            color: #ffffff !important;
+            font-family: 'Vazirmatn', sans-serif !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            line-height: 1.4 !important;
+            white-space: nowrap !important;
+            text-align: center !important;
+            cursor: pointer !important;
+            box-shadow: 0 8px 20px rgba(18, 61, 50, .18) !important;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease !important;
+            align-self: stretch !important;
+        }
+
+        #searchForm .search-button span {
+            display: inline-block !important;
+            color: inherit !important;
+            font-size: 22px !important;
+            line-height: 1 !important;
+        }
+
+        #searchForm .search-button:hover {
+            background: linear-gradient(135deg, #287958, #174c3a) !important;
+            box-shadow: 0 10px 24px rgba(18, 61, 50, .25) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        #searchForm .search-button:focus-visible {
+            outline: 3px solid rgba(40, 121, 88, .35) !important;
+            outline-offset: 3px !important;
+        }
+
+        #searchForm .search-button:active {
+            transform: translateY(0) !important;
+        }
+
+        @media (max-width: 900px) {
+            #searchForm .search-button {
+                width: 100% !important;
+                min-width: 0 !important;
+                min-height: 52px !important;
+            }
+        }
+
+        .search-feedback {
+            margin: 14px auto 0;
+            max-width: 800px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(255,255,255,.96);
+            color: #174c3a;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .search-feedback:empty {
+            display: none;
+        }
+
+        .search-feedback.error {
+            color: #a32436;
+            background: #fff0f1;
+        }
+
+        .favorite-button.is-favorite {
+            color: #e53950;
+        }
+
+        .stays-heading-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        #favoritesToggle {
+            font-family: inherit;
+            cursor: pointer;
+            border: 1px solid #dce9e1;
+            background: #fff;
+            color: #174c3a;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .2s ease;
+        }
+
+        #favoritesToggle:hover {
+            background: #edf6f0;
+            transform: translateY(-1px);
+        }
+
+        #favoritesToggle[aria-pressed="true"] {
+            background: #174c3a;
+            border-color: #174c3a;
+            color: #fff;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 30px 16px;
+        }
+
+        .empty-state > span {
+            font-size: 32px;
+        }
+
+        .empty-state p {
+            line-height: 2;
+        }
+
+        .favorite-empty-message {
+            margin: 15px 0;
+            text-align: center;
+            line-height: 2;
+            color: #64756b;
+        }
+
+        @media (max-width: 600px) {
+            .stays-heading-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            #favoritesToggle {
+                padding: 9px 12px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .search-extra-fields {
+                display: contents;
+            }
+        }
+
+
+        /* تم تازه: سبز زیتونی، کرم گرم و نمایش بهتر تصویر پس‌زمینه */
+        :root {
+            --afra-forest: #174b3d;
+            --afra-forest-deep: #10392f;
+            --afra-sage: #e7eee6;
+            --afra-cream: #f5f3eb;
+            --afra-gold: #c5a66a;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background: #f3f2eb !important;
+            color: #263a32;
+        }
+        .topbar { background: #10392f !important; }
+        .header {
+            background: rgba(247, 247, 240, .94) !important;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(23,75,61,.09);
+        }
+        .section, .categories, .stays, #about {
+            background-color: #f3f2eb !important;
+        }
+        .hero {
+            position: relative;
+            isolation: isolate;
+            overflow: visible;
+        }
+        .hero-overlay {
+            background: linear-gradient(100deg, rgba(8,35,28,.48), rgba(11,47,37,.20) 55%, rgba(8,35,28,.42)) !important;
+        }
+        .hero-content { padding-top: clamp(30px, 4vw, 52px) !important; padding-bottom: 34px !important; }
+        .hero-badge { animation: afraRise .7s both; }
+        .hero h1 { animation: afraRise .8s .08s both; }
+        .hero-description { animation: afraRise .8s .16s both; }
+        .hero-bottom { animation: afraRise .8s .28s both; }
+        .search-box {
+            width: min(100%, 1040px) !important;
+            margin: 24px auto 0 !important;
+            padding: 10px !important;
+            gap: 4px !important;
+            border: 1px solid rgba(255,255,255,.65) !important;
+            border-radius: 19px !important;
+            background: rgba(250, 250, 245, .94) !important;
+            box-shadow: 0 14px 38px rgba(8,35,28,.19) !important;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            animation: afraSearchIn .85s .12s both;
+        }
+        .search-field {
+            min-width: 0 !important;
+            padding: 9px 10px !important;
+            gap: 8px !important;
+            border-radius: 12px;
+            transition: background .22s ease, transform .22s ease;
+        }
+        .search-field:focus-within { background: #e9f0e8; transform: translateY(-1px); }
+        .field-icon { color: #39745b !important; }
+        .field-label { color: #68786f !important; font-size: 11px !important; }
+        .field-content input, .field-content select, .jalali-date-trigger {
+            font-size: 12px !important;
+            font-weight: 600 !important;
+        }
+        .search-divider { opacity: .45; }
+        #searchForm .search-button {
+            min-width: 112px !important;
+            min-height: 44px !important;
+            padding: 9px 15px !important;
+            border-radius: 12px !important;
+            font-size: 13px !important;
+            box-shadow: 0 5px 14px rgba(18,61,50,.16) !important;
+            align-self: center !important;
+        }
+        #searchForm .search-button span { font-size: 19px !important; }
+        .search-feedback { box-shadow: 0 8px 24px rgba(8,35,28,.12); }
+        .category-card, .stay-card, .benefit-card, .contact-card, .footer-card {
+            transition: transform .28s cubic-bezier(.2,.75,.25,1), box-shadow .28s ease, border-color .28s ease !important;
+        }
+        .category-card:hover, .stay-card:hover, .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 34px rgba(24,57,44,.12);
+        }
+        .nav-link, .header-button, .mobile-contact, .category-card, .favorite-button, #favoritesToggle {
+            transition: color .22s ease, background .22s ease, transform .22s ease, box-shadow .22s ease !important;
+        }
+        .header-button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(18,61,50,.16); }
+        .section-heading, .category-grid, .stays-grid, .benefits-grid {
+            animation: afraFadeUp .65s both;
+        }
+        .jalali-date-trigger {
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+            gap: 8px; padding: 2px 0; border: 0; background: transparent; color: #263a32;
+            font-family: inherit; cursor: pointer; text-align: right; white-space: nowrap;
+        }
+        .jalali-date-trigger:hover { color: #174b3d; }
+        .date-trigger-icon { color: #4b7c64; font-size: 16px; }
+        .iso-date-input { position: absolute !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; overflow: hidden !important; }
+        .jalali-calendar {
+            position: absolute; z-index: 99999; pointer-events: auto; width: min(320px, calc(100vw - 32px));
+            padding: 15px; border-radius: 18px; background: #fffef9; color: #263a32;
+            border: 1px solid #e1e7dd; box-shadow: 0 20px 55px rgba(11,39,30,.24);
+            animation: afraCalendarIn .18s ease-out both;
+        }
+        .calendar-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
+        .calendar-month { font-size:14px; font-weight:800; color:#174b3d; }
+        .calendar-nav { width:32px;height:32px;border:1px solid #e0e8df;border-radius:10px;background:#f3f6f0;color:#174b3d;font-size:18px;cursor:pointer; }
+        .calendar-nav:hover { background:#dfeae0; }
+        .calendar-weekdays,.calendar-days { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:4px; }
+        .calendar-weekdays span { text-align:center; padding:6px 0; font-size:10px; color:#829087; font-weight:700; }
+        .calendar-day,.calendar-empty { min-width:0; height:34px; }
+        .calendar-day { position:relative; z-index:1; pointer-events:auto; border:0;border-radius:10px;background:transparent;color:#263a32;font-family:inherit;font-size:12px;cursor:pointer;transition:background .15s,transform .15s; }
+        .calendar-day:hover:not(:disabled) { background:#e3ede3; transform:scale(1.05); }
+        .calendar-day:disabled { color:#c6ccc5;cursor:not-allowed; }
+        .calendar-day.today { outline:1px solid #9ab5a1; }
+        .calendar-day.selected { background:#174b3d;color:#fff;font-weight:800; }
+        .calendar-foot { margin-top:10px;padding-top:9px;border-top:1px solid #edf0e9;font-size:10px;color:#879188;text-align:center; }
+        @keyframes afraRise { from { opacity:0; transform:translateY(13px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes afraFadeUp { from { opacity:0; transform:translateY(9px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes afraSearchIn { from { opacity:0; transform:translateY(15px) scale(.99); } to { opacity:1; transform:translateY(0) scale(1); } }
+        @keyframes afraCalendarIn { from { opacity:0; transform:translateY(-5px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+        @media (max-width: 900px) {
+            .search-box { width:min(100%, 650px) !important; padding:12px !important; gap:6px !important; }
+            .search-field { padding:10px !important; }
+            #searchForm .search-button { width:100% !important; min-height:44px !important; }
+            .search-divider { display:none !important; }
+            .jalali-calendar { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); }
+        }
+        @media (max-width: 600px) {
+            .hero-content { padding-top:28px !important; }
+            .search-box { margin-top:20px !important; border-radius:17px !important; }
+            .search-field { min-height:54px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; }
+        }
+
+
+        /* بازطراحی حرفه‌ای افرا سفر: زمردی عمیق، عاجی گرم و جزئیات شامپاینی */
+        :root {
+            --afra-forest: #123c32;
+            --afra-forest-deep: #0a2b25;
+            --afra-sage: #e5ece4;
+            --afra-cream: #f4f0e7;
+            --afra-gold: #c7a66a;
+            --afra-ink: #1e332c;
+        }
+        body {
+            background: #f2efe7 !important;
+            color: var(--afra-ink) !important;
+            background-image: radial-gradient(ellipse at 8% 10%, rgba(199,166,106,.08), transparent 35%),
+                              radial-gradient(ellipse at 92% 38%, rgba(18,60,50,.055), transparent 32%);
+        }
+        .topbar {
+            background: linear-gradient(100deg, #092a23, #174b3d 55%, #0c3028) !important;
+            color: #f7f1e6 !important;
+        }
+        .header {
+            background: rgba(248,246,239,.94) !important;
+            border-bottom: 1px solid rgba(199,166,106,.28) !important;
+            box-shadow: 0 8px 30px rgba(16,48,40,.045);
+        }
+        .logo-icon { filter: drop-shadow(0 4px 8px rgba(199,166,106,.22)); }
+        .logo-text strong { color: #123c32 !important; letter-spacing: -.35px; }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ""; position: absolute; right: 0; bottom: -7px; width: 0; height: 2px;
+            border-radius: 2px; background: var(--afra-gold); transition: width .25s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .header-button, .contact-button, .card-button {
+            background: linear-gradient(135deg, #1c624d, #10392f) !important;
+            border: 1px solid rgba(199,166,106,.42) !important;
+            box-shadow: 0 8px 22px rgba(12,48,39,.14);
+        }
+        .hero { isolation: isolate; }
+        .hero-overlay {
+            background: linear-gradient(105deg, rgba(5,26,21,.62), rgba(9,44,34,.24) 52%, rgba(5,26,21,.48)) !important;
+        }
+        .hero-badge {
+            border: 1px solid rgba(224,201,151,.48) !important;
+            background: rgba(8,37,30,.42) !important;
+            color: #fff9ed !important;
+            backdrop-filter: blur(10px);
+        }
+        .hero h1 { text-shadow: 0 5px 24px rgba(0,0,0,.2); }
+        .hero h1 span { color: #e5c98f !important; }
+        .hero-description { text-shadow: 0 2px 12px rgba(0,0,0,.18); }
+
+        /* کادر جست‌وجو جمع‌وجورتر با حرکت بسیار ظریف و پیوسته */
+        .search-box {
+            width: min(100%, 930px) !important;
+            margin: 20px auto 0 !important;
+            padding: 7px !important;
+            gap: 2px !important;
+            border: 1px solid rgba(255,255,255,.78) !important;
+            border-radius: 16px !important;
+            background: rgba(250,248,241,.93) !important;
+            box-shadow: 0 15px 42px rgba(5,30,23,.22), inset 0 1px 0 rgba(255,255,255,.9) !important;
+            animation: afraSearchBreath 8s ease-in-out 1s infinite !important;
+            transform-origin: center center;
+        }
+        .search-field {
+            padding: 7px 8px !important;
+            gap: 6px !important;
+            border-radius: 10px !important;
+        }
+        .field-icon { color: #9b7c43 !important; }
+        .field-label { font-size: 10px !important; letter-spacing: -.1px; }
+        .field-content input, .field-content select, .jalali-date-trigger {
+            font-size: 11px !important;
+            font-weight: 600 !important;
+        }
+        #searchForm .search-button {
+            min-width: 100px !important;
+            min-height: 40px !important;
+            padding: 8px 12px !important;
+            border-radius: 10px !important;
+            background: linear-gradient(135deg, #1b5b47, #0c3028) !important;
+            border-color: rgba(199,166,106,.5) !important;
+            font-size: 12px !important;
+        }
+        #searchForm .search-button:hover { box-shadow: 0 9px 20px rgba(12,48,39,.22) !important; }
+        .search-field:focus-within { background: #e8eee5 !important; }
+        .search-divider { background: rgba(18,60,50,.12) !important; }
+
+        .section, .categories, .stays, #about {
+            background: transparent !important;
+        }
+        .section-heading h2, .benefits-intro h2 { color: #173d32 !important; }
+        .eyebrow { color: #9a7940 !important; letter-spacing: .1px; }
+        .category-card, .stay-card, .benefit-item {
+            border: 1px solid rgba(18,60,50,.075) !important;
+            border-radius: 20px !important;
+            background: rgba(255,254,249,.9) !important;
+            box-shadow: 0 8px 24px rgba(18,45,35,.045);
+        }
+        .category-card:hover, .stay-card:hover, .benefit-item:hover {
+            border-color: rgba(199,166,106,.48) !important;
+            box-shadow: 0 18px 38px rgba(18,45,35,.12) !important;
+        }
+        .category-card.selected {
+            border-color: rgba(199,166,106,.78) !important;
+            background: linear-gradient(145deg, #fffdf6, #edf2e9) !important;
+        }
+        .card-image { background: #e4e8df; }
+        .image-badge { background: #c7a66a !important; color: #17382e !important; }
+        .favorite-button { backdrop-filter: blur(8px); }
+        #favoritesToggle {
+            border-color: rgba(18,60,50,.14) !important;
+            background: #fffdf7 !important;
+        }
+        .contact-section {
+            background: radial-gradient(circle at 12% 10%, rgba(199,166,106,.16), transparent 28%),
+                        linear-gradient(125deg, #0a2b25, #174b3d 58%, #10372e) !important;
+            border-top: 1px solid rgba(199,166,106,.4);
+            border-bottom: 1px solid rgba(199,166,106,.3);
+        }
+        .contact-section h2, .contact-section p { color: #fffaf0 !important; }
+        .contact-eyebrow { color: #e1c58d !important; }
+        .contact-button { background: linear-gradient(135deg, #dfc48c, #c3a263) !important; color: #17382e !important; }
+        .footer {
+            background: #092820 !important;
+            color: rgba(250,247,237,.78) !important;
+            border-top: 1px solid rgba(199,166,106,.32);
+        }
+        .footer .logo-text strong, .footer .logo-text small { color: #f6f0e4 !important; }
+        .mobile-contact {
+            background: linear-gradient(135deg, #1b624c, #0c3028) !important;
+            border: 1px solid rgba(199,166,106,.45) !important;
+            box-shadow: 0 8px 25px rgba(8,38,30,.24) !important;
+        }
+        .jalali-calendar {
+            z-index: 99999 !important;
+            pointer-events: auto !important;
+            border-color: rgba(199,166,106,.38) !important;
+        }
+        .calendar-day { position: relative; z-index: 1; pointer-events: auto; }
+        @keyframes afraSearchBreath {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.009); }
+        }
+        @media (max-width: 900px) {
+            .search-box {
+                width: min(100%, 610px) !important;
+                padding: 10px !important;
+                gap: 5px !important;
+                animation: afraSearchBreath 8s ease-in-out 1s infinite !important;
+            }
+            .search-field { padding: 9px !important; }
+            .field-label { font-size: 11px !important; }
+            .field-content input, .field-content select, .jalali-date-trigger { font-size: 12px !important; }
+            #searchForm .search-button { width: 100% !important; min-height: 43px !important; }
+        }
+        @media (max-width: 600px) {
+            .search-box { border-radius: 15px !important; }
+            .search-field { min-height: 50px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .search-box { animation: none !important; }
+        }
+
+    
+        /* جست‌وجوی پیشرفته افرا سفر */
+        .search-refinements {
+            width: min(100%, 930px);
+            margin: 10px auto 0;
+            color: #f9f6ec;
+            text-align: right;
+        }
+        .refinements-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid rgba(255,255,255,.48);
+            border-radius: 999px;
+            padding: 9px 15px;
+            background: rgba(8,37,30,.44);
+            color: #fffaf0;
+            font: 600 12px 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: background .2s ease, transform .2s ease, border-color .2s ease;
+        }
+        .refinements-toggle:hover, .refinements-toggle[aria-expanded="true"] {
+            background: rgba(8,37,30,.78);
+            border-color: rgba(224,201,151,.85);
+            transform: translateY(-1px);
+        }
+        .refinements-toggle-icon { font-size: 17px; color: #e5c98f; }
+        .refinements-toggle-hint { opacity: .72; font-size: 10px; }
+        .refinements-chevron { margin-right: 3px; transition: transform .2s ease; }
+        .refinements-toggle[aria-expanded="true"] .refinements-chevron { transform: rotate(180deg); }
+        .advanced-filters-panel {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+            align-items: end;
+            gap: 12px;
+            margin-top: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,.7);
+            border-radius: 17px;
+            background: rgba(250,248,241,.97);
+            color: #173d32;
+            box-shadow: 0 15px 38px rgba(5,30,23,.2);
+            animation: afraFadeUp .22s ease both;
+        }
+        .advanced-filter-field { min-width: 0; display: grid; gap: 7px; }
+        .advanced-filter-field label { color: #66776d; font-size: 11px; font-weight: 700; }
+        .advanced-filter-field input, .advanced-filter-field select {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 43px;
+            padding: 9px 11px;
+            border: 1px solid #dce5da;
+            border-radius: 10px;
+            outline: none;
+            background: #fffefa;
+            color: #173d32;
+            font: 500 12px 'Vazirmatn', sans-serif;
+        }
+        .advanced-filter-field input:focus, .advanced-filter-field select:focus {
+            border-color: #4d8a6e;
+            box-shadow: 0 0 0 3px rgba(77,138,110,.12);
+        }
+        .clear-advanced-filters {
+            min-height: 43px;
+            border: 1px solid #d7e1d6;
+            border-radius: 10px;
+            padding: 9px 12px;
+            background: #edf2e9;
+            color: #315b48;
+            font: 600 11px 'Vazirmatn', sans-serif;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .clear-advanced-filters:hover { background: #e1ebdf; }
+        @media (max-width: 900px) {
+            .search-refinements { width: min(100%, 610px); }
+            .advanced-filters-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .clear-advanced-filters { grid-column: 1 / -1; }
+        }
+        @media (max-width: 520px) {
+            .refinements-toggle { padding: 8px 12px; font-size: 11px; }
+            .advanced-filters-panel { grid-template-columns: 1fr; gap: 10px; padding: 12px; }
+            .clear-advanced-filters { grid-column: auto; width: 100%; }
+        }
+
+    
+
+        /* جست‌وجوی بازطراحی‌شده افرا سفر: یک نوار اصلی و پنل فیلترهای بازشونده */
+        .afra-search-v2 {
+            position: relative !important;
+            display: block !important;
+            width: min(100%, 850px) !important;
+            margin: 28px auto 0 !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            border: 0 !important;
+            border-radius: 22px !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            animation: afraSearchIn .65s .12s both !important;
+            z-index: 30;
+        }
+        .afra-search-v2 .search-main-row {
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+            min-height: 88px !important;
+            padding: 12px 14px 12px 12px !important;
+            border: 1px solid rgba(255,255,255,.9) !important;
+            border-radius: 22px !important;
+            background: #fffdf8 !important;
+            box-shadow: 0 20px 60px rgba(5,31,24,.28), 0 2px 8px rgba(5,31,24,.06) !important;
+            transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease !important;
+        }
+        .afra-search-v2:focus-within .search-main-row {
+            border-color: rgba(199,166,106,.9) !important;
+            box-shadow: 0 22px 65px rgba(5,31,24,.32), 0 0 0 4px rgba(199,166,106,.13) !important;
+        }
+        .search-main-icon {
+            flex: 0 0 52px;
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: #edf3eb;
+            color: #1c5a45;
+            font-size: 29px;
+        }
+        .search-main-field {
+            display: flex;
+            flex: 1 1 auto;
+            min-width: 0;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+            cursor: text;
+            text-align: right;
+        }
+        .search-main-eyebrow {
+            color: #77867d;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        #searchForm #destination {
+            width: 100% !important;
+            min-width: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            outline: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            color: #173c30 !important;
+            font-family: 'Vazirmatn', sans-serif !important;
+            font-size: clamp(17px, 2.1vw, 22px) !important;
+            font-weight: 800 !important;
+            line-height: 1.7 !important;
+            text-align: right !important;
+        }
+        #searchForm #destination::placeholder { color: #183e31 !important; opacity: 1 !important; }
+        #searchForm .search-button {
+            flex: 0 0 auto !important;
+            align-self: center !important;
+            min-width: 132px !important;
+            min-height: 58px !important;
+            border-radius: 16px !important;
+            background: linear-gradient(135deg, #23664e, #10382e) !important;
+            box-shadow: 0 9px 22px rgba(16,56,46,.22) !important;
+        }
+        .search-dropdown-panel {
+            position: absolute !important;
+            top: calc(100% + 12px) !important;
+            right: 0 !important;
+            left: 0 !important;
+            z-index: 1000 !important;
+            padding: 23px !important;
+            border: 1px solid rgba(255,255,255,.9) !important;
+            border-radius: 22px !important;
+            background: #fffdf8 !important;
+            box-shadow: 0 25px 75px rgba(5,31,24,.32) !important;
+            color: #203b30 !important;
+            text-align: right !important;
+            animation: afraCalendarIn .18s ease-out both;
+        }
+        .search-dropdown-heading {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 19px;
+        }
+        .search-dropdown-heading strong { display: block; color: #173c30; font-size: 17px; font-weight: 800; }
+        .search-dropdown-heading p { margin: 5px 0 0; color: #7a887f; font-size: 12px; line-height: 1.8; }
+        .search-close-button {
+            flex: 0 0 34px; width: 34px; height: 34px; border: 1px solid #e1e9df; border-radius: 11px;
+            background: #f5f7f1; color: #315342; font-size: 24px; line-height: 1; cursor: pointer;
+        }
+        .search-filter-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 12px !important;
+        }
+        .search-filter-field {
+            display: flex !important;
+            align-items: center !important;
+            gap: 11px !important;
+            min-width: 0 !important;
+            min-height: 76px !important;
+            padding: 12px 14px !important;
+            border: 1px solid #e5e9df !important;
+            border-radius: 15px !important;
+            background: #fff !important;
+            transition: border-color .18s ease, background .18s ease, transform .18s ease !important;
+        }
+        .search-filter-field:focus-within { border-color: #9db9a3 !important; background: #f8fbf6 !important; transform: translateY(-1px); }
+        .filter-field-icon {
+            display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px;
+            border-radius: 12px; background: #edf3eb; color: #347153; font-size: 20px; font-weight: 800;
+        }
+        .filter-field-content { display: flex !important; flex: 1 !important; min-width: 0 !important; flex-direction: column !important; gap: 5px !important; }
+        .search-filter-field .field-label { color: #77867d !important; font-size: 11px !important; font-weight: 700 !important; }
+        .search-filter-field select, .search-filter-field input:not(.iso-date-input), .search-filter-field .jalali-date-trigger {
+            width: 100% !important; min-width: 0 !important; padding: 0 !important; border: 0 !important; outline: 0 !important;
+            background: transparent !important; color: #1e3d30 !important; font-family: 'Vazirmatn', sans-serif !important;
+            font-size: 13px !important; font-weight: 700 !important; text-align: right !important; box-shadow: none !important;
+        }
+        .search-filter-field select { cursor: pointer; }
+        .search-filter-field input::placeholder { color: #9aa69c !important; font-weight: 500 !important; }
+        .search-filter-field .jalali-date-trigger { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 8px !important; cursor: pointer !important; }
+        .search-filter-field .date-trigger-icon { color: #3b785a !important; }
+        .search-dropdown-footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 17px; padding-top: 16px; border-top: 1px solid #edf0e8; }
+        .clear-advanced-filters, .reset-search-button {
+            min-height: 43px; padding: 10px 14px; border: 1px solid #dfe8de; border-radius: 12px;
+            background: #fff; color: #466454; font: 700 12px 'Vazirmatn', sans-serif; cursor: pointer;
+        }
+        .clear-advanced-filters:hover, .reset-search-button:hover { background: #f1f6ef; }
+        .dropdown-submit-button {
+            display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 45px;
+            margin-right: auto; padding: 10px 20px; border: 0; border-radius: 13px;
+            background: linear-gradient(135deg, #23664e, #10382e); color: #fff;
+            font: 800 13px 'Vazirmatn', sans-serif; cursor: pointer; box-shadow: 0 7px 18px rgba(16,56,46,.15);
+        }
+        .dropdown-submit-button span { font-size: 19px; }
+        .search-feedback { position: relative; z-index: 2; }
+        .jalali-calendar { z-index: 2000 !important; }
+        @media (max-width: 700px) {
+            .afra-search-v2 { width: 100% !important; margin-top: 20px !important; }
+            .afra-search-v2 .search-main-row { min-height: 72px !important; gap: 9px !important; padding: 9px !important; border-radius: 17px !important; }
+            .search-main-icon { flex-basis: 42px; width: 42px; height: 42px; border-radius: 13px; font-size: 25px; }
+            #searchForm #destination { font-size: 15px !important; }
+            .search-main-eyebrow { font-size: 10px; }
+            #searchForm .search-button { min-width: 92px !important; min-height: 48px !important; padding: 9px 11px !important; gap: 5px !important; font-size: 12px !important; }
+            #searchForm .search-button span { font-size: 18px !important; }
+            .search-dropdown-panel { position: absolute !important; top: calc(100% + 8px) !important; max-height: min(72vh, 650px); overflow-y: auto; padding: 16px !important; border-radius: 18px !important; }
+            .search-dropdown-heading strong { font-size: 15px; }
+            .search-filter-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 9px !important; }
+            .search-filter-field { min-height: 67px !important; padding: 10px 12px !important; }
+            .search-dropdown-footer { gap: 8px; }
+            .dropdown-submit-button { width: 100%; margin: 2px 0 0; }
+            .clear-advanced-filters, .reset-search-button { flex: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .afra-search-v2, .search-dropdown-panel { animation: none !important; }
+        }
+
+
+        /* اصلاح نهایی نوار جست‌وجو: جمع‌وجور، شیشه‌ای و بدون هم‌پوشانی */
+        .afra-search-v2 {
+            width: min(100%, 690px) !important;
+            margin: 24px auto 0 !important;
+            z-index: 30 !important;
+        }
+        .afra-search-v2 .search-main-row {
+            min-height: 68px !important;
+            gap: 12px !important;
+            padding: 8px 9px 8px 17px !important;
+            border: 1px solid rgba(255,255,255,.48) !important;
+            border-radius: 999px !important;
+            background: rgba(255,255,255,.16) !important;
+            -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+            backdrop-filter: blur(18px) saturate(145%) !important;
+            box-shadow: 0 12px 38px rgba(5,31,24,.19), inset 0 1px 0 rgba(255,255,255,.32) !important;
+        }
+        .afra-search-v2:focus-within .search-main-row {
+            border-color: rgba(255,255,255,.78) !important;
+            background: rgba(255,255,255,.23) !important;
+            box-shadow: 0 15px 42px rgba(5,31,24,.23), 0 0 0 3px rgba(255,255,255,.09), inset 0 1px 0 rgba(255,255,255,.4) !important;
+        }
+        .afra-search-v2 .search-main-icon {
+            flex: 0 0 36px !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            background: rgba(255,255,255,.18) !important;
+            color: #fff !important;
+            font-size: 22px !important;
+        }
+        .afra-search-v2 .search-main-icon svg {
+            width:22px !important; height:22px !important; display:block !important;
+            fill:none !important; stroke:currentColor !important; stroke-width:2.1 !important;
+            stroke-linecap:round !important; stroke-linejoin:round !important;
+        }
+        .search-main-eyebrow { color: rgba(255,255,255,.78) !important; font-size: 10px !important; }
+        #searchForm #destination {
+            color: #fff !important;
+            font-size: clamp(15px, 1.7vw, 18px) !important;
+            font-weight: 700 !important;
+        }
+        #searchForm #destination::placeholder { color: rgba(255,255,255,.96) !important; }
+        #searchForm .search-button {
+            display: grid !important;
+            place-items: center !important;
+            flex: 0 0 50px !important;
+            width: 50px !important;
+            min-width: 50px !important;
+            height: 50px !important;
+            min-height: 50px !important;
+            padding: 0 !important;
+            border: 1px solid rgba(255,255,255,.42) !important;
+            border-radius: 50% !important;
+            background: rgba(255,255,255,.92) !important;
+            color: #174a37 !important;
+            box-shadow: 0 5px 16px rgba(5,31,24,.16) !important;
+            font-size: 0 !important;
+            cursor: pointer !important;
+        }
+        #searchForm .search-button span {
+            display: grid !important;
+            place-items: center !important;
+            line-height: 1 !important;
+        }
+        #searchForm .search-button .search-icon-svg {
+            width: 24px !important;
+            height: 24px !important;
+        }
+        #searchForm .search-button .search-icon-svg svg {
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+            fill: none !important;
+            stroke: currentColor !important;
+            stroke-width: 2.2 !important;
+            stroke-linecap: round !important;
+            stroke-linejoin: round !important;
+        }
+        #searchForm .search-button:hover { transform: scale(1.04); background: #fff !important; }
+        /* پنل فیلترها در جریان صفحه باز می‌شود؛ بنابراین متن و کادرهای پایین را نمی‌پوشاند */
+        .search-dropdown-panel {
+            position: relative !important;
+            inset: auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            margin-top: 12px !important;
+            max-height: min(70vh, 620px) !important;
+            overflow-y: auto !important;
+            overscroll-behavior: contain !important;
+            z-index: 31 !important;
+            padding: 20px !important;
+            border: 1px solid rgba(255,255,255,.5) !important;
+            border-radius: 24px !important;
+            background: rgba(248,251,246,.92) !important;
+            -webkit-backdrop-filter: blur(22px) saturate(140%) !important;
+            backdrop-filter: blur(22px) saturate(140%) !important;
+            box-shadow: 0 18px 48px rgba(5,31,24,.22), inset 0 1px 0 rgba(255,255,255,.8) !important;
+        }
+        .search-feedback { z-index: 1 !important; }
+        @media (max-width: 700px) {
+            .afra-search-v2 { width: 100% !important; margin-top: 18px !important; }
+            .afra-search-v2 .search-main-row { min-height: 60px !important; gap: 8px !important; padding: 6px 7px 6px 12px !important; border-radius: 999px !important; }
+            .afra-search-v2 .search-main-icon { flex-basis: 30px !important; width: 30px !important; height: 30px !important; font-size: 19px !important; }
+            #searchForm #destination { font-size: 14px !important; }
+            .search-main-eyebrow { font-size: 9px !important; }
+            #searchForm .search-button { flex-basis: 44px !important; width: 44px !important; min-width: 44px !important; height: 44px !important; min-height: 44px !important; }
+            #searchForm .search-button span { font-size: 20px !important; }
+            .search-dropdown-panel { position: relative !important; top: auto !important; max-height: 65vh !important; padding: 14px !important; border-radius: 19px !important; }
+        }
+
+
+        /* ===== بازطراحی حرفه‌ای هدر و هیرو ===== */
+        .topbar { display:none !important; }
+        .header {
+            position:absolute !important;
+            top:0 !important;
+            right:0 !important;
+            left:0 !important;
+            z-index:120 !important;
+            background:transparent !important;
+            border:0 !important;
+            box-shadow:none !important;
+            backdrop-filter:none !important;
+            -webkit-backdrop-filter:none !important;
+        }
+        .header-inner {
+            position:relative !important;
+            min-height:78px !important;
+            padding-top:12px !important;
+            padding-bottom:12px !important;
+        }
+        .nav {
+            display:none !important;
+            position:absolute !important;
+            top:76px !important;
+            right:18px !important;
+            width:min(270px, calc(100vw - 36px)) !important;
+            padding:10px !important;
+            flex-direction:column !important;
+            align-items:stretch !important;
+            gap:4px !important;
+            border:1px solid rgba(255,255,255,.42) !important;
+            border-radius:20px !important;
+            background:rgba(18,60,50,.88) !important;
+            backdrop-filter:blur(20px) !important;
+            -webkit-backdrop-filter:blur(20px) !important;
+            box-shadow:0 20px 50px rgba(0,0,0,.28) !important;
+        }
+        .nav.nav-open { display:flex !important; }
+        .nav .nav-link {
+            display:flex !important;
+            align-items:center !important;
+            justify-content:flex-start !important;
+            min-height:48px !important;
+            padding:9px 14px !important;
+            border-radius:13px !important;
+            color:#fff !important;
+            text-decoration:none !important;
+            font-weight:700 !important;
+            text-shadow:none !important;
+        }
+        .nav .nav-link:hover, .nav .nav-link.active {
+            background:rgba(255,255,255,.13) !important;
+        }
+        .nav .nav-link::after { display:none !important; }
+        .menu-toggle {
+            display:flex !important;
+            align-items:center !important;
+            justify-content:center !important;
+            flex-direction:column !important;
+            gap:5px !important;
+            position:absolute !important;
+            right:18px !important;
+            top:18px !important;
+            z-index:130 !important;
+            width:48px !important;
+            height:48px !important;
+            border:1px solid rgba(255,255,255,.42) !important;
+            border-radius:16px !important;
+            background:rgba(255,255,255,.14) !important;
+            backdrop-filter:blur(14px) !important;
+            -webkit-backdrop-filter:blur(14px) !important;
+            box-shadow:0 8px 24px rgba(0,0,0,.16) !important;
+        }
+        .menu-toggle span { background:#fff !important; }
+        .logo {
+            position:absolute !important;
+            right:78px !important;
+            top:17px !important;
+            z-index:125 !important;
+        }
+        .logo-text strong, .logo-text small { color:#fff !important; text-shadow:0 2px 12px rgba(0,0,0,.28) !important; }
+        .logo-icon { filter:drop-shadow(0 3px 9px rgba(0,0,0,.3)) !important; }
+        .header-actions {
+            margin-right:auto !important;
+            display:flex !important;
+            align-items:center !important;
+            gap:8px !important;
+            padding-left:4px !important;
+        }
+        .header-actions .header-button { display:none !important; }
+        .auth-top-actions { display:flex; align-items:center; gap:8px; }
+        .auth-top-button {
+            min-height:42px;
+            padding:8px 15px;
+            border:1px solid rgba(255,255,255,.42);
+            border-radius:999px;
+            background:rgba(255,255,255,.14);
+            color:#fff;
+            font:700 12px 'Vazirmatn',sans-serif;
+            text-decoration:none;
+            cursor:pointer;
+            backdrop-filter:blur(14px);
+            -webkit-backdrop-filter:blur(14px);
+            box-shadow:0 8px 22px rgba(0,0,0,.13);
+            transition:.2s ease;
+        }
+        .auth-top-button:hover { background:rgba(255,255,255,.23); transform:translateY(-1px); }
+        .auth-top-button.primary { background:rgba(23,75,61,.72); border-color:rgba(255,255,255,.5); }
+        .auth-top-button.primary:hover { background:rgba(23,75,61,.9); }
+        .hero {
+            min-height:100vh !important;
+            height:auto !important;
+            background-size:cover !important;
+            background-position:center center !important;
+        }
+        .hero-overlay { background:transparent !important; opacity:1 !important; }
+        .hero-content {
+            min-height:100vh !important;
+            box-sizing:border-box !important;
+            display:flex !important;
+            flex-direction:column !important;
+            justify-content:center !important;
+            padding-top:105px !important;
+            padding-bottom:55px !important;
+        }
+        .hero-bottom { margin-top:24px !important; }
+        .search-dropdown-panel {
+            z-index:500 !important;
+            background:rgba(250,248,241,.98) !important;
+            box-shadow:0 24px 70px rgba(0,0,0,.30) !important;
+        }
+        .auth-modal {
+            position:fixed;
+            inset:0;
+            z-index:5000;
+            display:none;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+            background:rgba(5,25,20,.46);
+            backdrop-filter:blur(8px);
+            -webkit-backdrop-filter:blur(8px);
+        }
+        .auth-modal.is-open { display:flex; }
+        .auth-card {
+            width:min(100%,460px);
+            max-height:min(90vh,720px);
+            overflow:auto;
+            position:relative;
+            padding:28px;
+            border:1px solid rgba(255,255,255,.7);
+            border-radius:28px;
+            background:rgba(250,248,241,.97);
+            box-shadow:0 30px 90px rgba(0,0,0,.28);
+        }
+        .auth-close {
+            position:absolute; top:14px; left:14px;
+            width:38px; height:38px; border:0; border-radius:50%;
+            background:#edf2eb; color:#174b3d; font-size:20px; cursor:pointer;
+        }
+        .auth-card h2 { margin:0 0 7px; color:#123c32; font-size:23px; }
+        .auth-card > p { margin:0 0 20px; color:#697970; font-size:12px; line-height:1.9; }
+        .auth-form { display:grid; gap:12px; }
+        .auth-field { display:grid; gap:6px; }
+        .auth-field label { font-size:11px; font-weight:800; color:#50655b; }
+        .auth-field input {
+            width:100%; box-sizing:border-box; min-height:46px; padding:10px 13px;
+            border:1px solid #d9e3d8; border-radius:13px; outline:0;
+            background:#fff; color:#173d32; font:500 13px 'Vazirmatn',sans-serif;
+        }
+        .auth-field input:focus { border-color:#5d9275; box-shadow:0 0 0 3px rgba(93,146,117,.12); }
+        .auth-submit {
+            min-height:48px; border:0; border-radius:14px; cursor:pointer;
+            background:linear-gradient(135deg,#23664e,#10382e); color:#fff;
+            font:800 13px 'Vazirmatn',sans-serif; margin-top:3px;
+        }
+        .auth-switch { text-align:center; margin-top:5px; color:#6d7c73; font-size:11px; }
+        .auth-switch button { border:0; background:none; color:#23664e; font:800 11px 'Vazirmatn',sans-serif; cursor:pointer; }
+        .auth-message { display:none; padding:10px 12px; border-radius:12px; background:#edf6f0; color:#245c43; font-size:11px; line-height:1.8; }
+        .auth-message.error { background:#fff0f1; color:#a32436; }
+        .auth-message.show { display:block; }
+        .auth-extra { display:none; }
+        .auth-extra.show { display:grid; gap:12px; }
+        .auth-user-panel { display:none; text-align:center; }
+        .auth-user-panel.show { display:block; }
+        .auth-user-icon { font-size:42px; margin-bottom:6px; }
+        .auth-user-panel strong { display:block; color:#123c32; font-size:16px; }
+        .auth-user-panel p { margin:7px 0 18px; color:#6d7c73; font-size:12px; }
+        .auth-logout { width:100%; min-height:45px; border:1px solid #d7e2d7; border-radius:13px; background:#fff; color:#315b48; font:700 12px 'Vazirmatn',sans-serif; cursor:pointer; }
+        @media(max-width:700px){
+            .header-inner { min-height:70px !important; }
+            .menu-toggle { right:12px !important; top:12px !important; width:44px !important; height:44px !important; }
+            .nav { top:66px !important; right:12px !important; width:min(270px, calc(100vw - 24px)) !important; }
+            .logo { right:64px !important; top:12px !important; }
+            .logo-text small { display:none !important; }
+            .auth-top-actions { gap:5px; }
+            .auth-top-button { min-height:38px; padding:7px 10px; font-size:10px; }
+            .hero-content { padding-top:88px !important; }
+            .auth-card { padding:24px 18px; border-radius:23px; }
+        }
+
+
+        #mainNav.nav { display:none !important; }
+        #mainNav.nav.nav-open { display:flex !important; }
+
+
+        /* ===== Mobile responsive repair v3 ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+        img, video, iframe { max-width: 100%; }
+        button, input, select, textarea { max-width: 100%; }
+        .container { width: min(100% - 32px, 1200px) !important; margin-inline: auto !important; }
+        .header-inner { width: 100% !important; }
+        .section-heading { min-width: 0; }
+        .category-grid, .stays-grid, .benefits-grid { min-width: 0; }
+        .category-card, .stay-card, .benefit-item, .benefit-card, .contact-card { min-width: 0; }
+        .stay-card img, .category-card img { max-width: 100%; }
+
+        @media (max-width: 700px) {
+            body { overflow-x: clip !important; }
+            .container { width: calc(100% - 28px) !important; }
+            .header { position: absolute !important; height: 126px !important; }
+            .header-inner {
+                min-height: 126px !important;
+                height: 126px !important;
+                padding: 0 !important;
+                display: block !important;
+            }
+            .menu-toggle {
+                position: absolute !important;
+                top: 12px !important; right: 12px !important; left: auto !important;
+                width: 42px !important; height: 42px !important;
+                z-index: 150 !important;
+            }
+            .logo {
+                position: absolute !important;
+                top: 13px !important; right: 63px !important; left: auto !important;
+                max-width: calc(100% - 125px) !important;
+                display: flex !important; align-items: center !important;
+                gap: 7px !important;
+            }
+            .logo-icon { font-size: 24px !important; }
+            .logo-text { min-width: 0 !important; }
+            .logo-text strong { font-size: 16px !important; white-space: nowrap !important; }
+            .logo-text small { display: none !important; }
+            .header-actions {
+                position: absolute !important;
+                top: 67px !important; right: 12px !important; left: 12px !important;
+                width: auto !important; margin: 0 !important; padding: 0 !important;
+                display: block !important;
+            }
+            .auth-top-actions {
+                display: grid !important;
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 7px !important; width: 100% !important;
+            }
+            .auth-top-button {
+                min-width: 0 !important; width: 100% !important;
+                min-height: 36px !important; padding: 6px 5px !important;
+                font-size: 10px !important; line-height: 1.4 !important;
+                white-space: nowrap !important; overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            #mainNav.nav {
+                position: absolute !important;
+                top: 59px !important; right: 12px !important; left: auto !important;
+                width: min(270px, calc(100vw - 24px)) !important;
+                max-height: calc(100dvh - 85px) !important;
+                overflow-y: auto !important;
+                padding: 9px !important;
+                z-index: 180 !important;
+            }
+            #mainNav.nav.nav-open { display: flex !important; }
+            .hero { min-height: 100svh !important; height: auto !important; }
+            .hero-content {
+                min-height: 100svh !important; height: auto !important;
+                padding: 145px 0 28px !important;
+                justify-content: center !important;
+                gap: 0 !important;
+            }
+            .hero-badge { max-width: 100% !important; font-size: 10px !important; }
+            .hero h1 {
+                max-width: 100% !important; margin: 12px 0 10px !important;
+                font-size: clamp(26px, 7vw, 35px) !important;
+                line-height: 1.55 !important; overflow-wrap: anywhere !important;
+            }
+            .hero-description {
+                max-width: 100% !important; margin: 0 auto !important;
+                font-size: 12px !important; line-height: 1.95 !important;
+            }
+            .afra-search-v2, #searchForm {
+                width: 100% !important; max-width: 100% !important;
+                min-width: 0 !important; margin: 20px auto 0 !important;
+            }
+            .afra-search-v2 .search-main-row {
+                width: 100% !important; min-width: 0 !important;
+                display: flex !important; align-items: center !important;
+                gap: 7px !important; padding: 6px 7px 6px 10px !important;
+            }
+            #searchForm #destination { min-width: 0 !important; width: 100% !important; font-size: 13px !important; }
+            .search-main-input-wrap, .search-main-content { min-width: 0 !important; flex: 1 1 auto !important; }
+            #searchForm .search-button {
+                flex: 0 0 43px !important; width: 43px !important; min-width: 43px !important;
+                height: 43px !important; min-height: 43px !important; padding: 0 !important;
+            }
+            #searchForm .search-button .search-icon-svg { width: 21px !important; height: 21px !important; }
+            .search-dropdown-panel {
+                width: 100% !important; max-width: 100% !important;
+                max-height: min(58dvh, 520px) !important; overflow-y: auto !important;
+                margin-top: 9px !important; padding: 12px !important;
+                border-radius: 16px !important;
+            }
+            .search-dropdown-heading strong { font-size: 14px !important; }
+            .search-dropdown-heading p { font-size: 11px !important; }
+            .search-filter-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 8px !important; }
+            .search-filter-field { width: 100% !important; min-width: 0 !important; min-height: 60px !important; padding: 9px 10px !important; }
+            .search-filter-field input, .search-filter-field select, .search-filter-field .jalali-date-trigger { min-width: 0 !important; max-width: 100% !important; font-size: 12px !important; }
+            .search-dropdown-footer { display: grid !important; grid-template-columns: 1fr !important; gap: 8px !important; }
+            .search-dropdown-footer button { width: 100% !important; min-width: 0 !important; }
+            .search-feedback { width: 100% !important; font-size: 11px !important; padding: 9px 11px !important; }
+            .hero-bottom {
+                display: grid !important; grid-template-columns: 1fr !important;
+                justify-items: center !important; gap: 7px !important;
+                margin-top: 16px !important; font-size: 10px !important;
+            }
+            .section { padding-block: 42px !important; }
+            .section-heading { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
+            .section-heading h2, .benefits-intro h2 { font-size: clamp(21px, 6vw, 28px) !important; line-height: 1.6 !important; overflow-wrap: anywhere !important; }
+            .section-heading p, .benefits-intro p { font-size: 12px !important; line-height: 2 !important; }
+            .category-grid, .stays-grid, .benefits-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 14px !important; }
+            .category-card { width: 100% !important; min-height: 110px !important; }
+            .stay-card { width: 100% !important; max-width: 100% !important; }
+            .stays-heading-actions { width: 100% !important; display: flex !important; flex-wrap: wrap !important; justify-content: space-between !important; gap: 8px !important; }
+            #favoritesToggle { max-width: 100% !important; font-size: 11px !important; }
+            .results-count { font-size: 10px !important; }
+            .auth-modal { padding: 12px !important; align-items: center !important; }
+            .auth-card { width: 100% !important; max-width: 440px !important; max-height: 88dvh !important; overflow-y: auto !important; padding: 25px 16px 18px !important; border-radius: 20px !important; }
+            .auth-card h2 { padding-left: 28px !important; font-size: 20px !important; }
+            .auth-field input { font-size: 16px !important; }
+            .jalali-calendar { width: min(340px, calc(100vw - 24px)) !important; max-height: 80dvh !important; overflow-y: auto !important; }
+            .calendar-day, .calendar-empty { height: 32px !important; }
+            .footer-grid, .contact-grid { grid-template-columns: minmax(0, 1fr) !important; }
+        }
+
+        @media (max-width: 380px) {
+            .container { width: calc(100% - 22px) !important; }
+            .auth-top-actions { gap: 5px !important; }
+            .auth-top-button { font-size: 9px !important; padding-inline: 3px !important; }
+            .logo { right: 60px !important; max-width: calc(100% - 112px) !important; }
+            .logo-text strong { font-size: 14px !important; }
+            .hero-content { padding-top: 140px !important; }
+            .hero h1 { font-size: 25px !important; }
+            .search-dropdown-panel { padding: 10px !important; }
+        }
+
+        @media (min-width: 701px) and (max-width: 1024px) {
+            .container { width: calc(100% - 40px) !important; }
+            .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            .stays-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            .auth-top-button { padding-inline: 10px !important; }
+        }
+
+</style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <span>🌿 تجربه یک اقامت متفاوت در شمال ایران</span>
+            <span class="topbar-contact">همراه شما برای یک سفر خاطره‌انگیز</span>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo" aria-label="صفحه اصلی افرا سفر">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">
+                    <strong>افرا سفر</strong>
+                    <small>سفر، آرامش، خاطره</small>
+                </span>
+            </a>
+
+            <nav class="nav" id="mainNav">
+                <a href="#home" class="nav-link active">صفحه اصلی</a>
+                <a href="#stays" class="nav-link">اقامتگاه‌ها</a>
+                <a href="#categories" class="nav-link">دسته‌بندی‌ها</a>
+                <a href="#about" class="nav-link">درباره ما</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="auth-top-actions">
+                    <button type="button" class="auth-top-button" data-auth-open="login">ورود</button>
+                    <button type="button" class="auth-top-button" data-auth-open="guest-signup">ثبت نام</button>
+                    <button type="button" class="auth-top-button primary" data-auth-open="owner-signup">مهمان شوید</button>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle"
+                    type="button"
+                    aria-label="باز کردن منو"
+                    aria-expanded="false"
+                    aria-controls="mainNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- پنل‌های ورود و ثبت‌نام -->
+    <div class="auth-modal" id="authModal" aria-hidden="true">
+        <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+            <button class="auth-close" id="authClose" type="button" aria-label="بستن">×</button>
+            <div id="authForms">
+                <h2 id="authModalTitle">ورود به حساب</h2>
+                <p id="authModalDescription">با ایمیل و رمز عبور وارد حساب افرا سفر شوید.</p>
+                <div class="auth-message" id="authMessage"></div>
+
+                <form class="auth-form" id="loginForm">
+                    <div class="auth-field"><label for="loginEmail">ایمیل</label><input id="loginEmail" type="email" autocomplete="email" required placeholder="example@email.com"></div>
+                    <div class="auth-field"><label for="loginPassword">رمز عبور</label><input id="loginPassword" type="password" autocomplete="current-password" required placeholder="رمز عبور خود را وارد کنید"></div>
+                    <button class="auth-submit" type="submit">ورود به حساب</button>
+                    <div class="auth-switch">حساب ندارید؟ <button type="button" data-auth-switch="guest-signup">ثبت نام مهمان</button></div>
+                </form>
+
+                <form class="auth-form" id="guestSignupForm" hidden>
+                    <div class="auth-field"><label for="guestSignupName">نام و نام خانوادگی</label><input id="guestSignupName" type="text" autocomplete="name" required placeholder="نام شما"></div>
+                    <div class="auth-field"><label for="guestSignupEmail">ایمیل</label><input id="guestSignupEmail" type="email" autocomplete="email" required placeholder="example@email.com"></div>
+                    <div class="auth-field"><label for="guestSignupPassword">رمز عبور</label><input id="guestSignupPassword" type="password" autocomplete="new-password" minlength="6" required placeholder="حداقل ۶ کاراکتر"></div>
+                    <button class="auth-submit" type="submit">ساخت حساب مهمان</button>
+                    <div class="auth-switch">قبلاً حساب ساخته‌اید؟ <button type="button" data-auth-switch="login">ورود</button></div>
+                </form>
+
+                <form class="auth-form" id="ownerSignupForm" hidden>
+                    <div class="auth-field"><label for="ownerSignupName">نام و نام خانوادگی</label><input id="ownerSignupName" type="text" autocomplete="name" required placeholder="نام مالک / میزبان"></div>
+                    <div class="auth-field"><label for="ownerSignupPhone">شماره موبایل</label><input id="ownerSignupPhone" type="tel" autocomplete="tel" required placeholder="0912xxxxxxx"></div>
+                    <div class="auth-field"><label for="ownerSignupEmail">ایمیل</label><input id="ownerSignupEmail" type="email" autocomplete="email" required placeholder="example@email.com"></div>
+                    <div class="auth-field"><label for="ownerSignupPassword">رمز عبور</label><input id="ownerSignupPassword" type="password" autocomplete="new-password" minlength="6" required placeholder="حداقل ۶ کاراکتر"></div>
+                    <button class="auth-submit" type="submit">ثبت درخواست میزبانی</button>
+                    <div class="auth-switch">قبلاً حساب دارید؟ <button type="button" data-auth-switch="login">ورود</button></div>
+                </form>
+            </div>
+            <div class="auth-user-panel" id="authUserPanel">
+                <div class="auth-user-icon">👤</div>
+                <strong id="authUserName">حساب کاربری</strong>
+                <p id="authUserEmail"></p>
+                <button class="auth-logout" id="authLogout" type="button">خروج از حساب</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-content">
+
+                <h1>
+                    شمال، نزدیک‌تر از
+                    <span>همیشه</span>
+                </h1>
+
+                <p class="hero-description">
+                    از کلبه‌ای دنج در دل جنگل تا ویلایی استخردار،
+                    اقامتگاه موردعلاقه‌ات رو با افرا سفر پیدا کن.
+                </p>
+
+                <form class="search-box afra-search-v2" id="searchForm" novalidate>
+                    <div class="search-main-row">
+                        <span class="search-main-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <circle cx="10.8" cy="10.8" r="6.6"></circle>
+                                <path d="M16 16l5 5"></path>
+                            </svg>
+                        </span>
+                        <label class="search-main-field" for="destination">
+                            <span class="search-main-eyebrow">مقصد سفرت رو انتخاب کن</span>
+                            <input
+                                type="text"
+                                id="destination"
+                                placeholder="کجای مازندران میخوای بری؟"
+                                list="destinationSuggestions"
+                                autocomplete="off"
+                                aria-controls="searchDropdown"
+                                aria-expanded="false">
+                            <datalist id="destinationSuggestions"></datalist>
+                        </label>
+                        <button class="search-button" type="submit" aria-label="جست‌وجو" title="جست‌وجو">
+                            <span class="search-icon-svg" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <circle cx="10.8" cy="10.8" r="6.6"></circle>
+                                    <path d="M16 16l5 5"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="search-dropdown-panel" id="searchDropdown" hidden>
+                        <div class="search-dropdown-heading">
+                            <div>
+                                <strong>سفرت رو دقیق‌تر انتخاب کن</strong>
+                                <p>با فیلترها، اقامتگاه مناسب خودت رو پیدا کن.</p>
+                            </div>
+                            <button type="button" class="search-close-button" id="closeSearchDropdown" aria-label="بستن فیلترها">×</button>
+                        </div>
+
+                        <div class="search-filter-grid">
+                            <label class="search-filter-field">
+                                <span class="filter-field-icon">▦</span>
+                                <span class="filter-field-content">
+                                    <span class="field-label">تاریخ ورود</span>
+                                    <input type="date" id="checkin" class="iso-date-input" aria-hidden="true" tabindex="-1">
+                                    <button type="button" class="jalali-date-trigger" id="checkinDisplay" data-date-target="checkin" aria-label="انتخاب تاریخ ورود">
+                                        <span>انتخاب تاریخ</span><span class="date-trigger-icon">▦</span>
+                                    </button>
+                                </span>
+                            </label>
+
+                            <label class="search-filter-field">
+                                <span class="filter-field-icon">▦</span>
+                                <span class="filter-field-content">
+                                    <span class="field-label">تاریخ خروج</span>
+                                    <input type="date" id="checkout" class="iso-date-input" aria-hidden="true" tabindex="-1">
+                                    <button type="button" class="jalali-date-trigger" id="checkoutDisplay" data-date-target="checkout" aria-label="انتخاب تاریخ خروج">
+                                        <span>انتخاب تاریخ</span><span class="date-trigger-icon">▦</span>
+                                    </button>
+                                </span>
+                            </label>
+
+                            <label class="search-filter-field">
+                                <span class="filter-field-icon">⌂</span>
+                                <span class="filter-field-content">
+                                    <span class="field-label">نوع اقامتگاه</span>
+                                    <select id="searchCategory">
+                                        <option value="all">همه اقامتگاه‌ها</option>
+                                        <option value="villa">ویلا</option>
+                                        <option value="forest">کلبه جنگلی</option>
+                                        <option value="pool">اقامتگاه استخردار</option>
+                                    </select>
+                                </span>
+                            </label>
+
+                            <label class="search-filter-field">
+                                <span class="filter-field-icon">♙</span>
+                                <span class="filter-field-content">
+                                    <span class="field-label">تعداد نفرات</span>
+                                    <select id="guestCount">
+                                        <option value="1">۱ نفر</option>
+                                        <option value="2" selected>۲ نفر</option>
+                                        <option value="3">۳ نفر</option>
+                                        <option value="4">۴ نفر</option>
+                                        <option value="5">۵ نفر</option>
+                                        <option value="6">۶ نفر</option>
+                                        <option value="7">۷ نفر</option>
+                                        <option value="8">۸ نفر</option>
+                                        <option value="9">۹ نفر</option>
+                                        <option value="10">۱۰ نفر</option>
+                                        <option value="11">۱۱ نفر</option>
+                                        <option value="12">۱۲ نفر</option>
+                                    </select>
+                                </span>
+                            </label>
+
+                            <label class="search-filter-field">
+                                <span class="filter-field-icon">ت</span>
+                                <span class="filter-field-content">
+                                    <span class="field-label">حداقل قیمت هر شب (تومان)</span>
+                                    <input id="minPrice" type="number" min="0" step="100000" inputmode="numeric" placeholder="بدون محدودیت">
+                                </span>
+                            </label>
+
+                            <label class="search-filter-field">
+                                <span class="filter-field-icon">ت</span>
+                                <span class="filter-field-content">
+                                    <span class="field-label">حداکثر قیمت هر شب (تومان)</span>
+                                    <input id="maxPrice" type="number" min="0" step="100000" inputmode="numeric" placeholder="بدون محدودیت">
+                                </span>
+                            </label>
+
+                            <label class="search-filter-field search-sort-field">
+                                <span class="filter-field-icon">⇅</span>
+                                <span class="filter-field-content">
+                                    <span class="field-label">مرتب‌سازی نتایج</span>
+                                    <select id="sortProperties">
+                                        <option value="newest">جدیدترین اقامتگاه‌ها</option>
+                                        <option value="priceAsc">ارزان‌ترین قیمت</option>
+                                        <option value="priceDesc">گران‌ترین قیمت</option>
+                                        <option value="capacityDesc">بیشترین ظرفیت</option>
+                                    </select>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="search-dropdown-footer">
+                            <button type="button" id="clearAdvancedFilters" class="clear-advanced-filters">پاک کردن فیلترهای قیمت</button>
+                            <button type="button" id="resetSearchDropdown" class="reset-search-button">حذف همه فیلترها</button>
+                            <button type="submit" class="dropdown-submit-button">نمایش اقامتگاه‌ها <span>←</span></button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="search-feedback" id="searchFeedback"
+                    role="status" aria-live="polite"></div>
+
+                <div class="jalali-calendar" id="jalaliCalendar" hidden aria-label="تقویم شمسی"></div>
+
+                <div class="hero-bottom">
+                    <span>✓ اقامتگاه‌های متنوع</span>
+                    <span>✓ انتخاب راحت‌تر</span>
+                    <span>✓ همراه شما در رزرو</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="categories section" id="categories">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">انتخاب با سلیقه تو</span>
+                        <h2>دنبال چه اقامتی هستی؟</h2>
+                        <p>سبک سفر خودت رو انتخاب کن و اقامتگاه‌ها رو ببین.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+
+                    <button type="button" class="category-card selected" data-category="all">
+                        <span class="category-icon">🏡</span>
+                        <strong>همه اقامتگاه‌ها</strong>
+                        <small>تمام گزینه‌ها</small>
+                    </button>
+
+                    <button type="button" class="category-card" data-category="villa">
+                        <span class="category-icon">🏠</span>
+                        <strong>ویلای لوکس</strong>
+                        <small>برای یک سفر خاص</small>
+                    </button>
+
+                    <button type="button" class="category-card" data-category="forest">
+                        <span class="category-icon">🌲</span>
+                        <strong>کلبه جنگلی</strong>
+                        <small>آرامش در دل طبیعت</small>
+                    </button>
+
+                    <button type="button" class="category-card" data-category="pool">
+                        <span class="category-icon">🏊</span>
+                        <strong>استخر‌دار</strong>
+                        <small>تفریح و آرامش</small>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="stays section" id="stays">
+            <div class="container">
+
+                <div class="section-heading stays-heading">
+                    <div>
+                        <span class="eyebrow">پیشنهادهای افرا سفر</span>
+                        <h2>اقامتگاه‌های محبوب</h2>
+                        <p>اقامتگاهت رو انتخاب کن و برای رزرو با ما در ارتباط باش.</p>
+                    </div>
+
+                    <div class="stays-heading-actions">
+                        <button type="button"
+                            id="favoritesToggle"
+                            aria-pressed="false">
+                            ❤️ علاقه‌مندی‌های من
+                        </button>
+
+                        <span class="results-count" id="resultsCount">
+                            در حال بارگذاری...
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stays-grid" id="staysGrid">
+                    <div id="loadingStays" style="grid-column:1/-1;text-align:center;padding:30px;color:#64756b;">در حال دریافت اقامتگاه‌ها...</div>
+                </div>
+
+                <div class="empty-state" id="emptyState" hidden>
+                    <span>🔎</span>
+                    <h3 id="emptyStateTitle">اقامتگاهی پیدا نشد!</h3>
+                    <p id="emptyStateDescription">
+                        مقصد یا دسته‌بندی دیگری رو امتحان کن.
+                    </p>
+                    <button type="button" id="resetSearch">
+                        نمایش همه اقامتگاه‌ها
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="benefits section" id="about">
+            <div class="container">
+
+                <div class="benefits-intro">
+                    <span class="eyebrow">چرا افرا سفر؟</span>
+                    <h2>سفر خوب از یک انتخاب خوب شروع می‌شه.</h2>
+                    <p>
+                        ما کمک می‌کنیم اقامتگاه مناسب سفرت رو پیدا کنی
+                        و برای بررسی شرایط رزرو با ما در ارتباط باشی.
+                    </p>
+                </div>
+
+                <div class="benefits-grid">
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🏡</span>
+                        <h3>تنوع اقامتگاه</h3>
+                        <p>از ویلاهای لوکس تا کلبه‌های دنج جنگلی.</p>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🧼</span>
+                        <h3>توجه به نظافت</h3>
+                        <p>امکان پرس‌وجو درباره وضعیت نظافت اقامتگاه.</p>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💬</span>
+                        <h3>ارتباط آسان</h3>
+                        <p>برای بررسی قیمت و شرایط رزرو با ما در تماس باش.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="container contact-inner">
+
+                <div>
+                    <span class="contact-eyebrow">سفر بعدی از اینجا شروع می‌شه</span>
+                    <h2>اقامتگاه موردعلاقه‌ات رو پیدا کردی؟</h2>
+                    <p>برای اطلاع از قیمت، تقویم خالی و شرایط رزرو با ما تماس بگیر.</p>
+                </div>
+
+                <a href="tel:+989117999884" class="contact-button">
+                    تماس برای رزرو
+                    <span>←</span>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+<p>برای سفرهای قشنگ‌تر، با افرا سفر همراه شو.</p>
+
+            <span class="copyright">
+                © تمامی حقوق این وب‌سایت محفوظ است.
+            </span>
+
+        </div>
+    </footer>
+
+    <a href="tel:+989117999884" class="mobile-contact"
+        aria-label="تماس با افرا سفر">
+        ☎ تماس برای رزرو
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <script>
+        const searchForm = document.getElementById("searchForm");
+        const destinationInput = document.getElementById("destination");
+        const checkinInput = document.getElementById("checkin");
+        const checkoutInput = document.getElementById("checkout");
+        const searchCategory = document.getElementById("searchCategory");
+        const guestCount = document.getElementById("guestCount");
+        const searchFeedback = document.getElementById("searchFeedback");
+        const minPriceInput = document.getElementById("minPrice");
+        const maxPriceInput = document.getElementById("maxPrice");
+        const sortProperties = document.getElementById("sortProperties");
+        const destinationSuggestions = document.getElementById("destinationSuggestions");
+        const searchDropdown = document.getElementById("searchDropdown");
+        const closeSearchDropdown = document.getElementById("closeSearchDropdown");
+
+        let stayCards = [];
+        const categoryButtons = [...document.querySelectorAll(".category-card")];
+
+        const resultsCount = document.getElementById("resultsCount");
+        const emptyState = document.getElementById("emptyState");
+        const emptyStateTitle = document.getElementById("emptyStateTitle");
+        const emptyStateDescription = document.getElementById("emptyStateDescription");
+        const staysGrid = document.getElementById("staysGrid");
+
+        const menuToggle = document.getElementById("menuToggle");
+        const mainNav = document.getElementById("mainNav");
+        const favoritesToggle = document.getElementById("favoritesToggle");
+
+        const FAVORITES_KEY = "afraSafarFavorites";
+
+        window.addEventListener("error", event => {
+            console.error("Afra Safar page error:", event.error || event.message);
+        });
+
+        let selectedCategory = "all";
+        let searchSubmitted = false;
+        let showFavoritesOnly = false;
+        let selectedGuestCount = 2;
+
+        function normalizeText(value) {
+            return String(value || "")
+                .toLocaleLowerCase("fa")
+                .replace(/ي/g, "ی")
+                .replace(/ك/g, "ک")
+                .replace(/ۀ/g, "ه")
+                .replace(/\u200c/g, " ")
+                .replace(/[،,]/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function loadFavorites() {
+            try {
+                const saved = JSON.parse(
+                    localStorage.getItem(FAVORITES_KEY) || "[]"
+                );
+
+                return Array.isArray(saved) ? saved : [];
+            } catch (error) {
+                console.error("خطا در خواندن علاقه‌مندی‌ها:", error);
+                return [];
+            }
+        }
+
+        function saveFavorites(favorites) {
+            try {
+                localStorage.setItem(
+                    FAVORITES_KEY,
+                    JSON.stringify(favorites)
+                );
+
+                return true;
+            } catch (error) {
+                console.error("خطا در ذخیره علاقه‌مندی‌ها:", error);
+
+                alert(
+                    "مرورگر نتوانست علاقه‌مندی‌ها را ذخیره کند. " +
+                    "لطفاً صفحه را در همان مرورگر باز کن."
+                );
+
+                return false;
+            }
+        }
+
+        function escapeHtml(value) { return String(value ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"); }
+        function formatPrice(value) { const price=Number(value); return Number.isFinite(price)&&price>0 ? price.toLocaleString("fa-IR")+" تومان" : "استعلام قیمت"; }
+        function getCategoryInfo(category) { const m={villa:["ویلای ویژه","🏡 ویلای مستقل","✨ اقامت راحت"],forest:["طبیعت‌گردی","🪵 فضای دنج","🌄 چشم‌انداز سبز"],pool:["پیشنهاد ویژه","🏊 استخر","🌿 فضای دلنشین"],luxury:["اقامت لوکس","✨ طراحی خاص","🌿 فضای دلنشین"]}; return m[category]||m.villa; }
+        function getPropertyLink(property) { const id=property?.id; if(id) return `property.html?id=${encodeURIComponent(id)}`; const category=property?.category; if(category==="forest") return "cottage.html"; if(category==="pool") return "villa.html"; if(category==="luxury") return "luxury-villa.html"; return "villa.html"; }
+        function renderProperties(properties) {
+            staysGrid.hidden=false;
+            staysGrid.innerHTML="";
+            if(!properties.length){ staysGrid.hidden=false; staysGrid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:35px 16px;color:#64756b;"><div style="font-size:34px;margin-bottom:8px;">🏡</div><strong>هنوز اقامتگاهی ثبت نشده است.</strong><p style="margin-top:8px;">از پنل مدیریت اولین اقامتگاه را اضافه کن.</p></div>'; stayCards=[]; updateFavoriteButtons(); filterStays(); return; }
+            properties.forEach(property=>{ const info=getCategoryInfo(property.category); const capacityText=property.capacity?`🛏️ ظرفیت ${Number(property.capacity).toLocaleString("fa-IR")} نفر`:"🛏️ ظرفیت قابل‌استعلام"; const image=property.image_url||"images/villa1.jpg"; const card=document.createElement("article"); card.className="stay-card"; card.dataset.category=property.category||"villa"; card.dataset.location=property.location||""; card.dataset.title=property.title||""; card.dataset.capacity=property.capacity||""; card.dataset.price=Number(property.price)>0?String(Number(property.price)):""; card.dataset.createdAt=property.created_at||""; card.dataset.id=property.id||""; card.innerHTML=`<div class="card-image"><img src="${escapeHtml(image)}" alt="${escapeHtml(property.title)}" loading="lazy" onerror="this.src='images/villa1.jpg'"><span class="image-badge ${property.category==="forest"?"green-badge":""}">${escapeHtml(info[0])}</span><button class="favorite-button" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false">♡</button></div><div class="card-body"><div class="card-location"><span>⌖</span>${escapeHtml(property.location)}</div><h3>${escapeHtml(property.title)}</h3><div class="card-features"><span>${capacityText}</span><span>${escapeHtml(info[1])}</span><span>${escapeHtml(info[2])}</span></div><div class="card-footer"><div class="price"><strong>${formatPrice(property.price)}</strong><small>برای هر شب اقامت</small></div><a class="card-button" href="${getPropertyLink(property)}" aria-label="مشاهده و رزرو ${escapeHtml(property.title)}">مشاهده و رزرو</a></div></div>`; staysGrid.appendChild(card); });
+            const destinationOptions = [...new Set(properties.map(property => String(property.location || "").trim()).filter(Boolean))];
+            destinationSuggestions.innerHTML = destinationOptions.map(location => `<option value="${escapeHtml(location)}"></option>`).join("");
+            stayCards=[...document.querySelectorAll(".stay-card")]; stayCards.forEach(card=>{const button=card.querySelector(".favorite-button"); button.addEventListener("click",event=>{event.preventDefault(); event.stopPropagation(); const id=card.dataset.id; const title=card.dataset.title; const key=id||title; const favorites=loadFavorites(); const updated=favorites.includes(key)?favorites.filter(x=>x!==key):[...favorites,key]; if(saveFavorites(updated)){updateFavoriteButtons();filterStays();}});}); updateFavoriteButtons(); filterStays(); }
+        async function loadProperties(){ try{ if(typeof afraSupabase==="undefined") throw new Error("Supabase not loaded"); const {data,error}=await afraSupabase.from("properties").select("id,title,location,category,capacity,price,description,image_url,is_active,created_at").eq("is_active",true).order("created_at",{ascending:false}); if(error) throw error; renderProperties(data||[]); }catch(error){ console.error(error); staysGrid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:35px 16px;color:#a32436;">⚠️ دریافت اقامتگاه‌ها انجام نشد. اتصال Supabase را بررسی کن.</div>'; stayCards=[]; filterStays(); } }
+
+        function updateFavoriteButtons() {
+            const favorites = loadFavorites();
+
+            stayCards.forEach(card => {
+                const button = card.querySelector(".favorite-button");
+                if (!button) return;
+
+                const favoriteKey = card.dataset.id || card.dataset.title;
+                const isFavorite = favorites.includes(favoriteKey) || favorites.includes(card.dataset.title);
+
+                button.setAttribute("aria-pressed", String(isFavorite));
+                button.classList.toggle("is-favorite", isFavorite);
+                button.textContent = isFavorite ? "♥" : "♡";
+
+                button.setAttribute(
+                    "aria-label",
+                    isFavorite
+                        ? "حذف از علاقه‌مندی‌ها"
+                        : "افزودن به علاقه‌مندی‌ها"
+                );
+            });
+        }
+
+        function getLocalToday() {
+            const date = new Date();
+            date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+            return date.toISOString().split("T")[0];
+        }
+
+        const localToday = getLocalToday();
+
+        checkinInput.min = localToday;
+        checkoutInput.min = localToday;
+
+        // تقویم شمسی سفارشی؛ مقدار واقعی ورودی‌ها همچنان ISO میلادی می‌ماند
+        const jalaliCalendar = document.getElementById("jalaliCalendar");
+        const jalaliTriggers = [...document.querySelectorAll(".jalali-date-trigger")];
+        const persianDateFormatter = new Intl.DateTimeFormat("en-US-u-ca-persian-nu-latn", {
+            timeZone: "UTC", year: "numeric", month: "numeric", day: "numeric"
+        });
+        const persianMonthFormatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+            timeZone: "UTC", year: "numeric", month: "long"
+        });
+        const persianDigits = value => String(value).replace(/\d/g, digit => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]);
+        const parseISODate = value => {
+            if (!value) return null;
+            const parts = value.split("-").map(Number);
+            return new Date(Date.UTC(parts[0], parts[1] - 1, parts[2], 12));
+        };
+        const toISODate = date => `${date.getUTCFullYear()}-${String(date.getUTCMonth()+1).padStart(2,"0")}-${String(date.getUTCDate()).padStart(2,"0")}`;
+        const jalaliParts = date => {
+            const parts = persianDateFormatter.formatToParts(date);
+            return {
+                year: Number(parts.find(p => p.type === "year").value),
+                month: Number(parts.find(p => p.type === "month").value),
+                day: Number(parts.find(p => p.type === "day").value)
+            };
+        };
+        const formatJalaliDate = iso => {
+            const date = parseISODate(iso);
+            if (!date) return "انتخاب تاریخ";
+            const p = jalaliParts(date);
+            return `${persianDigits(p.day)} ${persianMonthFormatter.format(date).replace(/[\d۰-۹]+/g, "").trim()} ${persianDigits(p.year)}`;
+        };
+        function syncJalaliDateLabels() {
+            jalaliTriggers.forEach(trigger => {
+                const input = document.getElementById(trigger.dataset.dateTarget);
+                trigger.querySelector("span:first-child").textContent = formatJalaliDate(input.value);
+            });
+        }
+        let calendarTarget = null;
+        let calendarAnchor = parseISODate(localToday);
+        const weekdayNames = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
+        function findJalaliMonthDays(anchor) {
+            const wanted = jalaliParts(anchor);
+            const start = new Date(anchor.getTime());
+            start.setUTCDate(start.getUTCDate() - 20);
+            const dates = [];
+            for (let i = 0; i < 75; i++) {
+                const d = new Date(start.getTime()); d.setUTCDate(start.getUTCDate() + i);
+                const parts = jalaliParts(d);
+                if (parts.year === wanted.year && parts.month === wanted.month) dates.push(d);
+            }
+            return { ...wanted, dates };
+        }
+        function openJalaliCalendar(target) {
+            calendarTarget = target;
+            const selected = parseISODate(document.getElementById(target).value);
+            calendarAnchor = selected || parseISODate(localToday);
+            renderJalaliCalendar();
+            jalaliCalendar.hidden = false;
+            const trigger = document.querySelector(`[data-date-target="${target}"]`);
+            const rect = trigger.getBoundingClientRect();
+            if (window.innerWidth > 900) {
+                jalaliCalendar.style.position = "absolute";
+                jalaliCalendar.style.left = "auto";
+                jalaliCalendar.style.top = `${window.scrollY + rect.bottom + 8}px`;
+                jalaliCalendar.style.right = `${Math.max(12, window.innerWidth - rect.right - window.scrollX)}px`;
+            } else {
+                jalaliCalendar.style.position = "fixed";
+                jalaliCalendar.style.left = "50%";
+                jalaliCalendar.style.right = "auto";
+                jalaliCalendar.style.top = "50%";
+                jalaliCalendar.style.transform = "translate(-50%,-50%)";
+            }
+        }
+        function renderJalaliCalendar() {
+            const month = findJalaliMonthDays(calendarAnchor);
+            const first = month.dates[0];
+            const firstWeekday = (first.getUTCDay() + 1) % 7; // شنبه = ستون اول
+            const selectedISO = document.getElementById(calendarTarget).value;
+            const todayISO = localToday;
+            let html = `<div class="calendar-head"><button type="button" class="calendar-nav" data-calendar-move="1" aria-label="ماه بعد">‹</button><div class="calendar-month">${persianMonthFormatter.format(calendarAnchor)}</div><button type="button" class="calendar-nav" data-calendar-move="-1" aria-label="ماه قبل">›</button></div>`;
+            html += `<div class="calendar-weekdays">${weekdayNames.map(d=>`<span>${d}</span>`).join("")}</div><div class="calendar-days">`;
+            for (let i=0;i<firstWeekday;i++) html += '<span class="calendar-empty"></span>';
+            month.dates.forEach(date => {
+                const iso = toISODate(date);
+                const parts = jalaliParts(date);
+                const disabled = iso < localToday || (calendarTarget === "checkout" && checkinInput.value && iso <= checkinInput.value);
+                const classes = [iso===todayISO?"today":"",iso===selectedISO?"selected":""].filter(Boolean).join(" ");
+                html += `<button type="button" class="calendar-day ${classes}" data-calendar-date="${iso}" ${disabled?"disabled":""} aria-label="${persianDigits(parts.day)}">${persianDigits(parts.day)}</button>`;
+            });
+            html += `</div><div class="calendar-foot">تاریخ‌ها بر اساس تقویم شمسی نمایش داده می‌شوند</div>`;
+            jalaliCalendar.innerHTML = html;
+        }
+        jalaliTriggers.forEach(trigger => trigger.addEventListener("click", () => openJalaliCalendar(trigger.dataset.dateTarget)));
+        jalaliCalendar.addEventListener("click", function (event) {
+            const button = event.target instanceof Element
+                ? event.target.closest("button")
+                : null;
+
+            if (!button || !jalaliCalendar.contains(button)) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            // رفتن به ماه قبل یا بعد
+            if (button.hasAttribute("data-calendar-move")) {
+                const direction = Number(button.getAttribute("data-calendar-move"));
+                const month = findJalaliMonthDays(calendarAnchor);
+                if (!month.dates.length) return;
+
+                const edge = direction > 0
+                    ? month.dates[month.dates.length - 1]
+                    : month.dates[0];
+
+                calendarAnchor = new Date(edge.getTime());
+                calendarAnchor.setUTCDate(
+                    calendarAnchor.getUTCDate() + (direction > 0 ? 5 : -5)
+                );
+                renderJalaliCalendar();
+                return;
+            }
+
+            // انتخاب روز تقویم
+            if (button.hasAttribute("data-calendar-date") && !button.disabled) {
+                const selectedDate = button.getAttribute("data-calendar-date");
+                const targetInput = document.getElementById(calendarTarget);
+                if (!targetInput || !selectedDate) return;
+
+                targetInput.value = selectedDate;
+
+                if (calendarTarget === "checkin") {
+                    checkoutInput.min = selectedDate;
+                    if (checkoutInput.value && checkoutInput.value <= selectedDate) {
+                        checkoutInput.value = "";
+                    }
+                }
+
+                syncJalaliDateLabels();
+                targetInput.dispatchEvent(new Event("input", { bubbles: true }));
+                targetInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+                jalaliCalendar.hidden = true;
+                searchSubmitted = false;
+                setFeedback("");
+            }
+        });
+        document.addEventListener("click", event => {
+            if (!jalaliCalendar.hidden && !jalaliCalendar.contains(event.target) && !event.target.closest(".jalali-date-trigger")) jalaliCalendar.hidden = true;
+        });
+        document.addEventListener("keydown", event => { if (event.key === "Escape") jalaliCalendar.hidden = true; });
+        syncJalaliDateLabels();
+
+        checkinInput.addEventListener("change", () => {
+            checkoutInput.min = checkinInput.value || localToday;
+
+            if (
+                checkoutInput.value &&
+                checkinInput.value &&
+                checkoutInput.value <= checkinInput.value
+            ) {
+                checkoutInput.value = "";
+            }
+        });
+
+        function setFeedback(message, isError = false) {
+            searchFeedback.textContent = message;
+            searchFeedback.classList.toggle("error", isError);
+        }
+
+        function getCapacity(card) {
+            const rawCapacity = card.dataset.capacity;
+            if (!rawCapacity) return null;
+
+            const capacity = Number(rawCapacity);
+
+            return Number.isInteger(capacity) && capacity > 0
+                ? capacity
+                : null;
+        }
+
+        function filterStays() {
+            const destination = normalizeText(destinationInput.value);
+            const favorites = loadFavorites();
+
+            selectedGuestCount = Number(guestCount.value) || 1;
+
+            let visibleCount = 0;
+            let unknownCapacityCount = 0;
+
+            const minPrice = minPriceInput.value.trim() === "" ? null : Number(minPriceInput.value);
+            const maxPrice = maxPriceInput.value.trim() === "" ? null : Number(maxPriceInput.value);
+            const orderedCards = [...stayCards].sort((a, b) => {
+                const priceA = Number(a.dataset.price) || Number.POSITIVE_INFINITY;
+                const priceB = Number(b.dataset.price) || Number.POSITIVE_INFINITY;
+                const capacityA = getCapacity(a) ?? -1;
+                const capacityB = getCapacity(b) ?? -1;
+                if (sortProperties.value === "priceAsc") return priceA - priceB;
+                if (sortProperties.value === "priceDesc") return priceB - priceA;
+                if (sortProperties.value === "capacityDesc") return capacityB - capacityA;
+                return new Date(b.dataset.createdAt || 0) - new Date(a.dataset.createdAt || 0);
+            });
+            orderedCards.forEach(card => staysGrid.appendChild(card));
+
+            stayCards.forEach(card => {
+                const location = normalizeText(card.dataset.location);
+                const title = normalizeText(card.dataset.title);
+                const category = card.dataset.category;
+
+                const matchesDestination =
+                    !destination ||
+                    location.includes(destination) ||
+                    title.includes(destination);
+
+                const matchesCategory =
+                    selectedCategory === "all" ||
+                    category === selectedCategory;
+
+                const matchesFavorite =
+                    !showFavoritesOnly ||
+                    (favorites.includes(card.dataset.id) || favorites.includes(card.dataset.title));
+
+                const capacity = getCapacity(card);
+                const matchesCapacity = capacity !== null && capacity >= selectedGuestCount;
+                const capacityAllowed = selectedGuestCount <= 2 || matchesCapacity;
+
+                const price = Number(card.dataset.price);
+                const hasPrice = Number.isFinite(price) && price > 0;
+                const matchesMinPrice = minPrice === null || (hasPrice && price >= minPrice);
+                const matchesMaxPrice = maxPrice === null || (hasPrice && price <= maxPrice);
+                const matchesPrice = matchesMinPrice && matchesMaxPrice;
+
+                const visible = matchesDestination && matchesCategory && matchesFavorite && capacityAllowed && matchesPrice;
+                card.hidden = !visible;
+
+                if (visible) {
+                    visibleCount++;
+                    if (capacity === null) unknownCapacityCount++;
+                }
+            });
+
+            resultsCount.textContent =
+                visibleCount.toLocaleString("fa-IR") + " اقامتگاه";
+
+            emptyState.hidden = visibleCount !== 0;
+            staysGrid.hidden = visibleCount === 0;
+
+            if (visibleCount === 0 && showFavoritesOnly) {
+                emptyStateTitle.textContent = "اقامتگاه موردعلاقه‌ای پیدا نشد!";
+                emptyStateDescription.textContent =
+                    "فیلترها رو تغییر بده یا از قلب کنار عکس اقامتگاه‌ها استفاده کن.";
+            } else if (visibleCount === 0 && selectedGuestCount > 2) {
+                emptyStateTitle.textContent = "ظرفیت مناسب پیدا نشد!";
+                emptyStateDescription.textContent =
+                    "ظرفیت واقعی اقامتگاه‌ها هنوز ثبت نشده یا برای تعداد نفرات انتخابی کافی نیست. برای بررسی ظرفیت با میزبان تماس بگیر.";
+            } else if (visibleCount === 0 && (minPrice !== null || maxPrice !== null)) {
+                emptyStateTitle.textContent = "در این بازه قیمتی اقامتگاهی پیدا نشد!";
+                emptyStateDescription.textContent =
+                    "محدوده قیمت را تغییر بده یا فیلترهای قیمت را پاک کن.";
+            } else if (visibleCount === 0) {
+                emptyStateTitle.textContent = "اقامتگاهی پیدا نشد!";
+                emptyStateDescription.textContent =
+                    "مقصد یا دسته‌بندی دیگری رو امتحان کن.";
+            } else {
+                emptyStateTitle.textContent = "اقامتگاه‌های پیشنهادی";
+                emptyStateDescription.textContent =
+                    "برای بررسی ظرفیت و شرایط رزرو با میزبان تماس بگیر.";
+            }
+
+            if (searchSubmitted) {
+                if (visibleCount === 0) {
+                    if (selectedGuestCount > 2) {
+                        setFeedback(
+                            "ظرفیت تأییدشده‌ای برای این جست‌وجو ثبت نشده است. لطفاً برای بررسی ظرفیت با میزبان تماس بگیر.",
+                            true
+                        );
+                    } else {
+                        setFeedback(
+                            "برای این مقصد و فیلترها نتیجه‌ای پیدا نشد. مقصد یا نوع اقامتگاه دیگری را امتحان کن.",
+                            true
+                        );
+                    }
+                } else {
+                    let message =
+                        "تعداد نتایج: " +
+                        visibleCount.toLocaleString("fa-IR") +
+                        " اقامتگاه. ";
+
+                    if (selectedGuestCount <= 2) {
+                        message +=
+                            "ظرفیت واقعی باید پیش از رزرو با میزبان تأیید شود. ";
+                    }
+
+                    if (unknownCapacityCount > 0) {
+                        message +=
+                            "ظرفیت بعضی اقامتگاه‌ها هنوز ثبت نشده است. ";
+                    }
+
+                    if (checkinInput.value && checkoutInput.value) {
+                        message +=
+                            "تاریخ انتخابی شما " +
+                            formatJalaliDate(checkinInput.value) +
+                            " تا " +
+                            formatJalaliDate(checkoutInput.value) +
+                            " است؛ خالی بودن این تاریخ‌ها هنوز تأیید نشده.";
+                    } else {
+                        message +=
+                            "برای اطلاع از خالی بودن تاریخ‌ها با میزبان تماس بگیر.";
+                    }
+
+                    setFeedback(message);
+                }
+            }
+        }
+
+        favoritesToggle.addEventListener("click", () => {
+            showFavoritesOnly = !showFavoritesOnly;
+
+            favoritesToggle.textContent = showFavoritesOnly
+                ? "🏡 نمایش همه اقامتگاه‌ها"
+                : "❤️ علاقه‌مندی‌های من";
+
+            favoritesToggle.setAttribute(
+                "aria-pressed",
+                String(showFavoritesOnly)
+            );
+
+            searchSubmitted = false;
+            setFeedback("");
+            filterStays();
+
+            document.getElementById("stays").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+
+        categoryButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                selectedCategory = button.dataset.category;
+                searchCategory.value = selectedCategory;
+                searchSubmitted = false;
+                setFeedback("");
+                updateSelectedCategory();
+                filterStays();
+            });
+        });
+
+        function updateSelectedCategory() {
+            categoryButtons.forEach(button => {
+                button.classList.toggle(
+                    "selected",
+                    button.dataset.category === selectedCategory
+                );
+            });
+        }
+
+        searchForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            if (checkinInput.value && checkinInput.value < localToday) {
+                setFeedback("تاریخ ورود نمی‌تواند در گذشته باشد.", true);
+                checkinInput.focus();
+                return;
+            }
+
+            if (checkoutInput.value && checkoutInput.value < localToday) {
+                setFeedback("تاریخ خروج نمی‌تواند در گذشته باشد.", true);
+                checkoutInput.focus();
+                return;
+            }
+
+            if (
+                checkinInput.value &&
+                checkoutInput.value &&
+                checkoutInput.value <= checkinInput.value
+            ) {
+                setFeedback(
+                    "تاریخ خروج باید حداقل یک روز بعد از تاریخ ورود باشد.",
+                    true
+                );
+                checkoutInput.focus();
+                return;
+            }
+
+            if (minPriceInput.value.trim() !== "" && Number(minPriceInput.value) < 0) {
+                setFeedback("حداقل قیمت نمی‌تواند منفی باشد.", true);
+                minPriceInput.focus();
+                return;
+            }
+
+            if (maxPriceInput.value.trim() !== "" && Number(maxPriceInput.value) < 0) {
+                setFeedback("حداکثر قیمت نمی‌تواند منفی باشد.", true);
+                maxPriceInput.focus();
+                return;
+            }
+
+            if (minPriceInput.value.trim() !== "" && maxPriceInput.value.trim() !== "" && Number(minPriceInput.value) > Number(maxPriceInput.value)) {
+                setFeedback("حداقل قیمت نباید از حداکثر قیمت بیشتر باشد.", true);
+                maxPriceInput.focus();
+                return;
+            }
+
+            selectedCategory = searchCategory.value;
+            searchSubmitted = true;
+
+            updateSelectedCategory();
+            filterStays();
+            closeSearchFilters();
+
+            document.getElementById("stays").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+
+        destinationInput.addEventListener("input", () => {
+            searchSubmitted = false;
+            setFeedback("");
+            filterStays();
+        });
+
+        function openSearchDropdown() {
+            searchDropdown.hidden = false;
+            destinationInput.setAttribute("aria-expanded", "true");
+        }
+
+        function closeSearchFilters() {
+            searchDropdown.hidden = true;
+            destinationInput.setAttribute("aria-expanded", "false");
+        }
+
+        destinationInput.addEventListener("focus", openSearchDropdown);
+        destinationInput.addEventListener("click", openSearchDropdown);
+        closeSearchDropdown.addEventListener("click", closeSearchFilters);
+
+        document.addEventListener("pointerdown", event => {
+            if (!searchForm.contains(event.target) && !event.target.closest(".jalali-calendar")) {
+                closeSearchFilters();
+            }
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeSearchFilters();
+        });
+
+        searchCategory.addEventListener("change", () => {
+            selectedCategory = searchCategory.value;
+            searchSubmitted = false;
+            setFeedback("");
+            updateSelectedCategory();
+            filterStays();
+        });
+
+        guestCount.addEventListener("change", () => {
+            searchSubmitted = false;
+            setFeedback("");
+            filterStays();
+        });
+
+        checkinInput.addEventListener("change", () => {
+            searchSubmitted = false;
+            setFeedback("");
+            syncJalaliDateLabels();
+        });
+
+        checkoutInput.addEventListener("change", () => {
+            searchSubmitted = false;
+            setFeedback("");
+            syncJalaliDateLabels();
+        });
+
+        [minPriceInput, maxPriceInput, sortProperties].forEach(control => {
+            control.addEventListener("change", () => {
+                searchSubmitted = false;
+                setFeedback("");
+                filterStays();
+            });
+        });
+
+        document.getElementById("clearAdvancedFilters").addEventListener("click", () => {
+            minPriceInput.value = "";
+            maxPriceInput.value = "";
+            sortProperties.value = "newest";
+            searchSubmitted = false;
+            setFeedback("");
+            filterStays();
+        });
+
+        document.querySelectorAll("#resetSearch, #resetSearchDropdown").forEach(resetButton => resetButton.addEventListener("click", () => {
+            destinationInput.value = "";
+            checkinInput.value = "";
+            checkoutInput.value = "";
+            syncJalaliDateLabels();
+            guestCount.value = "2";
+            searchCategory.value = "all";
+            minPriceInput.value = "";
+            maxPriceInput.value = "";
+            sortProperties.value = "newest";
+
+            selectedCategory = "all";
+            searchSubmitted = false;
+            showFavoritesOnly = false;
+
+            favoritesToggle.textContent = "❤️ علاقه‌مندی‌های من";
+            favoritesToggle.setAttribute("aria-pressed", "false");
+
+            checkinInput.min = localToday;
+            checkoutInput.min = localToday;
+
+            setFeedback("");
+            updateSelectedCategory();
+            filterStays();
+            closeSearchFilters();
+        }));
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = mainNav.classList.toggle("nav-open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        mainNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                mainNav.classList.remove("nav-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && mainNav.classList.contains("nav-open")) {
+                mainNav.classList.remove("nav-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.focus();
+            }
+        });
+
+        document.addEventListener("click", event => {
+            if (mainNav.classList.contains("nav-open") &&
+                !mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+                mainNav.classList.remove("nav-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+
+
+
+        /* ===== احراز هویت مهمان و میزبان ===== */
+        const authModal = document.getElementById("authModal");
+        const authClose = document.getElementById("authClose");
+        const authMessage = document.getElementById("authMessage");
+        const authForms = document.getElementById("authForms");
+        const authUserPanel = document.getElementById("authUserPanel");
+        const authUserName = document.getElementById("authUserName");
+        const authUserEmail = document.getElementById("authUserEmail");
+        const loginForm = document.getElementById("loginForm");
+        const guestSignupForm = document.getElementById("guestSignupForm");
+        const ownerSignupForm = document.getElementById("ownerSignupForm");
+        const authModalTitle = document.getElementById("authModalTitle");
+        const authModalDescription = document.getElementById("authModalDescription");
+
+        function showAuthMessage(message, isError=false) {
+            authMessage.textContent = message;
+            authMessage.className = "auth-message show" + (isError ? " error" : "");
+        }
+        function clearAuthMessage() {
+            authMessage.textContent = "";
+            authMessage.className = "auth-message";
+        }
+        function setAuthMode(mode) {
+            clearAuthMessage();
+            loginForm.hidden = mode !== "login";
+            guestSignupForm.hidden = mode !== "guest-signup";
+            ownerSignupForm.hidden = mode !== "owner-signup";
+            if (mode === "owner-signup") {
+                authModalTitle.textContent = "ثبت‌نام میزبان";
+                authModalDescription.textContent = "اطلاعات خود و اقامتگاهت را ثبت کن تا درخواست میزبانی بررسی شود.";
+            } else if (mode === "guest-signup") {
+                authModalTitle.textContent = "ساخت حساب مهمان";
+                authModalDescription.textContent = "با ساخت حساب، رزروها و اطلاعات سفرت را راحت‌تر مدیریت کن.";
+            } else {
+                authModalTitle.textContent = "ورود به حساب";
+                authModalDescription.textContent = "با ایمیل و رمز عبور وارد حساب افرا سفر شوید.";
+            }
+        }
+        function openAuthModal(mode="login") {
+            authUserPanel.classList.remove("show");
+            authForms.style.display = "block";
+            setAuthMode(mode);
+            authModal.classList.add("is-open");
+            authModal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+            setTimeout(() => {
+                const first = authModal.querySelector("form:not([hidden]) input");
+                if (first) first.focus();
+            }, 50);
+        }
+        function closeAuthModal() {
+            authModal.classList.remove("is-open");
+            authModal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+            clearAuthMessage();
+        }
+        function showLoggedInPanel(user) {
+            authForms.style.display = "none";
+            authUserPanel.classList.add("show");
+            authUserEmail.textContent = user.email || "";
+            authUserName.textContent = user.user_metadata?.full_name || "حساب کاربری شما";
+            authModal.classList.add("is-open");
+            authModal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+        }
+
+        document.querySelectorAll("[data-auth-open]").forEach(button => {
+            button.addEventListener("click", async () => {
+                const mode = button.dataset.authOpen;
+                if (mode === "login") {
+                    const { data } = await afraSupabase.auth.getSession();
+                    if (data?.session?.user) return showLoggedInPanel(data.session.user);
+                }
+                openAuthModal(mode);
+            });
+        });
+        document.querySelectorAll("[data-auth-switch]").forEach(button => {
+            button.addEventListener("click", () => setAuthMode(button.dataset.authSwitch));
+        });
+        authClose.addEventListener("click", closeAuthModal);
+        authModal.addEventListener("click", event => { if (event.target === authModal) closeAuthModal(); });
+        document.addEventListener("keydown", event => { if (event.key === "Escape" && authModal.classList.contains("is-open")) closeAuthModal(); });
+
+        loginForm.addEventListener("submit", async event => {
+            event.preventDefault();
+            clearAuthMessage();
+            const email = document.getElementById("loginEmail").value.trim();
+            const password = document.getElementById("loginPassword").value;
+            const button = loginForm.querySelector("button[type='submit']");
+            button.disabled = true; button.textContent = "در حال ورود...";
+            try {
+                const { data, error } = await afraSupabase.auth.signInWithPassword({ email, password });
+                if (error) throw error;
+                showLoggedInPanel(data.user);
+            } catch (error) {
+                showAuthMessage(error?.message || "ورود انجام نشد. ایمیل و رمز عبور را بررسی کن.", true);
+            } finally { button.disabled = false; button.textContent = "ورود به حساب"; }
+        });
+
+        guestSignupForm.addEventListener("submit", async event => {
+            event.preventDefault();
+            clearAuthMessage();
+            const fullName = document.getElementById("guestSignupName").value.trim();
+            const email = document.getElementById("guestSignupEmail").value.trim();
+            const password = document.getElementById("guestSignupPassword").value;
+            const button = guestSignupForm.querySelector("button[type='submit']");
+            button.disabled = true; button.textContent = "در حال ساخت حساب...";
+            try {
+                const { data, error } = await afraSupabase.auth.signUp({
+                    email, password,
+                    options: { data: { account_type: "guest", full_name: fullName } }
+                });
+                if (error) throw error;
+                if (data.session) showLoggedInPanel(data.user);
+                else showAuthMessage("حساب ساخته شد. اگر تأیید ایمیل فعال باشد، ایمیل تأیید برایت ارسال می‌شود. سپس با همان ایمیل وارد شو.");
+            } catch (error) {
+                showAuthMessage(error?.message || "ثبت‌نام انجام نشد. اطلاعات را بررسی کن.", true);
+            } finally { button.disabled = false; button.textContent = "ساخت حساب مهمان"; }
+        });
+
+        ownerSignupForm.addEventListener("submit", async event => {
+            event.preventDefault();
+            clearAuthMessage();
+            const fullName = document.getElementById("ownerSignupName").value.trim();
+            const phone = document.getElementById("ownerSignupPhone").value.trim();
+            const email = document.getElementById("ownerSignupEmail").value.trim();
+            const password = document.getElementById("ownerSignupPassword").value;
+            const button = ownerSignupForm.querySelector("button[type='submit']");
+            button.disabled = true; button.textContent = "در حال ثبت درخواست...";
+            try {
+                const { data, error } = await afraSupabase.auth.signUp({
+                    email, password,
+                    options: { data: { account_type: "owner", full_name: fullName, phone } }
+                });
+                if (error) throw error;
+                if (data.session) showAuthMessage("درخواست میزبانی ثبت شد. پس از تأیید، می‌توانی اقامتگاهت را اضافه کنی.");
+                else showAuthMessage("ثبت‌نام میزبان انجام شد. در صورت فعال بودن تأیید ایمیل، ابتدا ایمیلت را تأیید کن؛ سپس درخواستت بررسی می‌شود.");
+            } catch (error) {
+                showAuthMessage(error?.message || "ثبت‌نام میزبان انجام نشد. اطلاعات را بررسی کن.", true);
+            } finally { button.disabled = false; button.textContent = "ثبت درخواست میزبانی"; }
+        });
+
+        document.getElementById("authLogout").addEventListener("click", async () => {
+            await afraSupabase.auth.signOut();
+            closeAuthModal();
+            location.reload();
+        });
+
+        updateSelectedCategory();
+        loadProperties();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1686 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123d32">
+  <meta name="description" content="مشاهده تصاویر، امکانات، ظرفیت و ثبت درخواست رزرو ویلای سخاوه استخردار فرهنگ در اربکله رامسر با افرا سفر.">
+  <title>ویلای سخاوه استخردار فرهنگ | افرا سفر</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+
+  <style>
+    :root {
+      --villa-primary: #123d32;
+      --villa-primary-light: #e8f1eb;
+      --villa-gold: #d9b879;
+      --villa-text: #26332e;
+      --villa-muted: #758079;
+      --villa-background: #f5f7f5;
+      --villa-border: #e5eae6;
+      --villa-white: #ffffff;
+      --villa-danger: #b42318;
+      --villa-radius: 18px;
+      --villa-shadow: 0 8px 30px rgba(18, 61, 50, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background: var(--villa-background);
+      color: var(--villa-text);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body, button, input, select {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+    }
+
+    button, a, input, select {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button, input, select {
+      font-size: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid rgba(217, 184, 121, 0.8);
+      outline-offset: 3px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .afv-container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* Header */
+
+    .afv-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--villa-border);
+      backdrop-filter: blur(12px);
+    }
+
+    .afv-header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .afv-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .afv-brand-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 45px;
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      background: var(--villa-primary);
+      color: white;
+      font-size: 23px;
+    }
+
+    .afv-brand-name {
+      display: block;
+      color: var(--villa-primary);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .afv-brand-caption {
+      display: block;
+      color: var(--villa-muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .afv-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .afv-back-link,
+    .afv-header-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .afv-back-link {
+      color: var(--villa-primary);
+      background: var(--villa-primary-light);
+    }
+
+    .afv-back-link:hover {
+      background: #dce9df;
+    }
+
+    .afv-header-contact {
+      color: white;
+      background: var(--villa-primary);
+    }
+
+    .afv-header-contact:hover {
+      background: #0b2d24;
+    }
+
+    /* Breadcrumb */
+
+    .afv-breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 23px 0 15px;
+      color: var(--villa-muted);
+      font-size: 12px;
+    }
+
+    .afv-breadcrumb a:hover {
+      color: var(--villa-primary);
+    }
+
+    .afv-breadcrumb-separator {
+      color: #b1b9b3;
+    }
+
+    /* Title */
+
+    .afv-title-area {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .afv-title-area h1 {
+      margin: 0;
+      color: var(--villa-primary);
+      font-size: clamp(22px, 3vw, 31px);
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .afv-location {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 7px;
+      color: var(--villa-muted);
+      font-size: 13px;
+    }
+
+    .afv-title-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      flex-shrink: 0;
+    }
+
+    .afv-action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 42px;
+      padding: 9px 13px;
+      border: 1px solid var(--villa-border);
+      border-radius: 12px;
+      background: white;
+      color: var(--villa-text);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .afv-action-button:hover {
+      border-color: var(--villa-primary);
+    }
+
+    .afv-favorite-button.is-active {
+      color: #b42318;
+      background: #fff4f2;
+      border-color: #f2c8c4;
+    }
+
+    /* Gallery */
+
+    .afv-gallery {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .afv-gallery-main,
+    .afv-gallery-thumb {
+      position: relative;
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      padding: 0;
+      border: 0;
+      background: #e8ece8;
+      border-radius: 15px;
+    }
+
+    .afv-gallery-main {
+      height: 410px;
+    }
+
+    .afv-gallery-main img,
+    .afv-gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .afv-gallery-main:hover img,
+    .afv-gallery-thumb:hover img {
+      transform: scale(1.025);
+    }
+
+    .afv-gallery-side {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .afv-gallery-thumb {
+      min-height: 0;
+      height: 199px;
+      border: 2px solid transparent;
+    }
+
+    .afv-gallery-thumb.is-active {
+      border-color: var(--villa-primary);
+    }
+
+    .afv-gallery-label {
+      position: absolute;
+      right: 13px;
+      bottom: 13px;
+      z-index: 2;
+      padding: 6px 11px;
+      border-radius: 9px;
+      color: white;
+      background: rgba(18, 61, 50, 0.9);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Main layout */
+
+    .afv-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 355px;
+      align-items: start;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .afv-main-content {
+      min-width: 0;
+    }
+
+    .afv-section {
+      margin-bottom: 18px;
+      padding: 23px;
+      border: 1px solid var(--villa-border);
+      border-radius: var(--villa-radius);
+      background: var(--villa-white);
+      box-shadow: var(--villa-shadow);
+    }
+
+    .afv-section h2 {
+      margin: 0 0 15px;
+      color: var(--villa-primary);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .afv-section p {
+      margin: 0;
+      color: #58645d;
+      font-size: 14px;
+      line-height: 2.1;
+    }
+
+    .afv-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .afv-highlight {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 15px 12px;
+      border: 1px solid var(--villa-border);
+      border-radius: 14px;
+      background: white;
+    }
+
+    .afv-highlight-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--villa-primary-light);
+      font-size: 19px;
+    }
+
+    .afv-highlight strong {
+      display: block;
+      color: var(--villa-text);
+      font-size: 12px;
+    }
+
+    .afv-highlight span {
+      display: block;
+      color: var(--villa-muted);
+      font-size: 11px;
+    }
+
+    .afv-features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .afv-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #f7f9f7;
+      font-size: 13px;
+    }
+
+    .afv-feature-icon {
+      color: var(--villa-primary);
+      font-size: 19px;
+    }
+
+    .afv-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 18px;
+    }
+
+    .afv-info-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--villa-border);
+      font-size: 13px;
+    }
+
+    .afv-info-item span {
+      color: var(--villa-muted);
+    }
+
+    .afv-info-item strong {
+      text-align: left;
+      color: var(--villa-text);
+    }
+
+    /* Booking card */
+
+    .afv-booking-card {
+      position: sticky;
+      top: 96px;
+      min-width: 0;
+      padding: 23px;
+      border: 1px solid var(--villa-border);
+      border-radius: var(--villa-radius);
+      background: white;
+      box-shadow: 0 10px 36px rgba(18, 61, 50, 0.09);
+    }
+
+    .afv-booking-heading {
+      margin-bottom: 17px;
+    }
+
+    .afv-booking-heading h2 {
+      margin: 0 0 4px;
+      color: var(--villa-primary);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .afv-booking-heading p {
+      margin: 0;
+      color: var(--villa-muted);
+      font-size: 12px;
+    }
+
+    .afv-form-group {
+      margin-bottom: 14px;
+    }
+
+    .afv-form-group label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--villa-text);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .afv-form-control {
+      display: block;
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 12px;
+      border: 1px solid #dfe6e0;
+      border-radius: 11px;
+      background: white;
+      color: var(--villa-text);
+      outline: none;
+      font-size: 13px;
+    }
+
+    .afv-form-control:focus {
+      border-color: var(--villa-primary);
+      box-shadow: 0 0 0 3px rgba(18, 61, 50, 0.07);
+    }
+
+    .afv-date-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .afv-status {
+      margin: 4px 0 14px;
+      padding: 11px 12px;
+      border-radius: 11px;
+      background: #f2f6f2;
+      color: #4d6254;
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .afv-status.is-error {
+      background: #fff1f0;
+      color: var(--villa-danger);
+    }
+
+    .afv-status.is-success {
+      background: #eaf6ed;
+      color: #246b3c;
+    }
+
+    .afv-booking-divider {
+      height: 1px;
+      margin: 17px 0;
+      background: var(--villa-border);
+    }
+
+    .afv-booking-summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: var(--villa-muted);
+      font-size: 12px;
+    }
+
+    .afv-booking-summary strong {
+      color: var(--villa-primary);
+      text-align: left;
+    }
+
+    .afv-booking-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 49px;
+      margin-top: 10px;
+      padding: 12px 15px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--villa-primary);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .afv-booking-button:hover {
+      background: #0b2d24;
+      transform: translateY(-1px);
+    }
+
+    .afv-booking-button.afv-whatsapp {
+      background: #16834a;
+    }
+
+    .afv-booking-button.afv-whatsapp:hover {
+      background: #106c3c;
+    }
+
+    .afv-booking-button.afv-secondary {
+      color: var(--villa-primary);
+      background: var(--villa-primary-light);
+    }
+
+    .afv-booking-button.afv-secondary:hover {
+      background: #dce9df;
+    }
+
+    .afv-booking-note {
+      margin-top: 14px;
+      color: var(--villa-muted);
+      font-size: 10px;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .afv-contact-number {
+      margin-top: 12px;
+      color: var(--villa-muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .afv-contact-number a {
+      direction: ltr;
+      display: inline-block;
+      color: var(--villa-primary);
+      font-weight: 700;
+    }
+
+    /* Footer */
+
+    .afv-footer {
+      margin-top: 35px;
+      padding: 30px 0;
+      border-top: 1px solid var(--villa-border);
+      background: white;
+    }
+
+    .afv-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .afv-footer-title {
+      color: var(--villa-primary);
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .afv-footer-text {
+      margin-top: 4px;
+      color: var(--villa-muted);
+      font-size: 11px;
+    }
+
+    .afv-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: var(--villa-muted);
+      font-size: 12px;
+    }
+
+    .afv-footer-links a:hover {
+      color: var(--villa-primary);
+    }
+
+    .afv-mobile-contact {
+      display: none;
+    }
+
+    /* Persian datepicker */
+
+    .datepicker-container,
+    .datepicker-plot-area {
+      z-index: 9999 !important;
+      font-family: "Vazirmatn", Tahoma, sans-serif !important;
+    }
+
+    .datepicker-plot-area .datepicker-day-view .table-days td span {
+      font-family: "Vazirmatn", Tahoma, sans-serif !important;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1000px) {
+      .afv-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 18px;
+      }
+
+      .afv-gallery-main {
+        height: 350px;
+      }
+
+      .afv-gallery-thumb {
+        height: 169px;
+      }
+
+      .afv-section,
+      .afv-booking-card {
+        padding: 19px;
+      }
+
+      .afv-highlights {
+        gap: 8px;
+      }
+
+      .afv-highlight {
+        padding: 11px 8px;
+      }
+
+      .afv-highlight-icon {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding-bottom: 76px;
+      }
+
+      .afv-container {
+        width: calc(100% - 28px);
+      }
+
+      .afv-header-inner {
+        min-height: 67px;
+      }
+
+      .afv-brand-icon {
+        flex-basis: 39px;
+        width: 39px;
+        height: 39px;
+        border-radius: 12px;
+        font-size: 20px;
+      }
+
+      .afv-brand-name {
+        font-size: 17px;
+      }
+
+      .afv-brand-caption {
+        font-size: 10px;
+      }
+
+      .afv-header-actions {
+        gap: 7px;
+      }
+
+      .afv-back-link,
+      .afv-header-contact {
+        min-height: 39px;
+        padding: 8px 10px;
+        font-size: 11px;
+      }
+
+      .afv-breadcrumb {
+        margin-top: 17px;
+        font-size: 11px;
+      }
+
+      .afv-title-area {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .afv-title-area h1 {
+        font-size: 23px;
+      }
+
+      .afv-title-actions {
+        width: 100%;
+      }
+
+      .afv-gallery {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        margin-bottom: 19px;
+      }
+
+      .afv-gallery-main {
+        height: clamp(220px, 61vw, 370px);
+        border-radius: 13px;
+      }
+
+      .afv-gallery-side {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: auto;
+        gap: 7px;
+      }
+
+      .afv-gallery-thumb {
+        height: clamp(65px, 17vw, 112px);
+        border-radius: 9px;
+      }
+
+      .afv-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .afv-main-content {
+        order: 1;
+      }
+
+      .afv-booking-card {
+        position: static;
+        order: 0;
+        padding: 19px;
+      }
+
+      .afv-highlights {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .afv-highlight {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 11px 9px;
+      }
+
+      .afv-highlight strong {
+        font-size: 11px;
+      }
+
+      .afv-highlight span {
+        font-size: 10px;
+      }
+
+      .afv-section {
+        padding: 18px;
+      }
+
+      .afv-section h2 {
+        font-size: 17px;
+      }
+
+      .afv-footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .afv-mobile-contact {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 200;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+        padding: 10px 14px;
+        border-top: 1px solid var(--villa-border);
+        background: rgba(255, 255, 255, 0.97);
+        box-shadow: 0 -5px 20px rgba(18, 61, 50, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .afv-mobile-contact a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 9px;
+        border-radius: 11px;
+        color: white;
+        background: var(--villa-primary);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .afv-mobile-contact a:first-child {
+        background: #16834a;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .afv-container {
+        width: calc(100% - 22px);
+      }
+
+      .afv-header-actions {
+        gap: 5px;
+      }
+
+      .afv-back-link,
+      .afv-header-contact {
+        padding: 8px;
+        font-size: 10px;
+      }
+
+      .afv-title-area h1 {
+        font-size: 21px;
+      }
+
+      .afv-gallery-main {
+        height: 225px;
+      }
+
+      .afv-gallery-side {
+        gap: 5px;
+      }
+
+      .afv-gallery-thumb {
+        height: 67px;
+      }
+
+      .afv-highlights {
+        gap: 5px;
+      }
+
+      .afv-highlight {
+        padding: 9px 7px;
+      }
+
+      .afv-highlight-icon {
+        flex-basis: 31px;
+        width: 31px;
+        height: 31px;
+        font-size: 16px;
+      }
+
+      .afv-highlight strong {
+        font-size: 10px;
+      }
+
+      .afv-highlight span {
+        font-size: 9px;
+      }
+
+      .afv-date-grid {
+        gap: 8px;
+      }
+
+      .afv-section,
+      .afv-booking-card {
+        padding: 15px;
+      }
+
+      .afv-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .afv-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="afv-header">
+    <div class="afv-container afv-header-inner">
+      <a class="afv-brand" href="index.html" aria-label="صفحه اصلی افرا سفر">
+        <span class="afv-brand-icon" aria-hidden="true">🌿</span>
+        <span>
+          <span class="afv-brand-name">افرا سفر</span>
+          <span class="afv-brand-caption">سفر، آرامش، خاطره</span>
+        </span>
+      </a>
+
+      <nav class="afv-header-actions" aria-label="دسترسی سریع">
+        <a class="afv-back-link" href="index.html">← صفحه اصلی</a>
+        <a class="afv-header-contact" href="https://wa.me/989117999884" target="_blank" rel="noopener noreferrer">
+          تماس با ما
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="afv-container">
+    <nav class="afv-breadcrumb" aria-label="مسیر صفحه">
+      <a href="index.html">صفحه اصلی</a>
+      <span class="afv-breadcrumb-separator">‹</span>
+      <a href="index.html#stays">اقامتگاه‌ها</a>
+      <span class="afv-breadcrumb-separator">‹</span>
+      <span aria-current="page">ویلای سخاوه استخردار فرهنگ</span>
+    </nav>
+
+    <section class="afv-title-area">
+      <div>
+        <h1>ویلای سخاوه استخردار فرهنگ</h1>
+        <div class="afv-location">
+          <span aria-hidden="true">📍</span>
+          اربکله، رامسر، مازندران
+        </div>
+      </div>
+
+      <div class="afv-title-actions">
+        <button
+          type="button"
+          class="afv-action-button afv-favorite-button"
+          id="villaFavorite"
+          aria-pressed="false"
+        >
+          <span id="favoriteIcon" aria-hidden="true">♡</span>
+          <span id="favoriteText">افزودن به علاقه‌مندی‌ها</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="afv-gallery" aria-label="گالری تصاویر ویلا">
+      <div>
+        <button type="button" class="afv-gallery-main" id="mainImageButton" aria-label="نمایش تصویر اصلی ویلا">
+          <img
+            id="mainImage"
+            src="images/villa1.jpg"
+            alt="نمای اصلی ویلای سخاوه استخردار فرهنگ در اربکله رامسر"
+            fetchpriority="high"
+            onerror="this.onerror=null;this.src='https://placehold.co/1000x700/e8f1eb/123d32?text=Afra+Safar';"
+          >
+          <span class="afv-gallery-label">تصاویر اقامتگاه</span>
+        </button>
+      </div>
+
+      <div class="afv-gallery-side">
+        <button type="button" class="afv-gallery-thumb is-active" aria-label="نمایش تصویر اول ویلا" aria-pressed="true">
+          <img
+            src="images/villa1.jpg"
+            alt="تصویر اول ویلا"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/400x300/e8f1eb/123d32?text=Villa+1';"
+          >
+        </button>
+
+        <button type="button" class="afv-gallery-thumb" aria-label="نمایش تصویر دوم ویلا" aria-pressed="false">
+          <img
+            src="images/villa2.jpg"
+            alt="تصویر دوم ویلا"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/400x300/e8f1eb/123d32?text=Villa+2';"
+          >
+        </button>
+
+        <button type="button" class="afv-gallery-thumb" aria-label="نمایش تصویر سوم ویلا" aria-pressed="false">
+          <img
+            src="images/villa3.jpg"
+            alt="تصویر سوم ویلا"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/400x300/e8f1eb/123d32?text=Villa+3';"
+          >
+        </button>
+
+        <button type="button" class="afv-gallery-thumb" aria-label="نمایش تصویر چهارم ویلا" aria-pressed="false">
+          <img
+            src="images/villa4.jpg"
+            alt="تصویر چهارم ویلا"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/400x300/e8f1eb/123d32?text=Villa+4';"
+          >
+        </button>
+      </div>
+    </section>
+
+    <section class="afv-highlights" aria-label="مشخصات سریع ویلا">
+      <div class="afv-highlight">
+        <div class="afv-highlight-icon" aria-hidden="true">🏊</div>
+        <div>
+          <strong>استخر</strong>
+          <span>دارای استخر</span>
+        </div>
+      </div>
+
+      <div class="afv-highlight">
+        <div class="afv-highlight-icon" aria-hidden="true">🛏️</div>
+        <div>
+          <strong>۲ اتاق خواب</strong>
+          <span>مناسب اقامت خانوادگی</span>
+        </div>
+      </div>
+
+      <div class="afv-highlight">
+        <div class="afv-highlight-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+        <div>
+          <strong>۲ تا ۶ نفر</strong>
+          <span>ظرفیت اقامت</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="afv-layout">
+      <div class="afv-main-content">
+        <section class="afv-section" id="about">
+          <h2>درباره این ویلا</h2>
+          <p>
+            ویلای سخاوه استخردار فرهنگ در منطقه اربکله رامسر قرار دارد و برای
+            افرادی که به‌دنبال اقامت در شمال ایران هستند، گزینه‌ای برای بررسی است.
+            پیش از نهایی‌کردن رزرو، می‌توانید از طریق افرا سفر درباره شرایط اقامت،
+            قیمت، امکانات و تاریخ‌های خالی اطلاعات دقیق دریافت کنید.
+          </p>
+        </section>
+
+        <section class="afv-section" id="features">
+          <h2>امکانات اقامتگاه</h2>
+
+          <div class="afv-features">
+            <div class="afv-feature">
+              <span class="afv-feature-icon" aria-hidden="true">🏊</span>
+              <span>استخر</span>
+            </div>
+
+            <div class="afv-feature">
+              <span class="afv-feature-icon" aria-hidden="true">🛏️</span>
+              <span>۲ اتاق خواب</span>
+            </div>
+
+            <div class="afv-feature">
+              <span class="afv-feature-icon" aria-hidden="true">👥</span>
+              <span>ظرفیت پایه ۲ نفر</span>
+            </div>
+
+            <div class="afv-feature">
+              <span class="afv-feature-icon" aria-hidden="true">🏡</span>
+              <span>حداکثر ظرفیت ۶ نفر</span>
+            </div>
+
+            <div class="afv-feature">
+              <span class="afv-feature-icon" aria-hidden="true">📍</span>
+              <span>ارکله، رامسر</span>
+            </div>
+
+            <div class="afv-feature">
+              <span class="afv-feature-icon" aria-hidden="true">📞</span>
+              <span>هماهنگی مستقیم برای رزرو</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="afv-section" id="details">
+          <h2>مشخصات ویلا</h2>
+
+          <div class="afv-info-grid">
+            <div class="afv-info-item">
+              <span>نام اقامتگاه</span>
+              <strong>ویلای سخاوه استخردار فرهنگ</strong>
+            </div>
+
+            <div class="afv-info-item">
+              <span>استان</span>
+              <strong>مازندران</strong>
+            </div>
+
+            <div class="afv-info-item">
+              <span>موقعیت</span>
+              <strong>ارکله، رامسر</strong>
+            </div>
+
+            <div class="afv-info-item">
+              <span>تعداد اتاق خواب</span>
+              <strong>۲ اتاق</strong>
+            </div>
+
+            <div class="afv-info-item">
+              <span>ظرفیت پایه</span>
+              <strong>۲ نفر</strong>
+            </div>
+
+            <div class="afv-info-item">
+              <span>حداکثر ظرفیت</span>
+              <strong>۶ نفر</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="afv-section" id="reservation-guide">
+          <h2>راهنمای درخواست رزرو</h2>
+          <p>
+            ابتدا تاریخ ورود، تاریخ خروج و تعداد مهمان‌ها را انتخاب کن و سپس
+            درخواستت را در واتساپ ارسال کن. تاریخ‌های انتخابی به‌تنهایی به معنی
+            رزرو قطعی نیستند؛ تأیید نهایی، قیمت و شرایط اقامت باید با مسئول رزرو
+            هماهنگ شود.
+          </p>
+        </section>
+      </div>
+
+      <aside class="afv-booking-card" id="booking" aria-labelledby="bookingHeading">
+        <div class="afv-booking-heading">
+          <h2 id="bookingHeading">درخواست رزرو ویلا</h2>
+          <p>تاریخ و تعداد مهمان‌ها را مشخص کن</p>
+        </div>
+
+        <form id="villaBookingForm" novalidate>
+          <div class="afv-date-grid">
+            <div class="afv-form-group">
+              <label for="villaCheckin">تاریخ ورود</label>
+              <input
+                class="afv-form-control villa-date-input"
+                type="text"
+                id="villaCheckin"
+                name="checkin"
+                placeholder="انتخاب تاریخ"
+                autocomplete="off"
+                readonly
+                aria-describedby="availabilityText"
+              >
+            </div>
+
+            <div class="afv-form-group">
+              <label for="villaCheckout">تاریخ خروج</label>
+              <input
+                class="afv-form-control villa-date-input"
+                type="text"
+                id="villaCheckout"
+                name="checkout"
+                placeholder="انتخاب تاریخ"
+                autocomplete="off"
+                readonly
+                aria-describedby="availabilityText"
+              >
+            </div>
+          </div>
+
+          <div class="afv-form-group">
+            <label for="villaGuests">تعداد مهمان‌ها</label>
+            <select class="afv-form-control" id="villaGuests" name="guests">
+              <option value="2">۲ نفر</option>
+              <option value="3">۳ نفر</option>
+              <option value="4">۴ نفر</option>
+              <option value="5">۵ نفر</option>
+              <option value="6">۶ نفر</option>
+            </select>
+          </div>
+
+          <div
+            class="afv-status"
+            id="availabilityText"
+            role="status"
+            aria-live="polite"
+          >
+            تاریخ ورود و خروج را انتخاب کن تا خلاصه درخواست نمایش داده شود.
+          </div>
+
+          <div class="afv-booking-divider"></div>
+
+          <div class="afv-booking-summary">
+            <span>تعداد شب اقامت</span>
+            <strong id="nightsCount">هنوز مشخص نشده</strong>
+          </div>
+
+          <div class="afv-booking-summary">
+            <span>تعداد مهمان</span>
+            <strong id="guestSummary">۲ نفر</strong>
+          </div>
+
+          <button type="submit" class="afv-booking-button afv-whatsapp">
+            <span aria-hidden="true">◉</span>
+            ارسال درخواست در واتساپ
+          </button>
+
+          <a
+            class="afv-booking-button afv-secondary"
+            href="tel:+989117999884"
+          >
+            تماس مستقیم برای هماهنگی
+          </a>
+
+          <div class="afv-contact-number">
+            شماره تماس:
+            <a href="tel:+989117999884" dir="ltr">09117999884</a>
+          </div>
+
+          <p class="afv-booking-note">
+            ارسال درخواست به معنی تأیید قطعی رزرو نیست. قیمت و خالی‌بودن تاریخ‌ها
+            باید پیش از پرداخت تأیید شوند.
+          </p>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="afv-footer">
+    <div class="afv-container afv-footer-inner">
+      <div>
+        <div class="afv-footer-title">افرا سفر 🌿</div>
+        <div class="afv-footer-text">سفر، آرامش، خاطره</div>
+      </div>
+
+      <nav class="afv-footer-links" aria-label="لینک‌های پایین صفحه">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="index.html#stays">اقامتگاه‌ها</a>
+        <a href="https://wa.me/989117999884" target="_blank" rel="noopener noreferrer">پشتیبانی واتساپ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="afv-mobile-contact" aria-label="راه‌های تماس">
+    <a href="https://wa.me/989117999884" id="mobileWhatsApp" target="_blank" rel="noopener noreferrer">
+      درخواست در واتساپ
+    </a>
+    <a href="tel:+989117999884">تماس مستقیم</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/persian-date@1.1.0/dist/persian-date.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const WHATSAPP_NUMBER = "989117999884";
+      const PHONE_NUMBER = "+989117999884";
+
+      const mainImage = document.getElementById("mainImage");
+      const thumbnailButtons = document.querySelectorAll(".afv-gallery-thumb");
+      const favoriteButton = document.getElementById("villaFavorite");
+      const favoriteIcon = document.getElementById("favoriteIcon");
+      const favoriteText = document.getElementById("favoriteText");
+
+      const checkinInput = document.getElementById("villaCheckin");
+      const checkoutInput = document.getElementById("villaCheckout");
+      const guestsSelect = document.getElementById("villaGuests");
+      const statusElement = document.getElementById("availabilityText");
+      const nightsElement = document.getElementById("nightsCount");
+      const guestSummary = document.getElementById("guestSummary");
+      const bookingForm = document.getElementById("villaBookingForm");
+      const mobileWhatsApp = document.getElementById("mobileWhatsApp");
+
+      let checkinTimestamp = null;
+      let checkoutTimestamp = null;
+
+      function toPersianDigits(value) {
+        return String(value).replace(/\d/g, function (digit) {
+          return "۰۱۲۳۴۵۶۷۸۹"[Number(digit)];
+        });
+      }
+
+      function setStatus(message, type) {
+        statusElement.textContent = message;
+        statusElement.classList.remove("is-error", "is-success");
+
+        if (type === "error") {
+          statusElement.classList.add("is-error");
+        } else if (type === "success") {
+          statusElement.classList.add("is-success");
+        }
+      }
+
+      function getNights() {
+        if (!checkinTimestamp || !checkoutTimestamp) {
+          return null;
+        }
+
+        const difference = checkoutTimestamp - checkinTimestamp;
+        const nights = Math.round(difference / 86400000);
+
+        return nights > 0 ? nights : null;
+      }
+
+      function getDateText(timestamp) {
+        if (!timestamp || !window.persianDate) {
+          return "";
+        }
+
+        return new window.persianDate(timestamp).format("YYYY/MM/DD");
+      }
+
+      function buildWhatsAppMessage() {
+        const guests = Number(guestsSelect.value);
+        const nights = getNights();
+
+        let message = "سلام، برای ویلای سخاوه استخردار فرهنگ در اربکله رامسر درخواست اطلاعات و رزرو دارم.";
+
+        message += "\nتعداد مهمان‌ها: " + toPersianDigits(guests) + " نفر";
+
+        if (checkinTimestamp && checkoutTimestamp && nights) {
+          message += "\nتاریخ ورود: " + toPersianDigits(getDateText(checkinTimestamp));
+          message += "\nتاریخ خروج: " + toPersianDigits(getDateText(checkoutTimestamp));
+          message += "\nمدت اقامت: " + toPersianDigits(nights) + " شب";
+        } else if (checkinTimestamp) {
+          message += "\nتاریخ ورود انتخابی: " + toPersianDigits(getDateText(checkinTimestamp));
+          message += "\nتاریخ خروج هنوز انتخاب نشده است.";
+        } else {
+          message += "\nهنوز تاریخی انتخاب نکرده‌ام؛ لطفاً تاریخ‌های خالی و قیمت را اعلام کنید.";
+        }
+
+        message += "\nلطفاً قیمت، شرایط اقامت و خالی‌بودن تاریخ‌ها را اعلام کنید.";
+        return message;
+      }
+
+      function updateWhatsAppLinks() {
+        const url = "https://wa.me/" + WHATSAPP_NUMBER +
+          "?text=" + encodeURIComponent(buildWhatsAppMessage());
+
+        mobileWhatsApp.href = url;
+      }
+
+      function updateSummary() {
+        const guests = Number(guestsSelect.value);
+        guestSummary.textContent = toPersianDigits(guests) + " نفر";
+
+        const nights = getNights();
+
+        if (nights) {
+          nightsElement.textContent = toPersianDigits(nights) + " شب";
+        } else {
+          nightsElement.textContent = "هنوز مشخص نشده";
+        }
+
+        updateWhatsAppLinks();
+      }
+
+      function updateDateStatus() {
+        updateSummary();
+
+        if (!checkinTimestamp && !checkoutTimestamp) {
+          setStatus("تاریخ ورود و خروج را انتخاب کن تا خلاصه درخواست نمایش داده شود.");
+          return;
+        }
+
+        if (checkinTimestamp && !checkoutTimestamp) {
+          setStatus(
+            "تاریخ ورود " + toPersianDigits(getDateText(checkinTimestamp)) +
+            " انتخاب شده است؛ حالا تاریخ خروج را انتخاب کن."
+          );
+          return;
+        }
+
+        if (!checkinTimestamp && checkoutTimestamp) {
+          setStatus("ابتدا تاریخ ورود را انتخاب کن.", "error");
+          return;
+        }
+
+        if (checkoutTimestamp <= checkinTimestamp) {
+          setStatus("تاریخ خروج باید بعد از تاریخ ورود باشد.", "error");
+          return;
+        }
+
+        const nights = getNights();
+
+        setStatus(
+          "درخواست برای " + toPersianDigits(nights) + " شب آماده است. " +
+          "برای تأیید نهایی تاریخ خالی و قیمت، با پشتیبانی هماهنگ کن.",
+          "success"
+        );
+      }
+
+      /* Gallery */
+
+      thumbnailButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          const image = button.querySelector("img");
+
+          if (!image || !mainImage) {
+            return;
+          }
+
+          mainImage.src = image.src;
+          mainImage.alt = image.alt || "تصویر ویلای سخاوه استخردار فرهنگ";
+
+          thumbnailButtons.forEach(function (item) {
+            item.classList.remove("is-active");
+            item.setAttribute("aria-pressed", "false");
+          });
+
+          button.classList.add("is-active");
+          button.setAttribute("aria-pressed", "true");
+        });
+      });
+
+      /* Favorites */
+
+      const favoriteStorageKey = "afraSafarFavoriteVillaSakhaveh";
+      let isFavorite = false;
+
+      try {
+        isFavorite = localStorage.getItem(favoriteStorageKey) === "true";
+      } catch (error) {
+        isFavorite = false;
+      }
+
+      function renderFavorite() {
+        favoriteButton.classList.toggle("is-active", isFavorite);
+        favoriteButton.setAttribute("aria-pressed", String(isFavorite));
+        favoriteIcon.textContent = isFavorite ? "♥" : "♡";
+        favoriteText.textContent = isFavorite
+          ? "افزوده‌شده به علاقه‌مندی‌ها"
+          : "افزودن به علاقه‌مندی‌ها";
+      }
+
+      favoriteButton.addEventListener("click", function () {
+        isFavorite = !isFavorite;
+
+        try {
+          localStorage.setItem(favoriteStorageKey, String(isFavorite));
+        } catch (error) {
+          /* علاقه‌مندی در همین صفحه همچنان کار می‌کند. */
+        }
+
+        renderFavorite();
+      });
+
+      renderFavorite();
+
+      /* Guest selection */
+
+      guestsSelect.addEventListener("change", updateSummary);
+
+      /* WhatsApp message */
+
+      bookingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const guests = Number(guestsSelect.value);
+
+        if (guests < 2 || guests > 6) {
+          setStatus("ظرفیت این اقامتگاه بین ۲ تا ۶ نفر است.", "error");
+          return;
+        }
+
+        if (checkinTimestamp && checkoutTimestamp &&
+            checkoutTimestamp <= checkinTimestamp) {
+          setStatus("تاریخ خروج باید بعد از تاریخ ورود باشد.", "error");
+          return;
+        }
+
+        updateWhatsAppLinks();
+
+        const url = "https://wa.me/" + WHATSAPP_NUMBER +
+          "?text=" + encodeURIComponent(buildWhatsAppMessage());
+
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+
+      /* Persian calendar */
+
+      if (
+        window.jQuery &&
+        window.persianDate &&
+        typeof jQuery.fn.pDatepicker === "function"
+      ) {
+        const today = new persianDate();
+        const todayTimestamp = today.valueOf();
+
+        const datepickerOptions = {
+          format: "YYYY/MM/DD",
+          autoClose: true,
+          initialValue: false,
+          minDate: todayTimestamp,
+          calendar: {
+            persian: {
+              locale: "fa",
+              leapYearMode: "astronomical"
+            },
+            gregorian: {
+              locale: "en"
+            }
+          },
+          navigator: {
+            enabled: true,
+            scroll: {
+              enabled: false
+            },
+            text: {
+              btnNextText: "‹",
+              btnPrevText: "›"
+            }
+          },
+          toolbox: {
+            enabled: true,
+            calendarSwitch: {
+              enabled: false
+            },
+            todayButton: {
+              enabled: true,
+              text: {
+                fa: "امروز",
+                en: "Today"
+              }
+            },
+            submitButton: {
+              enabled: true,
+              text: {
+                fa: "تأیید",
+                en: "Submit"
+              }
+            },
+            text: {
+              btnToday: "امروز",
+              btnSubmit: "تأیید",
+              btnCancel: "بستن"
+            }
+          }
+        };
+
+        jQuery(checkinInput).pDatepicker({
+          ...datepickerOptions,
+          onSelect: function (unixTimestamp) {
+            checkinTimestamp = Number(unixTimestamp) || null;
+
+            if (
+              checkoutTimestamp &&
+              checkinTimestamp &&
+              checkoutTimestamp <= checkinTimestamp
+            ) {
+              checkoutTimestamp = null;
+              jQuery(checkoutInput).val("");
+            }
+
+            updateDateStatus();
+          }
+        });
+
+        jQuery(checkoutInput).pDatepicker({
+          ...datepickerOptions,
+          onSelect: function (unixTimestamp) {
+            checkoutTimestamp = Number(unixTimestamp) || null;
+
+            if (
+              checkinTimestamp &&
+              checkoutTimestamp &&
+              checkoutTimestamp <= checkinTimestamp
+            ) {
+              checkoutTimestamp = null;
+              jQuery(checkoutInput).val("");
+              setStatus("تاریخ خروج باید بعد از تاریخ ورود باشد. تاریخ دیگری انتخاب کن.", "error");
+              updateSummary();
+              return;
+            }
+
+            updateDateStatus();
+          }
+        });
+      } else {
+        checkinInput.removeAttribute("readonly");
+        checkoutInput.removeAttribute("readonly");
+        checkinInput.type = "date";
+        checkoutInput.type = "date";
+        checkinInput.min = new Date().toISOString().slice(0, 10);
+        checkoutInput.min = checkinInput.min;
+
+        checkinInput.addEventListener("change", function () {
+          checkinTimestamp = checkinInput.value
+            ? new Date(checkinInput.value + "T12:00:00").getTime()
+            : null;
+
+          checkoutInput.min = checkinInput.value
+            ? new Date(new Date(checkinInput.value + "T12:00:00").getTime() + 86400000)
+                .toISOString().slice(0, 10)
+            : checkinInput.min;
+
+          if (
+            checkoutTimestamp &&
+            checkinTimestamp &&
+            checkoutTimestamp <= checkinTimestamp
+          ) {
+            checkoutTimestamp = null;
+            checkoutInput.value = "";
+          }
+
+          updateDateStatus();
+        });
+
+        checkoutInput.addEventListener("change", function () {
+          checkoutTimestamp = checkoutInput.value
+            ? new Date(checkoutInput.value + "T12:00:00").getTime()
+            : null;
+
+          if (
+            checkinTimestamp &&
+            checkoutTimestamp &&
+            checkoutTimestamp <= checkinTimestamp
+          ) {
+            checkoutTimestamp = null;
+            checkoutInput.value = "";
+            setStatus("تاریخ خروج باید بعد از تاریخ ورود باشد.", "error");
+          } else {
+            updateDateStatus();
+          }
+        });
+
+        setStatus("تقویم شمسی بارگذاری نشد؛ می‌توانی از انتخابگر تاریخ دستگاه استفاده کنی.");
+      }
+
+      updateSummary();
+    })();
+  </script>
+</body>
+</html>

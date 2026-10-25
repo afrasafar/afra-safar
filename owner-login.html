@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123d32">
+
+    <title>ورود مالکان | افرا سفر</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Vazirmatn", sans-serif;
+            background: linear-gradient(135deg, #edf5ef, #f8faf7);
+            color: #20352d;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #123d32;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .brand span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #c9dfd2;
+            margin-top: 4px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 460px;
+            margin: auto;
+            padding: 35px 18px;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 22px;
+            padding: 32px 26px;
+            box-shadow: 0 12px 45px rgba(18, 61, 50, 0.09);
+            border: 1px solid #e5eee7;
+        }
+
+        .icon {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e7f2e9;
+            border-radius: 20px;
+            font-size: 32px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 25px;
+            margin: 0 0 10px;
+            color: #123d32;
+        }
+
+        .description {
+            text-align: center;
+            color: #718078;
+            font-size: 14px;
+            line-height: 2;
+            margin-bottom: 28px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 9px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce6df;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            background: #fbfdfb;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #267455;
+            box-shadow: 0 0 0 3px rgba(38, 116, 85, 0.1);
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            background: #123d32;
+            color: white;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #1c5946;
+        }
+
+        button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+
+        .message {
+            display: none;
+            margin-top: 18px;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 2;
+            overflow-wrap: anywhere;
+        }
+
+        .message.success {
+            display: block;
+            background: #e8f6ed;
+            color: #17643a;
+        }
+
+        .message.error {
+            display: block;
+            background: #fff0ef;
+            color: #a42e27;
+        }
+
+        .message.info {
+            display: block;
+            background: #edf4ff;
+            color: #234e86;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 13px;
+            line-height: 2.5;
+            color: #68766e;
+        }
+
+        .links a {
+            color: #176b4d;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #829087;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 26px 20px;
+            }
+
+            .brand {
+                font-size: 21px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            🌿 افرا سفر
+            <span>سفر، آرامش، خاطره</span>
+        </div>
+
+        <a href="index.html">بازگشت به صفحه اصلی ←</a>
+    </div>
+</header>
+
+<main>
+    <section class="login-card">
+
+        <div class="icon">🔐</div>
+
+        <h1>ورود به پنل مالک</h1>
+
+        <p class="description">
+            برای مدیریت اقامتگاه‌هایت، وارد حساب کاربری خودت شو.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="field">
+                <label for="email">ایمیل</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@email.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label for="password">رمز عبور</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="رمز عبور حساب کاربری"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button type="submit" id="loginButton">
+                ورود به حساب
+            </button>
+
+        </form>
+
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+
+        <div class="links">
+            حساب کاربری نداری؟
+            <a href="owner-register.html">ثبت‌نام مالک</a>
+            <br>
+            <a href="index.html">بازگشت به افرا سفر</a>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    © افرا سفر | تجربه یک اقامت متفاوت در شمال ایران
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
+<script>
+    const loginForm = document.getElementById("loginForm");
+    const loginButton = document.getElementById("loginButton");
+    const messageBox = document.getElementById("message");
+
+    function showMessage(text, type) {
+        messageBox.textContent = text;
+        messageBox.className = "message " + type;
+    }
+
+    loginForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        loginButton.disabled = true;
+        loginButton.textContent = "در حال بررسی...";
+        messageBox.className = "message";
+        messageBox.textContent = "";
+
+        try {
+            if (typeof afraSupabase === "undefined") {
+                throw new Error(
+                    "اتصال افرا سفر به پایگاه داده برقرار نیست. فایل supabase.js را بررسی کن."
+                );
+            }
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            const { data, error } =
+                await afraSupabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+            if (error) {
+                throw error;
+            }
+
+            const { data: profile, error: profileError } =
+                await afraSupabase
+                    .from("owner_profiles")
+                    .select("approval_status, full_name")
+                    .eq("user_id", data.user.id)
+                    .maybeSingle();
+
+            if (profileError) {
+                await afraSupabase.auth.signOut();
+
+                throw new Error(
+                    "ورود انجام شد، اما بررسی وضعیت حساب ممکن نشد. تنظیمات جدول owner_profiles را بررسی کن."
+                );
+            }
+
+            if (!profile) {
+                await afraSupabase.auth.signOut();
+
+                showMessage(
+                    "برای این حساب، پرونده مالک پیدا نشد. اگر تازه ثبت‌نام کرده‌ای، ممکن است تأیید ایمیل یا تکمیل پرونده لازم باشد.",
+                    "info"
+                );
+
+                return;
+            }
+
+            if (profile.approval_status !== "approved") {
+                await afraSupabase.auth.signOut();
+
+                if (profile.approval_status === "rejected") {
+                    showMessage(
+                        "درخواست مالکیت شما تأیید نشده است. برای پیگیری با مدیریت افرا سفر تماس بگیر.",
+                        "error"
+                    );
+                } else {
+                    showMessage(
+                        "ثبت‌نام شما با موفقیت انجام شده و در انتظار تأیید مدیریت افرا سفر است. بعد از تأیید می‌توانی وارد پنل مالک شوی.",
+                        "info"
+                    );
+                }
+
+                return;
+            }
+
+            showMessage("ورود موفق بود؛ در حال انتقال به پنل مالک...", "success");
+
+            window.location.href = "owner-dashboard.html";
+
+        } catch (error) {
+            console.error("Owner login error:", error);
+
+            showMessage(
+                error.message || "ورود انجام نشد. اطلاعات واردشده را بررسی کن.",
+                "error"
+            );
+        } finally {
+            loginButton.disabled = false;
+            loginButton.textContent = "ورود به حساب";
+        }
+    });
+</script>
+
+</body>
+</html>
