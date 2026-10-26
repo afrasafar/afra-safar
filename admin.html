@@ -320,6 +320,22 @@
         .reservation-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
         .reservation-actions button { border:0; border-radius:9px; padding:9px 13px; font-size:12px; font-weight:bold; }
         .reservation-actions button:disabled { opacity:.55; cursor:wait; }
+        .whatsapp-notify {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background: #20a95a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 9px;
+            padding: 9px 13px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+        .whatsapp-notify:hover { background: #168747; }
+        .whatsapp-note { color:#64756b; font-size:12px; line-height:1.8; margin:0 0 14px; }
 
         .admin-tabs {
             display: grid;
@@ -563,6 +579,7 @@
             <div>
                 <h2 style="margin:0 0 6px;">درخواست‌های رزرو اقامتگاه‌ها</h2>
                 <p style="color:#64756b;font-size:13px;line-height:1.8;margin:0;">تمام درخواست‌های ثبت‌شده برای اقامتگاه‌های افرا سفر در این بخش نمایش داده می‌شوند.</p>
+                <p class="whatsapp-note">برای هر رزرو، روی «اطلاع‌رسانی واتساپ» بزن تا پیام کامل مخصوص همان درخواست آماده شود؛ سپس در واتساپ دکمه ارسال را بزن.</p>
             </div>
             <button class="btn btn-secondary" type="button" id="refreshReservationsBtn">به‌روزرسانی رزروها</button>
         </div>
@@ -757,6 +774,25 @@
                 </div>` : status === "confirmed" || status === "approved" ? `
                 <div class="reservation-actions"><button type="button" style="background:#ffe7e7;color:#a51f1f;" onclick="updateReservationStatus('${escapeHtml(reservation.id)}','rejected')">رد رزرو</button></div>` : "";
 
+            const whatsappMessage = [
+                "🌿 اطلاع‌رسانی درخواست رزرو جدید | افرا سفر",
+                "━━━━━━━━━━━━━━",
+                "🔖 کد رزرو: " + code,
+                "🏡 اقامتگاه: " + (property.title || "اقامتگاه حذف‌شده یا نامشخص"),
+                "📍 موقعیت: " + (property.location || "ثبت نشده"),
+                "👤 نام مسافر: " + guestName,
+                "📞 شماره تماس مسافر: " + guestPhone,
+                "📅 تاریخ ورود: " + formatDate(reservation.check_in),
+                "📅 تاریخ خروج: " + formatDate(reservation.check_out),
+                "👥 تعداد نفرات: " + guestCount,
+                "📌 وضعیت درخواست: " + reservationStatusName(status),
+                "🕒 زمان ثبت: " + createdAt,
+                reservation.guest_message ? "💬 توضیحات مسافر: " + reservation.guest_message : "💬 توضیحات مسافر: ندارد",
+                "━━━━━━━━━━━━━━",
+                "لطفاً درخواست رزرو را بررسی کنید."
+            ].join("\n");
+            const whatsappUrl = "https://wa.me/989374191377?text=" + encodeURIComponent(whatsappMessage);
+
             return `
                 <article class="reservation-card">
                     <div class="reservation-meta">
@@ -771,6 +807,7 @@
                     <p>👥 تعداد نفرات: ${escapeHtml(guestCount)}</p>
                     <p>🕒 زمان ثبت درخواست: ${escapeHtml(createdAt)}</p>
                     ${reservation.guest_message ? `<p>💬 توضیحات مسافر: ${escapeHtml(reservation.guest_message)}</p>` : ""}
+                    <a class="whatsapp-notify" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">🟢 اطلاع‌رسانی واتساپ برای این رزرو</a>
                     ${actions}
                 </article>`;
         }).join("");
