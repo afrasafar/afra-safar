@@ -1,1153 +1,1338 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#123d32">
-  <title>پنل مدیریت | افرا سفر</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت | افرا سفر</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AmirAbbasVafaee/persian-fonts-cdn@main/css/peyda.css">
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
 
-  <style>
-    :root {
-      --green: #123d32;
-      --green-light: #e8f2ed;
-      --text: #18352d;
-      --muted: #64756b;
-      --border: #e2eae6;
-      --background: #f3f6f4;
-      --white: #fff;
-      --red: #a51f1f;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    * { box-sizing: border-box; }
+        button, input, select, textarea {
+            font-family: inherit;
+        }
 
-    body {
-      margin: 0;
-      font-family: Vazirmatn, Tahoma, Arial, sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.8;
-    }
+        body {
+            margin: 0;
+            font-family: 'Peyda', Tahoma, Arial, sans-serif;
+            background: #f3f6f4;
+            color: #18352d;
+        }
 
-    button, input, select, textarea { font: inherit; }
-    button { cursor: pointer; }
-    button:disabled { opacity: .55; cursor: wait; }
+        .topbar {
+            background: #123d32;
+            color: white;
+            padding: 18px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-    .topbar {
-      background: var(--green);
-      color: white;
-      padding: 18px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .brand-icon { font-size: 28px; }
-    .brand h1 { margin: 0; font-size: 21px; }
-    .brand p { margin: 4px 0 0; font-size: 12px; opacity: .8; }
+        .brand-icon {
+            font-size: 28px;
+        }
 
-    .logout-btn {
-      border: 0;
-      background: white;
-      color: var(--green);
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-weight: bold;
-    }
+        .brand h1 {
+            margin: 0;
+            font-size: 21px;
+        }
 
-    .container {
-      width: min(1180px, 92%);
-      margin: 30px auto 60px;
-    }
+        .brand p {
+            margin: 4px 0 0;
+            font-size: 12px;
+            opacity: .8;
+        }
 
-    .login-box {
-      width: min(440px, 92%);
-      margin: 80px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 35px #00000012;
-    }
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
 
-    .dashboard { display: none; }
-    .grid {
-      display: grid;
-      grid-template-columns: 380px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
-    }
+        button {
+            cursor: pointer;
+        }
 
-    .panel {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 28px #00000008;
-      min-width: 0;
-    }
+        .logout-btn {
+            border: 0;
+            background: white;
+            color: #123d32;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
 
-    .panel h2 { margin-top: 0; font-size: 21px; }
-    .field { margin-bottom: 15px; }
+        .container {
+            width: min(1180px, 92%);
+            margin: 30px auto 60px;
+        }
 
-    .field label {
-      display: block;
-      font-weight: bold;
-      font-size: 13px;
-      margin-bottom: 7px;
-    }
+        .login-box {
+            width: min(440px, 92%);
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.08);
+        }
 
-    .field input:not([type="checkbox"]):not([type="file"]),
-    .field select, .field textarea {
-      width: 100%;
-      border: 1px solid #dce5e0;
-      border-radius: 11px;
-      padding: 12px;
-      outline: none;
-      background: white;
-      color: var(--text);
-    }
+        .login-box h2 {
+            margin-top: 0;
+        }
 
-    .field input:focus, .field select:focus, .field textarea:focus {
-      border-color: #2d7a62;
-    }
+        .dashboard {
+            display: none;
+        }
 
-    .field textarea { min-height: 100px; resize: vertical; }
+        .grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
 
-    .file-box {
-      border: 2px dashed #c9d9d1;
-      border-radius: 14px;
-      padding: 16px;
-      background: #f8fbf9;
-    }
+        .panel {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 28px rgba(0,0,0,.06);
+        }
 
-    .file-box input[type="file"] { width: 100%; }
-    .upload-status {
-      font-size: 12px;
-      margin-top: 8px;
-      color: var(--muted);
-      white-space: pre-line;
-      overflow-wrap: anywhere;
-    }
+        .panel h2 {
+            margin-top: 0;
+            font-size: 21px;
+        }
 
-    .preview {
-      display: none;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-top: 12px;
-    }
+        .field {
+            margin-bottom: 15px;
+        }
 
-    .actions, .property-actions, .owner-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
+        .field label {
+            display: block;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
 
-    .btn {
-      border: 0;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-weight: 700;
-    }
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            border: 1px solid #dce5e0;
+            border-radius: 11px;
+            padding: 12px;
+            outline: none;
+            background: #fff;
+        }
 
-    .btn-primary { background: var(--green); color: white; }
-    .btn-secondary { background: #e8efeb; color: var(--green); }
-    .btn-danger { background: #ffe7e7; color: var(--red); }
-    .btn-approve { background: #e2f6e9; color: #14633e; }
-    .btn-small { padding: 7px 10px; font-size: 12px; }
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: #2d7a62;
+        }
 
-    .property-list, .owner-list { display: grid; gap: 14px; }
+        .field textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
 
-    .property-card {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 15px;
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 15px;
-      align-items: start;
-    }
+        .file-box {
+            border: 2px dashed #c9d9d1;
+            border-radius: 14px;
+            padding: 16px;
+            background: #f8fbf9;
+        }
 
-    .property-card img {
-      width: 120px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 12px;
-      background: #edf2ef;
-    }
+        .file-box input[type="file"] {
+            width: 100%;
+            padding: 5px 0;
+        }
 
-    .property-info { min-width: 0; }
-    .property-info h3 { margin: 0 0 7px; font-size: 16px; }
-    .property-info p, .owner-card p {
-      margin: 4px 0;
-      color: var(--muted);
-      font-size: 12px;
-      overflow-wrap: anywhere;
-    }
+        .preview {
+            display: none;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-top: 12px;
+        }
 
-    .status-badge {
-      display: inline-block;
-      border-radius: 20px;
-      padding: 4px 9px;
-      font-size: 11px;
-      background: #e7f6ee;
-      color: #14633e;
-    }
+        .upload-status {
+            font-size: 12px;
+            margin-top: 8px;
+            color: #64756b;
+            line-height: 1.8;
+        }
 
-    .status-badge.off { background: #fff2d9; color: #815313; }
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
 
-    .message {
-      display: none;
-      padding: 11px 13px;
-      border-radius: 10px;
-      margin: 0 0 15px;
-      font-size: 13px;
-      line-height: 1.9;
-      overflow-wrap: anywhere;
-    }
+        .btn {
+            border: 0;
+            border-radius: 11px;
+            padding: 11px 18px;
+            font-weight: bold;
+        }
 
-    .message.success { display: block; background: #e7f6ee; color: #14633e; }
-    .message.error { display: block; background: #ffeded; color: #9b1c1c; }
-    .message.info { display: block; background: #edf4ff; color: #214c86; }
+        .btn-primary {
+            background: #123d32;
+            color: white;
+        }
 
-    .empty { text-align: center; padding: 30px 10px; color: var(--muted); }
-    .owner-panel { margin-top: 24px; }
-    .owner-card { border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
-    .owner-card h3 { margin: 0 0 7px; font-size: 16px; }
-    .owner-card p { font-size: 13px; }
-    .hint { color: var(--muted); font-size: 13px; line-height: 1.9; }
+        .btn-secondary {
+            background: #e8efeb;
+            color: #123d32;
+        }
 
-    @media(max-width: 850px) {
-      .grid { grid-template-columns: 1fr; }
-    }
+        .btn-danger {
+            background: #ffe7e7;
+            color: #a51f1f;
+        }
 
-    @media(max-width: 520px) {
-      .topbar { padding: 15px 4%; }
-      .container { width: 94%; margin-top: 18px; }
-      .panel { padding: 18px; }
-      .property-card { grid-template-columns: 1fr; }
-      .property-card img { width: 100%; height: 190px; }
-    }
-  </style>
+        .property-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .property-card {
+            border: 1px solid #e2eae6;
+            border-radius: 16px;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .property-card img {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #edf2ef;
+        }
+
+        .property-info h3 {
+            margin: 0 0 7px;
+            font-size: 17px;
+        }
+
+        .property-info p {
+            margin: 4px 0;
+            color: #64756b;
+            font-size: 12px;
+        }
+
+        .property-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .property-actions button {
+            border: 0;
+            border-radius: 8px;
+            padding: 7px 11px;
+            font-size: 12px;
+        }
+
+        .message {
+            display: none;
+            padding: 11px 13px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .message.success {
+            display: block;
+            background: #e7f6ee;
+            color: #14633e;
+        }
+
+        .message.error {
+            display: block;
+            background: #ffeded;
+            color: #9b1c1c;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 35px 10px;
+            color: #64756b;
+        }
+
+        .status-badge {
+            display: inline-block;
+            border-radius: 20px;
+            padding: 4px 9px;
+            font-size: 11px;
+            background: #e7f6ee;
+            color: #14633e;
+        }
+
+        .status-badge.off {
+            background: #eee;
+            color: #777;
+        }
+
+        .owner-panel { margin-top: 24px; }
+        .owner-list { display: grid; gap: 12px; }
+        .owner-card { border: 1px solid #e2eae6; border-radius: 14px; padding: 16px; display: grid; gap: 8px; }
+        .owner-card h3 { margin: 0; font-size: 16px; }
+        .owner-card p { margin: 0; color: #64756b; font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
+        .owner-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+        .owner-actions button { border: 0; border-radius: 9px; padding: 9px 13px; font-size: 12px; font-weight: bold; }
+        .owner-approve { background: #e2f6e9; color: #14633e; }
+        .owner-reject { background: #ffe7e7; color: #a51f1f; }
+        .owner-actions button:disabled { opacity: .55; cursor: wait; }
+        .reservation-panel { margin-top: 24px; }
+        .reservation-toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+        .reservation-list { display:grid; gap:14px; }
+        .reservation-card { border:1px solid #e2eae6; border-radius:15px; padding:16px; display:grid; gap:9px; }
+        .reservation-card h3 { margin:0; font-size:17px; }
+        .reservation-card p { margin:0; color:#52665d; font-size:13px; line-height:1.9; overflow-wrap:anywhere; }
+        .reservation-meta { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+        .reservation-status { display:inline-block; border-radius:20px; padding:5px 10px; font-size:12px; background:#fff2d6; color:#815600; }
+        .reservation-status.confirmed { background:#e2f6e9; color:#14633e; }
+        .reservation-status.rejected, .reservation-status.cancelled { background:#ffe7e7; color:#a51f1f; }
+        .reservation-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
+        .reservation-actions button { border:0; border-radius:9px; padding:9px 13px; font-size:12px; font-weight:bold; }
+        .reservation-actions button:disabled { opacity:.55; cursor:wait; }
+
+        .admin-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 0 0 22px;
+        }
+
+        .admin-tab {
+            border: 1px solid #d9e5de;
+            border-radius: 14px;
+            padding: 15px 12px;
+            background: #fff;
+            color: #244b3d;
+            font-weight: bold;
+            line-height: 1.8;
+            box-shadow: 0 5px 18px rgba(0,0,0,.035);
+            transition: background .15s ease, color .15s ease, border-color .15s ease;
+        }
+
+        .admin-tab:hover { border-color: #2d7a62; }
+        .admin-tab.active {
+            background: #123d32;
+            color: #fff;
+            border-color: #123d32;
+        }
+
+        .dashboard-section { display: none; }
+        .dashboard-section.active { display: block; }
+        .dashboard-section.grid.active { display: grid; }
+
+        @media (max-width: 700px) {
+            .admin-tabs { grid-template-columns: 1fr; gap: 8px; }
+            .admin-tab { text-align: right; padding: 12px 15px; }
+        }
+
+        @media (max-width: 850px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .property-card {
+                grid-template-columns: 90px 1fr;
+            }
+
+            .property-card img {
+                width: 90px;
+                height: 75px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .topbar {
+                padding: 15px 4%;
+            }
+
+            .brand h1 {
+                font-size: 18px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .panel {
+                padding: 18px;
+            }
+
+            .property-card {
+                grid-template-columns: 1fr;
+            }
+
+            .property-card img {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
 <header class="topbar">
-  <div class="brand">
-    <div class="brand-icon">🌿</div>
-    <div>
-      <h1>افرا سفر</h1>
-      <p>پنل مدیریت اقامتگاه‌ها</p>
+    <div class="brand">
+        <div class="brand-icon">🌿</div>
+        <div>
+            <h1>افرا سفر</h1>
+            <p>پنل مدیریت اقامتگاه‌ها</p>
+        </div>
     </div>
-  </div>
-  <button class="logout-btn" id="logoutBtn" type="button">خروج</button>
+
+    <button class="logout-btn" id="logoutBtn">خروج</button>
 </header>
 
 <section class="login-box" id="loginBox">
-  <h2>ورود مدیر</h2>
-  <p class="hint">برای ورود به پنل مدیریت، ایمیل و رمز حساب مدیر را وارد کن.</p>
-  <div id="loginMessage" class="message" role="status"></div>
+    <h2>ورود مدیر</h2>
+    <p style="color:#64756b;font-size:13px;line-height:1.8;">
+        برای ورود به پنل مدیریت ایمیل و رمز حساب مدیر را وارد کن.
+    </p>
 
-  <form id="loginForm">
-    <div class="field">
-      <label for="email">ایمیل</label>
-      <input id="email" type="email" required autocomplete="username">
-    </div>
-    <div class="field">
-      <label for="password">رمز عبور</label>
-      <input id="password" type="password" required autocomplete="current-password">
-    </div>
-    <button class="btn btn-primary" type="submit" style="width:100%">ورود به پنل</button>
-  </form>
+    <div id="loginMessage" class="message"></div>
+
+    <form id="loginForm">
+        <div class="field">
+            <label for="email">ایمیل</label>
+            <input id="email" type="email" required autocomplete="username">
+        </div>
+
+        <div class="field">
+            <label for="password">رمز عبور</label>
+            <input id="password" type="password" required autocomplete="current-password">
+        </div>
+
+        <button class="btn btn-primary" type="submit" style="width:100%;">
+            ورود به پنل
+        </button>
+    </form>
 </section>
 
 <main class="container dashboard" id="dashboard">
-  <div id="dashboardMessage" class="message" role="status" aria-live="polite"></div>
 
-  <div class="grid">
-    <section class="panel">
-      <h2 id="formTitle">افزودن اقامتگاه</h2>
+    <div id="dashboardMessage" class="message"></div>
 
-      <form id="propertyForm">
-        <input type="hidden" id="propertyId">
+    <nav class="admin-tabs" aria-label="بخش‌های پنل مدیریت">
+        <button type="button" class="admin-tab active" data-section="propertiesSection" aria-current="page">۱. افزودن اقامتگاه</button>
+        <button type="button" class="admin-tab" data-section="ownersSection">۲. درخواست‌های ثبت‌نام مالکان</button>
+        <button type="button" class="admin-tab" data-section="reservationsSection">۳. درخواست‌های رزرو اقامتگاه‌ها</button>
+    </nav>
 
-        <div class="field">
-          <label for="title">نام اقامتگاه</label>
-          <input id="title" required maxlength="150" placeholder="مثلاً ویلای استخردار رامسر">
-        </div>
+    <div class="grid dashboard-section active" id="propertiesSection">
 
-        <div class="field">
-          <label for="location">موقعیت</label>
-          <input id="location" required maxlength="200" placeholder="مثلاً اربکله رامسر">
-        </div>
+        <section class="panel">
+            <h2 id="formTitle">افزودن اقامتگاه</h2>
 
-        <div class="field">
-          <label for="category">نوع اقامتگاه</label>
-          <select id="category" required>
-            <option value="villa">ویلا</option>
-            <option value="forest">کلبه جنگلی</option>
-            <option value="pool">ویلا استخردار</option>
-            <option value="luxury">اقامتگاه لوکس</option>
-          </select>
-        </div>
+            <form id="propertyForm">
 
-        <div class="field">
-          <label for="capacity">ظرفیت (نفر)</label>
-          <input id="capacity" type="number" min="1" max="100" step="1" required>
-        </div>
+                <input type="hidden" id="propertyId">
 
-        <div class="field">
-          <label for="price">قیمت هر شب به تومان</label>
-          <input id="price" type="number" min="1" step="1000" required>
-        </div>
+                <div class="field">
+                    <label for="title">نام اقامتگاه</label>
+                    <input id="title" required placeholder="مثلاً ویلای استخردار رامسر">
+                </div>
 
-        <div class="field">
-          <label for="imageFile">عکس اصلی اقامتگاه</label>
-          <div class="file-box">
-            <input id="imageFile" type="file" accept="image/jpeg,image/png,image/webp,image/avif">
-            <div class="upload-status" id="uploadStatus">یک عکس انتخاب کن. پس از ذخیره در فضای ذخیره‌سازی آپلود می‌شود.</div>
-            <img id="imagePreview" class="preview" alt="پیش‌نمایش عکس">
-          </div>
-        </div>
+                <div class="field">
+                    <label for="location">موقعیت</label>
+                    <input id="location" required placeholder="مثلاً اربکله رامسر">
+                </div>
 
-        <div class="field">
-          <label for="galleryFiles">عکس‌های بیشتر برای گالری</label>
-          <div class="file-box">
-            <input id="galleryFiles" type="file" accept="image/jpeg,image/png,image/webp,image/avif" multiple>
-            <div class="upload-status" id="galleryStatus">حداکثر ۱۰ عکس؛ حجم هر عکس حداکثر ۸ مگابایت.</div>
-            <div id="galleryPreviewList" class="upload-status" aria-live="polite"></div>
-          </div>
-        </div>
+                <div class="field">
+                    <label for="category">نوع اقامتگاه</label>
+                    <select id="category" required>
+                        <option value="villa">ویلا</option>
+                        <option value="forest">کلبه جنگلی</option>
+                        <option value="pool">ویلا استخردار</option>
+                        <option value="luxury">اقامتگاه لوکس</option>
+                    </select>
+                </div>
 
-        <div class="field">
-          <label for="imageUrl">یا آدرس عکس اصلی</label>
-          <input id="imageUrl" type="url" placeholder="https://...">
-        </div>
+                <div class="field">
+                    <label for="capacity">ظرفیت</label>
+                    <input id="capacity" type="number" min="1" required placeholder="مثلاً 6">
+                </div>
 
-        <div class="field">
-          <label for="description">توضیحات</label>
-          <textarea id="description" maxlength="5000" placeholder="توضیحات اقامتگاه..."></textarea>
-        </div>
+                <div class="field">
+                    <label for="price">قیمت هر شب</label>
+                    <input id="price" type="number" min="0" required placeholder="مثلاً 20000000">
+                </div>
 
-        <div class="field">
-          <label>
-            <input id="isActive" type="checkbox">
-            نمایش اقامتگاه در سایت
-          </label>
-          <div class="upload-status">برای اقامتگاه جدید، پس از بررسی، وضعیت را فعال کن.</div>
-        </div>
+                <div class="field">
+                    <label>عکس اصلی اقامتگاه</label>
 
-        <div class="actions">
-          <button class="btn btn-primary" type="submit" id="saveBtn">ذخیره اقامتگاه</button>
-          <button class="btn btn-secondary" type="button" id="cancelEditBtn" hidden>انصراف از ویرایش</button>
-        </div>
-      </form>
-    </section>
+                    <div class="file-box">
+                        <input id="imageFile" type="file" accept="image/jpeg,image/png,image/webp,image/avif">
 
-    <section class="panel">
-      <h2>اقامتگاه‌های افرا سفر</h2>
-      <p class="hint">اقامتگاه‌های ثبت‌شده توسط مالکان هم در این فهرست نمایش داده می‌شوند. برای انتشار عمومی، پس از بررسی از دکمه تأیید و فعال‌سازی استفاده کن.</p>
-      <button type="button" class="btn btn-secondary" id="refreshPropertiesBtn">بروزرسانی فهرست</button>
-      <div id="propertyList" class="property-list" style="margin-top:16px">
-        <div class="empty">در حال دریافت اقامتگاه‌ها...</div>
-      </div>
-    </section>
-  </div>
+                        <div class="upload-status" id="uploadStatus">
+                            یک عکس از کامپیوتر انتخاب کن. عکس مستقیماً در فضای ذخیره‌سازی افرا سفر آپلود می‌شود.
+                        </div>
 
-  <section class="panel owner-panel">
-    <h2>درخواست‌های ثبت‌نام مالکان</h2>
-    <p class="hint">درخواست‌های در انتظار بررسی را تأیید یا رد کن. تأیید مالک به‌تنهایی اقامتگاه او را فعال نمی‌کند.</p>
-    <div id="ownerRequestsMessage" class="message" role="status" aria-live="polite"></div>
-    <div id="ownerRequestsList" class="owner-list">
-      <div class="empty">در حال دریافت درخواست‌های مالکان...</div>
+                        <img id="imagePreview" class="preview" alt="پیش‌نمایش عکس">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="galleryFiles">عکس‌های بیشتر برای گالری (اختیاری)</label>
+                    <div class="file-box">
+                        <input id="galleryFiles" type="file" accept="image/jpeg,image/png,image/webp,image/avif" multiple>
+                        <div class="upload-status" id="galleryStatus">می‌توانی چند عکس را هم‌زمان انتخاب کنی. هر عکس حداکثر ۸ مگابایت باشد؛ این عکس‌ها به گالری صفحه اختصاصی اقامتگاه اضافه می‌شوند.</div>
+                        <div id="galleryPreviewList" class="upload-status" aria-live="polite"></div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="imageUrl">یا آدرس عکس اصلی</label>
+                    <input id="imageUrl" type="url" placeholder="https://...">
+                </div>
+
+                <div class="field">
+                    <label for="description">توضیحات</label>
+                    <textarea id="description" placeholder="توضیحات اقامتگاه..."></textarea>
+                </div>
+
+                <div class="field">
+                    <label>
+                        <input id="isActive" type="checkbox" checked>
+                        نمایش اقامتگاه در سایت
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" type="submit" id="saveBtn">
+                        ذخیره اقامتگاه
+                    </button>
+
+                    <button class="btn btn-secondary" type="button" id="cancelEditBtn" style="display:none;">
+                        انصراف از ویرایش
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>اقامتگاه‌های افرا سفر</h2>
+            <div id="propertyList" class="property-list">
+                <div class="empty">در حال دریافت اقامتگاه‌ها...</div>
+            </div>
+        </section>
+
     </div>
-  </section>
+
+    <section class="panel owner-panel dashboard-section" id="ownersSection">
+        <h2>درخواست‌های ثبت‌نام مالکان</h2>
+        <p style="color:#64756b;font-size:13px;line-height:1.8;">درخواست‌های در انتظار تأیید را بررسی کن. پس از تأیید، مالک می‌تواند از پنل خود اقامتگاه ثبت کند.</p>
+        <div id="ownerRequestsMessage" class="message"></div>
+        <div id="ownerRequestsList" class="owner-list">
+            <div class="empty">در حال دریافت درخواست‌های مالکان...</div>
+        </div>
+    </section>
+
+    <section class="panel reservation-panel dashboard-section" id="reservationsSection">
+        <div class="reservation-toolbar">
+            <div>
+                <h2 style="margin:0 0 6px;">درخواست‌های رزرو اقامتگاه‌ها</h2>
+                <p style="color:#64756b;font-size:13px;line-height:1.8;margin:0;">تمام درخواست‌های ثبت‌شده برای اقامتگاه‌های افرا سفر در این بخش نمایش داده می‌شوند.</p>
+            </div>
+            <button class="btn btn-secondary" type="button" id="refreshReservationsBtn">به‌روزرسانی رزروها</button>
+        </div>
+        <div id="reservationsMessage" class="message"></div>
+        <div id="reservationsList" class="reservation-list">
+            <div class="empty">در حال دریافت درخواست‌های رزرو...</div>
+        </div>
+    </section>
 </main>
 
 <script>
-(() => {
-  "use strict";
+    const loginBox = document.getElementById("loginBox");
+    const dashboard = document.getElementById("dashboard");
 
-  const $ = id => document.getElementById(id);
+    const loginForm = document.getElementById("loginForm");
+    const loginMessage = document.getElementById("loginMessage");
+    const dashboardMessage = document.getElementById("dashboardMessage");
 
-  const loginBox = $("loginBox");
-  const dashboard = $("dashboard");
-  const loginForm = $("loginForm");
-  const loginMessage = $("loginMessage");
-  const dashboardMessage = $("dashboardMessage");
-  const propertyForm = $("propertyForm");
-  const propertyList = $("propertyList");
-  const ownerRequestsList = $("ownerRequestsList");
-  const ownerRequestsMessage = $("ownerRequestsMessage");
-  const saveBtn = $("saveBtn");
-  const cancelEditBtn = $("cancelEditBtn");
-  const logoutBtn = $("logoutBtn");
-  const imageFileInput = $("imageFile");
-  const galleryFilesInput = $("galleryFiles");
-  const imagePreview = $("imagePreview");
-  const uploadStatus = $("uploadStatus");
-  const galleryStatus = $("galleryStatus");
-  const galleryPreviewList = $("galleryPreviewList");
+    const propertyForm = document.getElementById("propertyForm");
+    const propertyList = document.getElementById("propertyList");
 
-  let properties = [];
-  let busy = false;
+    const propertyId = document.getElementById("propertyId");
+    const titleInput = document.getElementById("title");
+    const locationInput = document.getElementById("location");
+    const categoryInput = document.getElementById("category");
+    const capacityInput = document.getElementById("capacity");
+    const priceInput = document.getElementById("price");
+    const imageFileInput = document.getElementById("imageFile");
+    const galleryFilesInput = document.getElementById("galleryFiles");
+    const galleryStatus = document.getElementById("galleryStatus");
+    const galleryPreviewList = document.getElementById("galleryPreviewList");
+    const imageUrlInput = document.getElementById("imageUrl");
+    const imagePreview = document.getElementById("imagePreview");
+    const uploadStatus = document.getElementById("uploadStatus");
+    const descriptionInput = document.getElementById("description");
+    const isActiveInput = document.getElementById("isActive");
 
-  const field = id => $(id).value;
-  const BUCKET = "property-images";
+    const formTitle = document.getElementById("formTitle");
+    const saveBtn = document.getElementById("saveBtn");
+    const cancelEditBtn = document.getElementById("cancelEditBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
 
-  function showMessage(element, text, type = "info") {
-    element.textContent = text;
-    element.className = "message " + type;
-  }
+    let properties = [];
+    const ownerRequestsList = document.getElementById("ownerRequestsList");
+    const ownerRequestsMessage = document.getElementById("ownerRequestsMessage");
+    const reservationsList = document.getElementById("reservationsList");
+    const reservationsMessage = document.getElementById("reservationsMessage");
+    const refreshReservationsBtn = document.getElementById("refreshReservationsBtn");
 
-  function hideMessage(element) {
-    element.textContent = "";
-    element.className = "message";
-  }
+    function showMessage(element, text, type) {
+        element.textContent = text;
+        element.className = "message " + type;
+    }
 
-  function escapeHtml(value) {
-    return String(value ?? "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
+    function hideMessage(element) {
+        element.textContent = "";
+        element.className = "message";
+    }
 
-  function formatPrice(value) {
-    const n = Number(value);
-    return Number.isFinite(n) ? n.toLocaleString("fa-IR") : "۰";
-  }
+    function escapeHtml(value) {
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
 
-  function categoryName(category) {
-    return ({
-      villa: "ویلا",
-      forest: "کلبه جنگلی",
-      pool: "ویلا استخردار",
-      luxury: "اقامتگاه لوکس"
-    })[category] || category || "—";
-  }
+    function formatPrice(value) {
+        const number = Number(value);
 
-  function setEmpty(element, message) {
-    element.replaceChildren();
-    const div = document.createElement("div");
-    div.className = "empty";
-    div.textContent = message;
-    element.appendChild(div);
-  }
+        if (!Number.isFinite(number)) {
+            return "0";
+        }
 
-  async function checkAdmin() {
-    try {
-      const { data: sessionData, error: sessionError } =
-        await afraSupabase.auth.getSession();
+        return number.toLocaleString("fa-IR");
+    }
 
-      if (sessionError) throw sessionError;
+    function categoryName(category) {
+        const names = {
+            villa: "ویلا",
+            forest: "کلبه جنگلی",
+            pool: "ویلا استخردار",
+            luxury: "اقامتگاه لوکس"
+        };
 
-      if (!sessionData.session) {
-        loginBox.style.display = "block";
-        dashboard.style.display = "none";
-        return false;
-      }
+        return names[category] || category || "-";
+    }
 
-      const { data: isAdmin, error: adminError } =
-        await afraSupabase.rpc("is_admin");
+    async function checkAdmin() {
+        const { data: sessionData } = await afraSupabase.auth.getSession();
 
-      if (adminError || isAdmin !== true) {
+        if (!sessionData.session) {
+            loginBox.style.display = "block";
+            dashboard.style.display = "none";
+            return false;
+        }
+
+        const { data, error } = await afraSupabase.rpc("is_admin");
+
+        if (error || !data) {
+            await afraSupabase.auth.signOut();
+
+            loginBox.style.display = "block";
+            dashboard.style.display = "none";
+
+            showMessage(
+                loginMessage,
+                "این حساب دسترسی مدیر ندارد.",
+                "error"
+            );
+
+            return false;
+        }
+
+        loginBox.style.display = "none";
+        dashboard.style.display = "block";
+
+        await loadProperties();
+        await loadOwnerRequests();
+        await loadReservations();
+
+        return true;
+    }
+
+
+    function reservationStatusName(status) {
+        const names = {
+            pending: "در انتظار بررسی",
+            confirmed: "تأیید شده",
+            approved: "تأیید شده",
+            rejected: "رد شده",
+            cancelled: "لغو شده",
+            completed: "انجام شده"
+        };
+        return names[status] || status || "نامشخص";
+    }
+
+    function formatDate(value) {
+        if (!value) return "-";
+        const date = new Date(value + (String(value).length === 10 ? "T00:00:00" : ""));
+        return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleDateString("fa-IR");
+    }
+
+    async function loadReservations() {
+        reservationsList.innerHTML = '<div class="empty">در حال دریافت درخواست‌های رزرو...</div>';
+        hideMessage(reservationsMessage);
+
+        const { data: reservationRows, error } = await afraSupabase
+            .from("reservations")
+            .select("id, property_id, guest_name, guest_phone, check_in, check_out, guest_count, guest_message, status, created_at, reservation_code")
+            .order("created_at", { ascending: false });
+
+        if (error) {
+            reservationsList.innerHTML = '<div class="empty">دریافت درخواست‌های رزرو انجام نشد.</div>';
+            showMessage(reservationsMessage, "خطا در دریافت رزروها: " + error.message, "error");
+            return;
+        }
+
+        const reservations = reservationRows || [];
+        if (!reservations.length) {
+            reservationsList.innerHTML = '<div class="empty">هنوز درخواست رزروی ثبت نشده است.</div>';
+            return;
+        }
+
+        const propertyIds = [...new Set(reservations.map(item => item.property_id).filter(Boolean))];
+        let propertyMap = {};
+        if (propertyIds.length) {
+            const { data: propertyRows, error: propertyError } = await afraSupabase
+                .from("properties")
+                .select("id, title, location")
+                .in("id", propertyIds);
+            if (propertyError) {
+                showMessage(reservationsMessage, "رزروها دریافت شدند، اما نام اقامتگاه‌ها دریافت نشد: " + propertyError.message, "error");
+            } else {
+                (propertyRows || []).forEach(property => { propertyMap[property.id] = property; });
+            }
+        }
+
+        reservationsList.innerHTML = reservations.map(reservation => {
+            const property = propertyMap[reservation.property_id] || {};
+            const status = String(reservation.status || "pending").toLowerCase();
+            const createdAt = reservation.created_at ? new Date(reservation.created_at).toLocaleString("fa-IR") : "-";
+            const guestName = reservation.guest_name || "نام ثبت نشده";
+            const guestPhone = reservation.guest_phone || "ثبت نشده";
+            const guestCount = reservation.guest_count == null ? "-" : Number(reservation.guest_count).toLocaleString("fa-IR");
+            const code = reservation.reservation_code || reservation.id;
+            const actions = status === "pending" ? `
+                <div class="reservation-actions">
+                    <button type="button" style="background:#e2f6e9;color:#14633e;" onclick="updateReservationStatus('${escapeHtml(reservation.id)}','confirmed')">تأیید رزرو</button>
+                    <button type="button" style="background:#ffe7e7;color:#a51f1f;" onclick="updateReservationStatus('${escapeHtml(reservation.id)}','rejected')">رد رزرو</button>
+                </div>` : status === "confirmed" || status === "approved" ? `
+                <div class="reservation-actions"><button type="button" style="background:#ffe7e7;color:#a51f1f;" onclick="updateReservationStatus('${escapeHtml(reservation.id)}','rejected')">رد رزرو</button></div>` : "";
+
+            return `
+                <article class="reservation-card">
+                    <div class="reservation-meta">
+                        <span class="reservation-status ${escapeHtml(status)}">${escapeHtml(reservationStatusName(status))}</span>
+                        <span style="font-size:12px;color:#64756b;">کد رزرو: ${escapeHtml(code)}</span>
+                    </div>
+                    <h3>${escapeHtml(property.title || "اقامتگاه حذف‌شده یا نامشخص")}</h3>
+                    <p>📍 موقعیت: ${escapeHtml(property.location || "-")}</p>
+                    <p>👤 نام مسافر: ${escapeHtml(guestName)}</p>
+                    <p>📞 شماره تماس: ${escapeHtml(guestPhone)}</p>
+                    <p>📅 ورود: ${escapeHtml(formatDate(reservation.check_in))} &nbsp; | &nbsp; خروج: ${escapeHtml(formatDate(reservation.check_out))}</p>
+                    <p>👥 تعداد نفرات: ${escapeHtml(guestCount)}</p>
+                    <p>🕒 زمان ثبت درخواست: ${escapeHtml(createdAt)}</p>
+                    ${reservation.guest_message ? `<p>💬 توضیحات مسافر: ${escapeHtml(reservation.guest_message)}</p>` : ""}
+                    ${actions}
+                </article>`;
+        }).join("");
+    }
+
+    async function updateReservationStatus(reservationId, status) {
+        if (!["confirmed", "rejected"].includes(status)) return;
+        const actionText = status === "confirmed" ? "تأیید" : "رد";
+        if (!confirm("از " + actionText + " این درخواست رزرو مطمئنی؟")) return;
+
+        const buttons = reservationsList.querySelectorAll("button");
+        buttons.forEach(button => button.disabled = true);
+        hideMessage(reservationsMessage);
+
+        const { error } = await afraSupabase
+            .from("reservations")
+            .update({ status })
+            .eq("id", reservationId);
+
+        if (error) {
+            showMessage(reservationsMessage, "تغییر وضعیت رزرو انجام نشد: " + error.message, "error");
+            buttons.forEach(button => button.disabled = false);
+            return;
+        }
+
+        showMessage(reservationsMessage, status === "confirmed" ? "رزرو با موفقیت تأیید شد." : "درخواست رزرو رد شد.", "success");
+        await loadReservations();
+    }
+
+    window.updateReservationStatus = updateReservationStatus;
+    refreshReservationsBtn.addEventListener("click", loadReservations);
+
+    async function loadOwnerRequests() {
+        ownerRequestsList.innerHTML = '<div class="empty">در حال دریافت درخواست‌های مالکان...</div>';
+        hideMessage(ownerRequestsMessage);
+
+        const { data, error } = await afraSupabase
+            .from("owner_profiles")
+            .select("user_id, full_name, phone, approval_status, created_at")
+            .eq("approval_status", "pending")
+            .order("created_at", { ascending: true });
+
+        if (error) {
+            ownerRequestsList.innerHTML = '<div class="empty">دریافت درخواست‌ها انجام نشد.</div>';
+            showMessage(ownerRequestsMessage, "خطا در دریافت درخواست‌های مالکان: " + error.message, "error");
+            return;
+        }
+
+        const requests = data || [];
+        if (!requests.length) {
+            ownerRequestsList.innerHTML = '<div class="empty">در حال حاضر درخواست تأییدنشده‌ای وجود ندارد.</div>';
+            return;
+        }
+
+        ownerRequestsList.innerHTML = requests.map((owner) => {
+            const createdAt = owner.created_at ? new Date(owner.created_at).toLocaleString("fa-IR") : "-";
+            const displayName = owner.full_name || "نام ثبت نشده";
+            const phone = owner.phone || "شماره تماس ثبت نشده";
+            return `
+                <article class="owner-card">
+                    <h3>${escapeHtml(displayName)}</h3>
+                    <p>📞 شماره تماس: ${escapeHtml(phone)}</p>
+                    <p>شناسه کاربر: ${escapeHtml(owner.user_id)}</p>
+                    <p>تاریخ درخواست: ${escapeHtml(createdAt)}</p>
+                    <div class="owner-actions">
+                        <button type="button" class="owner-approve" onclick="updateOwnerStatus('${escapeHtml(owner.user_id)}', 'approved')">تأیید مالک</button>
+                        <button type="button" class="owner-reject" onclick="updateOwnerStatus('${escapeHtml(owner.user_id)}', 'rejected')">رد درخواست</button>
+                    </div>
+                </article>
+            `;
+        }).join("");
+    }
+
+    async function updateOwnerStatus(userId, status) {
+        if (!["approved", "rejected"].includes(status)) return;
+
+        const actionText = status === "approved" ? "تأیید" : "رد";
+        if (!confirm("از " + actionText + " درخواست این مالک مطمئنی؟")) return;
+
+        const buttons = ownerRequestsList.querySelectorAll("button");
+        buttons.forEach(button => button.disabled = true);
+        hideMessage(ownerRequestsMessage);
+
+        const { error } = await afraSupabase
+            .from("owner_profiles")
+            .update({ approval_status: status })
+            .eq("user_id", userId)
+            .eq("approval_status", "pending");
+
+        if (error) {
+            showMessage(ownerRequestsMessage, "تغییر وضعیت انجام نشد: " + error.message, "error");
+            buttons.forEach(button => button.disabled = false);
+            return;
+        }
+
+        showMessage(ownerRequestsMessage, status === "approved" ? "مالک با موفقیت تأیید شد و اکنون می‌تواند از پنل مالک استفاده کند." : "درخواست مالک رد شد.", "success");
+        await loadOwnerRequests();
+    }
+
+    window.updateOwnerStatus = updateOwnerStatus;
+
+    loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        hideMessage(loginMessage);
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        const { error } = await afraSupabase.auth.signInWithPassword({
+            email,
+            password
+        });
+
+        if (error) {
+            showMessage(
+                loginMessage,
+                "ورود انجام نشد: " + error.message,
+                "error"
+            );
+            return;
+        }
+
+        await checkAdmin();
+    });
+
+    logoutBtn.addEventListener("click", async () => {
         await afraSupabase.auth.signOut();
-        loginBox.style.display = "block";
-        dashboard.style.display = "none";
-        showMessage(loginMessage, "این حساب دسترسی مدیر ندارد.", "error");
-        return false;
-      }
-
-      loginBox.style.display = "none";
-      dashboard.style.display = "block";
-
-      await Promise.all([loadProperties(), loadOwnerRequests()]);
-      return true;
-    } catch (error) {
-      showMessage(
-        loginMessage,
-        "بررسی دسترسی مدیر ناموفق بود: " + (error.message || "خطای ناشناخته"),
-        "error"
-      );
-      return false;
-    }
-  }
-
-  async function loadOwnerRequests() {
-    setEmpty(ownerRequestsList, "در حال دریافت درخواست‌های مالکان...");
-    hideMessage(ownerRequestsMessage);
-
-    const { data, error } = await afraSupabase
-      .from("owner_profiles")
-      .select("user_id,full_name,phone,approval_status,created_at")
-      .eq("approval_status", "pending")
-      .order("created_at", { ascending: true });
-
-    if (error) {
-      setEmpty(ownerRequestsList, "دریافت درخواست‌های مالکان انجام نشد.");
-      showMessage(ownerRequestsMessage, error.message, "error");
-      return;
-    }
-
-    const requests = data || [];
-
-    if (!requests.length) {
-      setEmpty(ownerRequestsList, "در حال حاضر درخواست تأییدنشده‌ای وجود ندارد.");
-      return;
-    }
-
-    ownerRequestsList.replaceChildren();
-
-    requests.forEach(owner => {
-      const card = document.createElement("article");
-      card.className = "owner-card";
-
-      const heading = document.createElement("h3");
-      heading.textContent = owner.full_name || "نام ثبت نشده";
-
-      const phone = document.createElement("p");
-      phone.textContent = "شماره تماس: " + (owner.phone || "ثبت نشده");
-
-      const date = document.createElement("p");
-      date.textContent = "تاریخ درخواست: " + (
-        owner.created_at
-          ? new Date(owner.created_at).toLocaleString("fa-IR")
-          : "—"
-      );
-
-      const actions = document.createElement("div");
-      actions.className = "owner-actions";
-
-      const approve = document.createElement("button");
-      approve.type = "button";
-      approve.className = "btn btn-approve btn-small";
-      approve.textContent = "تأیید مالک";
-      approve.dataset.ownerId = owner.user_id;
-      approve.dataset.ownerStatus = "approved";
-
-      const reject = document.createElement("button");
-      reject.type = "button";
-      reject.className = "btn btn-danger btn-small";
-      reject.textContent = "رد درخواست";
-      reject.dataset.ownerId = owner.user_id;
-      reject.dataset.ownerStatus = "rejected";
-
-      actions.append(approve, reject);
-      card.append(heading, phone, date, actions);
-      ownerRequestsList.appendChild(card);
+        window.location.reload();
     });
-  }
 
-  async function updateOwnerStatus(userId, status, button) {
-    if (!["approved", "rejected"].includes(status)) return;
+    imageFileInput.addEventListener("change", () => {
+        const file = imageFileInput.files[0];
 
-    const label = status === "approved" ? "تأیید" : "رد";
-    if (!confirm("از " + label + " درخواست این مالک مطمئنی؟")) return;
+        if (!file) {
+            imagePreview.style.display = "none";
+            imagePreview.removeAttribute("src");
+            uploadStatus.textContent = "یک عکس انتخاب کن.";
+            return;
+        }
 
-    button.disabled = true;
-    hideMessage(ownerRequestsMessage);
+        if (!file.type.startsWith("image/")) {
+            imageFileInput.value = "";
+            showMessage(
+                dashboardMessage,
+                "لطفاً فقط فایل تصویری انتخاب کن.",
+                "error"
+            );
+            return;
+        }
 
-    try {
-      const { data, error } = await afraSupabase
-        .from("owner_profiles")
-        .update({ approval_status: status })
-        .eq("user_id", userId)
-        .eq("approval_status", "pending")
-        .select("user_id");
+        if (file.size > 8 * 1024 * 1024) {
+            imageFileInput.value = "";
+            showMessage(
+                dashboardMessage,
+                "حجم عکس نباید بیشتر از ۸ مگابایت باشد.",
+                "error"
+            );
+            return;
+        }
 
-      if (error) throw error;
+        const objectUrl = URL.createObjectURL(file);
+        imagePreview.src = objectUrl;
+        imagePreview.style.display = "block";
 
-      if (!data || !data.length) {
-        throw new Error("وضعیت مالک تغییر نکرد؛ مجوز دسترسی دیتابیس را بررسی کن.");
-      }
-
-      showMessage(
-        ownerRequestsMessage,
-        status === "approved"
-          ? "مالک تأیید شد. اکنون می‌تواند از پنل خود اقامتگاه ثبت کند."
-          : "درخواست مالک رد شد.",
-        "success"
-      );
-
-      await loadOwnerRequests();
-    } catch (error) {
-      showMessage(
-        ownerRequestsMessage,
-        "تغییر وضعیت انجام نشد: " + (error.message || "خطای ناشناخته"),
-        "error"
-      );
-      button.disabled = false;
-    }
-  }
-
-  async function uploadPropertyImage(file) {
-    const { data: userData, error: userError } =
-      await afraSupabase.auth.getUser();
-
-    if (userError) throw userError;
-    if (!userData.user) throw new Error("نشست مدیر معتبر نیست؛ دوباره وارد شو.");
-
-    const extension = (file.name.split(".").pop() || "jpg").toLowerCase();
-    const allowed = ["jpg", "jpeg", "png", "webp", "avif"];
-
-    if (!allowed.includes(extension)) {
-      throw new Error("فرمت عکس مجاز نیست.");
-    }
-
-    if (file.size > 8 * 1024 * 1024) {
-      throw new Error("حجم هر عکس باید حداکثر ۸ مگابایت باشد.");
-    }
-
-    const path = userData.user.id + "/" + crypto.randomUUID() + "." + extension;
-    uploadStatus.textContent = "در حال آپلود عکس...";
-
-    const { error } = await afraSupabase.storage
-      .from(BUCKET)
-      .upload(path, file, {
-        cacheControl: "3600",
-        upsert: false,
-        contentType: file.type
-      });
-
-    if (error) throw error;
-
-    const { data } = afraSupabase.storage.from(BUCKET).getPublicUrl(path);
-
-    if (!data?.publicUrl) throw new Error("آدرس عمومی عکس دریافت نشد.");
-
-    uploadStatus.textContent = "آپلود عکس انجام شد.";
-    return data.publicUrl;
-  }
-
-  async function uploadGalleryImages(files, savedPropertyId) {
-    if (!files.length) return 0;
-
-    if (files.length > 10) {
-      throw new Error("حداکثر ۱۰ عکس گالری را در هر بار انتخاب کن.");
-    }
-
-    const rows = [];
-
-    for (let i = 0; i < files.length; i++) {
-      galleryStatus.textContent =
-        "در حال آپلود عکس " + (i + 1) + " از " + files.length + "...";
-
-      const imageUrl = await uploadPropertyImage(files[i]);
-
-      rows.push({
-        property_id: savedPropertyId,
-        image_url: imageUrl,
-        sort_order: i + 1
-      });
-    }
-
-    const { error } = await afraSupabase
-      .from("property_images")
-      .insert(rows);
-
-    if (error) {
-      throw new Error("ثبت اقامتگاه انجام شد، اما ذخیره گالری ناموفق بود: " + error.message);
-    }
-
-    galleryStatus.textContent = rows.length + " عکس گالری ذخیره شد.";
-    return rows.length;
-  }
-
-  async function loadProperties() {
-    setEmpty(propertyList, "در حال دریافت اقامتگاه‌ها...");
-    hideMessage(dashboardMessage);
-
-    const { data, error } = await afraSupabase
-      .from("properties")
-      .select("id,title,location,category,capacity,price,description,image_url,is_active,owner_id,created_at")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      setEmpty(propertyList, "دریافت اقامتگاه‌ها انجام نشد.");
-      showMessage(
-        dashboardMessage,
-        "خطا در دریافت اقامتگاه‌ها: " + error.message,
-        "error"
-      );
-      return;
-    }
-
-    properties = data || [];
-    renderProperties();
-  }
-
-  function renderProperties() {
-    if (!properties.length) {
-      setEmpty(propertyList, "هنوز اقامتگاهی ثبت نشده است.");
-      return;
-    }
-
-    propertyList.replaceChildren();
-
-    properties.forEach(property => {
-      const card = document.createElement("article");
-      card.className = "property-card";
-
-      const image = document.createElement("img");
-      image.src = property.image_url || "images/villa1.jpg";
-      image.alt = property.title || "اقامتگاه";
-      image.onerror = () => {
-        image.onerror = null;
-        image.src = "images/villa1.jpg";
-      };
-
-      const info = document.createElement("div");
-      info.className = "property-info";
-
-      const heading = document.createElement("h3");
-      heading.textContent = property.title || "اقامتگاه بدون نام";
-
-      const location = document.createElement("p");
-      location.textContent = "📍 " + (property.location || "—");
-
-      const category = document.createElement("p");
-      category.textContent = "🏡 " + categoryName(property.category);
-
-      const capacity = document.createElement("p");
-      capacity.textContent = "👥 ظرفیت: " + formatPrice(property.capacity) + " نفر";
-
-      const price = document.createElement("p");
-      price.textContent = "💰 هر شب: " + formatPrice(property.price) + " تومان";
-
-      const owner = document.createElement("p");
-      owner.textContent = "شناسه مالک: " + (property.owner_id || "ثبت‌شده توسط مدیر");
-
-      const badge = document.createElement("span");
-      badge.className = "status-badge" + (property.is_active ? "" : " off");
-      badge.textContent = property.is_active ? "فعال و قابل نمایش" : "غیرفعال یا در انتظار بررسی";
-
-      const actions = document.createElement("div");
-      actions.className = "property-actions";
-
-      const activation = document.createElement("button");
-      activation.type = "button";
-      activation.className = "btn btn-small " + (
-        property.is_active ? "btn-secondary" : "btn-approve"
-      );
-      activation.textContent = property.is_active
-        ? "غیرفعال‌کردن"
-        : "تأیید و فعال‌سازی";
-      activation.dataset.propertyAction = "toggle";
-      activation.dataset.propertyId = String(property.id);
-
-      const edit = document.createElement("button");
-      edit.type = "button";
-      edit.className = "btn btn-secondary btn-small";
-      edit.textContent = "ویرایش";
-      edit.dataset.propertyAction = "edit";
-      edit.dataset.propertyId = String(property.id);
-
-      const remove = document.createElement("button");
-      remove.type = "button";
-      remove.className = "btn btn-danger btn-small";
-      remove.textContent = "حذف";
-      remove.dataset.propertyAction = "delete";
-      remove.dataset.propertyId = String(property.id);
-
-      actions.append(activation, edit, remove);
-      info.append(heading, location, category, capacity, price, owner, badge, actions);
-      card.append(image, info);
-      propertyList.appendChild(card);
+        uploadStatus.textContent =
+            "عکس انتخاب شد: " + file.name + " — بعد از ذخیره آپلود می‌شود.";
     });
-  }
 
-  async function togglePropertyStatus(id, button) {
-    const property = properties.find(item => String(item.id) === String(id));
-    if (!property) return;
+    galleryFilesInput.addEventListener("change", () => {
+        hideMessage(dashboardMessage);
+        const files = Array.from(galleryFilesInput.files || []);
+        galleryPreviewList.textContent = "";
 
-    const newStatus = property.is_active !== true;
-    const prompt = newStatus
-      ? "بعد از بررسی، این اقامتگاه فعال و در سایت قابل نمایش می‌شود. ادامه می‌دهی؟"
-      : "این اقامتگاه از نمایش عمومی خارج می‌شود. ادامه می‌دهی؟";
+        if (files.length > 10) {
+            galleryFilesInput.value = "";
+            galleryStatus.textContent = "حداکثر ۱۰ عکس گالری را در هر بار انتخاب کن.";
+            showMessage(dashboardMessage, "برای گالری در هر بار حداکثر ۱۰ عکس انتخاب کن.", "error");
+            return;
+        }
 
-    if (!confirm(prompt)) return;
+        const invalidFile = files.find(file => !file.type.startsWith("image/") || file.size > 8 * 1024 * 1024);
+        if (invalidFile) {
+            galleryFilesInput.value = "";
+            galleryStatus.textContent = "انتخاب عکس نامعتبر بود؛ فرمت تصویری و حجم حداکثر ۸ مگابایت برای هر عکس لازم است.";
+            showMessage(dashboardMessage, "عکس‌های گالری باید تصویری و هرکدام حداکثر ۸ مگابایت باشند.", "error");
+            return;
+        }
 
-    button.disabled = true;
-    hideMessage(dashboardMessage);
+        if (!files.length) {
+            galleryStatus.textContent = "می‌توانی چند عکس را هم‌زمان انتخاب کنی. هر عکس حداکثر ۸ مگابایت باشد.";
+            return;
+        }
 
-    try {
-      const { data, error } = await afraSupabase
-        .from("properties")
-        .update({ is_active: newStatus })
-        .eq("id", property.id)
-        .select("id,is_active")
-        .single();
+        galleryStatus.textContent = files.length + " عکس برای افزودن به گالری انتخاب شد.";
+        galleryPreviewList.textContent = files.map((file, index) => (index + 1) + ". " + file.name).join("\n");
+        galleryPreviewList.style.whiteSpace = "pre-line";
+    });
 
-      if (error) throw error;
+    async function uploadGalleryImages(files, savedPropertyId) {
+        const rows = [];
+        const selectedFiles = Array.from(files || []);
 
-      if (!data || data.is_active !== newStatus) {
-        throw new Error("تغییر وضعیت از دیتابیس تأیید نشد.");
-      }
+        for (let index = 0; index < selectedFiles.length; index++) {
+            const file = selectedFiles[index];
+            galleryStatus.textContent = "در حال آپلود عکس گالری " + (index + 1) + " از " + selectedFiles.length + "...";
+            const imageUrl = await uploadPropertyImage(file);
+            rows.push({
+                property_id: String(savedPropertyId),
+                image_url: imageUrl,
+                sort_order: index + 1
+            });
+        }
 
-      showMessage(
-        dashboardMessage,
-        newStatus
-          ? "اقامتگاه با موفقیت تأیید و فعال شد."
-          : "اقامتگاه غیرفعال شد و دیگر نباید در فهرست عمومی نمایش داده شود.",
-        "success"
-      );
+        if (!rows.length) return 0;
 
-      await loadProperties();
-    } catch (error) {
-      showMessage(
-        dashboardMessage,
-        "تغییر وضعیت انجام نشد: " + (error.message || "خطای ناشناخته"),
-        "error"
-      );
-      button.disabled = false;
-    }
-  }
+        const { error } = await afraSupabase.from("property_images").insert(rows);
+        if (error) {
+            throw new Error("اقامتگاه ذخیره شد، اما ثبت عکس‌های گالری انجام نشد. سیاست دسترسی جدول property_images را بررسی کن. جزئیات: " + error.message);
+        }
 
-  function startEdit(id) {
-    const property = properties.find(item => String(item.id) === String(id));
-    if (!property) return;
-
-    $("propertyId").value = property.id;
-    $("title").value = property.title || "";
-    $("location").value = property.location || "";
-    $("category").value = property.category || "villa";
-    $("capacity").value = property.capacity ?? "";
-    $("price").value = property.price ?? "";
-    $("imageUrl").value = property.image_url || "";
-    $("description").value = property.description || "";
-    $("isActive").checked = property.is_active === true;
-
-    imageFileInput.value = "";
-    galleryFilesInput.value = "";
-    galleryPreviewList.textContent = "";
-    galleryStatus.textContent = "برای افزودن عکس به گالری، فایل‌ها را انتخاب کن.";
-
-    if (property.image_url) {
-      imagePreview.src = property.image_url;
-      imagePreview.style.display = "block";
-      uploadStatus.textContent = "عکس فعلی اقامتگاه.";
-    } else {
-      imagePreview.style.display = "none";
-      imagePreview.removeAttribute("src");
-      uploadStatus.textContent = "برای تغییر عکس، یک فایل انتخاب کن.";
+        galleryStatus.textContent = rows.length + " عکس گالری با موفقیت ذخیره شد.";
+        return rows.length;
     }
 
-    $("formTitle").textContent = "ویرایش اقامتگاه";
-    saveBtn.textContent = "ذخیره تغییرات";
-    cancelEditBtn.hidden = false;
+    async function uploadPropertyImage(file) {
+        const { data: userData, error: userError } =
+            await afraSupabase.auth.getUser();
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+        if (userError || !userData.user) {
+            throw new Error("نشست مدیر پیدا نشد. دوباره وارد شو.");
+        }
 
-  async function deleteProperty(id, button) {
-    const property = properties.find(item => String(item.id) === String(id));
-    if (!property) return;
+        const extension = file.name.split(".").pop().toLowerCase() || "jpg";
 
-    if (!confirm("آیا از حذف اقامتگاه «" + property.title + "» مطمئنی؟")) return;
+        const safeExtension =
+            ["jpg", "jpeg", "png", "webp", "avif"].includes(extension)
+                ? extension
+                : "jpg";
 
-    button.disabled = true;
+        const filePath =
+            userData.user.id +
+            "/" +
+            crypto.randomUUID() +
+            "." +
+            safeExtension;
 
-    try {
-      const { error } = await afraSupabase
-        .from("properties")
-        .delete()
-        .eq("id", property.id);
+        uploadStatus.textContent = "در حال آپلود عکس...";
 
-      if (error) throw error;
+        const { error: uploadError } = await afraSupabase.storage
+            .from("property-images")
+            .upload(filePath, file, {
+                cacheControl: "3600",
+                upsert: false,
+                contentType: file.type
+            });
 
-      showMessage(dashboardMessage, "درخواست حذف اقامتگاه انجام شد.", "success");
-      await loadProperties();
-    } catch (error) {
-      showMessage(
-        dashboardMessage,
-        "حذف انجام نشد: " + (error.message || "خطای ناشناخته"),
-        "error"
-      );
-      button.disabled = false;
-    }
-  }
+        if (uploadError) {
+            throw uploadError;
+        }
 
-  function resetForm() {
-    propertyForm.reset();
-    $("propertyId").value = "";
-    $("formTitle").textContent = "افزودن اقامتگاه";
-    saveBtn.textContent = "ذخیره اقامتگاه";
-    cancelEditBtn.hidden = true;
+        const { data } = afraSupabase.storage
+            .from("property-images")
+            .getPublicUrl(filePath);
 
-    imageFileInput.value = "";
-    galleryFilesInput.value = "";
-    $("imageUrl").value = "";
-    galleryPreviewList.textContent = "";
-    galleryStatus.textContent = "حداکثر ۱۰ عکس گالری؛ حجم هر عکس حداکثر ۸ مگابایت.";
-    uploadStatus.textContent = "یک عکس انتخاب کن. پس از ذخیره آپلود می‌شود.";
-    imagePreview.style.display = "none";
-    imagePreview.removeAttribute("src");
-    $("isActive").checked = false;
-  }
+        uploadStatus.textContent = "آپلود عکس با موفقیت انجام شد.";
 
-  imageFileInput.addEventListener("change", () => {
-    hideMessage(dashboardMessage);
-    const file = imageFileInput.files[0];
-
-    if (!file) {
-      imagePreview.style.display = "none";
-      imagePreview.removeAttribute("src");
-      return;
+        return data.publicUrl;
     }
 
-    if (!file.type.startsWith("image/") || file.size > 8 * 1024 * 1024) {
-      imageFileInput.value = "";
-      imagePreview.style.display = "none";
-      showMessage(dashboardMessage, "فایل باید تصویری و حداکثر ۸ مگابایت باشد.", "error");
-      return;
+    propertyForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        hideMessage(dashboardMessage);
+        saveBtn.disabled = true;
+        saveBtn.textContent = "در حال ذخیره...";
+
+        try {
+            let imageUrl = imageUrlInput.value.trim();
+            const selectedFile = imageFileInput.files[0];
+            const selectedGalleryFiles = Array.from(galleryFilesInput.files || []);
+
+            if (selectedFile) imageUrl = await uploadPropertyImage(selectedFile);
+
+            const payload = {
+                title: titleInput.value.trim(),
+                location: locationInput.value.trim(),
+                category: categoryInput.value,
+                capacity: Number(capacityInput.value),
+                price: Number(priceInput.value),
+                description: descriptionInput.value.trim(),
+                image_url: imageUrl || null,
+                is_active: isActiveInput.checked,
+                updated_at: new Date().toISOString()
+            };
+
+            if (!payload.title || !payload.location) throw new Error("نام اقامتگاه و موقعیت را وارد کن.");
+            if (!Number.isFinite(payload.capacity) || payload.capacity < 1) throw new Error("ظرفیت را درست وارد کن.");
+            if (!Number.isFinite(payload.price) || payload.price < 0) throw new Error("قیمت را درست وارد کن.");
+
+            let savedPropertyId = propertyId.value;
+            let saveError = null;
+
+            if (savedPropertyId) {
+                const result = await afraSupabase.from("properties").update(payload).eq("id", savedPropertyId);
+                saveError = result.error;
+            } else {
+                const result = await afraSupabase.from("properties").insert(payload).select("id").single();
+                saveError = result.error;
+                if (!saveError) savedPropertyId = result.data.id;
+            }
+
+            if (saveError) throw saveError;
+
+            let galleryCount = 0;
+            if (selectedGalleryFiles.length) {
+                galleryCount = await uploadGalleryImages(selectedGalleryFiles, savedPropertyId);
+            }
+
+            showMessage(
+                dashboardMessage,
+                (propertyId.value ? "اقامتگاه با موفقیت ویرایش شد." : "اقامتگاه با موفقیت اضافه شد.") +
+                    (galleryCount ? " " + galleryCount + " عکس هم به گالری اضافه شد." : ""),
+                "success"
+            );
+
+            resetForm();
+            await loadProperties();
+        } catch (error) {
+            console.error(error);
+            showMessage(dashboardMessage, "خطا: " + (error.message || "عملیات انجام نشد."), "error");
+        } finally {
+            saveBtn.disabled = false;
+            saveBtn.textContent = propertyId.value ? "ذخیره تغییرات" : "ذخیره اقامتگاه";
+        }
+    });
+
+    function resetForm() {
+        propertyForm.reset();
+
+        propertyId.value = "";
+        formTitle.textContent = "افزودن اقامتگاه";
+        saveBtn.textContent = "ذخیره اقامتگاه";
+        cancelEditBtn.style.display = "none";
+
+        isActiveInput.checked = true;
+
+        imageFileInput.value = "";
+        galleryFilesInput.value = "";
+        galleryStatus.textContent = "می‌توانی چند عکس را هم‌زمان انتخاب کنی. هر عکس حداکثر ۸ مگابایت باشد؛ این عکس‌ها به گالری صفحه اختصاصی اقامتگاه اضافه می‌شوند.";
+        galleryPreviewList.textContent = "";
+        imageUrlInput.value = "";
+
+        imagePreview.style.display = "none";
+        imagePreview.removeAttribute("src");
+
+        uploadStatus.textContent =
+            "یک عکس از کامپیوتر انتخاب کن. عکس مستقیماً در فضای ذخیره‌سازی افرا سفر آپلود می‌شود.";
     }
 
-    const url = URL.createObjectURL(file);
-    imagePreview.src = url;
-    imagePreview.style.display = "block";
-    imagePreview.onload = () => URL.revokeObjectURL(url);
-    uploadStatus.textContent = "عکس انتخاب شد: " + file.name;
-  });
+    cancelEditBtn.addEventListener("click", () => {
+        resetForm();
+        hideMessage(dashboardMessage);
+    });
 
-  galleryFilesInput.addEventListener("change", () => {
-    hideMessage(dashboardMessage);
-    const files = Array.from(galleryFilesInput.files || []);
-    galleryPreviewList.textContent = "";
+    function startEdit(id) {
+        const property = properties.find(item => item.id === id);
 
-    if (files.length > 10 || files.some(file =>
-      !file.type.startsWith("image/") || file.size > 8 * 1024 * 1024
-    )) {
-      galleryFilesInput.value = "";
-      showMessage(
-        dashboardMessage,
-        "حداکثر ۱۰ عکس تصویری انتخاب کن؛ حجم هر عکس باید حداکثر ۸ مگابایت باشد.",
-        "error"
-      );
-      return;
+        if (!property) {
+            return;
+        }
+
+        propertyId.value = property.id;
+        titleInput.value = property.title || "";
+        locationInput.value = property.location || "";
+        categoryInput.value = property.category || "villa";
+        capacityInput.value = property.capacity || "";
+        priceInput.value = property.price || "";
+        imageUrlInput.value = property.image_url || "";
+        descriptionInput.value = property.description || "";
+        isActiveInput.checked = property.is_active !== false;
+
+        imageFileInput.value = "";
+        galleryFilesInput.value = "";
+        galleryPreviewList.textContent = "";
+        galleryStatus.textContent = "برای افزودن عکس به گالری، فایل‌ها را انتخاب کن و ذخیره تغییرات را بزن.";
+
+        if (property.image_url) {
+            imagePreview.src = property.image_url;
+            imagePreview.style.display = "block";
+            uploadStatus.textContent = "عکس فعلی اقامتگاه.";
+        } else {
+            imagePreview.style.display = "none";
+            uploadStatus.textContent = "برای تغییر عکس، یک فایل جدید انتخاب کن.";
+        }
+
+        formTitle.textContent = "ویرایش اقامتگاه";
+        saveBtn.textContent = "ذخیره تغییرات";
+        cancelEditBtn.style.display = "inline-block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
-    galleryStatus.textContent = files.length
-      ? files.length + " عکس برای گالری انتخاب شد."
-      : "حداکثر ۱۰ عکس گالری؛ حجم هر عکس حداکثر ۸ مگابایت.";
+    async function deleteProperty(id) {
+        const property = properties.find(item => item.id === id);
 
-    galleryPreviewList.textContent = files
-      .map((file, index) => (index + 1) + ". " + file.name)
-      .join("\n");
-  });
+        if (!property) {
+            return;
+        }
 
-  propertyForm.addEventListener("submit", async event => {
-    event.preventDefault();
-    if (busy) return;
+        const confirmed = confirm(
+            "آیا از حذف «" + property.title + "» مطمئنی؟"
+        );
 
-    hideMessage(dashboardMessage);
+        if (!confirmed) {
+            return;
+        }
 
-    const title = field("title").trim();
-    const location = field("location").trim();
-    const capacity = Number(field("capacity"));
-    const price = Number(field("price"));
-    const selectedFile = imageFileInput.files[0];
-    const galleryFiles = Array.from(galleryFilesInput.files || []);
+        const { error } = await afraSupabase
+            .from("properties")
+            .delete()
+            .eq("id", id);
 
-    if (!title || !location) {
-      showMessage(dashboardMessage, "نام و موقعیت اقامتگاه را وارد کن.", "error");
-      return;
+        if (error) {
+            showMessage(
+                dashboardMessage,
+                "حذف انجام نشد: " + error.message,
+                "error"
+            );
+            return;
+        }
+
+        showMessage(
+            dashboardMessage,
+            "اقامتگاه حذف شد.",
+            "success"
+        );
+
+        await loadProperties();
     }
 
-    if (!Number.isInteger(capacity) || capacity < 1 || capacity > 100) {
-      showMessage(dashboardMessage, "ظرفیت باید عدد صحیح بین ۱ تا ۱۰۰ باشد.", "error");
-      return;
+    function renderProperties() {
+        if (!properties.length) {
+            propertyList.innerHTML = `
+                <div class="empty">
+                    هنوز اقامتگاهی ثبت نشده است.
+                </div>
+            `;
+            return;
+        }
+
+        propertyList.innerHTML = properties.map(property => {
+            const image = property.image_url || "images/villa1.jpg";
+
+            return `
+                <article class="property-card">
+                    <img
+                        src="${escapeHtml(image)}"
+                        alt="${escapeHtml(property.title)}"
+                        onerror="this.src='images/villa1.jpg'">
+
+                    <div class="property-info">
+                        <h3>${escapeHtml(property.title)}</h3>
+
+                        <p>📍 ${escapeHtml(property.location)}</p>
+                        <p>🏡 ${escapeHtml(categoryName(property.category))}</p>
+                        <p>👥 ظرفیت: ${Number(property.capacity || 0).toLocaleString("fa-IR")} نفر</p>
+                        <p>💰 هر شب: ${formatPrice(property.price)} تومان</p>
+
+                        <span class="status-badge ${property.is_active ? "" : "off"}">
+                            ${property.is_active ? "فعال و قابل نمایش" : "غیرفعال"}
+                        </span>
+
+                        <div class="property-actions">
+                            <button
+                                type="button"
+                                style="background:#e8efeb;color:#123d32;"
+                                onclick="startEdit('${property.id}')">
+                                ویرایش
+                            </button>
+
+                            <button
+                                type="button"
+                                style="background:#ffe7e7;color:#a51f1f;"
+                                onclick="deleteProperty('${property.id}')">
+                                حذف
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }).join("");
     }
 
-    if (!Number.isSafeInteger(price) || price <= 0) {
-      showMessage(dashboardMessage, "قیمت باید عدد صحیح بیشتر از صفر باشد.", "error");
-      return;
-    }
+    async function loadProperties() {
+        propertyList.innerHTML = `
+            <div class="empty">در حال دریافت اقامتگاه‌ها...</div>
+        `;
 
-    if (galleryFiles.length > 10) {
-      showMessage(dashboardMessage, "حداکثر ۱۰ عکس برای گالری انتخاب کن.", "error");
-      return;
-    }
-
-    busy = true;
-    saveBtn.disabled = true;
-    saveBtn.textContent = "در حال ذخیره...";
-
-    let savedPropertyId = $("propertyId").value || null;
-    let propertySaved = false;
-
-    try {
-      let imageUrl = field("imageUrl").trim();
-
-      if (selectedFile) imageUrl = await uploadPropertyImage(selectedFile);
-
-      const payload = {
-        title,
-        location,
-        category: field("category"),
-        capacity,
-        price,
-        description: field("description").trim(),
-        image_url: imageUrl || null,
-        is_active: $("isActive").checked
-      };
-
-      if (savedPropertyId) {
         const { data, error } = await afraSupabase
-          .from("properties")
-          .update(payload)
-          .eq("id", savedPropertyId)
-          .select("id")
-          .single();
+            .from("properties")
+            .select("*")
+            .order("created_at", { ascending: false });
 
-        if (error) throw error;
-        if (!data) throw new Error("اقامتگاه ویرایش نشد.");
-      } else {
-        const { data, error } = await afraSupabase
-          .from("properties")
-          .insert(payload)
-          .select("id")
-          .single();
+        if (error) {
+            propertyList.innerHTML = `
+                <div class="empty">
+                    دریافت اقامتگاه‌ها انجام نشد.
+                </div>
+            `;
 
-        if (error) throw error;
-        if (!data) throw new Error("شناسه اقامتگاه از دیتابیس دریافت نشد.");
+            showMessage(
+                dashboardMessage,
+                "خطا در دریافت اقامتگاه‌ها: " + error.message,
+                "error"
+            );
 
-        savedPropertyId = data.id;
-      }
+            return;
+        }
 
-      propertySaved = true;
-
-      let galleryCount = 0;
-      if (galleryFiles.length) {
-        galleryCount = await uploadGalleryImages(galleryFiles, savedPropertyId);
-      }
-
-      resetForm();
-
-      showMessage(
-        dashboardMessage,
-        "اطلاعات اقامتگاه ذخیره شد." +
-          (galleryCount ? " تعداد " + galleryCount + " عکس به گالری اضافه شد." : ""),
-        "success"
-      );
-
-      await loadProperties();
-    } catch (error) {
-      console.error("Admin property save error:", error);
-
-      showMessage(
-        dashboardMessage,
-        (propertySaved
-          ? "اقامتگاه ذخیره شده، اما مرحله بعد کامل نشد: "
-          : "ذخیره اقامتگاه انجام نشد: ") +
-          (error.message || "خطای ناشناخته"),
-        "error"
-      );
-
-      if (propertySaved) await loadProperties();
-    } finally {
-      busy = false;
-      saveBtn.disabled = false;
-      saveBtn.textContent = $("propertyId").value
-        ? "ذخیره تغییرات"
-        : "ذخیره اقامتگاه";
-    }
-  });
-
-  propertyList.addEventListener("click", event => {
-    const button = event.target.closest("button[data-property-action]");
-    if (!button) return;
-
-    const id = button.dataset.propertyId;
-    const action = button.dataset.propertyAction;
-
-    if (action === "toggle") togglePropertyStatus(id, button);
-    if (action === "edit") startEdit(id);
-    if (action === "delete") deleteProperty(id, button);
-  });
-
-  ownerRequestsList.addEventListener("click", event => {
-    const button = event.target.closest("button[data-owner-id]");
-    if (!button) return;
-
-    updateOwnerStatus(
-      button.dataset.ownerId,
-      button.dataset.ownerStatus,
-      button
-    );
-  });
-
-  cancelEditBtn.addEventListener("click", () => {
-    resetForm();
-    hideMessage(dashboardMessage);
-  });
-
-  $("refreshPropertiesBtn").addEventListener("click", loadProperties);
-
-  loginForm.addEventListener("submit", async event => {
-    event.preventDefault();
-    hideMessage(loginMessage);
-
-    const email = $("email").value.trim();
-    const password = $("password").value;
-
-    const { error } = await afraSupabase.auth.signInWithPassword({
-      email,
-      password
-    });
-
-    if (error) {
-      showMessage(loginMessage, "ورود انجام نشد: " + error.message, "error");
-      return;
+        properties = data || [];
+        renderProperties();
     }
 
-    await checkAdmin();
-  });
-
-  logoutBtn.addEventListener("click", async () => {
-    logoutBtn.disabled = true;
-
-    const { error } = await afraSupabase.auth.signOut();
-
-    if (error) {
-      showMessage(dashboardMessage, "خروج انجام نشد: " + error.message, "error");
-      logoutBtn.disabled = false;
-      return;
-    }
-
-    window.location.reload();
-  });
-
-  if (typeof afraSupabase === "undefined") {
-    showMessage(
-      loginMessage,
-      "اتصال Supabase پیدا نشد. فایل supabase.js و کلیدهای اتصال را بررسی کن.",
-      "error"
-    );
-  } else {
     afraSupabase.auth.onAuthStateChange((event, session) => {
-      if (event === "SIGNED_OUT" || !session) {
-        loginBox.style.display = "block";
-        dashboard.style.display = "none";
-      }
+        if (event === "SIGNED_OUT" || !session) {
+            loginBox.style.display = "block";
+            dashboard.style.display = "none";
+        }
+    });
+
+    // نمایش فقط بخش انتخاب‌شده در پنل مدیر
+    const adminTabs = Array.from(document.querySelectorAll(".admin-tab"));
+    const dashboardSections = Array.from(document.querySelectorAll(".dashboard-section"));
+
+    function showAdminSection(sectionId) {
+        const targetSection = document.getElementById(sectionId);
+        if (!targetSection) return;
+
+        dashboardSections.forEach(section => {
+            section.classList.toggle("active", section.id === sectionId);
+        });
+
+        adminTabs.forEach(tab => {
+            const isActive = tab.dataset.section === sectionId;
+            tab.classList.toggle("active", isActive);
+            if (isActive) {
+                tab.setAttribute("aria-current", "page");
+            } else {
+                tab.removeAttribute("aria-current");
+            }
+        });
+    }
+
+    adminTabs.forEach(tab => {
+        tab.addEventListener("click", () => showAdminSection(tab.dataset.section));
     });
 
     checkAdmin();
-  }
-})();
 </script>
+
 </body>
 </html>
-```
