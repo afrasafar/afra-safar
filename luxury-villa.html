@@ -277,8 +277,8 @@
 
         <nav class="main-nav" id="mainNav">
           <a href="index.html">صفحه اصلی</a>
-          <a href="index.html#villas">ویلاها</a>
-          <a href="index.html#cottages">کلبه‌ها</a>
+          <a href="index.html#stays">ویلاها</a>
+          <a href="index.html#stays">کلبه‌ها</a>
           <a href="index.html#contact">تماس با ما</a>
         </nav>
 
@@ -292,7 +292,7 @@
     <div class="luxury-breadcrumb">
       <a href="index.html">صفحه اصلی</a>
       <span> / </span>
-      <a href="index.html#villas">ویلاها</a>
+      <a href="index.html#stays">ویلاها</a>
       <span> / ویلای لوکس نوشهر</span>
     </div>
 
@@ -393,7 +393,7 @@
       <aside class="luxury-panel luxury-booking">
         <h2>درخواست رزرو</h2>
         <p class="luxury-booking-note">
-          تاریخ اقامت و تعداد نفرات را وارد کن تا درخواستت در واتساپ آماده شود.
+          تاریخ اقامت و تعداد نفرات را وارد کن تا پیام درخواست رزرو در تلگرام آماده شود.
         </p>
 
         <form id="luxuryBookingForm">
@@ -421,7 +421,7 @@
           </div>
 
           <button class="luxury-submit" type="submit">
-            ارسال درخواست در واتساپ
+            آماده‌سازی درخواست در تلگرام
           </button>
 
           <div class="luxury-message" id="luxuryMessage" role="status"></div>
@@ -495,21 +495,21 @@
 
       const guests = document.getElementById("luxuryGuests").value;
 
-      const message =
-        "سلام، برای ویلای لوکس نوشهر درخواست رزرو دارم.%0A" +
-        "تاریخ ورود: " + luxuryCheckin.value + "%0A" +
-        "تاریخ خروج: " + luxuryCheckout.value + "%0A" +
-        "تعداد نفرات: " + guests + "%0A" +
-        "لطفاً قیمت، امکانات و خالی بودن تاریخ‌ها را اعلام کنید.";
-
-      const whatsappURL =
-        "https://wa.me/989117999884?text=" + message;
+      const message = [
+        "سلام، برای ویلای لوکس نوشهر درخواست رزرو دارم.",
+        "تاریخ ورود: " + luxuryCheckin.value,
+        "تاریخ خروج: " + luxuryCheckout.value,
+        "تعداد نفرات: " + guests,
+        "لطفاً قیمت، امکانات و خالی بودن تاریخ‌ها را اعلام کنید."
+      ].join("\n");
+      const shareTarget = /^https?:$/.test(window.location.protocol) ? window.location.href : "https://t.me/";
+      const telegramURL = "https://t.me/share/url?url=" + encodeURIComponent(shareTarget) + "&text=" + encodeURIComponent(message);
 
       luxuryMessage.style.display = "block";
       luxuryMessage.textContent =
-        "در حال باز کردن واتساپ هستیم. درخواست تا قبل از تأیید میزبان، رزرو قطعی نیست.";
+        "پیام آماده است؛ در تلگرام گفت‌وگوی مقصد را انتخاب و ارسال را تأیید کنید. درخواست تا قبل از تأیید میزبان، رزرو قطعی نیست.";
 
-      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+      window.open(telegramURL, "_blank", "noopener,noreferrer");
     });
 
     const menuToggle = document.getElementById("menuToggle");

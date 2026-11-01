@@ -1230,10 +1230,84 @@
             .auth-top-button { padding-inline: 10px !important; }
         }
 
+
+        /* پنجره کد تخفیف اولین رزرو — scoped styles only */
+        .afra-coupon-overlay {
+            position: fixed; inset: 0; z-index: 10000;
+            display: grid; place-items: center; padding: 18px;
+            background: rgba(8, 6, 15, .78); backdrop-filter: blur(7px);
+            opacity: 0; visibility: hidden; pointer-events: none;
+            transition: opacity .22s ease, visibility .22s ease;
+        }
+        .afra-coupon-overlay.is-visible {
+            opacity: 1; visibility: visible; pointer-events: auto;
+        }
+        .afra-coupon-dialog {
+            position: relative; width: min(100%, 440px); padding: 30px 24px 24px;
+            border: 1px solid rgba(167, 139, 250, .42); border-radius: 24px;
+            background: radial-gradient(circle at 100% 0%, rgba(124, 58, 237, .22), transparent 42%), linear-gradient(145deg, #21182d 0%, #17121f 100%);
+            box-shadow: 0 26px 90px rgba(0, 0, 0, .48), 0 0 38px rgba(124, 58, 237, .15);
+            text-align: center; color: #f7f3ff;
+            transform: translateY(12px) scale(.985); transition: transform .22s ease;
+        }
+        .afra-coupon-overlay.is-visible .afra-coupon-dialog { transform: translateY(0) scale(1); }
+        .afra-coupon-close {
+            position: absolute; top: 10px; inset-inline-start: 10px;
+            width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.08); border-radius: 50%;
+            background: #30243f; color: #f7f3ff; font: 700 23px/1 'Vazirmatn', sans-serif;
+            cursor: pointer;
+        }
+        .afra-coupon-icon {
+            width: 64px; height: 64px; margin: 0 auto 14px; display: grid; place-items: center;
+            border-radius: 20px; background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, .28); font-size: 31px;
+        }
+        .afra-coupon-dialog h2 { margin: 0 0 8px; color: #fff; font-size: clamp(21px, 5vw, 26px); }
+        .afra-coupon-dialog p { margin: 0 0 17px; color: #cfc4df; font-size: 13px; line-height: 2; }
+        .afra-coupon-code-row {
+            display: flex; align-items: center; gap: 8px; padding: 8px;
+            background: rgba(124, 58, 237, .12); border: 1px dashed rgba(196, 181, 253, .5); border-radius: 14px;
+        }
+        .afra-coupon-code {
+            flex: 1; min-width: 0; color: #fff; font: 800 21px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace;
+            letter-spacing: .5px; overflow-wrap: anywhere;
+        }
+        .afra-coupon-copy {
+            flex: 0 0 auto; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 11px 13px;
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white;
+            font: 700 12px 'Vazirmatn', sans-serif; cursor: pointer;
+            transition: filter .18s ease, transform .18s ease;
+        }
+        .afra-coupon-copy:hover { filter: brightness(1.08); transform: translateY(-1px); }
+        .afra-coupon-note { min-height: 24px; margin-top: 12px !important; margin-bottom: 0 !important; font-size: 11px !important; }
+        @media (max-width: 420px) {
+            .afra-coupon-dialog { padding: 28px 17px 20px; }
+            .afra-coupon-code { font-size: 18px; }
+            .afra-coupon-copy { padding: 10px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .afra-coupon-overlay, .afra-coupon-dialog, .afra-coupon-copy { transition: none !important; }
+        }
+
 </style>
 </head>
 
 <body>
+
+    <div class="afra-coupon-overlay" id="afraCouponOverlay" aria-hidden="true">
+        <section class="afra-coupon-dialog" role="dialog" aria-modal="true" aria-labelledby="afraCouponTitle" aria-describedby="afraCouponDescription">
+            <button class="afra-coupon-close" id="afraCouponClose" type="button" aria-label="بستن پنجره تخفیف">×</button>
+            <div class="afra-coupon-icon" aria-hidden="true">🎁</div>
+            <h2 id="afraCouponTitle">هدیه اولین رزرو شما</h2>
+            <p id="afraCouponDescription">با کد زیر، برای اولین رزرو خودت <strong>۸٪ تخفیف</strong> بگیر. کد را کپی کن و هنگام ثبت درخواست رزرو واردش کن.</p>
+            <div class="afra-coupon-code-row">
+                <code class="afra-coupon-code" id="afraCouponCode" dir="ltr">AFRAFIRST</code>
+                <button class="afra-coupon-copy" id="afraCouponCopy" type="button">کپی کد</button>
+            </div>
+            <p class="afra-coupon-note" id="afraCouponNote" aria-live="polite">تخفیف برای هر شماره موبایل فقط یک‌بار قابل استفاده است.</p>
+        </section>
+    </div>
+
 
     <div class="topbar">
         <div class="container topbar-inner">
@@ -1258,13 +1332,14 @@
                 <a href="#stays" class="nav-link">اقامتگاه‌ها</a>
                 <a href="#categories" class="nav-link">دسته‌بندی‌ها</a>
                 <a href="#about" class="nav-link">درباره ما</a>
+                <a href="my-reservations.html" class="nav-link">پیگیری رزرو</a>
             </nav>
 
             <div class="header-actions">
                 <div class="auth-top-actions">
                     <button type="button" class="auth-top-button" data-auth-open="login">ورود</button>
                     <button type="button" class="auth-top-button" data-auth-open="guest-signup">ثبت نام</button>
-                    <button type="button" class="auth-top-button primary" data-auth-open="owner-signup">میزبان شوید/button>
+                    <button type="button" class="auth-top-button primary" data-auth-open="owner-signup">میزبان شوید</button>
                 </div>
 
                 <button class="menu-toggle" id="menuToggle"
@@ -1737,7 +1812,7 @@
             staysGrid.hidden=false;
             staysGrid.innerHTML="";
             if(!properties.length){ staysGrid.hidden=false; staysGrid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:35px 16px;color:#64756b;"><div style="font-size:34px;margin-bottom:8px;">🏡</div><strong>هنوز اقامتگاهی ثبت نشده است.</strong><p style="margin-top:8px;">از پنل مدیریت اولین اقامتگاه را اضافه کن.</p></div>'; stayCards=[]; updateFavoriteButtons(); filterStays(); return; }
-            properties.forEach(property=>{ const info=getCategoryInfo(property.category); const capacityText=property.capacity?`🛏️ ظرفیت ${Number(property.capacity).toLocaleString("fa-IR")} نفر`:"🛏️ ظرفیت قابل‌استعلام"; const image=property.image_url||"images/villa1.jpg"; const card=document.createElement("article"); card.className="stay-card"; card.dataset.category=property.category||"villa"; card.dataset.location=property.location||""; card.dataset.title=property.title||""; card.dataset.capacity=property.capacity||""; card.dataset.price=Number(property.price)>0?String(Number(property.price)):""; card.dataset.createdAt=property.created_at||""; card.dataset.id=property.id||""; card.innerHTML=`<div class="card-image"><img src="${escapeHtml(image)}" alt="${escapeHtml(property.title)}" loading="lazy" onerror="this.src='images/villa1.jpg'"><span class="image-badge ${property.category==="forest"?"green-badge":""}">${escapeHtml(info[0])}</span><button class="favorite-button" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false">♡</button></div><div class="card-body"><div class="card-location"><span>⌖</span>${escapeHtml(property.location)}</div><h3>${escapeHtml(property.title)}</h3><div class="card-features"><span>${capacityText}</span><span>${escapeHtml(info[1])}</span><span>${escapeHtml(info[2])}</span></div><div class="card-footer"><div class="price"><strong>${formatPrice(property.price)}</strong><small>برای هر شب اقامت</small></div><a class="card-button" href="${getPropertyLink(property)}" aria-label="مشاهده و رزرو ${escapeHtml(property.title)}">مشاهده و رزرو</a></div></div>`; staysGrid.appendChild(card); });
+            properties.forEach(property=>{ const info=getCategoryInfo(property.category); const capacityText=property.capacity?`🛏️ ظرفیت ${Number(property.capacity).toLocaleString("fa-IR")} نفر`:"🛏️ ظرفیت قابل‌استعلام"; const image=property.image_url||"images/afra-placeholder.svg"; const card=document.createElement("article"); card.className="stay-card"; card.dataset.category=property.category||"villa"; card.dataset.location=property.location||""; card.dataset.title=property.title||""; card.dataset.capacity=property.capacity||""; card.dataset.price=Number(property.price)>0?String(Number(property.price)):""; card.dataset.createdAt=property.created_at||""; card.dataset.id=property.id||""; card.innerHTML=`<div class="card-image"><img src="${escapeHtml(image)}" alt="${escapeHtml(property.title)}" loading="lazy" onerror="this.onerror=null;this.src='images/afra-placeholder.svg'"><span class="image-badge ${property.category==="forest"?"green-badge":""}">${escapeHtml(info[0])}</span><button class="favorite-button" type="button" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false">♡</button></div><div class="card-body"><div class="card-location"><span>⌖</span>${escapeHtml(property.location)}</div><h3>${escapeHtml(property.title)}</h3><div class="card-features"><span>${capacityText}</span><span>${escapeHtml(info[1])}</span><span>${escapeHtml(info[2])}</span></div><div class="card-footer"><div class="price"><strong>${formatPrice(property.price)}</strong><small>برای هر شب اقامت</small></div><a class="card-button" href="${getPropertyLink(property)}" aria-label="مشاهده و رزرو ${escapeHtml(property.title)}">مشاهده و رزرو</a></div></div>`; staysGrid.appendChild(card); });
             const destinationOptions = [...new Set(properties.map(property => String(property.location || "").trim()).filter(Boolean))];
             destinationSuggestions.innerHTML = destinationOptions.map(location => `<option value="${escapeHtml(location)}"></option>`).join("");
             stayCards=[...document.querySelectorAll(".stay-card")]; stayCards.forEach(card=>{const button=card.querySelector(".favorite-button"); button.addEventListener("click",event=>{event.preventDefault(); event.stopPropagation(); const id=card.dataset.id; const title=card.dataset.title; const key=id||title; const favorites=loadFavorites(); const updated=favorites.includes(key)?favorites.filter(x=>x!==key):[...favorites,key]; if(saveFavorites(updated)){updateFavoriteButtons();filterStays();}});}); updateFavoriteButtons(); filterStays(); }
@@ -2470,7 +2545,74 @@
 
         updateSelectedCategory();
         loadProperties();
+
+
     </script>
 
+
+    <script>
+    // مستقل از منطق اصلی صفحه اجرا می‌شود و در هر بار بازشدن صفحه اصلی، کد تخفیف را نشان می‌دهد.
+    (() => {
+        const initializeCouponPopup = () => {
+            const overlay = document.getElementById("afraCouponOverlay");
+            const closeButton = document.getElementById("afraCouponClose");
+            const copyButton = document.getElementById("afraCouponCopy");
+            const note = document.getElementById("afraCouponNote");
+            const code = document.getElementById("afraCouponCode");
+            if (!overlay || !closeButton || !copyButton || !note || !code) return;
+
+            const close = () => {
+                overlay.classList.remove("is-visible");
+                overlay.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+            };
+            const fallbackCopy = (value) => {
+                const area = document.createElement("textarea");
+                area.value = value;
+                area.setAttribute("readonly", "");
+                area.style.position = "fixed";
+                area.style.opacity = "0";
+                area.style.pointerEvents = "none";
+                document.body.appendChild(area);
+                area.select();
+                let copied = false;
+                try { copied = document.execCommand("copy"); } catch (_) {}
+                area.remove();
+                return copied;
+            };
+
+            window.setTimeout(() => {
+                overlay.classList.add("is-visible");
+                overlay.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            }, 450);
+
+            closeButton.addEventListener("click", close);
+            overlay.addEventListener("click", event => { if (event.target === overlay) close(); });
+            document.addEventListener("keydown", event => {
+                if (event.key === "Escape" && overlay.classList.contains("is-visible")) close();
+            });
+            copyButton.addEventListener("click", async () => {
+                let copied = false;
+                try {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        await navigator.clipboard.writeText(code.textContent.trim());
+                        copied = true;
+                    }
+                } catch (_) {}
+                if (!copied) copied = fallbackCopy(code.textContent.trim());
+                note.textContent = copied
+                    ? "کد تخفیف کپی شد؛ آن را در فرم رزرو وارد کن."
+                    : "کپی خودکار انجام نشد؛ کد AFRAFIRST را انتخاب و کپی کن.";
+                copyButton.textContent = copied ? "کپی شد ✓" : "تلاش دوباره";
+            });
+        };
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initializeCouponPopup, { once: true });
+        } else {
+            initializeCouponPopup();
+        }
+    })();
+    </script>
 </body>
 </html>

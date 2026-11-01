@@ -320,12 +320,12 @@
         .reservation-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
         .reservation-actions button { border:0; border-radius:9px; padding:9px 13px; font-size:12px; font-weight:bold; }
         .reservation-actions button:disabled { opacity:.55; cursor:wait; }
-        .whatsapp-notify {
+        .telegram-notify {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 7px;
-            background: #20a95a;
+            background: #229ed9;
             color: #fff;
             text-decoration: none;
             border-radius: 9px;
@@ -334,8 +334,10 @@
             font-weight: bold;
             margin-top: 4px;
         }
-        .whatsapp-notify:hover { background: #168747; }
-        .whatsapp-note { color:#64756b; font-size:12px; line-height:1.8; margin:0 0 14px; }
+        .telegram-notify:hover { background: #168ac0; }
+        .telegram-note { color:#64756b; font-size:12px; line-height:1.8; margin:0 0 14px; }
+        .copy-reservation-message { background:#eef7ff;color:#124b78;border:1px solid #c9e1f5;border-radius:9px;padding:9px 13px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;margin-top:4px; }
+        .copy-reservation-message:hover { background:#e0efff; }
 
         .admin-tabs {
             display: grid;
@@ -579,7 +581,7 @@
             <div>
                 <h2 style="margin:0 0 6px;">درخواست‌های رزرو اقامتگاه‌ها</h2>
                 <p style="color:#64756b;font-size:13px;line-height:1.8;margin:0;">تمام درخواست‌های ثبت‌شده برای اقامتگاه‌های افرا سفر در این بخش نمایش داده می‌شوند.</p>
-                <p class="whatsapp-note">برای هر رزرو، روی «اطلاع‌رسانی واتساپ» بزن تا پیام کامل مخصوص همان درخواست آماده شود؛ سپس در واتساپ دکمه ارسال را بزن.</p>
+                <p class="telegram-note">پس از تأیید رزرو، پیام کامل شامل جزئیات رزرو، مبلغ و شماره کارت آماده است. دکمه تلگرام پنجره انتخاب گفت‌وگو را باز می‌کند؛ ارسال نهایی را در تلگرام تأیید کن.</p>
             </div>
             <button class="btn btn-secondary" type="button" id="refreshReservationsBtn">به‌روزرسانی رزروها</button>
         </div>
@@ -628,6 +630,16 @@
     const reservationsList = document.getElementById("reservationsList");
     const reservationsMessage = document.getElementById("reservationsMessage");
     const refreshReservationsBtn = document.getElementById("refreshReservationsBtn");
+    const reservationMessagesById = new Map();
+
+    function telegramShareUrl(message) {
+        let shareTarget = "https://t.me/";
+        try {
+            const homeUrl = new URL("my-reservations.html", window.location.href);
+            if (homeUrl.protocol === "https:" || homeUrl.protocol === "http:") shareTarget = homeUrl.href;
+        } catch (_) {}
+        return "https://t.me/share/url?url=" + encodeURIComponent(shareTarget) + "&text=" + encodeURIComponent(message);
+    }
 
     function showMessage(element, text, type) {
         element.textContent = text;
@@ -713,7 +725,8 @@
             approved: "تأیید شده",
             rejected: "رد شده",
             cancelled: "لغو شده",
-            completed: "انجام شده"
+            completed: "انجام شده",
+            expired: "مهلت پرداخت تمام شده"
         };
         return names[status] || status || "نامشخص";
     }
@@ -730,7 +743,7 @@
 
         const { data: reservationRows, error } = await afraSupabase
             .from("reservations")
-            .select("id, property_id, guest_name, guest_phone, check_in, check_out, guest_count, guest_message, status, created_at, reservation_code")
+            .select("id, property_id, guest_name, guest_phone, check_in, check_out, guest_count, guest_message, status, created_at, reservation_code, payment_deadline_at, payment_status, payment_amount, payment_base_amount, discount_code, discount_percent, discount_amount")
             .order("created_at", { ascending: false });
 
         if (error) {
@@ -740,6 +753,7 @@
         }
 
         const reservations = reservationRows || [];
+        reservationMessagesById.clear();
         if (!reservations.length) {
             reservationsList.innerHTML = '<div class="empty">هنوز درخواست رزروی ثبت نشده است.</div>';
             return;
@@ -774,24 +788,42 @@
                 </div>` : status === "confirmed" || status === "approved" ? `
                 <div class="reservation-actions"><button type="button" style="background:#ffe7e7;color:#a51f1f;" onclick="updateReservationStatus('${escapeHtml(reservation.id)}','rejected')">رد رزرو</button></div>` : "";
 
-            const whatsappMessage = [
-                "🌿 اطلاع‌رسانی درخواست رزرو جدید | افرا سفر",
-                "━━━━━━━━━━━━━━",
-                "🔖 کد رزرو: " + code,
-                "🏡 اقامتگاه: " + (property.title || "اقامتگاه حذف‌شده یا نامشخص"),
+            const paymentDeadline = reservation.payment_deadline_at ? new Date(reservation.payment_deadline_at) : null;
+            const deadlineText = paymentDeadline && !Number.isNaN(paymentDeadline.getTime())
+                ? paymentDeadline.toLocaleString("fa-IR") : "۲۰ دقیقه پس از تأیید رزرو";
+            const paymentAmountText = reservation.payment_amount != null
+                ? Number(reservation.payment_amount).toLocaleString("fa-IR") + " تومان" : "پس از تأیید محاسبه می‌شود";
+            const baseAmountText = reservation.payment_base_amount != null
+                ? Number(reservation.payment_base_amount).toLocaleString("fa-IR") + " تومان" : "ثبت نشده";
+            const discountAmountText = reservation.discount_amount != null
+                ? Number(reservation.discount_amount).toLocaleString("fa-IR") + " تومان" : "۰ تومان";
+            const telegramMessage = [
+                "🌿 افرا سفر | نتیجه بررسی رزرو",
+                "سلام " + guestName + " عزیز، درخواست رزرو شما بررسی شد.",
+                "🔖 کد پیگیری: " + code,
+                "🏡 اقامتگاه: " + (property.title || "نامشخص"),
                 "📍 موقعیت: " + (property.location || "ثبت نشده"),
                 "👤 نام مسافر: " + guestName,
-                "📞 شماره تماس مسافر: " + guestPhone,
+                "📞 شماره تماس: " + guestPhone,
                 "📅 تاریخ ورود: " + formatDate(reservation.check_in),
                 "📅 تاریخ خروج: " + formatDate(reservation.check_out),
+                "🌙 تعداد شب: " + Math.max(0, Math.round((new Date(reservation.check_out + "T00:00:00") - new Date(reservation.check_in + "T00:00:00")) / 86400000)),
                 "👥 تعداد نفرات: " + guestCount,
-                "📌 وضعیت درخواست: " + reservationStatusName(status),
-                "🕒 زمان ثبت: " + createdAt,
-                reservation.guest_message ? "💬 توضیحات مسافر: " + reservation.guest_message : "💬 توضیحات مسافر: ندارد",
-                "━━━━━━━━━━━━━━",
-                "لطفاً درخواست رزرو را بررسی کنید."
-            ].join("\n");
-            const whatsappUrl = "https://wa.me/989374191377?text=" + encodeURIComponent(whatsappMessage);
+                "📌 وضعیت رزرو: " + reservationStatusName(status),
+                "💰 مبلغ پایه: " + baseAmountText,
+                "🎁 تخفیف: " + (reservation.discount_percent != null ? Number(reservation.discount_percent).toLocaleString("fa-IR") + "٪" : "۰٪") + " (" + discountAmountText + ")",
+                "💳 مبلغ قابل پرداخت: " + paymentAmountText,
+                status === "confirmed" || status === "approved" ? "⏳ مهلت پرداخت: " + deadlineText : "",
+                status === "confirmed" || status === "approved" ? "🏦 شماره کارت: 6219861924453805" : "",
+                status === "confirmed" || status === "approved" ? "👤 به نام: محمد رسولی" : "",
+                status === "confirmed" || status === "approved" ? "⚠️ اگر ظرف ۲۰ دقیقه پرداخت انجام نشود، رزرو منقضی می‌شود و باید درخواست جدید ثبت کنید." : "",
+                reservation.guest_message ? "💬 توضیحات: " + reservation.guest_message : "",
+                "برای اتصال تلگرام و دریافت خودکار پیام‌های همین رزرو، لینک صفحه پیگیری را باز کنید، کد پیگیری و شماره موبایل را وارد کنید و دکمه اتصال تلگرام را بزنید.",
+                "🔗 صفحه پیگیری و اتصال تلگرام: " + new URL("my-reservations.html", window.location.href).href,
+                "پس از واریز، تصویر رسید را در گفت‌وگوی تلگرام افرا سفر ارسال کنید."
+            ].filter(Boolean).join("\n");
+            reservationMessagesById.set(String(reservation.id), telegramMessage);
+            const telegramUrl = telegramShareUrl(telegramMessage);
 
             return `
                 <article class="reservation-card">
@@ -807,11 +839,36 @@
                     <p>👥 تعداد نفرات: ${escapeHtml(guestCount)}</p>
                     <p>🕒 زمان ثبت درخواست: ${escapeHtml(createdAt)}</p>
                     ${reservation.guest_message ? `<p>💬 توضیحات مسافر: ${escapeHtml(reservation.guest_message)}</p>` : ""}
-                    <a class="whatsapp-notify" href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">🟢 اطلاع‌رسانی واتساپ برای این رزرو</a>
+                    ${(status === "confirmed" || status === "approved") ? `<a class="telegram-notify" href="${telegramUrl}" target="_blank" rel="noopener noreferrer">✈️ آماده‌سازی پیام در تلگرام</a><button type="button" class="copy-reservation-message" data-copy-reservation="${escapeHtml(reservation.id)}">کپی پیام کامل رزرو و پرداخت</button>` : ""}
                     ${actions}
                 </article>`;
         }).join("");
     }
+
+    reservationsList.addEventListener("click", async event => {
+        const button = event.target.closest("[data-copy-reservation]");
+        if (!button) return;
+        const messageText = reservationMessagesById.get(String(button.dataset.copyReservation));
+        if (!messageText) return;
+        let copied = false;
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(messageText);
+                copied = true;
+            }
+        } catch (_) {}
+        if (!copied) {
+            const area = document.createElement("textarea");
+            area.value = messageText; area.setAttribute("readonly", "");
+            area.style.position = "fixed"; area.style.opacity = "0";
+            document.body.appendChild(area); area.select();
+            try { copied = document.execCommand("copy"); } catch (_) {}
+            area.remove();
+        }
+        const originalText = "کپی پیام کامل رزرو و پرداخت";
+        button.textContent = copied ? "پیام کپی شد ✓" : "کپی خودکار نشد";
+        window.setTimeout(() => { if (button.isConnected) button.textContent = originalText; }, 2200);
+    });
 
     async function updateReservationStatus(reservationId, status) {
         if (!["confirmed", "rejected"].includes(status)) return;

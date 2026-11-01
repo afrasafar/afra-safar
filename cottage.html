@@ -660,11 +660,11 @@
                 "، تاریخ خروج: " + formattedCheckout +
                 "، تعداد مهمان: " + guests + " نفر.";
 
-            cottageCall.href =
-                "https://wa.me/989024452826?text=" +
-                encodeURIComponent(phoneMessage);
-
-            cottageCall.textContent = "ارسال درخواست در واتساپ";
+            const shareTarget = /^https?:$/.test(window.location.protocol) ? window.location.href : "https://t.me/";
+            cottageCall.href = "https://t.me/share/url?url=" + encodeURIComponent(shareTarget) + "&text=" + encodeURIComponent(phoneMessage);
+            cottageCall.target = "_blank";
+            cottageCall.rel = "noopener noreferrer";
+            cottageCall.textContent = "آماده‌سازی درخواست در تلگرام";
         });
     </script>
 

@@ -63,7 +63,11 @@ button,input,textarea,select{font-family:inherit}
 .divider{height:1px;background:var(--line);margin:20px 0}
 .book-btn{display:block;background:var(--green);color:#fff;text-align:center;border-radius:13px;padding:13px 16px;font-weight:800;margin-top:16px;transition:.2s;border:0}
 .book-btn:hover{background:var(--green2)}
-.whatsapp-btn{background:#edf5ef;color:#174c3a}
+.telegram-btn{background:#e8f3fd;color:#174c3a}
+.telegram-connect-panel[hidden]{display:none!important}
+.telegram-connect-panel{margin-top:12px;padding:14px;border-radius:12px;border:1px solid #b8d8ed;background:#f0f8ff;color:#154c70;font-size:13px;line-height:1.9}
+.telegram-connect-panel a{display:inline-flex;align-items:center;justify-content:center;margin-top:9px;background:#229ed9;color:#fff;border-radius:9px;padding:10px 14px;font-weight:800;text-decoration:none}
+.telegram-connect-panel .tg-connected{color:#17613d;font-weight:700}.telegram-connect-panel .tg-error{color:#8a3b18}
 .note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
 .booking-form{margin-top:24px;border-top:1px solid var(--line);padding-top:20px}
 .booking-form h2{font-size:19px;margin:0 0 6px}
@@ -193,6 +197,11 @@ button,input,textarea,select{font-family:inherit}
           <label for="guestPhone">شماره تماس *</label>
           <input id="guestPhone" name="guest_phone" type="tel" minlength="7" maxlength="20" autocomplete="tel" required placeholder="مثلاً 09123456789" inputmode="tel">
         </div>
+        <div class="form-field">
+          <label for="discountCode">کد تخفیف رزرو اول (اختیاری)</label>
+          <input id="discountCode" name="discount_code" type="text" maxlength="30" autocomplete="off" placeholder="AFRAFIRST" dir="ltr" style="text-align:left;text-transform:uppercase">
+          <small style="display:block;margin-top:6px;color:#718078;line-height:1.8">تخفیف ۸٪ برای اولین رزرو هر شماره موبایل؛ استفاده نهایی توسط سامانه بررسی می‌شود.</small>
+        </div>
 
         <input id="checkIn" name="check_in" type="hidden" required>
         <input id="checkOut" name="check_out" type="hidden" required>
@@ -246,9 +255,10 @@ button,input,textarea,select{font-family:inherit}
 
         <button id="reservationSubmit" class="book-btn submit-btn" type="submit">ثبت درخواست رزرو</button>
         <div id="reservationMessage" class="form-message" role="status" aria-live="polite"></div>
+        <div id="telegramConnectPanel" class="telegram-connect-panel" hidden aria-live="polite"></div>
       </form>
 
-      <a class="book-btn whatsapp-btn" href="https://wa.me/989117999884" target="_blank" rel="noopener">پیام در واتساپ</a>
+      <a class="book-btn telegram-btn" href="https://t.me/+989117999884" target="_blank" rel="noopener noreferrer">گفت‌وگو در تلگرام</a>
       <div class="note">درخواست ثبت‌شده به معنی رزرو قطعی نیست؛ ابتدا تاریخ و ظرفیت بررسی می‌شود.</div>
     </aside>
   </div>
@@ -705,6 +715,62 @@ setInterval(()=>{
   }
 },60000);
 
+/* لینک امن اتصال تلگرام به همین رزرو؛ اگر مهاجرت دیتابیس انجام نشده باشد، ثبت رزرو را مختل نمی‌کند. */
+async function showTelegramConnectPanel(reservationCode, guestPhone){
+  const panel=$('telegramConnectPanel');
+  if(!panel)return;
+  panel.replaceChildren();
+  panel.hidden=false;
+  const loading=document.createElement('div');
+  loading.textContent='در حال آماده‌سازی اتصال تلگرام برای این رزرو…';
+  panel.appendChild(loading);
+  try{
+    const {data,error}=await afraSupabase.rpc('get_public_telegram_link',{
+      p_reservation_code:reservationCode,
+      p_guest_phone:guestPhone
+    });
+    if(error)throw error;
+    const payload=Array.isArray(data)?data[0]:data;
+    panel.replaceChildren();
+    if(!payload||payload.success!==true){
+      const note=document.createElement('div');
+      note.className='tg-error';
+      note.textContent=payload?.message?'اتصال تلگرام آماده نشد: '+payload.message:'لینک اتصال تلگرام از دیتابیس دریافت نشد.';
+      panel.appendChild(note);
+      return;
+    }
+    if(payload.linked===true){
+      const done=document.createElement('div');
+      done.className='tg-connected';
+      done.textContent='✅ حساب تلگرام شما قبلاً به این رزرو متصل شده است. پس از تأیید میزبان، پیام نتیجه و اطلاعات پرداخت در همان ربات ارسال می‌شود.';
+      panel.appendChild(done);
+      return;
+    }
+    if(typeof payload.link_token!=='string'||!/^[a-f0-9]{32}$/i.test(payload.link_token)){
+      const note=document.createElement('div');
+      note.className='tg-error';
+      note.textContent='کد اتصال این رزرو در دیتابیس موجود نیست. لطفاً صفحه را تازه‌سازی کنید.';
+      panel.appendChild(note);
+      return;
+    }
+    const info=document.createElement('div');
+    info.textContent='برای دریافت خودکار نتیجه بررسی رزرو و اطلاعات پرداخت در تلگرام، یک بار حساب تلگرام خود را به این رزرو متصل کنید:';
+    const link=document.createElement('a');
+    link.href='https://t.me/AfraSafarReserveBot?start='+encodeURIComponent(payload.link_token);
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    link.textContent='✈️ اتصال تلگرام به این رزرو';
+    panel.append(info,link);
+  }catch(error){
+    console.warn('Telegram link lookup failed:',error);
+    panel.replaceChildren();
+    const note=document.createElement('div');
+    note.className='tg-error';
+    note.textContent='دریافت لینک اتصال تلگرام ناموفق بود. دسترسی تابع get_public_telegram_link در Supabase را بررسی کنید.';
+    panel.appendChild(note);
+  }
+}
+
 /* ثبت درخواست رزرو */
 $('reservationForm').addEventListener('submit',submitReservation);
 
@@ -726,6 +792,7 @@ async function submitReservation(event){
 
   const guestName=$('guestName').value.trim();
   const guestPhone=$('guestPhone').value.trim();
+  const discountCode=$('discountCode').value.trim().toUpperCase();
   const checkIn=$('checkIn').value;
   const checkOut=$('checkOut').value;
   const guestCount=Number($('guestCount').value);
@@ -738,6 +805,11 @@ async function submitReservation(event){
 
   if(guestPhone.length<7||guestPhone.length>20){
     showFormMessage('لطفاً شماره تماس معتبر وارد کن.','error');
+    return;
+  }
+
+  if(discountCode && discountCode!=='AFRAFIRST'){
+    showFormMessage('کد تخفیف معتبر نیست. کد رزرو اول AFRAFIRST است.','error');
     return;
   }
 
@@ -775,9 +847,13 @@ async function submitReservation(event){
   button.disabled=true;
   button.textContent='در حال ثبت درخواست…';
   message.className='form-message';
+  if($('telegramConnectPanel')){ $('telegramConnectPanel').hidden=true; $('telegramConnectPanel').replaceChildren(); }
 
   try{
-    const {data,error}=await afraSupabase.rpc('create_public_reservation',{
+    // Keep the original reservation RPC for ordinary bookings so the existing
+    // Supabase AFTER INSERT -> Make -> Telegram notification path is unchanged.
+    // Use the coupon wrapper only when the guest actually enters AFRAFIRST.
+    const reservationParams={
       p_property_id:currentProperty.id,
       p_guest_name:guestName,
       p_guest_phone:guestPhone,
@@ -785,7 +861,14 @@ async function submitReservation(event){
       p_check_out:checkOut,
       p_guest_count:guestCount,
       p_guest_message:guestMessage||null
-    });
+    };
+
+    const {data,error}=discountCode
+      ? await afraSupabase.rpc('create_public_reservation_with_coupon',{
+          ...reservationParams,
+          p_discount_code:discountCode
+        })
+      : await afraSupabase.rpc('create_public_reservation',reservationParams);
 
     if(error)throw error;
 
@@ -798,9 +881,12 @@ async function submitReservation(event){
     showFormMessage(
       'درخواست رزرو با موفقیت ثبت شد. کد پیگیری شما: '+
       savedReservation.reservation_code+
+      (discountCode ? '. کد AFRAFIRST ثبت شد؛ اعتبار و تخفیف ۸٪ طبق قوانین سامانه بررسی می‌شود.' : '')+
       '. درخواست تا زمان تأیید تاریخ، ظرفیت و قیمت از سوی میزبان قطعی نیست.',
       'success'
     );
+
+    await showTelegramConnectPanel(savedReservation.reservation_code,guestPhone);
 
     $('reservationForm').reset();
     $('guestCount').value='2';

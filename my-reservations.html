@@ -1,684 +1,1126 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>پیگیری رزرو | افرا سفر</title>
+  <meta name="theme-color" content="#123d32">
+  <meta name="description" content="پیگیری وضعیت رزرو ویلا و کلبه در افرا سفر">
+  <title>رزروهای من | افرا سفر</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <style>
+    :root {
+      --green: #123d32;
+      --green-light: #1d5948;
+      --cream: #f6f5ef;
+      --text: #24332e;
+      --muted: #75817b;
+      --border: #e5e9e4;
+      --white: #fff;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: "Vazirmatn", sans-serif;
-      background: #f5f8f6;
-      color: #18352d;
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     .topbar {
-      background: #123d32;
+      background: var(--green);
       color: white;
-      padding: 12px 20px;
+      padding: 13px 20px;
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     header {
       background: white;
-      border-bottom: 1px solid #e5ebe8;
-      padding: 18px 25px;
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
-      max-width: 1150px;
+      max-width: 1100px;
       margin: auto;
+      padding: 19px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
 
-    .logo {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      background: var(--green);
+      display: grid;
+      place-items: center;
+      color: white;
       font-size: 25px;
+    }
+
+    .brand-name {
       font-weight: 800;
-      color: #123d32;
+      font-size: 21px;
+      color: var(--green);
     }
 
-    .logo span {
-      display: block;
+    .brand-subtitle {
       font-size: 11px;
-      font-weight: 500;
-      color: #789087;
-      margin-top: 2px;
+      color: var(--muted);
     }
 
-    .back-btn {
-      border: 1px solid #dce5e1;
-      padding: 9px 16px;
-      border-radius: 10px;
-      color: #31564b;
-      background: white;
-      font-size: 14px;
+    .home-link {
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 700;
     }
 
-    .container {
-      max-width: 850px;
-      margin: 55px auto;
-      padding: 0 20px;
+    main {
+      max-width: 760px;
+      margin: 48px auto;
+      padding: 0 18px;
     }
 
     .intro {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 27px;
     }
 
-    .intro h1 {
-      margin: 0 0 10px;
-      font-size: 30px;
+    .intro-icon {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 17px;
+      background: #e2ece4;
+      border-radius: 23px;
+      display: grid;
+      place-items: center;
+      font-size: 35px;
+    }
+
+    h1 {
+      font-size: clamp(24px, 4vw, 33px);
+      color: var(--green);
+      margin: 0 0 12px;
     }
 
     .intro p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
       margin: 0;
-      color: #71817b;
     }
 
-    .search-box {
+    .card {
       background: white;
-      border-radius: 20px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
       padding: 28px;
-      box-shadow: 0 10px 35px rgba(18, 61, 50, 0.08);
-      margin-bottom: 25px;
+      box-shadow: 0 12px 40px rgba(18, 61, 50, .05);
     }
 
-    .search-box label {
+    .field {
+      margin-bottom: 19px;
+    }
+
+    label {
       display: block;
       margin-bottom: 9px;
       font-weight: 700;
-    }
-
-    .search-row {
-      display: flex;
-      gap: 12px;
+      font-size: 13px;
     }
 
     input {
-      flex: 1;
-      height: 50px;
-      border: 1px solid #d9e4df;
+      width: 100%;
+      min-height: 53px;
+      border: 1px solid #dfe5df;
       border-radius: 12px;
-      padding: 0 15px;
+      background: #fcfdfb;
+      padding: 12px 15px;
       font-family: inherit;
       font-size: 15px;
       outline: none;
+      transition: border .2s, box-shadow .2s;
     }
 
     input:focus {
-      border-color: #28705d;
+      border-color: var(--green-light);
+      box-shadow: 0 0 0 3px rgba(29, 89, 72, .09);
     }
 
-    .search-btn {
-      border: none;
-      background: #123d32;
-      color: white;
-      padding: 0 25px;
+    #reservationCode {
+      direction: ltr;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    #guestPhone {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 7px;
+      line-height: 1.8;
+    }
+
+    .submit-btn {
+      width: 100%;
+      min-height: 54px;
+      border: 0;
       border-radius: 12px;
+      background: var(--green);
+      color: white;
       font-family: inherit;
-      font-size: 15px;
       font-weight: 700;
+      font-size: 15px;
       cursor: pointer;
+      transition: background .2s, transform .2s;
     }
 
-    .search-btn:hover {
-      background: #0d3027;
+    .submit-btn:hover {
+      background: var(--green-light);
     }
+
+    .submit-btn:active {
+      transform: scale(.99);
+    }
+
+    .submit-btn:disabled {
+      opacity: .65;
+      cursor: wait;
+    }
+
+    .telegram-direct-box {
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid #b8d8ed;
+      border-radius: 13px;
+      background: #f0f8ff;
+      text-align: center;
+    }
+    .telegram-direct-box p {
+      margin: 0 0 10px;
+      color: #174c70;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+    .telegram-direct-btn {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 10px;
+      background: #229ed9;
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: filter .2s, transform .2s;
+    }
+    .telegram-direct-btn:hover { filter: brightness(.95); }
+    .telegram-direct-btn:active { transform: scale(.99); }
+    .telegram-direct-btn:disabled { opacity: .65; cursor: wait; }
 
     .message {
       display: none;
-      padding: 14px 16px;
-      border-radius: 12px;
+      padding: 13px 15px;
+      border-radius: 11px;
       margin-top: 18px;
-      font-size: 14px;
+      font-size: 13px;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
     }
 
     .message.error {
       display: block;
-      background: #fff0f0;
-      color: #a32929;
+      background: #fff0ef;
+      color: #a3332b;
     }
 
-    .message.success {
+    .message.info {
       display: block;
-      background: #edf8f2;
-      color: #17633e;
+      background: #edf5ef;
+      color: var(--green);
     }
 
-    .reservation-card {
+    .result {
       display: none;
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 10px 35px rgba(18, 61, 50, 0.08);
+      margin-top: 25px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
     }
 
-    .reservation-card.show {
-      display: block;
+    .result h2 {
+      color: var(--green);
+      font-size: 19px;
+      margin: 0 0 17px;
     }
 
-    .property-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 5px;
-    }
-
-    .property-location {
-      color: #74837e;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .info {
-      background: #f7faf8;
-      border-radius: 12px;
+    .status-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       padding: 15px;
+      border-radius: 13px;
+      background: #f5f7f4;
+      margin-bottom: 20px;
     }
 
-    .info small {
-      display: block;
-      color: #7a8984;
-      margin-bottom: 5px;
-      font-size: 12px;
+    .status-icon {
+      font-size: 27px;
     }
 
-    .info strong {
+    .status-label {
+      font-weight: 800;
       font-size: 15px;
     }
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 15px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-top: 20px;
+    .status-description {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+      line-height: 1.8;
     }
 
-    .status.pending {
-      background: #fff6df;
-      color: #9a6800;
+    .details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
-    .status.confirmed {
-      background: #e8f7ee;
-      color: #187044;
+    .detail {
+      background: #fafbf9;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      min-width: 0;
     }
 
-    .status.rejected {
-      background: #ffeded;
-      color: #a52d2d;
+    .detail.full {
+      grid-column: 1 / -1;
     }
 
-    .status.cancelled {
-      background: #eeeeee;
-      color: #666;
+    .detail-label {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 7px;
     }
 
-    .contact-box {
-      margin-top: 22px;
-      padding: 17px;
-      border-radius: 14px;
-      background: #eef7f3;
-      color: #31564b;
+    .detail-value {
       font-size: 14px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
       line-height: 1.9;
     }
 
-    .whatsapp-btn {
-      display: inline-block;
-      margin-top: 12px;
-      background: #16844b;
-      color: white;
-      padding: 10px 17px;
+    .code-value {
+      direction: ltr;
+      text-align: right;
+      color: var(--green);
+      letter-spacing: .5px;
+    }
+
+    .notice {
+      margin-top: 19px;
+      padding: 13px 15px;
+      background: #f8f4e8;
+      color: #75602b;
+      border-radius: 11px;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .telegram-connect-panel {
+      margin-top: 16px;
+      padding: 15px;
+      border: 1px solid #b8d8ed;
+      border-radius: 13px;
+      background: #f0f8ff;
+      color: #174c70;
+      font-size: 13px;
+      line-height: 2;
+    }
+    .telegram-connect-panel a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 9px;
+      padding: 10px 15px;
       border-radius: 10px;
-      font-size: 14px;
-      font-weight: 700;
+      background: #229ed9;
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .telegram-connect-panel .tg-connected { color: #17613d; font-weight: 700; }
+    .telegram-connect-panel .tg-error { color: #8a3b18; }
+
+    .contact {
+      text-align: center;
+      margin-top: 25px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .contact a {
+      color: var(--green);
+      font-weight: 800;
     }
 
     footer {
       text-align: center;
-      padding: 35px 20px;
-      color: #81908b;
-      font-size: 13px;
+      padding: 25px 15px;
+      color: var(--muted);
+      font-size: 12px;
     }
 
-    @media (max-width: 650px) {
-      .search-row {
-        flex-direction: column;
+    @media (max-width: 520px) {
+      main {
+        margin: 30px auto;
       }
 
-      .search-btn {
-        height: 50px;
+      .card {
+        padding: 20px 16px;
+        border-radius: 17px;
       }
 
-      .info-grid {
+      .details {
         grid-template-columns: 1fr;
       }
 
-      .container {
-        margin-top: 35px;
+      .detail.full {
+        grid-column: auto;
       }
 
-      .intro h1 {
-        font-size: 25px;
+      .brand-name {
+        font-size: 18px;
       }
     }
-  </style>
+  
+    [hidden] { display: none !important; }
+    .payment-info { margin-top: 22px; padding: 18px; border: 1px solid #d5e5d9; border-radius: 17px; background: linear-gradient(145deg, #f9fcf9, #edf7ef); }
+    .payment-info h3 { margin: 0 0 13px; color: var(--green); font-size: 17px; }
+    .payment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .payment-grid > div { min-width: 0; padding: 11px; border: 1px solid #e1ebe3; border-radius: 11px; background: #fff; }
+    .payment-grid small { display: block; color: var(--muted); margin-bottom: 5px; font-size: 11px; }
+    .payment-grid strong { display: block; color: #24332e; font-size: 13px; overflow-wrap: anywhere; }
+    .payment-grid .card-number { letter-spacing: .5px; font-size: 15px; }
+    .payment-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 13px; }
+    .payment-actions button, .payment-actions a { flex: 1 1 190px; text-align: center; border: 0; border-radius: 10px; padding: 11px 12px; font: 700 12px "Vazirmatn", Tahoma, sans-serif; cursor: pointer; }
+    .payment-actions button { background: var(--green); color: white; }
+    .payment-actions a { display: inline-flex; justify-content: center; align-items: center; background: #e6f2ff; color: #14558b; }
+    .payment-notice { margin: 12px 0 0; font-size: 11px; line-height: 1.9; color: #71561b; }
+    .new-reservation-link { display: inline-block; margin-top: 13px; padding: 10px 14px; border-radius: 10px; background: var(--green); color: white; font-weight: 700; font-size: 13px; }
+    @media (max-width: 520px) { .payment-grid { grid-template-columns: 1fr; } .payment-actions { display: grid; } .payment-actions button, .payment-actions a { min-width: 0; } }
+
+</style>
 </head>
 
 <body>
-
   <div class="topbar">
-    🌿 افرا سفر | همراه شما برای یک اقامت خاطره‌انگیز
+    🌿 افرا سفر؛ همراه شما برای یک اقامت خاطره‌انگیز
   </div>
 
   <header>
-    <div class="nav">
-      <a href="index.html" class="logo">
-        افرا سفر
-        <span>سفر، آرامش، خاطره</span>
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">🌿</div>
+        <div>
+          <div class="brand-name">افرا سفر</div>
+          <div class="brand-subtitle">سفر، آرامش، خاطره</div>
+        </div>
       </a>
 
-      <a href="index.html" class="back-btn">
-        ← بازگشت به سایت
-      </a>
-    </div>
+      <a href="index.html" class="home-link">بازگشت به صفحه اصلی ←</a>
+    </nav>
   </header>
 
-  <main class="container">
-
-    <div class="intro">
-      <h1>پیگیری رزرو</h1>
+  <main>
+    <section class="intro">
+      <div class="intro-icon">🔎</div>
+      <h1>پیگیری رزروهای من</h1>
       <p>
-        کد پیگیری رزرو خود را وارد کنید تا وضعیت رزرو را مشاهده کنید.
+        کد پیگیری رزرو و شماره موبایلی را که هنگام ثبت درخواست وارد کردید
+        بنویسید تا وضعیت درخواستتان را مشاهده کنید. پس از نمایش نتیجه، دکمهٔ آبی «اتصال تلگرام به این رزرو» در پایین اطلاعات رزرو ظاهر می‌شود.
       </p>
-    </div>
+    </section>
 
-    <div class="search-box">
+    <section class="card">
+      <form id="trackingForm">
+        <div class="field">
+          <label for="reservationCode">کد پیگیری رزرو</label>
+          <input
+            id="reservationCode"
+            name="reservationCode"
+            type="text"
+            placeholder="AFRA-XXXXXXXXXXXX"
+            autocomplete="off"
+            maxlength="40"
+            required
+          >
+          <div class="hint">
+            کد پیگیری پس از ثبت درخواست رزرو به شما نمایش داده می‌شود.
+          </div>
+        </div>
 
-      <label for="reservationCode">
-        کد پیگیری رزرو
-      </label>
+        <div class="field">
+          <label for="guestPhone">شماره موبایل ثبت‌شده</label>
+          <input
+            id="guestPhone"
+            name="guestPhone"
+            type="tel"
+            placeholder="09123456789"
+            autocomplete="tel"
+            inputmode="tel"
+            maxlength="20"
+            required
+          >
+          <div class="hint">
+            شماره باید با شماره‌ای که هنگام ثبت رزرو وارد کردید مطابقت داشته باشد.
+          </div>
+        </div>
 
-      <div class="search-row">
-        <input
-          id="reservationCode"
-          type="text"
-          placeholder="مثلاً AFRA-123456"
-          autocomplete="off"
-        >
-
-        <button class="search-btn" id="searchBtn">
-          پیگیری رزرو
+        <button id="submitBtn" class="submit-btn" type="submit">
+          بررسی وضعیت رزرو
         </button>
-      </div>
+        <div class="telegram-direct-box">
+          <p>برای دریافت خودکار پیام تأیید و اطلاعات پرداخت در تلگرام، کد رزرو و شماره موبایل را وارد کنید و این دکمه را بزنید.</p>
+          <button id="telegramConnectNow" class="telegram-direct-btn" type="button">✈️ اتصال تلگرام به این رزرو</button>
+        </div>
+      </form>
 
-      <div id="message" class="message"></div>
+      <div id="message" class="message" role="status" aria-live="polite"></div>
 
+      <section id="result" class="result" aria-live="polite">
+        <h2>جزئیات درخواست شما</h2>
+
+        <div class="status-box">
+          <div id="statusIcon" class="status-icon">🕓</div>
+          <div>
+            <div id="statusLabel" class="status-label">در انتظار بررسی</div>
+            <div id="statusDescription" class="status-description"></div>
+          </div>
+        </div>
+
+        <div class="details">
+          <div class="detail full">
+            <div class="detail-label">کد پیگیری</div>
+            <div id="outCode" class="detail-value code-value"></div>
+          </div>
+
+          <div class="detail full">
+            <div class="detail-label">نام اقامتگاه</div>
+            <div id="outTitle" class="detail-value"></div>
+          </div>
+
+          <div class="detail full">
+            <div class="detail-label">موقعیت اقامتگاه</div>
+            <div id="outLocation" class="detail-value"></div>
+          </div>
+
+          <div class="detail">
+            <div class="detail-label">تاریخ ورود</div>
+            <div id="outCheckIn" class="detail-value"></div>
+          </div>
+
+          <div class="detail">
+            <div class="detail-label">تاریخ خروج</div>
+            <div id="outCheckOut" class="detail-value"></div>
+          </div>
+
+          <div class="detail">
+            <div class="detail-label">تعداد مسافران</div>
+            <div id="outGuests" class="detail-value"></div>
+          </div>
+
+          <div class="detail">
+            <div class="detail-label">وضعیت درخواست</div>
+            <div id="outStatus" class="detail-value"></div>
+          </div>
+        </div>
+
+        <div class="notice" id="statusNotice">
+          توجه: ثبت درخواست به معنی قطعی شدن رزرو نیست. تا زمانی که درخواست
+          توسط میزبان تأیید نشده، برای قطعی بودن اقامت برنامه‌ریزی نکنید.
+        </div>
+        <p class="telegram-connect-hint" style="margin:12px 0 6px;color:#496273;font-size:12px;line-height:1.9">برای اتصال تلگرام، ابتدا کد پیگیری و شماره موبایل را در فرم بالا وارد و «بررسی وضعیت رزرو» را بزنید. لینک اختصاصی تلگرام فقط پس از پیدا شدن رزرو نمایش داده می‌شود.</p>
+        <div id="telegramConnectPanel" class="telegram-connect-panel" hidden aria-live="polite"></div>
+        <a id="newReservationLink" class="new-reservation-link" href="index.html#stays" hidden>ثبت درخواست رزرو جدید</a>
+
+        <section id="paymentInfo" class="payment-info" hidden aria-live="polite">
+          <h3>اطلاعات پرداخت رزرو</h3>
+          <div class="payment-grid">
+            <div><small>مبلغ قابل پرداخت</small><strong id="outPaymentAmount">در حال دریافت…</strong></div>
+            <div><small>وضعیت پرداخت</small><strong id="outPaymentStatus">در حال بررسی</strong></div>
+            <div><small>مهلت پرداخت</small><strong id="outPaymentDeadline">۲۰ دقیقه پس از تأیید</strong></div>
+            <div><small>زمان باقی‌مانده</small><strong id="outPaymentRemaining">در حال بررسی</strong></div>
+            <div><small>شماره کارت</small><strong class="card-number" dir="ltr">6219861924453805</strong></div>
+            <div><small>به نام</small><strong>محمد رسولی</strong></div>
+          </div>
+          <div class="payment-actions">
+            <button type="button" id="copyPaymentDetails">کپی پیام کامل رزرو و پرداخت</button>
+            <a id="sharePaymentTelegram" href="https://t.me/share/url?url=https%3A%2F%2Ft.me%2F" target="_blank" rel="noopener noreferrer">آماده‌سازی پیام در تلگرام</a>
+          </div>
+          <p class="payment-notice" id="paymentDeadlineNotice">پس از پایان مهلت ۲۰ دقیقه‌ای، رزرو منقضی می‌شود و باید درخواست تازه‌ای ثبت کنید. برای ارسال رسید، تصویر رسید بانکی را در تلگرام پیوست کنید.</p>
+        </section>
+      </section>
+    </section>
+
+    <div class="contact">
+      برای راهنمایی بیشتر با افرا سفر در ارتباط باشید.
+      <br>
+      <a href="https://t.me/+989117999884" target="_blank" rel="noopener noreferrer">
+        گفت‌وگو در تلگرام
+      </a>
     </div>
-
-    <div id="reservationCard" class="reservation-card">
-
-      <div class="property-title" id="propertyTitle">
-        -
-      </div>
-
-      <div class="property-location" id="propertyLocation">
-        -
-      </div>
-
-      <div class="info-grid">
-
-        <div class="info">
-          <small>نام مهمان</small>
-          <strong id="guestName">-</strong>
-        </div>
-
-        <div class="info">
-          <small>تعداد نفرات</small>
-          <strong id="guestCount">-</strong>
-        </div>
-
-        <div class="info">
-          <small>تاریخ ورود</small>
-          <strong id="checkIn">-</strong>
-        </div>
-
-        <div class="info">
-          <small>تاریخ خروج</small>
-          <strong id="checkOut">-</strong>
-        </div>
-
-      </div>
-
-      <div id="reservationStatus" class="status pending">
-        در انتظار تأیید مالک
-      </div>
-
-      <div class="contact-box">
-        <strong>📞 نیاز به راهنمایی دارید؟</strong>
-        <br>
-        برای پیگیری رزرو یا دریافت اطلاعات بیشتر با افرا سفر در ارتباط باشید.
-
-        <br>
-
-        <a
-          class="whatsapp-btn"
-          href="https://wa.me/989117999884"
-          target="_blank"
-        >
-          💬 تماس با واتساپ
-        </a>
-      </div>
-
-    </div>
-
   </main>
 
   <footer>
-    © افرا سفر — رزرو آسان اقامتگاه‌های شمال ایران
+    © افرا سفر | تجربه یک اقامت متفاوت در شمال ایران
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script>
+    // تنظیمات پروژه Supabase افرا سفر
+    const SUPABASE_URL = "https://chrdvpwympsskclbvnsz.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_IvWjnRsU3BeAXuiG0kR8og_iWw4bwkj";
 
-    const SUPABASE_URL =
-      "https://chrdvpwympsskclbvnsz.supabase.co";
-
-    const SUPABASE_PUBLISHABLE_KEY =
-      "sb_publishable_IvWJnRsU3BeAXuiG0kR8og_iWw4bwkj";
-
-    const { createClient } = supabase;
-
-    const afraSupabase = createClient(
+    const client = window.supabase.createClient(
       SUPABASE_URL,
-      SUPABASE_PUBLISHABLE_KEY
+      SUPABASE_KEY
     );
 
+    const form = document.getElementById("trackingForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const message = document.getElementById("message");
+    const result = document.getElementById("result");
 
-    const reservationCode =
-      document.getElementById("reservationCode");
+    // تبدیل اعداد فارسی و عربی به اعداد انگلیسی
+    function normalizeDigits(value) {
+      const persian = "۰۱۲۳۴۵۶۷۸۹";
+      const arabic = "٠١٢٣٤٥٦٧٨٩";
 
-    const searchBtn =
-      document.getElementById("searchBtn");
-
-    const message =
-      document.getElementById("message");
-
-    const reservationCard =
-      document.getElementById("reservationCard");
-
-
-    function showMessage(text, type) {
-
-      message.textContent = text;
-
-      message.className =
-        "message " + type;
-
+      return String(value)
+        .replace(/[۰-۹]/g, digit => persian.indexOf(digit))
+        .replace(/[٠-٩]/g, digit => arabic.indexOf(digit));
     }
 
+    // یکسان‌سازی شماره تلفن برای مقایسه
+    function normalizePhone(value) {
+      let phone = normalizeDigits(value).replace(/\D/g, "");
 
-    function hideMessage() {
-
-      message.textContent = "";
-
-      message.className =
-        "message";
-
-    }
-
-
-    function formatDate(dateString) {
-
-      if (!dateString) return "-";
-
-      const date =
-        new Date(dateString);
-
-      return date.toLocaleDateString(
-        "fa-IR"
-      );
-
-    }
-
-
-    function getStatusText(status) {
-
-      switch (status) {
-
-        case "pending":
-          return "⏳ در انتظار تأیید مالک";
-
-        case "confirmed":
-          return "✅ رزرو تأیید شد";
-
-        case "rejected":
-          return "❌ رزرو رد شد";
-
-        case "cancelled":
-          return "⚪ رزرو لغو شده";
-
-        default:
-          return "وضعیت نامشخص";
-
+      // تبدیل شماره با پیش‌شماره ایران به قالب محلی 09...
+      if (phone.startsWith("0098")) {
+        phone = "0" + phone.slice(4);
+      } else if (phone.startsWith("98")) {
+        phone = "0" + phone.slice(2);
       }
 
+      return phone;
     }
 
+    // Direct Telegram linking button: available even before the reservation result panel is shown.
+    const telegramConnectNowButton = document.getElementById("telegramConnectNow");
+    if (telegramConnectNowButton) {
+      telegramConnectNowButton.addEventListener("click", async function () {
+        const reservationCode = normalizeDigits(document.getElementById("reservationCode").value).trim().toUpperCase();
+        const guestPhone = normalizePhone(document.getElementById("guestPhone").value);
 
-    async function searchReservation() {
-
-      const code =
-        reservationCode.value.trim();
-
-      reservationCard.classList.remove("show");
-
-      hideMessage();
-
-      if (!code) {
-
-        showMessage(
-          "لطفاً کد پیگیری رزرو را وارد کنید.",
-          "error"
-        );
-
-        return;
-      }
-
-
-      searchBtn.disabled = true;
-
-      searchBtn.textContent =
-        "در حال بررسی...";
-
-
-      try {
-
-        const { data, error } =
-          await afraSupabase
-
-            .from("reservations")
-
-            .select(`
-              id,
-              reservation_code,
-              guest_name,
-              guest_phone,
-              check_in,
-              check_out,
-              guest_count,
-              status,
-              properties (
-                title,
-                location
-              )
-            `)
-
-            .eq(
-              "reservation_code",
-              code
-            )
-
-            .maybeSingle();
-
-
-        if (error) {
-
-          console.error(error);
-
-          throw error;
-
-        }
-
-
-        if (!data) {
-
-          showMessage(
-            "رزروی با این کد پیگیری پیدا نشد. کد را دوباره بررسی کنید.",
-            "error"
-          );
-
+        if (!reservationCode || !guestPhone || guestPhone.length < 8) {
+          showMessage("ابتدا کد پیگیری و شماره موبایل ثبت‌شده را وارد کنید.", "error");
           return;
         }
 
-
-        document.getElementById(
-          "propertyTitle"
-        ).textContent =
-          data.properties?.title ||
-          "اقامتگاه";
-
-
-        document.getElementById(
-          "propertyLocation"
-        ).textContent =
-          data.properties?.location ||
-          "موقعیت ثبت نشده";
-
-
-        document.getElementById(
-          "guestName"
-        ).textContent =
-          data.guest_name || "-";
-
-
-        document.getElementById(
-          "guestCount"
-        ).textContent =
-          data.guest_count
-            ? data.guest_count + " نفر"
-            : "-";
-
-
-        document.getElementById(
-          "checkIn"
-        ).textContent =
-          formatDate(data.check_in);
-
-
-        document.getElementById(
-          "checkOut"
-        ).textContent =
-          formatDate(data.check_out);
-
-
-        const statusElement =
-          document.getElementById(
-            "reservationStatus"
-          );
-
-
-        statusElement.textContent =
-          getStatusText(data.status);
-
-
-        statusElement.className =
-          "status " +
-          (data.status || "pending");
-
-
-        reservationCard.classList.add(
-          "show"
-        );
-
-
-        showMessage(
-          "رزرو شما با موفقیت پیدا شد.",
-          "success"
-        );
-
-      } catch (error) {
-
-        console.error(error);
-
-        showMessage(
-          "خطایی هنگام دریافت اطلاعات رزرو رخ داد.",
-          "error"
-        );
-
-      } finally {
-
-        searchBtn.disabled = false;
-
-        searchBtn.textContent =
-          "پیگیری رزرو";
-
-      }
-
-    }
-
-
-    searchBtn.addEventListener(
-      "click",
-      searchReservation
-    );
-
-
-    reservationCode.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (event.key === "Enter") {
-
-          searchReservation();
-
+        // Open a blank tab synchronously from the click to avoid popup blockers;
+        // it will be redirected only after Supabase validates this reservation.
+        const telegramWindow = window.open("about:blank", "_blank");
+        if (!telegramWindow) {
+          showMessage("مرورگر پنجره بازشده را مسدود کرد. اجازه بازشدن پنجره جدید را فعال و دوباره تلاش کنید.", "error");
+          return;
         }
 
+        telegramConnectNowButton.disabled = true;
+        const oldButtonText = telegramConnectNowButton.textContent;
+        telegramConnectNowButton.textContent = "در حال آماده‌سازی لینک تلگرام…";
+        hideMessage();
+
+        try {
+          const { data, error } = await client.rpc("get_public_telegram_link", {
+            p_reservation_code: reservationCode,
+            p_guest_phone: guestPhone
+          });
+          if (error) throw error;
+          const payload = Array.isArray(data) ? data[0] : data;
+
+          if (!payload || payload.success !== true) {
+            throw new Error(payload && payload.message ? payload.message : "رزرو با این کد و شماره موبایل پیدا نشد.");
+          }
+
+          if (payload.linked === true) {
+            telegramWindow.close();
+            showMessage("تلگرام قبلاً به این رزرو متصل شده است. پس از تأیید رزرو، پیام در همان گفت‌وگو ارسال می‌شود.", "info");
+            return;
+          }
+
+          if (typeof payload.link_token !== "string" || !/^[a-f0-9]{32}$/i.test(payload.link_token)) {
+            throw new Error("کد اتصال برای این رزرو در دیتابیس موجود نیست. صفحه را تازه‌سازی کنید.");
+          }
+
+          telegramWindow.location.href = "https://t.me/AfraSafarReserveBot?start=" + encodeURIComponent(payload.link_token);
+          showMessage("لینک اختصاصی آماده شد. در تلگرام روی Start بزنید تا این رزرو به حساب شما متصل شود.", "info");
+        } catch (error) {
+          try { telegramWindow.close(); } catch (_) {}
+          console.error("Telegram reservation linking failed:", error);
+          showMessage("اتصال تلگرام انجام نشد: " + (error.message || "خطای نامشخص"), "error");
+        } finally {
+          telegramConnectNowButton.disabled = false;
+          telegramConnectNowButton.textContent = oldButtonText;
+        }
+      });
+    }
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = "message " + type;
+    }
+
+    function hideMessage() {
+      message.textContent = "";
+      message.className = "message";
+    }
+
+    function setText(id, value) {
+      document.getElementById(id).textContent = value ?? "ثبت نشده";
+    }
+
+    function formatDate(value) {
+      if (!value) return "ثبت نشده";
+
+      // تاریخ بدون تبدیل منطقه زمانی نمایش داده می‌شود.
+      const parts = String(value).split("-");
+      if (parts.length !== 3) return value;
+
+      return `${parts[2]} / ${parts[1]} / ${parts[0]}`;
+    }
+
+    let currentLookup = null;
+    let paymentCountdownTimer = null;
+    let paymentRefreshTimer = null;
+    let paymentRefreshBusy = false;
+
+    function getTelegramShareUrl(text) {
+      let urlToShare = "https://t.me/";
+      try {
+        const homeUrl = new URL("index.html", window.location.href);
+        if (homeUrl.protocol === "http:" || homeUrl.protocol === "https:") urlToShare = homeUrl.href;
+      } catch (_) {}
+      return "https://t.me/share/url?url=" + encodeURIComponent(urlToShare) + "&text=" + encodeURIComponent(text);
+    }
+
+    // Show a reservation-specific Telegram deep link after a successful lookup.
+    async function showTelegramConnectPanel(reservationCode, guestPhone) {
+      const panel = document.getElementById("telegramConnectPanel");
+      if (!panel) return;
+      panel.replaceChildren();
+      panel.hidden = false;
+      const loading = document.createElement("div");
+      loading.textContent = "در حال آماده‌سازی اتصال تلگرام برای این رزرو…";
+      panel.appendChild(loading);
+
+      try {
+        const { data, error } = await client.rpc("get_public_telegram_link", {
+          p_reservation_code: reservationCode,
+          p_guest_phone: guestPhone
+        });
+        if (error) throw error;
+
+        const payload = Array.isArray(data) ? data[0] : data;
+        panel.replaceChildren();
+        if (!payload || payload.success !== true) {
+          const errorText = document.createElement("div");
+          errorText.className = "tg-error";
+          errorText.textContent = (payload && payload.message)
+            ? "اتصال تلگرام برای این رزرو آماده نشد: " + payload.message
+            : "لینک اتصال تلگرام برای این رزرو از دیتابیس دریافت نشد. شماره موبایل و کد پیگیری را بررسی کنید.";
+          panel.appendChild(errorText);
+          return;
+        }
+
+        if (payload.linked === true) {
+          const done = document.createElement("div");
+          done.className = "tg-connected";
+          done.textContent = "✅ تلگرام شما به این رزرو متصل است. پیام تأیید و اطلاعات پرداخت پس از تأیید میزبان در همین ربات ارسال می‌شود.";
+          panel.appendChild(done);
+          return;
+        }
+
+        if (typeof payload.link_token !== "string" || !/^[a-f0-9]{32}$/i.test(payload.link_token)) {
+          const errorText = document.createElement("div");
+          errorText.className = "tg-error";
+          errorText.textContent = "کد اتصال این رزرو در دیتابیس موجود نیست. لطفاً صفحه را تازه‌سازی و دوباره بررسی کنید.";
+          panel.appendChild(errorText);
+          return;
+        }
+
+        const info = document.createElement("div");
+        info.textContent = "برای دریافت خودکار نتیجه بررسی رزرو و اطلاعات پرداخت، یک بار حساب تلگرام خود را به این رزرو متصل کنید:";
+        const link = document.createElement("a");
+        link.href = "https://t.me/AfraSafarReserveBot?start=" + encodeURIComponent(payload.link_token);
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "✈️ اتصال تلگرام به این رزرو";
+        panel.append(info, link);
+      } catch (error) {
+        console.warn("Telegram link lookup failed:", error);
+        panel.replaceChildren();
+        const errorText = document.createElement("div");
+        errorText.className = "tg-error";
+        errorText.textContent = "ارتباط با سرویس اتصال تلگرام برقرار نشد. لطفاً صفحه را تازه‌سازی کنید؛ اگر مشکل ادامه داشت، تنظیم تابع get_public_telegram_link در Supabase باید بررسی شود.";
+        panel.appendChild(errorText);
       }
-    );
+    }
 
+    function pickRow(payload) {
+      if (Array.isArray(payload)) return payload[0] || {};
+      if (payload && typeof payload === "object") {
+        if (Array.isArray(payload.data)) return payload.data[0] || {};
+        if (payload.payment && typeof payload.payment === "object") return payload.payment;
+        if (payload.reservation && typeof payload.reservation === "object") return payload.reservation;
+        return payload;
+      }
+      if (typeof payload === "string") {
+        try { const parsed = JSON.parse(payload); return Array.isArray(parsed) ? (parsed[0] || {}) : parsed; } catch (_) {}
+      }
+      return {};
+    }
+
+    function formatMoney(value) {
+      if (value === null || value === undefined || value === "" || !Number.isFinite(Number(value))) return "در اطلاعات رزرو موجود نیست";
+      return Number(value).toLocaleString("fa-IR") + " تومان";
+    }
+
+    function stopPaymentTimers() {
+      if (paymentCountdownTimer) window.clearInterval(paymentCountdownTimer);
+      if (paymentRefreshTimer) window.clearInterval(paymentRefreshTimer);
+      paymentCountdownTimer = null;
+      paymentRefreshTimer = null;
+    }
+
+    function showExpiredStatus() {
+      setText("statusLabel", "مهلت پرداخت تمام شده");
+      setText("statusDescription", "مهلت ۲۰ دقیقه‌ای پرداخت پایان یافته است. برای ادامه، درخواست رزرو جدید ثبت کنید.");
+      setText("outStatus", "منقضی‌شده");
+      document.getElementById("statusIcon").textContent = "⌛";
+      document.getElementById("statusNotice").textContent = "مهلت پرداخت به پایان رسیده است؛ برای ادامه باید درخواست رزرو تازه‌ای ثبت کنید.";
+      document.getElementById("paymentInfo").hidden = true;
+      document.getElementById("newReservationLink").hidden = false;
+      setText("outPaymentRemaining", "منقضی شده");
+      stopPaymentTimers();
+    }
+
+    function showReservation(row) {
+      const statusMap = {
+        pending: {
+          label: "در انتظار تأیید",
+          icon: "🕓",
+          description: "درخواست شما ثبت شده و هنوز میزبان آن را تأیید نکرده است. فعلاً پرداخت نکنید."
+        },
+        confirmed: {
+          label: "رزرو تأیید شده",
+          icon: "✅",
+          description: "رزرو شما تأیید شده است. برای واریز، اطلاعات پرداخت و مهلت ۲۰ دقیقه‌ای زیر را بررسی کنید."
+        },
+        rejected: {
+          label: "درخواست تأیید نشده",
+          icon: "❌",
+          description: "این درخواست توسط میزبان تأیید نشده است. برای اطلاعات بیشتر با پشتیبانی تماس بگیرید."
+        },
+        cancelled: {
+          label: "رزرو لغو شده",
+          icon: "⚪",
+          description: "وضعیت این درخواست لغو شده ثبت شده است."
+        },
+        expired: {
+          label: "مهلت پرداخت تمام شده",
+          icon: "⌛",
+          description: "مهلت ۲۰ دقیقه‌ای پرداخت پایان یافته است. لطفاً درخواست رزرو جدید ثبت کنید."
+        }
+      };
+
+      const status = String(row.status || "pending").toLowerCase();
+      const info = statusMap[status] || {
+        label: "وضعیت: " + status,
+        icon: "ℹ️",
+        description: "برای اطلاع از جزئیات بیشتر با پشتیبانی تماس بگیرید."
+      };
+
+      setText("statusLabel", info.label);
+      setText("statusDescription", info.description);
+      setText("outCode", row.reservation_code || "ثبت نشده");
+      setText("outTitle", row.property_title || row.title || "نامشخص");
+      setText("outLocation", row.property_location || row.location || "ثبت نشده");
+      setText("outCheckIn", formatDate(row.check_in));
+      setText("outCheckOut", formatDate(row.check_out));
+      setText("outGuests", row.guest_count != null ? `${row.guest_count} نفر` : "ثبت نشده");
+      setText("outStatus", info.label);
+
+      document.getElementById("statusIcon").textContent = info.icon;
+      document.getElementById("paymentInfo").hidden = true;
+      document.getElementById("newReservationLink").hidden = status !== "expired";
+      document.getElementById("statusNotice").textContent = status === "confirmed"
+        ? "رزرو تأیید شده است. فقط ۲۰ دقیقه برای واریز فرصت دارید؛ پس از پایان مهلت، رزرو منقضی می‌شود."
+        : status === "expired"
+          ? "مهلت پرداخت به پایان رسیده است؛ برای ادامه باید درخواست رزرو تازه‌ای ثبت کنید."
+          : "ثبت درخواست به معنی قطعی شدن رزرو نیست. تا زمانی که میزبان درخواست را تأیید نکرده، پرداخت انجام ندهید.";
+      result.style.display = "block";
+      if (status === "expired") showExpiredStatus();
+    }
+
+    function makePaymentMessage(row, payment) {
+      const amount = payment.payment_amount ?? payment.amount ?? payment.payable_amount ?? row.payment_amount;
+      const deadline = payment.payment_deadline_at ?? payment.payment_deadline ?? payment.deadline_at ?? row.payment_deadline_at;
+      const nights = row.check_in && row.check_out
+        ? Math.max(0, Math.round((new Date(String(row.check_out).slice(0,10) + "T00:00:00") - new Date(String(row.check_in).slice(0,10) + "T00:00:00")) / 86400000)) : null;
+      return [
+        "🌿 افرا سفر | اطلاعات کامل رزرو",
+        "نام مسافر: " + (row.guest_name || "ثبت نشده"),
+        "کد پیگیری: " + (row.reservation_code || "ثبت نشده"),
+        "اقامتگاه: " + (row.property_title || row.title || "نامشخص"),
+        "موقعیت: " + (row.property_location || row.location || "ثبت نشده"),
+        "تاریخ ورود: " + formatDate(row.check_in),
+        "تاریخ خروج: " + formatDate(row.check_out),
+        nights !== null ? "تعداد شب: " + nights : "",
+        "تعداد مسافران: " + (row.guest_count ?? "ثبت نشده"),
+        "مبلغ قابل پرداخت: " + (amount != null ? formatMoney(amount) : "در انتظار دریافت مبلغ از سامانه"),
+        "مهلت واریز: " + (deadline ? new Date(deadline).toLocaleString("fa-IR") : "۲۰ دقیقه پس از تأیید رزرو"),
+        "شماره کارت: 6219861924453805",
+        "به نام: محمد رسولی",
+        "پس از واریز، تصویر رسید را در تلگرام برای پشتیبانی ارسال کنید."
+      ].filter(Boolean).join("\n");
+    }
+
+    async function showPaymentDetails(row, reservationCode, guestPhone) {
+      const section = document.getElementById("paymentInfo");
+      const status = String(row.status || "").toLowerCase();
+      if (status !== "confirmed") {
+        section.hidden = true;
+        stopPaymentTimers();
+        return;
+      }
+
+      section.hidden = false;
+      document.getElementById("newReservationLink").hidden = true;
+      setText("outPaymentAmount", "در حال دریافت مبلغ…");
+      setText("outPaymentStatus", "در حال بررسی");
+      setText("outPaymentDeadline", "۲۰ دقیقه پس از تأیید");
+      setText("outPaymentRemaining", "در حال بررسی…");
+
+      let payment = {};
+      try {
+        const result = await client.rpc("get_reservation_payment_state", {
+          p_reservation_code: reservationCode,
+          p_guest_phone: guestPhone
+        });
+        if (result.error) throw result.error;
+        payment = pickRow(result.data);
+      } catch (error) {
+        console.warn("Payment details could not be loaded:", error);
+        payment = row;
+      }
+
+      const paymentStatusValue = String(payment.status || "").toLowerCase();
+      const reservationStatus = String(payment.reservation_status || payment.status_reservation || (["pending", "confirmed", "expired", "cancelled", "rejected"].includes(paymentStatusValue) ? paymentStatusValue : row.status) || "confirmed").toLowerCase();
+      if (reservationStatus === "expired" || String(row.status).toLowerCase() === "expired") {
+        showExpiredStatus();
+        return;
+      }
+
+      const amount = payment.payment_amount ?? payment.amount ?? payment.payable_amount ?? row.payment_amount;
+      const paymentStatus = String(payment.payment_status || payment.status_payment || "unpaid").toLowerCase();
+      const deadlineValue = payment.payment_deadline_at ?? payment.payment_deadline ?? payment.deadline_at ?? row.payment_deadline_at ?? null;
+      const deadlineDate = deadlineValue ? new Date(deadlineValue) : null;
+      const validDeadline = deadlineDate && !Number.isNaN(deadlineDate.getTime());
+
+      setText("outPaymentAmount", formatMoney(amount));
+      setText("outPaymentStatus", paymentStatus === "paid" ? "پرداخت ثبت شده" : paymentStatus === "receipt_submitted" ? "رسید ارسال شده؛ در انتظار بررسی" : paymentStatus === "expired" ? "مهلت پرداخت تمام شده" : "پرداخت نشده");
+      setText("outPaymentDeadline", validDeadline ? deadlineDate.toLocaleString("fa-IR") : "۲۰ دقیقه پس از تأیید رزرو");
+      document.getElementById("paymentDeadlineNotice").textContent = paymentStatus === "paid"
+        ? "وضعیت پرداخت به‌عنوان پرداخت‌شده ثبت شده است. برای پیگیری بیشتر از تلگرام با پشتیبانی تماس بگیرید."
+        : paymentStatus === "receipt_submitted"
+          ? "رسید ثبت شده است؛ وضعیت نهایی پرداخت را از پشتیبانی پیگیری کنید."
+          : "پس از پایان مهلت ۲۰ دقیقه‌ای بدون پرداخت، رزرو منقضی می‌شود و باید درخواست تازه‌ای ثبت کنید. برای ارسال رسید بانکی، تصویر آن را در تلگرام پیوست کنید.";
+
+      const fullMessage = makePaymentMessage(row, { ...payment, payment_amount: amount, payment_deadline_at: validDeadline ? deadlineDate.toISOString() : deadlineValue });
+      document.getElementById("copyPaymentDetails").onclick = async () => {
+        let copied = false;
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(fullMessage);
+            copied = true;
+          }
+        } catch (_) {}
+        if (!copied) {
+          const area = document.createElement("textarea");
+          area.value = fullMessage; area.setAttribute("readonly", "");
+          area.style.position = "fixed"; area.style.opacity = "0";
+          document.body.appendChild(area); area.select();
+          try { copied = document.execCommand("copy"); } catch (_) {}
+          area.remove();
+        }
+        const button = document.getElementById("copyPaymentDetails");
+        button.textContent = copied ? "پیام کپی شد ✓" : "کپی خودکار نشد";
+        window.setTimeout(() => { if (button.isConnected) button.textContent = "کپی پیام کامل رزرو و پرداخت"; }, 2200);
+      };
+      document.getElementById("sharePaymentTelegram").href = getTelegramShareUrl(fullMessage);
+
+      if (paymentCountdownTimer) window.clearInterval(paymentCountdownTimer);
+      const updateCountdown = () => {
+        if (paymentStatus === "paid") {
+          setText("outPaymentRemaining", "نیازی به پرداخت مجدد نیست");
+          return;
+        }
+        if (paymentStatus === "receipt_submitted") {
+          setText("outPaymentRemaining", "رسید ارسال شده");
+          return;
+        }
+        if (!validDeadline) {
+          setText("outPaymentRemaining", "مهلت ۲۰ دقیقه پس از تأیید");
+          return;
+        }
+        const remaining = deadlineDate.getTime() - Date.now();
+        if (remaining <= 0) {
+          setText("outPaymentRemaining", "مهلت تمام شده؛ در حال بررسی وضعیت…");
+          return;
+        }
+        const seconds = Math.floor(remaining / 1000);
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        setText("outPaymentRemaining", `${String(mins).padStart(2, "0")} : ${String(secs).padStart(2, "0")} دقیقه`);
+      };
+      updateCountdown();
+      paymentCountdownTimer = window.setInterval(updateCountdown, 1000);
+    }
+
+    async function refreshCurrentReservation() {
+      if (!currentLookup || paymentRefreshBusy) return;
+      paymentRefreshBusy = true;
+      try {
+        const { reservationCode, guestPhone } = currentLookup;
+        const { data, error } = await client.rpc("lookup_public_reservation", {
+          p_reservation_code: reservationCode,
+          p_guest_phone: guestPhone
+        });
+        if (error || !data || !data.length) return;
+        const latest = data[0];
+        const latestStatus = String(latest.status || "").toLowerCase();
+        const previousStatus = String(currentLookup.row.status || "").toLowerCase();
+        currentLookup.row = latest;
+        if (latestStatus !== previousStatus) showReservation(latest);
+        if (latestStatus === "confirmed") {
+          await showPaymentDetails(latest, reservationCode, guestPhone);
+        } else {
+          stopPaymentTimers();
+        }
+      } catch (error) {
+        console.warn("Reservation status refresh failed:", error);
+      } finally {
+        paymentRefreshBusy = false;
+      }
+    }
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      hideMessage();
+      result.style.display = "none";
+      stopPaymentTimers();
+      currentLookup = null;
+
+      const reservationCode = normalizeDigits(
+        document.getElementById("reservationCode").value
+      ).trim().toUpperCase();
+
+      const guestPhone = normalizePhone(
+        document.getElementById("guestPhone").value
+      );
+
+      if (!reservationCode || !guestPhone) {
+        showMessage("لطفاً کد پیگیری و شماره موبایل را وارد کنید.", "error");
+        return;
+      }
+
+      if (guestPhone.length < 8) {
+        showMessage("شماره موبایل واردشده معتبر نیست.", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "در حال بررسی...";
+
+      try {
+        const { data, error } = await client.rpc(
+          "lookup_public_reservation",
+          {
+            p_reservation_code: reservationCode,
+            p_guest_phone: guestPhone
+          }
+        );
+
+        if (error) {
+          console.error("Reservation lookup error:", error);
+          showMessage("در دریافت اطلاعات مشکلی پیش آمد. اتصال اینترنت و تنظیمات Supabase را بررسی کنید و دوباره تلاش کنید.", "error");
+          return;
+        }
+
+        const row = pickRow(data);
+        if (!row || !Object.keys(row).length) {
+          showMessage("رزروی با این کد پیگیری و شماره موبایل پیدا نشد. اطلاعات واردشده را بررسی کنید.", "error");
+          return;
+        }
+
+        currentLookup = { reservationCode, guestPhone, row };
+        showReservation(row);
+        await showTelegramConnectPanel(reservationCode, guestPhone);
+        if (String(row.status || "").toLowerCase() === "confirmed") {
+          await showPaymentDetails(row, reservationCode, guestPhone);
+          paymentRefreshTimer = window.setInterval(refreshCurrentReservation, 15000);
+        }
+        showMessage("اطلاعات رزرو با موفقیت پیدا شد.", "info");
+
+      } catch (error) {
+        console.error("Unexpected error:", error);
+        showMessage("ارتباط با سامانه برقرار نشد. لطفاً چند لحظه بعد دوباره تلاش کنید.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "بررسی وضعیت رزرو";
+      }
+    });
   </script>
-
 </body>
 </html>
-```
