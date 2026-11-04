@@ -215,36 +215,6 @@
       cursor: wait;
     }
 
-    .telegram-direct-box {
-      margin-top: 14px;
-      padding: 14px;
-      border: 1px solid #b8d8ed;
-      border-radius: 13px;
-      background: #f0f8ff;
-      text-align: center;
-    }
-    .telegram-direct-box p {
-      margin: 0 0 10px;
-      color: #174c70;
-      font-size: 12px;
-      line-height: 1.9;
-    }
-    .telegram-direct-btn {
-      width: 100%;
-      min-height: 48px;
-      border: 0;
-      border-radius: 10px;
-      background: #229ed9;
-      color: #fff;
-      font: inherit;
-      font-weight: 800;
-      cursor: pointer;
-      transition: filter .2s, transform .2s;
-    }
-    .telegram-direct-btn:hover { filter: brightness(.95); }
-    .telegram-direct-btn:active { transform: scale(.99); }
-    .telegram-direct-btn:disabled { opacity: .65; cursor: wait; }
-
     .message {
       display: none;
       padding: 13px 15px;
@@ -414,8 +384,7 @@
     .telegram-connect-panel[hidden] { display:none!important; }
     .telegram-connect-panel { margin-top:16px;padding:15px;border:1px solid #b8d8ed;border-radius:13px;background:#f0f8ff;color:#174c70;font-size:12px;line-height:2; }
     .telegram-connect-panel a { display:inline-flex;justify-content:center;align-items:center;margin-top:9px;padding:10px 14px;border-radius:10px;background:#229ed9;color:#fff;font-weight:800; }
-    .telegram-connect-panel .tg-connected { color:#17613d; font-weight:700; }
-    .telegram-connect-panel .tg-error { color:#8a3b18; }
+    .telegram-connect-panel .tg-connected { color:#17613d; }
     @media (max-width: 520px) { .payment-grid { grid-template-columns: 1fr; } .payment-actions { display: grid; } .payment-actions button, .payment-actions a { min-width: 0; } }
 
 </style>
@@ -446,7 +415,7 @@
       <h1>پیگیری وضعیت رزرو</h1>
       <p>
         کد پیگیری رزرو و شماره موبایلی را که هنگام ثبت درخواست وارد کردید
-        بنویسید تا وضعیت درخواستتان را مشاهده کنید. پس از نمایش نتیجه، دکمهٔ آبی «اتصال تلگرام به این رزرو» در پایین اطلاعات رزرو ظاهر می‌شود.
+        بنویسید تا وضعیت درخواستتان را مشاهده کنید.
       </p>
     </section>
 
@@ -488,10 +457,6 @@
         <button id="submitBtn" class="submit-btn" type="submit">
           بررسی وضعیت رزرو
         </button>
-        <div class="telegram-direct-box">
-          <p>برای دریافت خودکار پیام تأیید و اطلاعات پرداخت در تلگرام، کد رزرو و شماره موبایل را وارد کنید و این دکمه را بزنید.</p>
-          <button id="telegramConnectNow" class="telegram-direct-btn" type="button">✈️ اتصال تلگرام به این رزرو</button>
-        </div>
       </form>
 
       <div id="message" class="message" role="status" aria-live="polite"></div>
@@ -549,7 +514,6 @@
           توسط میزبان تأیید نشده، برای قطعی بودن اقامت برنامه‌ریزی نکنید.
         </div>
         <a id="newReservationLink" class="new-reservation-link" href="index.html#stays" hidden>ثبت درخواست رزرو جدید</a>
-        <p class="telegram-connect-hint" style="margin:12px 0 6px;color:#496273;font-size:12px;line-height:1.9">برای اتصال تلگرام، ابتدا کد پیگیری و شماره موبایل را در فرم بالا وارد و «بررسی وضعیت رزرو» را بزنید. لینک اختصاصی تلگرام فقط پس از پیدا شدن رزرو نمایش داده می‌شود.</p>
         <div id="telegramConnectPanel" class="telegram-connect-panel" hidden aria-live="polite"></div>
 
         <section id="paymentInfo" class="payment-info" hidden aria-live="polite">
@@ -623,66 +587,6 @@
       }
 
       return phone;
-    }
-
-    // Direct Telegram linking button: available even before the reservation result panel is shown.
-    const telegramConnectNowButton = document.getElementById("telegramConnectNow");
-    if (telegramConnectNowButton) {
-      telegramConnectNowButton.addEventListener("click", async function () {
-        const reservationCode = normalizeDigits(document.getElementById("reservationCode").value).trim().toUpperCase();
-        const guestPhone = normalizePhone(document.getElementById("guestPhone").value);
-
-        if (!reservationCode || !guestPhone || guestPhone.length < 8) {
-          showMessage("ابتدا کد پیگیری و شماره موبایل ثبت‌شده را وارد کنید.", "error");
-          return;
-        }
-
-        // Open a blank tab synchronously from the click to avoid popup blockers;
-        // it will be redirected only after Supabase validates this reservation.
-        const telegramWindow = window.open("about:blank", "_blank");
-        if (!telegramWindow) {
-          showMessage("مرورگر پنجره بازشده را مسدود کرد. اجازه بازشدن پنجره جدید را فعال و دوباره تلاش کنید.", "error");
-          return;
-        }
-
-        telegramConnectNowButton.disabled = true;
-        const oldButtonText = telegramConnectNowButton.textContent;
-        telegramConnectNowButton.textContent = "در حال آماده‌سازی لینک تلگرام…";
-        hideMessage();
-
-        try {
-          const { data, error } = await client.rpc("get_public_telegram_link", {
-            p_reservation_code: reservationCode,
-            p_guest_phone: guestPhone
-          });
-          if (error) throw error;
-          const payload = Array.isArray(data) ? data[0] : data;
-
-          if (!payload || payload.success !== true) {
-            throw new Error(payload && payload.message ? payload.message : "رزرو با این کد و شماره موبایل پیدا نشد.");
-          }
-
-          if (payload.linked === true) {
-            telegramWindow.close();
-            showMessage("تلگرام قبلاً به این رزرو متصل شده است. پس از تأیید رزرو، پیام در همان گفت‌وگو ارسال می‌شود.", "info");
-            return;
-          }
-
-          if (typeof payload.link_token !== "string" || !/^[a-f0-9]{32}$/i.test(payload.link_token)) {
-            throw new Error("کد اتصال برای این رزرو در دیتابیس موجود نیست. صفحه را تازه‌سازی کنید.");
-          }
-
-          telegramWindow.location.href = "https://t.me/AfraSafarReserveBot?start=" + encodeURIComponent(payload.link_token);
-          showMessage("لینک اختصاصی آماده شد. در تلگرام روی Start بزنید تا این رزرو به حساب شما متصل شود.", "info");
-        } catch (error) {
-          try { telegramWindow.close(); } catch (_) {}
-          console.error("Telegram reservation linking failed:", error);
-          showMessage("اتصال تلگرام انجام نشد: " + (error.message || "خطای نامشخص"), "error");
-        } finally {
-          telegramConnectNowButton.disabled = false;
-          telegramConnectNowButton.textContent = oldButtonText;
-        }
-      });
     }
 
     function showMessage(text, type) {
@@ -765,10 +669,7 @@
       const panel = document.getElementById("telegramConnectPanel");
       if (!panel) return;
       panel.replaceChildren();
-      panel.hidden = false;
-      const loading = document.createElement("div");
-      loading.textContent = "در حال آماده‌سازی اتصال تلگرام برای این رزرو…";
-      panel.appendChild(loading);
+      panel.hidden = true;
       try {
         const { data, error } = await client.rpc("get_public_telegram_link", {
           p_reservation_code: reservationCode,
@@ -776,16 +677,8 @@
         });
         if (error) throw error;
         const payload = Array.isArray(data) ? data[0] : data;
-        panel.replaceChildren();
-        if (!payload || payload.success !== true) {
-          const note = document.createElement("div");
-          note.className = "tg-error";
-          note.textContent = payload?.message
-            ? "اتصال تلگرام برای این رزرو آماده نشد: " + payload.message
-            : "لینک اتصال تلگرام برای این رزرو از دیتابیس دریافت نشد.";
-          panel.appendChild(note);
-          return;
-        }
+        if (!payload || payload.success !== true) return;
+        panel.hidden = false;
         if (payload.linked === true) {
           const done = document.createElement("div");
           done.className = "tg-connected";
@@ -793,13 +686,7 @@
           panel.appendChild(done);
           return;
         }
-        if (typeof payload.link_token !== "string" || !/^[a-f0-9]{32}$/i.test(payload.link_token)) {
-          const note = document.createElement("div");
-          note.className = "tg-error";
-          note.textContent = "کد اتصال این رزرو در دیتابیس موجود نیست. صفحه را تازه‌سازی و دوباره بررسی کنید.";
-          panel.appendChild(note);
-          return;
-        }
+        if (typeof payload.link_token !== "string" || !/^[a-f0-9]{32}$/i.test(payload.link_token)) { panel.hidden = true; return; }
         const info = document.createElement("div");
         info.textContent = "برای دریافت خودکار نتیجه بررسی و اطلاعات پرداخت در تلگرام، یک بار ربات افرا سفر را به این رزرو متصل کنید:";
         const link = document.createElement("a");
@@ -809,12 +696,8 @@
         link.textContent = "✈️ اتصال تلگرام به این رزرو";
         panel.append(info, link);
       } catch (error) {
-        console.warn("Telegram link lookup failed:", error);
-        panel.replaceChildren();
-        const note = document.createElement("div");
-        note.className = "tg-error";
-        note.textContent = "دریافت لینک اتصال تلگرام ناموفق بود. نام تابع get_public_telegram_link و دسترسی RPC در Supabase باید بررسی شود.";
-        panel.appendChild(note);
+        console.warn("Telegram linking unavailable; apply the Supabase migration first.", error);
+        panel.hidden = true;
       }
     }
 

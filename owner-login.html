@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+    <script id="afraThemeBootstrap">(function(){try{var s=localStorage.getItem("afra-theme-preference");document.documentElement.setAttribute("data-afra-theme",s==="dark"||s==="light"?s:(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));}catch(e){document.documentElement.setAttribute("data-afra-theme",window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");}})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#123d32">
@@ -217,9 +218,12 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="afra-theme.css">
+    <script defer src="afra-theme.js"></script>
+  <link rel="stylesheet" href="afra-platform.css?v=20261103p4">
 </head>
 
-<body>
+<body data-afra-page="owner-login.html">
 
 <header>
     <div class="header-inner">
@@ -281,7 +285,7 @@
             حساب کاربری نداری؟
             <a href="owner-register.html">ثبت‌نام مالک</a>
             <br>
-            <a href="index.html">بازگشت به افرا سفر</a>
+            <a href="index.html">بازگشت به افرا سفر</a><br><a href="supabase-status.html">آزمایش اتصال به پایگاه داده</a>
         </div>
 
     </section>
@@ -293,6 +297,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
+<script src="afra-owner-auth.js"></script>
 
 <script>
     const loginForm = document.getElementById("loginForm");
@@ -313,7 +318,7 @@
         messageBox.textContent = "";
 
         try {
-            if (typeof afraSupabase === "undefined") {
+            if (!window.afraSupabase || !window.afraOwnerAuth) {
                 throw new Error(
                     "اتصال افرا سفر به پایگاه داده برقرار نیست. فایل supabase.js را بررسی کن."
                 );
@@ -332,20 +337,9 @@
                 throw error;
             }
 
-            const { data: profile, error: profileError } =
-                await afraSupabase
-                    .from("owner_profiles")
-                    .select("approval_status, full_name")
-                    .eq("user_id", data.user.id)
-                    .maybeSingle();
-
-            if (profileError) {
-                await afraSupabase.auth.signOut();
-
-                throw new Error(
-                    "ورود انجام شد، اما بررسی وضعیت حساب ممکن نشد. تنظیمات جدول owner_profiles را بررسی کن."
-                );
-            }
+            // The live database has no auth.users trigger for owner_profiles.
+            // A verified owner creates their own PENDING profile with existing RLS.
+            const {profile} = await window.afraOwnerAuth.ensureOwnerProfile(afraSupabase, data.user);
 
             if (!profile) {
                 await afraSupabase.auth.signOut();
@@ -394,5 +388,6 @@
     });
 </script>
 
+  <script defer src="afra-platform.js?v=20261103p4"></script>
 </body>
 </html>

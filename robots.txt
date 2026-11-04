@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin-
+Disallow: /guest-dashboard.html
+Disallow: /owner-dashboard.html
+Disallow: /wallet.html
+Disallow: /auth.html
+Disallow: /payment.html

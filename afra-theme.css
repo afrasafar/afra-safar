@@ -1,0 +1,325 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   Afra Safar — system-aware shared dark theme (all site pages)
+   A classic charcoal/neutral dark palette with subtle Afra brand accents.
+   Existing theme/layout/styles remain unchanged while in light mode.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Shared toggle: the same control is present on every HTML page. */
+.afra-theme-switch {
+  appearance: none; -webkit-appearance: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; flex: 0 0 auto;
+  min-height: 40px; padding: 8px 13px;
+  color: #184737; background: rgba(237, 247, 240, .95);
+  border: 1px solid rgba(30, 93, 68, .22); border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(9, 37, 26, .08);
+  font-family: inherit; font-size: 12px; font-weight: 750;
+  line-height: 1.3; white-space: nowrap; cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+  position: relative; z-index: 5;
+}
+.afra-theme-switch:hover { background: #fff; transform: translateY(-1px); border-color: #75a995; }
+.afra-theme-switch:focus-visible { outline: 3px solid #d3b579; outline-offset: 3px; }
+.afra-theme-switch:active { transform: translateY(0); }
+.afra-theme-switch__icon { display: grid; place-items: center; width: 20px; height: 20px; }
+.afra-theme-switch__icon svg { width: 19px; height: 19px; display: block; }
+.afra-theme-switch--on-dark {
+  color: #f4faf6; background: rgba(255,255,255,.13);
+  border-color: rgba(255,255,255,.29); box-shadow: none;
+}
+.afra-theme-switch--on-dark:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.48); }
+.afra-theme-switch--floating {
+  position: fixed; inset-inline-end: 20px; top: 18px;
+  z-index: 2000; box-shadow: 0 8px 28px rgba(0,0,0,.13);
+}
+@media (max-width: 900px) {
+  .afra-theme-switch { min-width: 40px; width: 40px; height: 40px; min-height: 40px; padding: 8px; }
+  .afra-theme-switch__label { display: none; }
+  .afra-theme-switch--floating { width: auto; min-width: 40px; }
+}
+
+html[data-afra-theme="dark"] {
+  color-scheme: dark;
+  --afra-dark-bg: #121212;
+  --afra-dark-surface: #1e1e1e;
+  --afra-dark-raised: #2a2a2a;
+  --afra-dark-border: #414141;
+  --afra-dark-text: #f4f4f4;
+  --afra-dark-muted: #b3b3b3;
+  --afra-dark-green: #5fc196;
+  --afra-dark-gold: #c7c7c7;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --white: #1e1e1e;
+  --cream: #121212;
+  --text: #f4f4f4;
+  --muted: #b3b3b3;
+  --border: #414141;
+  --line: #414141;
+  --green-light: #2a2a2a;
+  --villa-background: #121212;
+  --villa-text: #f4f4f4;
+  --villa-muted: #b3b3b3;
+  --villa-white: #1e1e1e;
+  --villa-border: #414141;
+  --villa-primary-light: #2a2a2a;
+  --afra-sage: #2a2a2a;
+  --afra-cream: #121212;
+  --afra-ink: #f4f4f4;
+}
+html[data-afra-theme="dark"] body {
+  background: var(--afra-dark-bg) !important;
+  color: var(--afra-dark-text) !important;
+}
+html[data-afra-theme="dark"] :is(h1,h2,h3,h4,h5,h6,legend) { color: #f5f5f5; }
+html[data-afra-theme="dark"] :is(p, small, .muted, .subtitle, .hint, .section-subtitle, .help-text) { color: inherit; }
+html[data-afra-theme="dark"] ::selection { background: #364b70; color: #fff; }
+html[data-afra-theme="dark"] :focus-visible { outline-color: #c5c5c5; }
+html[data-afra-theme="dark"] :is(hr, .divider) { border-color: #404040; }
+html[data-afra-theme="dark"] a { text-underline-offset: 3px; }
+html[data-afra-theme="dark"] .afra-theme-switch {
+  color: #ededed; background: rgba(42,42,42,.92);
+  border-color: rgba(145,145,145,.55);
+}
+html[data-afra-theme="dark"] .afra-theme-switch:hover { background: #505050; }
+html[data-afra-theme="dark"] .afra-theme-switch--on-dark { color: #ededed; background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); }
+html[data-afra-theme="dark"] .afra-theme-switch--on-dark:hover { background: rgba(255,255,255,.22); }
+
+/* Shared panels and form controls. Element dimensions are NOT changed. */
+html[data-afra-theme="dark"] :is(.card,.panel,.login-card,.login-box,.reservation-card,.property-card,.stay-card,
+  .dashboard-card,.stat,.container-card,.booking-card,.auth-card,.category-card,.benefit-item,
+  .afv-section,.afv-booking-card,.afv-highlight,.cottage-section,.cottage-booking,.cottage-main,
+  .luxury-panel,.afra-feature-card,.afra-review-card,.afra-faq-items details) {
+  background-color: var(--afra-dark-surface) !important;
+  color: var(--afra-dark-text) !important;
+  border-color: var(--afra-dark-border) !important;
+  box-shadow: 0 12px 38px rgba(0,0,0,.13);
+}
+html[data-afra-theme="dark"] :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea) {
+  background-color: #252525 !important;
+  color: #f1f1f1 !important;
+  border-color: #4a4a4a !important;
+  caret-color: #dedede;
+}
+html[data-afra-theme="dark"] :is(input, textarea)::placeholder { color: #a9a9a9 !important; opacity: 1; }
+html[data-afra-theme="dark"] :is(input, select, textarea):focus {
+  border-color: #afafaf !important;
+  box-shadow: 0 0 0 3px rgba(175,175,175,.16);
+}
+html[data-afra-theme="dark"] :is(input, select, textarea):disabled { opacity: .58; }
+html[data-afra-theme="dark"] option { color: #f1f1f1; background: #252525; }
+html[data-afra-theme="dark"] :is(.field, .form-field, .auth-field, .afv-form-group, .luxury-field) label { color: #dddddd; }
+html[data-afra-theme="dark"] :is(.secondary-btn,.btn-secondary,.secondary,.clear-advanced-filters,.reset-search-button) {
+  color: #e7e7e7 !important;
+  background-color: #323232 !important;
+  border-color: #505050 !important;
+}
+html[data-afra-theme="dark"] :is(.secondary-btn,.btn-secondary,.secondary,.clear-advanced-filters,.reset-search-button):hover {
+  background-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(.guidance,.notice,.status-box,.detail,.reservation-detail,.afv-info-item,
+  .afv-feature,.luxury-feature,.cottage-feature,.fact,.preview-item,.file-box,.afra-feature-state) {
+  background: #282828 !important;
+  color: #dcdcdc !important;
+  border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(table,td,th) { border-color: #404040 !important; color: #e9e9e9 !important; }
+html[data-afra-theme="dark"] :is(th,thead) { background: #303030 !important; }
+html[data-afra-theme="dark"] tr:nth-child(even) { background-color: rgba(255,255,255,.035); }
+html[data-afra-theme="dark"] :is(.empty,.empty-state,.state) {
+  color: #b5b5b5 !important;
+  background: #242424 !important;
+  border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(.message.info,.message.success,.form-message.success,.message.warning,.status,
+  .reservation-status,.property-state,.status-badge,.tag,.afra-feature-badge) {
+  background-color: #323232 !important;
+  color: #eefbee !important;
+  border-color: #505050 !important;
+}
+html[data-afra-theme="dark"] :is(.message.error,.form-message.error,.afv-status.is-error) {
+  background-color: #46251f !important; color: #ffd5ca !important; border-color: #865044 !important;
+}
+html[data-afra-theme="dark"] :is(.message.success,.form-message.success,.afv-status.is-success,.reservation-status.confirmed) {
+  background-color: #183e2c !important; color: #b4f1c9 !important;
+}
+html[data-afra-theme="dark"] :is(.telegram-direct-box,.telegram-connect-panel) {
+  background: #1b2f3f !important; color: #dceef8 !important; border-color: #365571 !important;
+}
+html[data-afra-theme="dark"] :is(.telegram-direct-box,.telegram-connect-panel) :is(p,small,strong,span) { color: #dceef8; }
+html[data-afra-theme="dark"] :is(.payment-info,.payment-grid > div) {
+  background: #292929 !important; border-color: #505050 !important; color: #f0f0f0 !important;
+}
+
+/* Home page — preserve the original compact, glassy search bar. */
+html[data-afra-theme="dark"] :is(.section,.categories,.stays,#about,.afra-home-collections,.afra-regions,.afra-reviews,.afra-feature-section) {
+  background-color: #121212 !important; color: #eeeeee !important;
+}
+html[data-afra-theme="dark"] .afra-feature-section:nth-child(even) { background-color: #181818 !important; }
+html[data-afra-theme="dark"] .header { background-color: transparent !important; }
+html[data-afra-theme="dark"] .topbar { background: linear-gradient(105deg,#171717,#252525) !important; color: #e1e1e1 !important; }
+html[data-afra-theme="dark"] .nav { background: rgba(24,24,24,.93) !important; border-color: rgba(255,255,255,.15) !important; }
+html[data-afra-theme="dark"] .header .nav-link { color: #e1e1e1 !important; }
+html[data-afra-theme="dark"] .header .nav-link.active { color: #efefef !important; }
+html[data-afra-theme="dark"] .auth-top-button { border-color: rgba(255,255,255,.24) !important; }
+html[data-afra-theme="dark"] .hero { color: #fff !important; }
+html[data-afra-theme="dark"] .hero-overlay {
+  background: linear-gradient(110deg,rgba(0,0,0,.79),rgba(0,0,0,.44) 62%,rgba(0,0,0,.36)) !important;
+}
+html[data-afra-theme="dark"] #searchForm.afra-search-v2 .search-main-row {
+  background: rgba(28,28,28,.50) !important; border: 1px solid rgba(255,255,255,.46) !important;
+  box-shadow: 0 14px 36px rgba(0,0,0,.2) !important;
+  backdrop-filter: blur(22px) saturate(130%); -webkit-backdrop-filter: blur(22px) saturate(130%);
+}
+html[data-afra-theme="dark"] #searchForm.afra-search-v2:focus-within .search-main-row {
+  background: rgba(37,37,37,.68) !important; border-color: #969696 !important;
+}
+html[data-afra-theme="dark"] #searchForm #destination {
+  background: transparent !important; color: #fff !important; box-shadow: none !important;
+}
+html[data-afra-theme="dark"] #searchForm #destination::placeholder { color: #e7e7e7 !important; }
+html[data-afra-theme="dark"] #searchForm .search-main-icon { color: #fff !important; background: rgba(255,255,255,.15) !important; }
+html[data-afra-theme="dark"] #searchForm .search-button { background: #f4f4f4 !important; color: #202020 !important; }
+html[data-afra-theme="dark"] #searchForm .search-button:hover { background: white !important; }
+html[data-afra-theme="dark"] :is(.search-dropdown-panel,.advanced-filters-panel,#searchForm .afra-advanced-panel) {
+  background: #212121 !important; color: #f2f2f2 !important; border-color: #505050 !important;
+  box-shadow: 0 24px 58px rgba(0,0,0,.3) !important;
+}
+html[data-afra-theme="dark"] :is(.search-filter-field,.afra-home-search .afra-primary-search-field) {
+  background: #292929 !important; color: #f1f1f1 !important; border-color: #505050 !important;
+}
+html[data-afra-theme="dark"] :is(.search-filter-field,.afra-home-search .afra-primary-search-field) :is(label,span,strong,small) { color: #e1e1e1 !important; }
+html[data-afra-theme="dark"] :is(.filter-field-icon,.search-main-icon) { background: #353535 !important; color: #d5d5d5 !important; }
+html[data-afra-theme="dark"] :is(.search-close-button,.refinements-toggle,.afra-coupon-prompt) {
+  color: #e0e0e0 !important; background-color: #303030 !important; border-color: #505050 !important;
+}
+html[data-afra-theme="dark"] :is(.calendar-nav,.jalali-calendar) { background: #272727 !important; color: #f1f1f1 !important; border-color: #505050 !important; }
+html[data-afra-theme="dark"] :is(.calendar-day,.day,.date-cell) { background-color: #292929 !important; color: #f0f0f0 !important; border-color: #404040 !important; }
+html[data-afra-theme="dark"] :is(.calendar-day,.day,.date-cell).selected { background: #25845e !important; color: #fff !important; }
+html[data-afra-theme="dark"] .day.booked { background: #4a2d29 !important; color: #ffcfca !important; border-color: #8d544c !important; }
+html[data-afra-theme="dark"] :is(.category-card,.stay-card,.benefit-item,.afra-feature-card,.afra-review-card,.afra-faq-items details) {
+  background: linear-gradient(155deg,#252525,#1c1c1c) !important; border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] .category-card.selected { background: linear-gradient(145deg,#404040,#282828) !important; border-color: #72b899 !important; }
+html[data-afra-theme="dark"] :is(.afra-region-card,.afra-region-card:nth-child(2n)) {
+  background: linear-gradient(140deg,#2c2c2c,#242424) !important; color: #f0f0f0 !important;
+  border-color: #505050 !important;
+}
+html[data-afra-theme="dark"] :is(.afra-feature-state,.afra-feature-image,.card-image) { background: #303030 !important; color: #cccccc !important; }
+html[data-afra-theme="dark"] .afra-feature-badge { background-color: #323232 !important; color: #e0f0e4 !important; }
+html[data-afra-theme="dark"] :is(.afra-feature-card,.afra-review-card,.afra-region-card) :is(h3,strong,p,span,small) { color: inherit; }
+html[data-afra-theme="dark"] :is(.afra-faq-items details summary,.afra-faq-items details p) { color: #e9e9e9 !important; }
+html[data-afra-theme="dark"] :is(.afra-feature-action,.auth-submit,.dropdown-submit-button,.contact-button,.card-button) {
+  background: linear-gradient(135deg,#25845e,#1b654b) !important; color: #f5f5f5 !important;
+}
+html[data-afra-theme="dark"] :is(.auth-card,.afra-coupon-dialog) {
+  background: linear-gradient(145deg,#242424,#191919) !important; color: #f0f0f0 !important;
+  border-color: #606060 !important;
+}
+html[data-afra-theme="dark"] :is(.auth-close,.afra-coupon-close,.auth-logout) {
+  background: #404040 !important; color: #fff !important;
+}
+html[data-afra-theme="dark"] :is(.afra-coupon-dialog,.auth-card) :is(h2,p,small,span) { color: #f0f0f0; }
+html[data-afra-theme="dark"] .afra-coupon-code { background: #404040 !important; color: #ffe3a9 !important; border-color: #be9b64 !important; }
+html[data-afra-theme="dark"] .afra-site-footer { background: #121212 !important; border-color: #323232 !important; }
+html[data-afra-theme="dark"] .afra-site-footer :is(p,small,li,a,h3,strong) { color: #cacaca; }
+html[data-afra-theme="dark"] .contact-section {
+  background: radial-gradient(circle at 8% 7%,rgba(255,255,255,.05),transparent 34%),#191919 !important;
+}
+html[data-afra-theme="dark"] #favoritesToggle { background: #303030 !important; color: #e0e0e0 !important; border-color: #505050 !important; }
+
+/* Property details, standalone villa/cottage and mobile booking tools. */
+html[data-afra-theme="dark"] :is(.cottage-page,.luxury-page) { background: #121212 !important; color: #f0f0f0 !important; }
+html[data-afra-theme="dark"] :is(.afv-header,header.nav,.site-header,.header:not(.afv-header)) {
+  border-bottom-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(.afv-header,header.nav) { background: rgba(25,25,25,.96) !important; color: #f0f0f0 !important; }
+html[data-afra-theme="dark"] :is(.afv-header,.afv-header .afv-brand-name,.afv-breadcrumb,.afv-breadcrumb a,.afv-title-area) { color: #f0f0f0 !important; }
+html[data-afra-theme="dark"] :is(.afv-action-button,.afv-form-control,.afv-info-item,.afv-highlight,.afv-feature,.afv-booking-card,.afv-section) {
+  border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] .afv-action-button { background: #333333 !important; color: #ececec !important; }
+html[data-afra-theme="dark"] .afv-status { background: #323232 !important; color: #dddddd !important; }
+html[data-afra-theme="dark"] :is(.afv-booking-divider,.afv-booking-summary) { border-color: #404040 !important; }
+html[data-afra-theme="dark"] :is(.afv-booking-summary,.afv-location,.afv-highlight span,.afv-info-item span,.afv-footer-text) { color: #b3b3b3 !important; }
+html[data-afra-theme="dark"] :is(.afv-footer,.afv-mobile-contact) { background: #191919 !important; color: #e2e2e2 !important; border-color: #404040 !important; }
+html[data-afra-theme="dark"] :is(.afv-footer,.afv-mobile-contact) a { color: #e5e5e5 !important; }
+html[data-afra-theme="dark"] :is(.cottage-price,.cottage-message,.luxury-price,.luxury-message) {
+  background: #323232 !important; color: #ebebeb !important; border-color: #505050 !important;
+}
+html[data-afra-theme="dark"] :is(.cottage-related a,.cottage-booking,.cottage-section,.luxury-panel) {
+  background-color: #1e1e1e !important; color: #ededed !important; border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(.cottage-form,.luxury-field) :is(input,select) { background: #292929 !important; }
+html[data-afra-theme="dark"] :is(.crumb,.cottage-breadcrumb,.luxury-breadcrumb) { color: #afafaf !important; }
+html[data-afra-theme="dark"] :is(.crumb,.cottage-breadcrumb,.luxury-breadcrumb) a { color: #89c8aa !important; }
+html[data-afra-theme="dark"] :is(.nav,.afv-footer,.site-footer,.footer) a:not(.btn):not(.afra-theme-switch) { color: inherit; }
+html[data-afra-theme="dark"] :is(.gallery-arrow,.month-btn,.lightbox-close) {
+  background-color: #323232 !important; color: #f4f4f4 !important;
+}
+html[data-afra-theme="dark"] :is(.calendar-wrap,.calendar-top,.calendar-selected,.thumbnails) {
+  background: #272727 !important; color: #eeeeee !important; border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(.form-field input,.form-field select,.form-field textarea) { background-color: #292929 !important; }
+html[data-afra-theme="dark"] .lightbox { background-color: rgba(0,0,0,.96) !important; }
+
+/* Owner authentication, reservations and dashboard. */
+html[data-afra-theme="dark"] body:has(.login-card) { background: linear-gradient(145deg,#151515,#282828) !important; }
+html[data-afra-theme="dark"] :is(.login-card,.container:has(.brand):has(.heading)) {
+  background-color: #1e1e1e !important; color: #f1f1f1 !important; border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(.login-card,.container:has(.brand):has(.heading)) :is(h1,h2,p,small) { color: #f0f0f0 !important; }
+html[data-afra-theme="dark"] body:has(.heading):has(#confirmPassword) { background: #121212 !important; }
+html[data-afra-theme="dark"] :is(.welcome,.topbar) { border-color: #404040; }
+html[data-afra-theme="dark"] .welcome { background: linear-gradient(130deg,#404040,#323232) !important; }
+html[data-afra-theme="dark"] :is(.welcome,.welcome h1,.welcome p) { color: #f2f2f2 !important; }
+html[data-afra-theme="dark"] :is(.top-actions a,.top-actions button) { border-color: rgba(235,235,235,.3); }
+html[data-afra-theme="dark"] :is(.guidance,.reservation-detail,.reservation-card,.property-card) {
+  border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] :is(.footer,footer) { background-color: #191919 !important; border-color: #404040 !important; color: #b6b6b6 !important; }
+html[data-afra-theme="dark"] :is(.footer,footer) a { color: #d6d6d6 !important; }
+
+/* Administration dashboard and controls. */
+html[data-afra-theme="dark"] :is(.admin-tab,.login-box,.panel,.file-box,.reservation-card) {
+  border-color: #404040 !important;
+}
+html[data-afra-theme="dark"] .admin-tab { background: #292929 !important; color: #e9e9e9 !important; }
+html[data-afra-theme="dark"] .admin-tab.active { background: #25845e !important; color: #fff !important; }
+html[data-afra-theme="dark"] :is(.btn-primary,.primary-btn,.submit-btn,.book-btn) {
+  background: #25845e !important; border-color: #35946c !important; color: #fff !important;
+}
+html[data-afra-theme="dark"] :is(.btn-primary,.primary-btn,.submit-btn,.book-btn):hover { background: #34a476 !important; }
+html[data-afra-theme="dark"] :is(.owner-approve,.status-badge,.copy-reservation-message) {
+  background: #224733 !important; color: #e0f5e6 !important; border-color: #36724e !important;
+}
+html[data-afra-theme="dark"] :is(.reservation-status,.property-state) { background: #473c24 !important; color: #f2d9a1 !important; }
+html[data-afra-theme="dark"] :is(.reservation-status.confirmed,.status-badge,.owner-approve) { background: #1c4832 !important; color: #bcf3d0 !important; }
+html[data-afra-theme="dark"] :is(.login-box,.panel,.container) :is(h1,h2,h3,strong) { color: inherit; }
+
+/* Avoid eye strain with focus and motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .afra-theme-switch { transition: none !important; }
+}
+@media (max-width: 600px) {
+  .afra-theme-switch--floating { top: 10px; inset-inline-end: 10px; }
+}
+
+/* Header-specific placement: avoid creating a second row or stretching a generic submit button. */
+.afra-theme-switch:not(.afra-theme-switch--floating) { width: auto !important; margin-top: 0 !important; }
+.afra-theme-switch--floating { width: auto !important; margin-top: 0 !important; }
+.header-inner:has(> #afraThemeToggle) { position: relative; }
+.header-inner > #afraThemeToggle { position: absolute !important; top: 15px; left: 250px; margin: 0 !important; }
+.afv-header-inner:has(> #afraThemeToggle) { position: relative; }
+.afv-header-inner > #afraThemeToggle { position: absolute !important; top: 18px; left: 275px; margin: 0 !important; }
+@media(max-width: 900px) {
+  .afra-theme-switch:not(.afra-theme-switch--floating) { width: 40px !important; min-width: 40px !important; }
+  .header-inner > #afraThemeToggle { left: 16px; top: 14px; }
+  .afv-header-inner > #afraThemeToggle { left: 204px; top: 14px; }
+}
+@media(max-width: 410px) {
+  .afv-header-inner > #afraThemeToggle { left: calc(50% - 3px); top: 13px; }
+}
+@media(max-width: 360px) {
+  .afv-header-inner > #afraThemeToggle { left: 10px; top: 74px; }
+}

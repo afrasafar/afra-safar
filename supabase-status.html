@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>آزمایش اتصال Supabase | افرا سفر</title>
+<link rel="stylesheet" href="afra-theme.css"><link rel="stylesheet" href="afra-platform.css?v=20261103p4">
+<script id="afraThemeBootstrap">(function(){try{var s=localStorage.getItem("afra-theme-preference");document.documentElement.setAttribute("data-afra-theme",s==="dark"||s==="light"?s:(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))}catch(e){}})();</script>
+<script defer src="afra-theme.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="supabase.js"></script>
+</head><body>
+<main class="ap-page"><div class="ap-container">
+<header class="ap-intro"><div><span class="ap-eyebrow">عیب‌یابی اتصال افرا سفر</span><h1>آزمایش Supabase</h1><p>بررسی بدون تغییر داده‌ها؛ فقط وضعیت اتصال، احراز هویت و جدول‌ها</p></div><a class="ap-btn secondary" href="index.html">بازگشت به سایت</a></header>
+<section class="ap-panel"><h2>وضعیت اتصال</h2><div id="db-core" role="status">در حال بررسی…</div><div class="ap-inline-actions"><button id="db-check" type="button" class="ap-btn">بررسی دوباره</button><a href="owner-login.html" class="ap-btn secondary">ورود مالک</a></div></section>
+<section class="ap-panel"><h2>آمادگی ماژول‌ها</h2><div id="db-table-status" class="ap-stack">در حال بررسی…</div><p class="ap-muted">در حالت خروج از حساب، برخی جدول‌ها بر اساس سیاست دسترسی قابل خواندن نیستند؛ این لزوماً به معنی نبودن جدول نیست. جدول‌های پایه توسعه ایجاد شده‌اند؛ نبودن مجوز یا خطاهای اتصال را با نبودن جدول اشتباه نگیرید.</p></section>
+<section class="ap-panel"><h2>نکته امنیتی</h2><p>این صفحه رمز، شماره تماس، کلید مخفی یا اطلاعات مشتریان را نمایش نمی‌دهد. سرویس‌های بانکی و پیامکی با اتصال Supabase به‌تنهایی فعال نمی‌شوند.</p></section>
+</div></main>
+<script>
+(function(){'use strict';
+const $=x=>document.getElementById(x);
+function set(id,text,ok){let el=$(id);el.textContent=text;el.style.color=ok===true?'#177b51':ok===false?'#b43b33':'';}
+const tableNames=[
+ ['properties','لیست اقامتگاه‌ها (قدیمی)'],
+ ['afra_property_specs','مشخصات و فیلترهای پیشرفته'],
+ ['afra_profiles','پروفایل مسافران'],
+ ['reservations','رزروهای واقعی و متصل به حساب'],
+ ['afra_property_blocks','تقویم روزهای مسدود'],
+ ['afra_special_rates','قیمت‌های ویژه'],
+ ['afra_favorites','علاقه‌مندی‌های متصل به حساب'],
+ ['afra_support_tickets','تیکت پشتیبانی'],
+ ['afra_notifications','اعلان‌ها'],
+ ['afra_reviews','نظرات و امتیازها'],
+ ['afra_review_replies','پاسخ میزبان به نظرات'],
+ ['afra_conversations','گفت‌وگوهای خصوصی'],
+ ['afra_messages','پیام‌های گفتگو']];
+async function run(){
+ const d=window.afraSupabase;
+ if(!d){set('db-core',window.afraSupabaseLoadError||'اتصال راه‌اندازی نشده است؛ supabase.js و کتابخانه Supabase را بررسی کنید.',false);$('db-table-status').textContent='ابتدا مشکل اتصال را حل کنید.';return;}
+ try{
+  const {error}=await d.from('properties').select('id',{head:true,count:'exact'}).limit(1);
+  if(error)throw error;
+  const {data:session}=await d.auth.getSession();
+  set('db-core','اتصال با پروژه Supabase برقرار است. وضعیت حساب: '+(session?.session?.user?'وارد شده':'مهمان')+'.',true);
+ }catch(e){set('db-core','دریافت داده از Supabase ناموفق است: '+(e.message||'خطای نامشخص'),false);}
+ const el=$('db-table-status');el.replaceChildren();
+ for(const [name,label] of tableNames){
+  const p=document.createElement('p');p.className='ap-pill';p.textContent='در حال بررسی '+label+'…';el.appendChild(p);
+  try{
+   const {error}=await d.from(name).select('*',{head:true,count:'exact'}).limit(1);
+   const missing=error && (/PGRST205|42P01|PGRST116/.test(error.code||'')||/schema cache|does not exist|not found/i.test(error.message||''));
+   p.textContent=(error?(missing?'نیازمند ایجاد جدول: ':'نیازمند مجوز یا بررسی: '):'در دسترس: ')+label;
+   p.style.borderInlineStart='4px solid '+(error?'#cb694d':'#198b5d');
+   if(error)p.title=error.message||'';
+  }catch(e){p.textContent='خطا در بررسی '+label;}
+ }
+}
+$('db-check').addEventListener('click',run);
+window.addEventListener('DOMContentLoaded',run,{once:true});
+})();
+</script></body></html>
