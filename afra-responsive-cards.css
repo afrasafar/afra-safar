@@ -1,0 +1,202 @@
+/* Afra Safar • Compact cards + responsive design system • 2026-11-05
+   This CSS is loaded LAST on every page. Keep it last for all future edits.
+   Do not compress or move the glass hero search, fixed mobile navigation,
+   or the theme palette: they are deliberately outside card selectors. */
+:root {
+  --afra-card-radius: 14px;
+  --afra-card-gap: 12px;
+  --afra-card-pad: 14px;
+  --afra-card-photo: 158px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html,body { max-width: 100%; }
+/* Prevent grid and flex children from widening the viewport. */
+:where(.ap-page,.ap-container,.ap-main-layout,.ap-grid,.ap-results-grid,.ap-cards,.ap-panel,
+ .ap-stay,.ap-linkcard,.ap-stay__body,.stays-grid,.stay-card,.card-body,
+ .afra-feature-grid,.afra-feature-card,.afra-feature-body,.afra-regions-grid,
+ .afra-review-card,.category-card,.panel,.property-card,.reservation-card,
+ .auth-card,.stats,.stat,.grid,.property-info,.afra-card-end,
+ .afv-section,.afv-booking-card,.cottage-section,.luxury-panel) { min-width:0; }
+:where(.ap-page,.container,.ap-container,.panel,.ap-panel,.reservation-card,.property-card) :is(p,h2,h3,span,strong,small,a) {overflow-wrap:break-word;}
+:where(.ap-page,.ap-container,.container,.owner-panel,.dashboard-section) img { max-width:100%; }
+:where(.ap-page,.ap-container,.container) :is(input,select,textarea) {max-width:100%;}
+/* New platform: compact property cards, link cards, statistics and internal panels. */
+.ap-page {font-size:13px;line-height:1.85;}
+.ap-container {width:min(1136px,calc(100% - 32px));}
+.ap-page h2 {font-size:19px;}
+.ap-page h3 {font-size:15px;}
+.ap-main-layout {grid-template-columns:250px minmax(0,1fr);gap:14px;}
+.ap-panel {padding:var(--afra-card-pad);border-radius:var(--afra-card-radius);box-shadow:0 7px 23px rgba(22,38,31,.045);}
+.ap-section {margin-top:18px;}
+.ap-grid,.ap-stack {gap:var(--afra-card-gap);}
+.ap-grid.autofit {grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));}
+.ap-cards {grid-template-columns:repeat(auto-fill,minmax(min(100%,174px),1fr));gap:10px;}
+.ap-linkcard {padding:13px 14px;border-radius:12px;gap:3px;}
+.ap-linkcard strong {font-size:13px;}
+.ap-linkcard span {font-size:11px;}
+.ap-stat {padding:12px 10px;border-radius:12px;}
+.ap-stat strong {font-size:20px;overflow-wrap:anywhere;line-height:1.5;}
+.ap-stat small {font-size:11px;}
+.ap-results-grid {gap:12px;}
+.ap-stay {border-radius:var(--afra-card-radius);}
+.ap-stay__photo {height:var(--afra-card-photo);}
+.ap-stay__body {padding:11px;gap:5px;}
+.ap-stay__body h3 {font-size:13px;line-height:1.6;}
+.ap-stay__meta {font-size:11px;}
+.ap-stay__price {font-size:13px;}
+.ap-stay__actions {gap:8px;padding-top:9px;align-items:center;}
+.ap-stay__actions .ap-inline-actions {gap:5px;}
+.ap-stay__actions .ap-btn.small {min-height:34px;padding:5px 9px;}
+.ap-stay__fav {width:32px;height:32px;}
+.ap-stay__badge {font-size:10px;padding:2px 8px;}
+.ap-faq details {padding:12px 14px;}
+.ap-map {max-width:100%;}
+.ap-table-wrap {max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;}
+/* Original home: denser grids, shorter photos, less tall cards. */
+.category-grid {grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;}
+.category-card {min-height:114px;padding:12px 14px;gap:5px;border-radius:14px;}
+.category-icon {width:39px;height:39px;font-size:21px;border-radius:11px;margin-bottom:2px;}
+.category-card strong {font-size:12px;}
+.category-card small {font-size:10px;}
+.stays-grid {grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important;}
+.stay-card {border-radius:14px;}
+.stay-card .card-image {height:174px;}
+.stay-card .card-body {padding:12px;}
+.stay-card .card-body h3 {font-size:13px;min-height:40px;line-height:1.6;margin-top:6px;}
+.stay-card .card-features {margin-top:9px;padding-bottom:11px;gap:5px;}
+.stay-card .card-features span {padding:3px 6px;font-size:9px;}
+.stay-card .card-footer {padding-top:11px;gap:7px;min-width:0;}
+.stay-card .card-button {min-height:36px;padding:7px 9px;font-size:10px;}
+.stay-card .favorite-button {width:34px;height:34px;font-size:19px;}
+.stay-card .image-badge {top:9px;right:9px;padding:4px 7px;}
+.afra-feature-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+.afra-feature-card {border-radius:14px;}
+.afra-feature-image {aspect-ratio:1.72;}
+.afra-feature-body {padding:11px;}
+.afra-feature-body h3 {min-height:36px;font-size:13px;line-height:1.65;margin:5px 0;}
+.afra-card-meta {font-size:10px;gap:6px;}
+.afra-card-end {padding-top:8px;margin-top:8px;gap:6px;min-width:0;}
+.afra-card-end b {font-size:12px;white-space:normal;overflow-wrap:anywhere;}
+.afra-feature-action {font-size:10px;padding:6px 8px;white-space:normal;text-align:center;}
+.afra-reviews-grid {gap:12px;}
+.afra-review-card {padding:15px;min-height:142px;border-radius:14px;gap:8px;}
+.afra-review-card>p {font-size:12px;line-height:1.85;}
+.afra-regions-grid {gap:9px;}
+.afra-region-card {min-height:111px;padding:10px 8px;border-radius:13px;}
+.afra-region-card>span {font-size:24px;}
+.afra-region-card strong {font-size:14px;}
+/* Keep detail pages usable: shrink feature/summary cards, NOT date pickers. */
+.afv-feature,.cottage-feature,.luxury-feature {padding:10px 12px;border-radius:12px;}
+.afv-booking-card,.cottage-booking,.luxury-booking {padding:clamp(14px,2vw,20px);}
+.afv-info-item,.afv-highlight {padding:10px 12px;}
+.cottage-section,.luxury-panel,.afv-section {padding:clamp(14px,2vw,19px);}
+.cottage-related {gap:11px;}
+.cottage-related a {min-width:0;}
+/* Classic legacy owner/admin/booking cards. */
+.stats {gap:10px;}
+.stats>.stat,.stat {padding:13px 14px;border-radius:12px;}
+.stat strong {font-size:21px;}
+.panel:not(.booking):not(.calendar-panel) {padding:clamp(13px,1.5vw,18px);border-radius:14px;}
+.property-card,.reservation-card,.owner-card,.reservation {padding:12px;border-radius:12px;}
+.reservation-detail,.detail {padding:8px 9px;}
+/* Grid thresholds: choose fitting columns rather than compressing text. */
+@media (min-width:1320px) {
+  .afra-feature-grid {grid-template-columns:repeat(5,minmax(0,1fr));}
+  .ap-results-grid {grid-template-columns:repeat(4,minmax(0,1fr));}
+}
+@media (max-width:1199px) {
+  .category-grid {grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+  .stays-grid {grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+  .ap-results-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media (max-width:960px) {
+  .ap-main-layout {grid-template-columns:225px minmax(0,1fr);}
+  .ap-results-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-grid.four {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .afra-feature-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+  .afra-regions-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+  .stays-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media (max-width:760px) {
+  :root {--afra-card-pad:12px;--afra-card-gap:9px;--afra-card-photo:145px;}
+  .ap-page {padding-top:14px;}
+  .ap-container {width:calc(100% - 24px);}
+  .ap-main-layout {display:block;}
+  .ap-grid,.ap-grid.two {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .ap-grid.autofit {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-cards {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-results-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .ap-stay__photo {height:145px;}
+  .ap-stay__body {padding:10px;}
+  .ap-stay__actions {flex-wrap:wrap;}
+  .ap-stay__actions>.ap-inline-actions {width:100%;justify-content:space-between;}
+  .ap-page h2 {font-size:18px;}
+  .ap-page h1 {font-size:clamp(22px,6vw,30px);}
+  .ap-form-grid {grid-template-columns:1fr;}
+  .ap-form-grid .wide {grid-column:auto;}
+  .ap-panel {padding:12px;}
+  .category-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;}
+  .category-card {min-height:100px!important;padding:10px;}
+  .stays-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
+  .stay-card .card-image {height:155px;}
+  .stay-card .card-body {padding:10px;}
+  .stay-card .card-footer {flex-wrap:wrap;}
+  .afra-feature-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .afra-regions-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .afra-reviews-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .afra-review-card {min-height:0;padding:12px;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px;}
+  .stat,.stats>.stat {padding:11px;}
+  .panel:not(.booking):not(.calendar-panel) {padding:12px;}
+  .property-card,.reservation-card,.owner-card {padding:11px;}
+  .afv-features,.cottage-features,.luxury-features {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:480px) {
+  :root {--afra-card-photo:146px;}
+  /* Real estate cards keep readable content and a smaller centered max-width. */
+  .stays-grid,.ap-results-grid,.afra-feature-grid {grid-template-columns:minmax(0,1fr)!important;gap:12px!important;}
+  .stays-grid>.stay-card,.ap-results-grid>.ap-stay,.afra-feature-grid>.afra-feature-card {
+    width:min(100%,310px)!important;max-width:310px!important;justify-self:center;
+  }
+  .stay-card .card-image {height:157px;}
+  .stay-card .card-body h3 {min-height:0;}
+  .afra-feature-image {aspect-ratio:1.85;}
+  .ap-stay__photo {height:150px;}
+  .ap-stay__actions {flex-wrap:nowrap;}
+  .ap-stay__actions>.ap-inline-actions {width:auto;}
+  .ap-grid.four {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-grid.two {grid-template-columns:minmax(0,1fr);}
+  .ap-grid.autofit {grid-template-columns:minmax(0,1fr);}
+  .ap-grid.autofit>.ap-panel {width:min(100%,330px);justify-self:center;}
+  .ap-cards {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-linkcard {padding:11px;}
+  .ap-linkcard strong {font-size:12px;}
+  .afra-regions-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .afra-reviews-grid {grid-template-columns:1fr;}
+  .afra-reviews-grid>.afra-review-card {width:min(100%,310px);justify-self:center;}
+  .ap-check-list {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .afra-card-end {align-items:center;}
+  /* Avoid 320-pixel overflow from wide labels or long buttons. */
+  .ap-inline-actions {gap:6px;}
+  .ap-btn {max-width:100%;min-width:0;white-space:normal;text-align:center;}
+  .ap-stay__actions .ap-btn {font-size:11px;}
+  .category-card {min-height:94px!important;}
+  .category-icon {height:36px;width:36px;font-size:20px;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media (max-width:360px) {
+  .ap-container {width:calc(100% - 20px);}
+  .ap-grid:not(.four):not(.autofit):has(> .ap-panel) {grid-template-columns:minmax(0,1fr);}
+  .ap-cards {gap:7px;}
+  .ap-linkcard {padding:9px;border-radius:10px;}
+  .category-grid {gap:7px!important;}
+  .afra-region-card {min-height:93px;padding:8px 5px;}
+  .afra-region-card>span {font-size:22px;}
+  .afra-region-card strong {font-size:12px;}
+  .afra-region-card small {font-size:9px;}
+  .stats>.stat strong {font-size:19px;}
+}
+/* Respect user device accessibility settings. */
+@media (prefers-reduced-motion:reduce) {
+ .stay-card,.ap-stay,.ap-linkcard,.afra-feature-card,.afra-region-card {transition:none;}
+}

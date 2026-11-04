@@ -1,0 +1,27 @@
+{
+  "structural": {
+    "html_pages": 62,
+    "new_search_items": 15,
+    "original_search_form": 1,
+    "original_date_fields": 2,
+    "original_auth_modal": 1,
+    "original_category_buttons": 5,
+    "original_stay_grid": 1,
+    "original_menu": 1,
+    "new_hero_image": true,
+    "region_images": 6,
+    "nav_internal_targets_valid": true,
+    "head_stylesheet_last": true
+  },
+  "tested_widths": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1440
+  ],
+  "passed": 7,
+  "not_tested": "Live Supabase login and booking on deployment"
+}

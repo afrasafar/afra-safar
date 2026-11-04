@@ -11,13 +11,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script id="afraThemeBootstrap">(function(){try{var s=localStorage.getItem("afra-theme-preference");document.documentElement.setAttribute("data-afra-theme",s==="dark"||s==="light"?s:(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));}catch(e){document.documentElement.setAttribute("data-afra-theme","light");}})();</script>
-  <link rel="stylesheet" href="afra-theme.css">
-  <link rel="stylesheet" href="afra-platform.css?v=20261103p4">
-  <script defer src="afra-theme.js"></script>
+  <script id="afraThemeBootstrap">(function(){var p='auto';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
+  <link rel="stylesheet" href="afra-theme.css?v=20261105j2">
+  <link rel="stylesheet" href="afra-platform.css?v=20261104p5">
+  <script defer src="afra-theme.js?v=20261105j2"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="supabase.js"></script>
-  <script defer src="afra-platform.js?v=20261103p4"></script>
+  <script defer src="afra-platform.js?v=20261105j2"></script>
+  <link rel="stylesheet" href="afra-responsive-cards.css?v=20261105c1">
+<link rel="stylesheet" href="afra-jalali.css?v=20261105j2">
+<script defer src="afra-jalali.js?v=20261105j2"></script>
 </head>
 <body data-afra-page="compare.html">
   <main id="ap-root" data-module="compare" aria-label="مقایسه اقامتگاه‌ها"></main>

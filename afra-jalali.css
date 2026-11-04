@@ -1,0 +1,41 @@
+/* Afra Safar — accessible Persian date selection, mobile-first */
+.afra-jdate-field{display:block;position:relative;width:100%;min-width:0}
+.afra-jdate-native{position:absolute!important;width:1px!important;height:1px!important;min-width:0!important;min-height:0!important;inset-inline-start:0!important;top:0!important;opacity:0!important;pointer-events:none!important;padding:0!important;margin:0!important;border:0!important;z-index:-1!important;}
+.afra-jdate-trigger{font:inherit;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;min-width:0;min-height:44px;padding:9px 12px;background:var(--ap-panel,#fff);color:var(--ap-txt,#243327);border:1px solid var(--ap-line,#dce4de);border-radius:10px;cursor:pointer;text-align:right;direction:rtl;transition:border-color .14s,box-shadow .14s;}
+.afra-jdate-trigger.is-empty{color:#6b7671;font-weight:500}
+.afra-jdate-trigger:hover{border-color:#748b80}
+.afra-jdate-trigger:focus-visible{outline:2px solid var(--ap-focus,#247556);outline-offset:2px}
+.afra-jdate-trigger:disabled{opacity:.5;cursor:not-allowed}
+.afra-jdate-trigger svg{flex:none;opacity:.75}
+.afra-jcal-backdrop[hidden],.afra-jcal-dialog[hidden]{display:none!important}
+.afra-jcal-backdrop{position:fixed;inset:0;z-index:2147482000;background:rgba(10,15,14,.22)}
+.afra-jcal-dialog{position:fixed;z-index:2147482001;width:min(340px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:#fff;border:1px solid #dce4df;color:#222b27;border-radius:18px;padding:15px;box-shadow:0 22px 72px rgba(0,0,0,.24);font-family:Vazirmatn,Tahoma,sans-serif;box-sizing:border-box;}
+.afra-jcal-dialog *{box-sizing:border-box}
+.afra-jcal-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.afra-jcal-head strong{font-size:16px;color:inherit}
+.afra-jcal-head button,.afra-jcal-actions button{border:1px solid #e0e4e1;background:#f3f5f3;color:#23352b;border-radius:9px;min-width:36px;min-height:36px;cursor:pointer;font:inherit}
+.afra-jcal-head button:hover,.afra-jcal-actions button:hover{background:#e6efe9}
+.afra-jcal-weekdays,.afra-jcal-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center;}
+.afra-jcal-weekdays{font-size:11px;font-weight:700;color:#66746c;margin-bottom:7px}
+.afra-jcal-day{min-width:0;width:100%;aspect-ratio:1;min-height:34px;border:1px solid transparent;border-radius:9px;font:inherit;font-size:12px;background:transparent;color:inherit;cursor:pointer}
+.afra-jcal-day:hover:not(:disabled){background:#edf2ee}
+.afra-jcal-day.is-today{border-color:#799d87;font-weight:750}
+.afra-jcal-day.is-selected{background:#286c51!important;color:#fff!important;font-weight:800}
+.afra-jcal-day:disabled{color:#adb5af;opacity:.47;cursor:not-allowed}
+.afra-jcal-day:focus-visible,.afra-jcal-head button:focus-visible,.afra-jcal-actions button:focus-visible{outline:2px solid #31936a;outline-offset:1px}
+.afra-jcal-actions{display:flex;justify-content:space-between;gap:7px;margin-top:12px}
+.afra-jcal-actions button{min-width:0;flex:1;font-size:12px;padding:5px}
+.afra-jcal-caption{text-align:center;color:#68776d;font-size:10px;margin:12px 0 0}
+html[data-afra-theme="dark"] .afra-jdate-trigger{background:#292929!important;color:#f1f1f1!important;border-color:#515151!important;box-shadow:none!important}
+html[data-afra-theme="dark"] .afra-jdate-trigger.is-empty{color:#bbbbbb!important}
+html[data-afra-theme="dark"] .afra-jcal-dialog{background:#222!important;border-color:#555!important;color:#f2f2f2!important;box-shadow:0 28px 70px rgba(0,0,0,.58)}
+html[data-afra-theme="dark"] .afra-jcal-head button,html[data-afra-theme="dark"] .afra-jcal-actions button{background:#343434!important;border-color:#535353!important;color:#f1f1f1!important}
+html[data-afra-theme="dark"] .afra-jcal-head button:hover,html[data-afra-theme="dark"] .afra-jcal-actions button:hover{background:#454545!important}
+html[data-afra-theme="dark"] .afra-jcal-day{background:transparent!important;color:#f2f2f2!important}
+html[data-afra-theme="dark"] .afra-jcal-day:hover:not(:disabled){background:#3d3d3d!important}
+html[data-afra-theme="dark"] .afra-jcal-day:disabled{color:#aaa!important}
+html[data-afra-theme="dark"] .afra-jcal-day.is-selected{background:#4d9e77!important;color:#101915!important}
+html[data-afra-theme="dark"] .afra-jcal-day.is-today{border-color:#c3c3c3!important}
+html[data-afra-theme="dark"] .afra-jcal-weekdays,html[data-afra-theme="dark"] .afra-jcal-caption{color:#bdbdbd!important}
+@media(max-width:620px){html.afra-jcal-open{overflow:hidden}.afra-jcal-backdrop{background:rgba(0,0,0,.52)}.afra-jcal-dialog{padding:13px;border-radius:16px}.afra-jcal-day{min-height:36px}.afra-jdate-trigger{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.afra-jdate-trigger{transition:none}}

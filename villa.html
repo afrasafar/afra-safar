@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <script id="afraThemeBootstrap">(function(){try{var s=localStorage.getItem("afra-theme-preference");document.documentElement.setAttribute("data-afra-theme",s==="dark"||s==="light"?s:(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));}catch(e){document.documentElement.setAttribute("data-afra-theme",window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");}})();</script>
+    <script id="afraThemeBootstrap">(function(){var p='auto';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#123d32">
@@ -12,8 +12,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
 
   <style>
     :root {
@@ -954,9 +952,12 @@
       }
     }
   </style>
-    <link rel="stylesheet" href="afra-theme.css">
-    <script defer src="afra-theme.js"></script>
-  <link rel="stylesheet" href="afra-platform.css?v=20261103p4">
+    <link rel="stylesheet" href="afra-theme.css?v=20261105j2">
+    <script defer src="afra-theme.js?v=20261105j2"></script>
+  <link rel="stylesheet" href="afra-platform.css?v=20261104p5">
+  <link rel="stylesheet" href="afra-responsive-cards.css?v=20261105c1">
+<link rel="stylesheet" href="afra-jalali.css?v=20261105j2">
+<script defer src="afra-jalali.js?v=20261105j2"></script>
 </head>
 
 <body data-afra-page="villa.html">
@@ -1196,7 +1197,7 @@
               <label for="villaCheckin">تاریخ ورود</label>
               <input
                 class="afv-form-control villa-date-input"
-                type="text"
+                type="date"
                 id="villaCheckin"
                 name="checkin"
                 placeholder="انتخاب تاریخ"
@@ -1210,7 +1211,7 @@
               <label for="villaCheckout">تاریخ خروج</label>
               <input
                 class="afv-form-control villa-date-input"
-                type="text"
+                type="date"
                 id="villaCheckout"
                 name="checkout"
                 placeholder="انتخاب تاریخ"
@@ -1301,10 +1302,6 @@
     <a href="tel:+989117999884">تماس مستقیم</a>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/persian-date@1.1.0/dist/persian-date.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
-
   <script>
     (function () {
       "use strict";
@@ -1356,11 +1353,11 @@
       }
 
       function getDateText(timestamp) {
-        if (!timestamp || !window.persianDate) {
-          return "";
-        }
-
-        return new window.persianDate(timestamp).format("YYYY/MM/DD");
+        if (!timestamp) return "";
+        const d = new Date(timestamp);
+        if (Number.isNaN(d.getTime())) return "";
+        const iso = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        return window.AfraJalali?.formatISO(iso,'numeric') || d.toLocaleDateString('fa-IR-u-ca-persian');
       }
 
       function buildTelegramMessage() {
@@ -1530,159 +1527,31 @@
         window.open(url, "_blank", "noopener,noreferrer");
       });
 
-      /* Persian calendar */
-
-      if (
-        window.jQuery &&
-        window.persianDate &&
-        typeof jQuery.fn.pDatepicker === "function"
-      ) {
-        const today = new persianDate();
-        const todayTimestamp = today.valueOf();
-
-        const datepickerOptions = {
-          format: "YYYY/MM/DD",
-          autoClose: true,
-          initialValue: false,
-          minDate: todayTimestamp,
-          calendar: {
-            persian: {
-              locale: "fa",
-              leapYearMode: "astronomical"
-            },
-            gregorian: {
-              locale: "en"
-            }
-          },
-          navigator: {
-            enabled: true,
-            scroll: {
-              enabled: false
-            },
-            text: {
-              btnNextText: "‹",
-              btnPrevText: "›"
-            }
-          },
-          toolbox: {
-            enabled: true,
-            calendarSwitch: {
-              enabled: false
-            },
-            todayButton: {
-              enabled: true,
-              text: {
-                fa: "امروز",
-                en: "Today"
-              }
-            },
-            submitButton: {
-              enabled: true,
-              text: {
-                fa: "تأیید",
-                en: "Submit"
-              }
-            },
-            text: {
-              btnToday: "امروز",
-              btnSubmit: "تأیید",
-              btnCancel: "بستن"
-            }
-          }
-        };
-
-        jQuery(checkinInput).pDatepicker({
-          ...datepickerOptions,
-          onSelect: function (unixTimestamp) {
-            checkinTimestamp = Number(unixTimestamp) || null;
-
-            if (
-              checkoutTimestamp &&
-              checkinTimestamp &&
-              checkoutTimestamp <= checkinTimestamp
-            ) {
-              checkoutTimestamp = null;
-              jQuery(checkoutInput).val("");
-            }
-
-            updateDateStatus();
-          }
-        });
-
-        jQuery(checkoutInput).pDatepicker({
-          ...datepickerOptions,
-          onSelect: function (unixTimestamp) {
-            checkoutTimestamp = Number(unixTimestamp) || null;
-
-            if (
-              checkinTimestamp &&
-              checkoutTimestamp &&
-              checkoutTimestamp <= checkinTimestamp
-            ) {
-              checkoutTimestamp = null;
-              jQuery(checkoutInput).val("");
-              setStatus("تاریخ خروج باید بعد از تاریخ ورود باشد. تاریخ دیگری انتخاب کن.", "error");
-              updateSummary();
-              return;
-            }
-
-            updateDateStatus();
-          }
-        });
-      } else {
-        checkinInput.removeAttribute("readonly");
-        checkoutInput.removeAttribute("readonly");
-        checkinInput.type = "date";
-        checkoutInput.type = "date";
-        checkinInput.min = new Date().toISOString().slice(0, 10);
-        checkoutInput.min = checkinInput.min;
-
-        checkinInput.addEventListener("change", function () {
-          checkinTimestamp = checkinInput.value
-            ? new Date(checkinInput.value + "T12:00:00").getTime()
-            : null;
-
-          checkoutInput.min = checkinInput.value
-            ? new Date(new Date(checkinInput.value + "T12:00:00").getTime() + 86400000)
-                .toISOString().slice(0, 10)
-            : checkinInput.min;
-
-          if (
-            checkoutTimestamp &&
-            checkinTimestamp &&
-            checkoutTimestamp <= checkinTimestamp
-          ) {
-            checkoutTimestamp = null;
-            checkoutInput.value = "";
-          }
-
-          updateDateStatus();
-        });
-
-        checkoutInput.addEventListener("change", function () {
-          checkoutTimestamp = checkoutInput.value
-            ? new Date(checkoutInput.value + "T12:00:00").getTime()
-            : null;
-
-          if (
-            checkinTimestamp &&
-            checkoutTimestamp &&
-            checkoutTimestamp <= checkinTimestamp
-          ) {
-            checkoutTimestamp = null;
-            checkoutInput.value = "";
-            setStatus("تاریخ خروج باید بعد از تاریخ ورود باشد.", "error");
-          } else {
-            updateDateStatus();
-          }
-        });
-
-        setStatus("تقویم شمسی بارگذاری نشد؛ می‌توانی از انتخابگر تاریخ دستگاه استفاده کنی.");
+      /* All villa dates use the shared Solar Hijri picker. ISO dates remain in the inputs. */
+      const localDate = new Date();
+      const localISO = localDate.getFullYear() + '-' + String(localDate.getMonth()+1).padStart(2,'0') + '-' + String(localDate.getDate()).padStart(2,'0');
+      checkinInput.removeAttribute('readonly');
+      checkoutInput.removeAttribute('readonly');
+      checkinInput.type='date';
+      checkoutInput.type='date';
+      checkinInput.min=localISO;
+      checkoutInput.min=localISO;
+      function syncVillaDates() {
+        checkinTimestamp = checkinInput.value ? new Date(checkinInput.value + 'T12:00:00').getTime() : null;
+        checkoutTimestamp = checkoutInput.value ? new Date(checkoutInput.value + 'T12:00:00').getTime() : null;
+        if(checkinTimestamp && checkoutTimestamp && checkoutTimestamp<=checkinTimestamp){
+          checkoutTimestamp=null; checkoutInput.value='';
+          setStatus('تاریخ خروج باید پس از ورود باشد.','error');
+        }
+        if(!checkoutTimestamp || !checkinTimestamp || checkoutTimestamp>checkinTimestamp) updateDateStatus();
       }
+      checkinInput.addEventListener('change', syncVillaDates);
+      checkoutInput.addEventListener('change', syncVillaDates);
+      window.AfraJalali?.refresh();
 
       updateSummary();
     })();
   </script>
-  <script defer src="afra-platform.js?v=20261103p4"></script>
+  <script defer src="afra-platform.js?v=20261105j2"></script>
 </body>
 </html>

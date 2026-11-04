@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <script id="afraThemeBootstrap">(function(){try{var s=localStorage.getItem("afra-theme-preference");document.documentElement.setAttribute("data-afra-theme",s==="dark"||s==="light"?s:(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));}catch(e){document.documentElement.setAttribute("data-afra-theme",window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");}})();</script>
+    <script id="afraThemeBootstrap">(function(){var p='auto';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#123d32">
@@ -141,9 +141,12 @@ button,input,textarea,select{font-family:inherit}
   .day.booked::after{font-size:14px}
 }
 </style>
-    <link rel="stylesheet" href="afra-theme.css">
-    <script defer src="afra-theme.js"></script>
-  <link rel="stylesheet" href="afra-platform.css?v=20261103p4">
+    <link rel="stylesheet" href="afra-theme.css?v=20261105j2">
+    <script defer src="afra-theme.js?v=20261105j2"></script>
+  <link rel="stylesheet" href="afra-platform.css?v=20261104p5">
+  <link rel="stylesheet" href="afra-responsive-cards.css?v=20261105c1">
+<link rel="stylesheet" href="afra-jalali.css?v=20261105j2">
+<script defer src="afra-jalali.js?v=20261105j2"></script>
 </head>
 
 <body data-afra-page="property.html">
@@ -1024,6 +1027,6 @@ function showError(message){
 
 loadProperty();
 </script>
-  <script defer src="afra-platform.js?v=20261103p4"></script>
+  <script defer src="afra-platform.js?v=20261105j2"></script>
 </body>
 </html>

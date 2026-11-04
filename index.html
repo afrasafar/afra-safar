@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <script id="afraThemeBootstrap">(function(){try{var s=localStorage.getItem("afra-theme-preference");document.documentElement.setAttribute("data-afra-theme",s==="dark"||s==="light"?s:(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));}catch(e){document.documentElement.setAttribute("data-afra-theme",window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");}})();</script>
+    <script id="afraThemeBootstrap">(function(){var p='auto';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#123d32">
-    <meta name="description" content="رزرو ویلا، کلبه جنگلی و اقامتگاه استخردار در شمال ایران با افرا سفر.">
+    <meta name="description" content="با افرا سفر، ویلا و کلبه دلخواهت را در شمال و سراسر ایران پیدا و برای سفر بعدی آماده شو.">
     <title>افرا سفر | رزرو ویلا و کلبه در شمال</title>
 
     <link rel="stylesheet" href="style.css">
@@ -1358,9 +1358,15 @@
 #searchForm.afra-home-search #destination::placeholder{color:#7a8c82!important;opacity:1!important}
 @media(max-width:760px){#searchForm.afra-home-search button.afra-search-submit{min-height:55px!important}}
 </style>
-    <link rel="stylesheet" href="afra-theme.css">
-    <script defer src="afra-theme.js"></script>
-  <link rel="stylesheet" href="afra-platform.css?v=20261103p4">
+    <link rel="stylesheet" href="afra-theme.css?v=20261105j2">
+    <script defer src="afra-theme.js?v=20261105j2"></script>
+  <link rel="stylesheet" href="afra-platform.css?v=20261104p5">
+  <link rel="stylesheet" href="afra-home-header.css?v=20261105h1">
+  <link rel="stylesheet" href="afra-responsive-cards.css?v=20261105c1">
+<link rel="stylesheet" href="afra-jalali.css?v=20261105j2">
+<script defer src="afra-jalali.js?v=20261105j2"></script>
+  <link rel="preload" as="image" href="images/afra-hero-forest-villa.webp">
+  <link rel="stylesheet" href="afra-home-reference.css?v=20261105r2">
 </head>
 
 <body data-afra-page="index.html">
@@ -1398,33 +1404,57 @@
                 </span>
             </a>
 
-            <nav class="nav" id="mainNav">
-                <a href="#home" class="nav-link active">صفحه اصلی</a>
+            <!-- Six direct links: functional without JavaScript; inside hamburger on small screens. -->
+            <nav class="afra-quick-nav" id="afraQuickNav" aria-label="دسترسی‌های اصلی افرا سفر">
+                <a href="search.html">جست‌وجوی پیشرفته</a>
+                <a href="categories.html">دسته‌بندی‌ها</a>
+                <a href="map.html">نقشه</a>
+                <a href="guest-dashboard.html">حساب مسافر</a>
+                <a href="become-host.html">میزبان شوید</a>
+                <a href="support.html">پشتیبانی</a>
+            </nav>
+
+            <!-- Opened from the same hamburger at every viewport; includes the six links on mobile. -->
+            <nav class="nav" id="mainNav" aria-label="منوی کامل افرا سفر">
+                <span class="afra-menu-label">دسترسی‌های اصلی</span>
+                <a href="auth.html" class="nav-link">ورود / ثبت‌نام</a>
+                <a href="favorites.html" class="nav-link">علاقه‌مندی‌ها</a>
+                <a href="search.html" class="nav-link">جست‌وجوی پیشرفته</a>
+                <a href="categories.html" class="nav-link">دسته‌بندی‌ها</a>
+                <a href="map.html" class="nav-link">نقشه</a>
+                <a href="guest-dashboard.html" class="nav-link">حساب مسافر</a>
+                <a href="become-host.html" class="nav-link">میزبان شوید</a>
+                <a href="support.html" class="nav-link">پشتیبانی</a>
+                <span class="afra-menu-label afra-menu-label--more">بخش‌های صفحه اصلی</span>
+                <a href="#home" class="nav-link active">ابتدای صفحه</a>
                 <a href="#stays" class="nav-link">اقامتگاه‌ها</a>
-                <a href="#categories" class="nav-link">دسته‌بندی‌ها</a>
                 <a href="#regions" class="nav-link">مقصدها</a>
                 <a href="#faq" class="nav-link">راهنما</a>
                 <a href="#about" class="nav-link">درباره ما</a>
                 <a href="my-reservations.html" class="nav-link">پیگیری رزرو</a>
             </nav>
 
+            <nav class="afra-ref-links" aria-label="لینک‌های سریع بالای صفحه">
+                <a href="favorites.html">علاقه‌مندی‌ها</a>
+                <a href="become-host.html">میزبان شوید</a>
+            </nav>
+
+            <!-- Four items, stacked in one left-aligned column; theme button is added here by afra-theme.js. -->
             <div class="header-actions">
-                <div class="auth-top-actions">
-                    <button type="button" class="auth-top-button" data-auth-open="login">ورود</button>
+                <div class="auth-top-actions" aria-label="حساب و تنظیمات ظاهر">
+                    <button type="button" class="auth-top-button" data-auth-open="login">ورود / ثبت‌نام</button>
                     <button type="button" class="auth-top-button" data-auth-open="guest-signup">ثبت نام</button>
                     <button type="button" class="auth-top-button primary" data-auth-open="owner-signup">میزبان شوید</button>
                 </div>
-
-                <button class="menu-toggle" id="menuToggle"
-                    type="button"
-                    aria-label="باز کردن منو"
-                    aria-expanded="false"
-                    aria-controls="mainNav">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
+            <!-- A sibling of the action column: fixed right edge, never affected by button wrapping. -->
+            <button class="menu-toggle" id="menuToggle"
+                type="button"
+                aria-label="باز کردن منو"
+                aria-expanded="false"
+                aria-controls="mainNav">
+                <span></span><span></span><span></span>
+            </button>
 
         </div>
     </header>
@@ -1479,14 +1509,13 @@
 
             <div class="container hero-content">
 
+                <div class="afra-hero-eyebrow">افرا سفر؛ نزدیک‌تر به حال خوب</div>
                 <h1>
-                    شمال، نزدیک‌تر از
-                    <span>همیشه</span>
+                    جایی برای <span>نفس کشیدن</span>
                 </h1>
 
                 <p class="hero-description">
-                    از کلبه‌ای دنج در دل جنگل تا ویلایی استخردار،
-                    اقامتگاه موردعلاقه‌ات رو با افرا سفر پیدا کن.
+                    از کلبه‌های دنج تا ویلاهای خوش‌منظره؛ اقامت دلخواهت را میان زیبایی‌های ایران پیدا کن.
                 </p>
 
                 <form class="search-box afra-search-v2" id="searchForm" novalidate>
@@ -1502,7 +1531,7 @@
                             <input
                                 type="text"
                                 id="destination"
-                                placeholder="کجای مازندران میخوای بری؟"
+                                placeholder="می‌خوای کجا بری؟"
                                 list="destinationSuggestions"
                                 autocomplete="off"
                                 aria-controls="searchDropdown"
@@ -1649,6 +1678,31 @@
             </div>
         </section>
 
+<section class="afra-ref-quick-section" id="quick-search" aria-label="جست‌وجوی سریع اقامتگاه‌ها">
+  <div class="container afra-ref-quick-wrap">
+    <div class="afra-ref-section-title">
+      <div><span class="afra-ref-kicker">انتخاب‌های محبوب سفر</span><h2>جست‌وجوی سریع</h2></div>
+      <a href="search.html" class="afra-ref-all-search">نمایش همه اقامتگاه‌ها <span aria-hidden="true">←</span></a>
+    </div>
+    <div class="afra-ref-quick-grid">
+<a class="afra-ref-quick-item" href="search.html?type=forest"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 13h3l-3 4h15l-3-4h3L12 3Z"/><path d="M12 17v4"/></svg><span class="afra-ref-item-text"><strong>کلبه جنگلی</strong><small>در دل طبیعت</small></span></a><a class="afra-ref-quick-item" href="search.html?coastal=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2.4-2.2 4.3-2.2 6.5 0s4.3 2.2 6.5 0 4.2-2.2 5.5 0"/><path d="M3 21c2.4-2.2 4.3-2.2 6.5 0s4.3 2.2 6.5 0 4.2-2.2 5.5 0"/><path d="M5 12h14"/><circle cx="17" cy="6" r="2"/></svg><span class="afra-ref-item-text"><strong>لب آب</strong><small>نزدیک ساحل</small></span></a><a class="afra-ref-quick-item" href="search.html?type=ecolodge"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></svg><span class="afra-ref-item-text"><strong>خانه روستایی</strong><small>اقامت سنتی</small></span></a><a class="afra-ref-quick-item" href="search.html?type=ecolodge"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-8 0-15 3-15 11a5 5 0 0 0 5 5c8 0 11-7 10-16Z"/><path d="M5 20c4-5 8-8 13-11"/></svg><span class="afra-ref-item-text"><strong>بوم‌گردی</strong><small>تجربه بومی</small></span></a><a class="afra-ref-quick-item" href="search.html?pool=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17V7c0-2 1-3 3-3m4 13V7c0-2 1-3 3-3M5 10h7"/><path d="M2 19c2-2 4-2 6 0s4 2 6 0 4-2 8 0"/></svg><span class="afra-ref-item-text"><strong>ویلا استخردار</strong><small>برای روزهای آفتابی</small></span></a><a class="afra-ref-quick-item" href="search.html?instant_booking=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/></svg><span class="afra-ref-item-text"><strong>رزرو فوری</strong><small>انتخاب سریع</small></span></a><a class="afra-ref-quick-item" href="search.html?jacuzzi=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18v3c0 4-3 6-9 6s-9-2-9-6v-3Z"/><path d="M6 12V7a3 3 0 0 1 6 0"/><path d="M6 21v1m12-1v1"/></svg><span class="afra-ref-item-text"><strong>ویلای جکوزی</strong><small>آرامش بیشتر</small></span></a><a class="afra-ref-quick-item" href="search.html?mountain=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 19 7-11 5 7 3-4 5 8H2Z"/><path d="m6 12 3 2 2-2"/></svg><span class="afra-ref-item-text"><strong>ویلای ییلاقی</strong><small>هوای خنک</small></span></a><a class="afra-ref-quick-item" href="search.html?mountain=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="7" r="3"/><path d="m2 20 6-10 5 6 2-3 7 7H2Z"/></svg><span class="afra-ref-item-text"><strong>منظره زیبا</strong><small>چشم‌انداز کوهستان</small></span></a><a class="afra-ref-quick-item" href="search.html?luxury=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.7 7.3L22 12l-7.3 2.7L12 22l-2.7-7.3L2 12l7.3-2.7L12 2Z"/></svg><span class="afra-ref-item-text"><strong>لوکس و خاص</strong><small>اقامت متفاوت</small></span></a><a class="afra-ref-quick-item" href="search.html?wooden_cottage=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 10 16H2L12 4Z"/><path d="m12 4 3 16M10 20l3-7"/></svg><span class="afra-ref-item-text"><strong>کلبه سوئیسی</strong><small>حس متفاوت طبیعت</small></span></a><a class="afra-ref-quick-item" href="search.html?type=ecolodge"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 10V8"/><circle cx="12" cy="7" r="1"/></svg><span class="afra-ref-item-text"><strong>خوش‌غذا</strong><small>سفرهای خوش‌طعم</small></span></a><a class="afra-ref-quick-item" href="search.html?type=ecolodge"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9ZM17 10h3a2 2 0 0 1 0 4h-3"/><path d="M8 3v3m4-3v3"/></svg><span class="afra-ref-item-text"><strong>با صبحانه</strong><small>آسوده‌تر سفر کن</small></span></a><a class="afra-ref-quick-item" href="search.html?economic=1"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M17 13h4M3 10h18"/></svg><span class="afra-ref-item-text"><strong>اقتصادی</strong><small>متناسب با بودجه</small></span></a><a class="afra-ref-quick-item" href="search.html?type=villa"><svg class="afra-ref-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="18" cy="9" r="2"/><path d="M3 20v-3a6 6 0 0 1 12 0v3M16 15c3 0 5 2 5 5"/></svg><span class="afra-ref-item-text"><strong>سفر با خانواده</strong><small>برای دورهمی‌ها</small></span></a>
+    </div>
+  </div>
+</section>
+
+        <section class="afra-regions section" id="regions" aria-labelledby="regionTitle">
+  <div class="container"><div class="afra-section-heading"><div><span class="afra-kicker">مقصد بعدی کجاست؟</span><h2 id="regionTitle">گردش در شهرهای شمال</h2><p>با انتخاب هر مقصد، اقامتگاه‌های همان منطقه را جست‌وجو کن.</p></div></div>
+    <div class="afra-regions-grid" id="regionsGrid">
+      <button type="button" class="afra-region-card" data-region="رامسر"><span>🌿</span><strong>رامسر</strong><small>طبیعت و آرامش</small></button>
+      <button type="button" class="afra-region-card" data-region="تنکابن"><span>🌲</span><strong>تنکابن</strong><small>جنگل و ساحل</small></button>
+      <button type="button" class="afra-region-card" data-region="چالوس"><span>🏞️</span><strong>چالوس</strong><small>مسیرهای دیدنی</small></button>
+      <button type="button" class="afra-region-card" data-region="نوشهر"><span>🌊</span><strong>نوشهر</strong><small>اقامت کنار دریا</small></button>
+      <button type="button" class="afra-region-card" data-region="نمک آبرود"><span>⛰️</span><strong>نمک‌آبرود</strong><small>کوه و تفریح</small></button>
+      <button type="button" class="afra-region-card" data-region="متل قو"><span>☀️</span><strong>متل‌قو</strong><small>سفر ساحلی</small></button>
+    </div>
+  </div>
+</section>
+
         <section class="categories section" id="categories">
             <div class="container">
 
@@ -1690,19 +1744,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="afra-regions section" id="regions" aria-labelledby="regionTitle">
-  <div class="container"><div class="afra-section-heading"><div><span class="afra-kicker">مقصد بعدی کجاست؟</span><h2 id="regionTitle">گردش در شهرهای شمال</h2><p>با انتخاب هر مقصد، اقامتگاه‌های همان منطقه را جست‌وجو کن.</p></div></div>
-    <div class="afra-regions-grid" id="regionsGrid">
-      <button type="button" class="afra-region-card" data-region="رامسر"><span>🌿</span><strong>رامسر</strong><small>طبیعت و آرامش</small></button>
-      <button type="button" class="afra-region-card" data-region="تنکابن"><span>🌲</span><strong>تنکابن</strong><small>جنگل و ساحل</small></button>
-      <button type="button" class="afra-region-card" data-region="چالوس"><span>🏞️</span><strong>چالوس</strong><small>مسیرهای دیدنی</small></button>
-      <button type="button" class="afra-region-card" data-region="نوشهر"><span>🌊</span><strong>نوشهر</strong><small>اقامت کنار دریا</small></button>
-      <button type="button" class="afra-region-card" data-region="نمک آبرود"><span>⛰️</span><strong>نمک‌آبرود</strong><small>کوه و تفریح</small></button>
-      <button type="button" class="afra-region-card" data-region="متل قو"><span>☀️</span><strong>متل‌قو</strong><small>سفر ساحلی</small></button>
-    </div>
-  </div>
-</section>
 
 <section class="stays section" id="stays">
             <div class="container">
@@ -2381,14 +2422,21 @@
             filterStays();
         });
 
+        const heroSection = document.querySelector(".hero");
+
+        function syncSearchDropdownState(isOpen) {
+            searchDropdown.hidden = !isOpen;
+            destinationInput.setAttribute("aria-expanded", String(isOpen));
+            searchForm.classList.toggle("is-open", isOpen);
+            if (heroSection) heroSection.classList.toggle("search-open", isOpen);
+        }
+
         function openSearchDropdown() {
-            searchDropdown.hidden = false;
-            destinationInput.setAttribute("aria-expanded", "true");
+            syncSearchDropdownState(true);
         }
 
         function closeSearchFilters() {
-            searchDropdown.hidden = true;
-            destinationInput.setAttribute("aria-expanded", "false");
+            syncSearchDropdownState(false);
         }
 
         destinationInput.addEventListener("focus", openSearchDropdown);
@@ -2574,9 +2622,14 @@
         document.querySelectorAll("[data-auth-open]").forEach(button => {
             button.addEventListener("click", async () => {
                 const mode = button.dataset.authOpen;
-                if (mode === "login") {
-                    const { data } = await afraSupabase.auth.getSession();
-                    if (data?.session?.user) return showLoggedInPanel(data.session.user);
+                // Keep the login dialog usable even if the Supabase CDN is temporarily unavailable.
+                if (mode === "login" && window.afraSupabase?.auth?.getSession) {
+                    try {
+                        const { data } = await window.afraSupabase.auth.getSession();
+                        if (data?.session?.user) return showLoggedInPanel(data.session.user);
+                    } catch (error) {
+                        console.warn("Afra: session could not be checked; opening login dialog.", error);
+                    }
                 }
                 openAuthModal(mode);
             });
@@ -2833,6 +2886,6 @@
         }
     })();
     </script>
-  <script defer src="afra-platform.js?v=20261103p4"></script>
+  <script defer src="afra-platform.js?v=20261105j2"></script>
 </body>
 </html>

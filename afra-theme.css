@@ -323,3 +323,37 @@ html[data-afra-theme="dark"] :is(.login-box,.panel,.container) :is(h1,h2,h3,stro
 @media(max-width: 360px) {
   .afv-header-inner > #afraThemeToggle { left: 10px; top: 74px; }
 }
+
+/* Classic Dark 2.0 — neutral charcoal tokens, improved surfaces, contrast & accessible appearance menu */
+:root{--afra-ui-surface:#fff;--afra-ui-elevated:#f7f8f8;--afra-ui-foreground:#232926;--afra-ui-secondary:#66716a;--afra-ui-stroke:#dce0df;--afra-ui-control:#f9faf9;--afra-ui-focus:#2a795a}
+html[data-afra-theme="dark"]{
+ --afra-dark-bg:#141414;--afra-dark-surface:#202020;--afra-dark-raised:#2b2b2b;--afra-dark-border:#494949;--afra-dark-text:#f2f2f2;--afra-dark-muted:#bdbdbd;
+ --afra-ui-surface:#202020;--afra-ui-elevated:#2c2c2c;--afra-ui-foreground:#f1f1f1;--afra-ui-secondary:#bebebe;--afra-ui-stroke:#4e4e4e;--afra-ui-control:#292929;--afra-ui-focus:#aaaaaa;
+ --ap-bg:#141414;--ap-panel:#202020;--ap-txt:#f1f1f1;--ap-sub:#bdbdbd;--ap-line:#4c4c4c;--ap-chip:#303030;--ap-brand:#747474;--ap-brand-fg:#fff;--ap-focus:#a0a0a0;
+ accent-color:#b5b5b5;
+}
+html[data-afra-theme="dark"] :is(.ap-page,.ap-panel,.ap-stay,.ap-linkcard,.ap-stat,.ap-callout,.ap-stay__body,.ap-filters,.ap-map-status,.afra-feature-card,.stay-card,.afra-review-card,.login-card,.reservation-card,.property-card){border-color:var(--afra-ui-stroke)!important;color:var(--afra-ui-foreground)!important}
+html[data-afra-theme="dark"] :is(.ap-panel,.ap-stay,.ap-linkcard,.ap-stat,.ap-stay__body,.ap-filters,.afra-feature-card,.stay-card,.afra-review-card){background-color:var(--afra-ui-surface)!important}
+html[data-afra-theme="dark"] :is(.ap-callout,.ap-map-status,.ap-chip,.ap-empty,.afra-faq-items details){background-color:var(--afra-ui-elevated)!important}
+html[data-afra-theme="dark"] :is(.ap-page,.ap-container,.ap-panel,.ap-linkcard) :is(h1,h2,h3,strong){color:var(--afra-ui-foreground)}
+html[data-afra-theme="dark"] :is(.ap-muted,.ap-subtitle,.ap-stay__meta,.card-location,small){color:var(--afra-ui-secondary)}
+html[data-afra-theme="dark"] :is(.ap-btn,.ap-tab.active,.ap-filter-selected){background-color:#656565;border-color:#777;color:#fff}
+html[data-afra-theme="dark"] :is(.ap-btn.secondary,.ap-btn.ghost){background-color:#303030!important;color:#f0f0f0!important;border-color:#555!important}
+html[data-afra-theme="dark"] :is(a,button,input,select,textarea):focus-visible{outline:2px solid #c5c5c5;outline-offset:2px}
+html[data-afra-theme="dark"] img{opacity:.96}
+html[data-afra-theme="dark"] :is(input[type="checkbox"],input[type="radio"]){accent-color:#909090}
+html[data-afra-theme="dark"] :is(.ap-table,.ap-table-wrap,pre,code){border-color:#555;color:#f0f0f0}
+html[data-afra-theme="dark"] .ap-stay__badge{background:#424242!important;color:#eee!important}
+html[data-afra-theme="dark"] :is(.ap-error,.message.error){background:#3a2525!important;color:#ffd5d5!important}
+html[data-afra-theme="dark"] :is(.ap-success,.message.success){background:#24362d!important;color:#bce7ca!important}
+html[data-afra-theme="dark"] :is(.afra-primary-search-field,.search-dropdown-panel,.afra-advanced-panel){color-scheme:dark}
+.afra-appearance-menu{position:fixed;z-index:2147481500;display:flex;flex-direction:column;gap:5px;width:214px;max-width:calc(100vw - 20px);padding:11px;border-radius:14px;box-shadow:0 18px 54px rgba(0,0,0,.25);border:1px solid var(--afra-ui-stroke);background:var(--afra-ui-surface);color:var(--afra-ui-foreground);font-family:Vazirmatn,Tahoma,sans-serif}
+.afra-appearance-menu strong{font-size:12px;padding:3px 5px 7px;font-weight:800;color:inherit}
+.afra-appearance-menu button{width:100%;display:flex;align-items:center;gap:9px;text-align:right;border:1px solid transparent;border-radius:10px;padding:9px 8px;background:transparent;color:inherit;font:inherit;font-size:12px;cursor:pointer}
+.afra-appearance-menu button:hover,.afra-appearance-menu button[aria-pressed="true"]{background:var(--afra-ui-elevated);border-color:var(--afra-ui-stroke)}
+.afra-appearance-menu svg{width:18px;height:18px;flex:none}
+.afra-appearance-check{margin-inline-start:auto;font-size:15px}
+@media(max-width:620px){.afra-appearance-menu{max-height:calc(100dvh - 20px);overflow:auto}}
+@media(prefers-contrast:more){html[data-afra-theme="dark"]{--afra-ui-stroke:#818181;--afra-ui-secondary:#dedede} .afra-theme-switch,.afra-appearance-menu button{outline-offset:2px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}.afra-appearance-menu *{transition:none!important}}
+@media print{.afra-theme-switch,.afra-appearance-menu{display:none!important}html[data-afra-theme="dark"]{color-scheme:light!important} }

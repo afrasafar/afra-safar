@@ -1,0 +1,1991 @@
+{
+  "total": 248,
+  "failed": 0,
+  "issues": [],
+  "data": [
+    {
+      "page": "about.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "about.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "about.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "about.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "account-bookings.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "account-bookings.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "account-bookings.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "account-bookings.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "add-property.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "add-property.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "add-property.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "add-property.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-bookings.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-bookings.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-bookings.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-bookings.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-content.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-content.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-content.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-content.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-discounts.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-discounts.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-discounts.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-discounts.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-hosts.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-hosts.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-hosts.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-hosts.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-payments.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-payments.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-payments.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-payments.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-properties.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-properties.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-properties.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-properties.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-reviews.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-reviews.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-reviews.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-reviews.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-support.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-support.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-support.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-support.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-users.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-users.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-users.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin-users.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "admin.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "auth.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "auth.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "auth.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "auth.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "become-host.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "become-host.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "become-host.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "become-host.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking-voucher.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking-voucher.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking-voucher.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking-voucher.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "booking.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "categories.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "categories.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "categories.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "categories.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cities.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cities.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cities.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cities.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "compare.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "compare.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "compare.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "compare.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "contact.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "contact.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "contact.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "contact.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cottage.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cottage.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cottage.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "cottage.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "discounts.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "discounts.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "discounts.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "discounts.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "faq.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "faq.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "faq.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "faq.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "favorites.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "favorites.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "favorites.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "favorites.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "guest-dashboard.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "guest-dashboard.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "guest-dashboard.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "guest-dashboard.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-calendar.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-calendar.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-calendar.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-calendar.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-finance.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-finance.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-finance.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-finance.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-performance.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-performance.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-performance.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-performance.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-reviews.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-reviews.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-reviews.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "host-reviews.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "index.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "index.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "journal-villa.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "journal-villa.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "journal-villa.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "journal-villa.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "last-minute.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "last-minute.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "last-minute.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "last-minute.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "luxury-villa.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "luxury-villa.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "luxury-villa.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "luxury-villa.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "magazine.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "magazine.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "magazine.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "magazine.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "manage-property.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "manage-property.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "manage-property.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "manage-property.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "map.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "map.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "map.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "map.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "messages.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "messages.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "messages.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "messages.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reservations.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reservations.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reservations.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reservations.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reviews.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reviews.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reviews.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-reviews.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-searches.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-searches.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-searches.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "my-searches.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "notifications.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "notifications.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "notifications.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "notifications.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-dashboard.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-dashboard.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-dashboard.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-dashboard.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-login.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-login.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-login.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-login.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-register.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-register.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-register.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-register.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-reservations.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-reservations.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-reservations.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "owner-reservations.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment-result.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment-result.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment-result.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment-result.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "payment.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "privacy.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "privacy.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "privacy.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "privacy.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property-settings.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property-settings.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property-settings.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property-settings.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "property.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "referrals.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "referrals.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "referrals.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "referrals.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "regions.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "regions.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "regions.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "regions.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "register.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "register.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "register.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "register.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "reviews.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "reviews.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "reviews.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "reviews.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "rules.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "rules.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "rules.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "rules.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search-results.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search-results.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search-results.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search-results.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "search.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "supabase-status.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "supabase-status.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "supabase-status.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "supabase-status.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "support.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "support.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "support.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "support.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "villa.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "villa.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "villa.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "villa.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "wallet.html",
+      "width": 320,
+      "viewport": 320,
+      "scroll": 320,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "wallet.html",
+      "width": 390,
+      "viewport": 390,
+      "scroll": 390,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "wallet.html",
+      "width": 768,
+      "viewport": 768,
+      "scroll": 768,
+      "jalali": true,
+      "theme": true
+    },
+    {
+      "page": "wallet.html",
+      "width": 1440,
+      "viewport": 1440,
+      "scroll": 1440,
+      "jalali": true,
+      "theme": true
+    }
+  ]
+}
