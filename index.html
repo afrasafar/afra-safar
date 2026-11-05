@@ -1367,6 +1367,8 @@
 <script defer src="afra-jalali.js?v=20261105j2"></script>
   <link rel="preload" as="image" href="images/afra-hero-forest-villa.webp">
   <link rel="stylesheet" href="afra-home-reference.css?v=20261105r2">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="afra-hero-poetry.css?v=20261105p3">
 </head>
 
 <body data-afra-page="index.html">
@@ -1517,6 +1519,14 @@
                 <p class="hero-description">
                     از کلبه‌های دنج تا ویلاهای خوش‌منظره؛ اقامت دلخواهت را میان زیبایی‌های ایران پیدا کن.
                 </p>
+
+                <!-- بیت شعر تصادفی افرا سفر — فقط خود بیت، بدون باکس و توضیح اضافه -->
+                <aside class="afra-poetry-spot" id="afraHeroPoetry" aria-label="یک بیت از شعر فارسی" dir="rtl">
+                    <blockquote class="afra-poetry-lines" aria-live="polite" aria-atomic="true">
+                        <span id="afraPoetryFirst">من از آن روز که در بند توام آزادم</span>
+                        <span id="afraPoetrySecond">پادشاهم که به دست تو اسیر افتادم</span>
+                    </blockquote>
+                </aside>
 
                 <form class="search-box afra-search-v2" id="searchForm" novalidate>
                     <div class="search-main-row">
@@ -2887,5 +2897,6 @@
     })();
     </script>
   <script defer src="afra-platform.js?v=20261105j2"></script>
+  <script defer src="afra-hero-poetry.js?v=20261105p3"></script>
 </body>
 </html>

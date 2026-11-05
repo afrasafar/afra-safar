@@ -1,0 +1,22 @@
+{
+  "html_pages": 62,
+  "css_added": true,
+  "js_added": true,
+  "links_on_index": true,
+  "page_specific_only": true,
+  "tested_widths": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1440
+  ],
+  "layout_no_horizontal_overflow": true,
+  "testing_mode": "inline CSS/JS with Chromium; live backend not tested",
+  "verse_selection": "8 verified classic Persian couplets",
+  "nonrepeat_simulation": "70 consecutive simulated reloads, 8 unique texts, no adjacent repeats with available sessionStorage",
+  "note": "Browser set_content has opaque origin; storage was mocked for sessionStorage test",
+  "test_result": "7 viewport widths checked, all zero horizontal overflow, button changes verse; live server test still needed"
+}

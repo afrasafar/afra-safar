@@ -1,0 +1,140 @@
+/* AFRA SAFAR — two-position romantic couplet on the homepage hero.
+   Desktop: upper hemistich in the user's upper yellow outline,
+   lower hemistich in the user's lower yellow outline.
+   No background panel, author, heading or next-poem button. */
+body[data-afra-page="index.html"] .hero .hero-content {
+  position: relative !important;
+}
+body[data-afra-page="index.html"] .hero .afra-poetry-spot {
+  position: absolute !important;
+  inset: 0 auto auto 0 !important;
+  z-index: 3 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  direction: rtl !important;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  pointer-events: none !important;
+}
+body[data-afra-page="index.html"] .hero .afra-poetry-lines {
+  position: static !important;
+  display: block !important;
+  width: 100% !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #fffaf4 !important;
+  text-align: center !important;
+  font-family: "Noto Nastaliq Urdu", "IranNastaliq", "B Nazanin", serif !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+}
+body[data-afra-page="index.html"] .hero .afra-poetry-lines > span {
+  position: absolute !important;
+  display: block !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  color: #fffaf4 !important;
+  opacity: .80 !important; /* User-requested 80% opacity */
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-height: 2.25 !important;
+  font-size: clamp(21px, 1.84vw, 29px) !important;
+  text-align: center !important;
+  text-shadow: 0 2px 9px rgba(0, 0, 0, .72), 0 1px 18px rgba(0, 0, 0, .4) !important;
+  transform-origin: center center !important;
+}
+/* Image reference: 1510 px wide, upper box x≈475–915 y≈122–195,
+   lower box x≈275–697 y≈207–278. A centered 1200 px .container
+   starts at 155px, so the following coordinates match those boxes. */
+body[data-afra-page="index.html"] .hero #afraPoetryFirst {
+  left: 26.7% !important;
+  top: clamp(105px, 7.8vw, 125px) !important;
+  width: 36.7% !important;
+}
+body[data-afra-page="index.html"] .hero #afraPoetrySecond {
+  left: 10% !important;
+  top: clamp(190px, 13.6vw, 213px) !important;
+  width: 35.2% !important;
+}
+body[data-afra-page="index.html"] .hero .afra-poetry-spot.afra-poetry-change .afra-poetry-lines > span {
+  animation: afraPoetryFade .42s ease both;
+}
+@keyframes afraPoetryFade {
+  from { opacity: .28; }
+  to { opacity: .8; }
+}
+/* On smaller laptops the same two areas scale relative to the hero width. */
+@media (min-width: 1001px) and (max-width: 1279px) {
+  body[data-afra-page="index.html"] .hero #afraPoetryFirst { top: 114px !important; }
+  body[data-afra-page="index.html"] .hero #afraPoetrySecond { top: 195px !important; }
+  body[data-afra-page="index.html"] .hero .afra-poetry-lines > span { font-size: 24px !important; }
+}
+/* Tablet/mobile: in normal document flow to avoid collisions with headline/search. */
+@media (max-width: 1000px) {
+  body[data-afra-page="index.html"] .hero .afra-poetry-spot {
+    position: relative !important;
+    inset: auto !important;
+    order: 0 !important;
+    width: min(100%, 580px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 17px auto 5px !important;
+  }
+  body[data-afra-page="index.html"] .hero .afra-poetry-lines {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  /* Override desktop #id widths; one hemistich must occupy the whole mobile row. */
+  body[data-afra-page="index.html"] .hero #afraPoetryFirst,
+  body[data-afra-page="index.html"] .hero #afraPoetrySecond {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-self: stretch !important;
+    flex: 0 0 auto !important;
+  }
+  body[data-afra-page="index.html"] .hero .afra-poetry-lines > span {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(21px, 3vw, 27px) !important;
+    line-height: 2.18 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+}
+@media (max-width: 600px) {
+  body[data-afra-page="index.html"] .hero .afra-poetry-spot {
+    width: min(100%, 370px) !important;
+    margin: 12px auto 4px !important;
+  }
+  body[data-afra-page="index.html"] .hero .afra-poetry-lines > span {
+    font-size: clamp(18px, 5vw, 23px) !important;
+    line-height: 2.25 !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-afra-page="index.html"] .hero .afra-poetry-spot.afra-poetry-change .afra-poetry-lines > span {
+    animation: none !important;
+  }
+}
