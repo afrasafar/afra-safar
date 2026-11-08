@@ -414,6 +414,120 @@ async function adminPage(which){shell('مدیریت '+({'users':'کاربران'
  }
 
  const [table,cols]=map[which];const {data,error}=await db().from(table).select(cols).limit(100);box.innerHTML=`<div class="ap-panel" style="margin-bottom:20px">${linkList(links)}</div>${error?banner('امکان خواندن جدول وجود ندارد: '+error.message,'error'):`<section class="ap-panel"><h2>آخرین رکوردها (حداکثر ۱۰۰)</h2>${(data||[]).length?`<div class="ap-table-wrap"><table class="ap-table"><thead><tr>${Object.keys(data[0]).map(k=>`<th>${html(k)}</th>`).join('')}</tr></thead><tbody>${data.map(r=>`<tr>${Object.values(r).map(v=>`<td>${html(typeof v==='object'?JSON.stringify(v):v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:banner('رکوردی ثبت نشده است.')}</section>`}${which==='reviews'?'<div class="ap-panel"><h2>تأیید / رد نظر</h2><form id="ap-review-mod" class="ap-form-grid"><label class="ap-field">شناسه نظر<input id="ap-mod-id" required placeholder="UUID"></label><label class="ap-field">تصمیم<select id="ap-mod-status"><option value="approved">تأیید</option><option value="rejected">رد</option></select></label><button class="ap-btn" type="submit">ثبت تصمیم</button></form><div id="ap-mod-msg"></div></div>':''}${banner('برای عملیات حساس مانند تأیید پرداخت، احراز هویت و استرداد وجه، فقط ابزارهای امن سروری قابل استفاده‌اند. این صفحات اجازه جعل تراکنش ندارند.')}`;if(which==='reviews'&&!error){$('#ap-review-mod').addEventListener('submit',async e=>{e.preventDefault();const {error}=await db().from('afra_reviews').update({moderation_status:$('#ap-mod-status').value,moderated_at:new Date().toISOString()}).eq('id',$('#ap-mod-id').value.trim());$('#ap-mod-msg').innerHTML=error?banner(error.message,'error'):banner('وضعیت نظر به‌روزرسانی شد.','success');});}}
+// Dedicated administrator-only bank transfer verification. No browser-side paid updates.
+async function adminPaymentsPage(){
+ shell('مدیریت پرداخت‌ها','مرحله اول: ثبت دریافت رسید کارت‌به‌کارت؛ مرحله دوم: بررسی تراکنش بانکی و تأیید واریز.',`<div id="ap-payments-admin" class="ap-payments-admin">${loading()}</div>`,'پنل مدیریت');
+ const box=$('#ap-payments-admin');
+ if(!db()){box.innerHTML=missingDb();return;}
+ const me=await user();if(!me){box.innerHTML=loginNeeded();return;}
+ const {data:isAdmin,error:adminError}=await db().rpc('is_admin');
+ if(adminError||isAdmin!==true){box.innerHTML=banner('دسترسی به تأیید پرداخت فقط برای مدیر مجاز است.','error');return;}
+ box.innerHTML=`<div class="ap-payments-links"><a class="ap-btn secondary small" href="admin.html">داشبورد مدیریت</a><a class="ap-btn secondary small" href="admin-bookings.html">سوابق رزروها</a></div>
+ <div class="ap-callout ap-payment-notice"><strong>پرداخت کارت‌به‌کارت؛ ۳۰ دقیقه واریز + ۴۰ دقیقه بررسی</strong><p>مسافر از لحظه تأیید درخواست، ۳۰ دقیقه فرصت واریز و ارسال رسید دارد. وقتی تصویر رسید را در واتس‌اپ/تلگرام دریافت کردید، با دکمه «رسید دریافت شد» دریافت آن را ثبت کنید تا فرصت بررسی ۴۰ دقیقه‌ای شروع شود. رسید به‌تنهایی اثبات واریز نیست؛ بعد از تطبیق با تراکنش واقعی بانک، «تأیید نهایی واریز» را بزنید. اگر بررسی بیش از ۴۰ دقیقه طول بکشد، رزرو دارای رسید منقضی نمی‌شود و برای پیگیری مدیر باقی می‌ماند.</p></div>
+ <section class="ap-panel ap-payments-board"><div class="ap-payments-titlebar"><div><h2>بررسی پرداخت رزروها</h2><p class="ap-muted">ثبت رسید و تأیید واریز دو اقدام مجزا هستند و فقط برای مدیر سایت نمایش داده می‌شوند.</p></div><button type="button" class="ap-btn secondary" id="ap-payments-refresh">↻ تازه‌سازی</button></div>
+ <div id="ap-payments-stats" class="ap-payments-stats" aria-label="آمار پرداخت‌ها"></div>
+ <div class="ap-payments-filter"><label class="ap-field">وضعیت نمایش<select id="ap-payments-filter"><option value="review">اقدام لازم</option><option value="receipt">رسیدهای در انتظار بررسی</option><option value="unpaid">در انتظار دریافت رسید</option><option value="paid">پرداخت‌های تأییدشده</option><option value="all">تمام رزروها</option></select></label><label class="ap-field">جست‌وجوی کد رزرو یا اقامتگاه<input id="ap-payments-search" type="search" autocomplete="off" placeholder="مثلاً AFRA-..."></label></div>
+ <div id="ap-payments-list" class="ap-payments-list" aria-live="polite">${loading()}</div></section>
+ <div id="ap-payments-feedback" role="status" aria-live="polite"></div>
+ <dialog id="ap-receipt-confirm" class="ap-payments-dialog" aria-labelledby="ap-receipt-dialog-title"><form id="ap-receipt-form" class="ap-stack"><div class="ap-payments-dialog-head"><h2 id="ap-receipt-dialog-title">ثبت دریافت رسید</h2><button type="button" class="ap-payments-close" id="ap-receipt-cancel-top" aria-label="بستن پنجره">×</button></div><div id="ap-receipt-selected" class="ap-payment-summary"></div><div class="ap-callout ap-payment-warning">این مرحله فقط دریافت تصویر رسید را ثبت می‌کند و <strong>پرداخت را تأیید نمی‌کند</strong>. مهلت بررسی مدیر از همین لحظه ۴۰ دقیقه خواهد بود؛ حتی پس از پایان این مهلت، رزرو دارای رسید برای تصمیم مدیر باقی می‌ماند.</div><label class="ap-payment-check"><input id="ap-receipt-checked" type="checkbox" required> <span>تصویر رسید مربوط به همین کد رزرو را واقعاً در واتس‌اپ یا تلگرام دریافت و بررسی اولیه کرده‌ام.</span></label><label class="ap-field">برای ثبت دریافت، کد کامل رزرو را وارد کنید<input id="ap-receipt-code" type="text" autocomplete="off" spellcheck="false" dir="ltr" required placeholder="AFRA-..."></label><div id="ap-receipt-dialog-error" role="alert"></div><div class="ap-payments-dialog-actions"><button type="button" class="ap-btn secondary" id="ap-receipt-cancel">انصراف</button><button type="submit" class="ap-btn" id="ap-receipt-submit" disabled>ثبت دریافت رسید و آغاز بررسی ۴۰ دقیقه‌ای</button></div></form></dialog>
+ <dialog id="ap-payments-confirm" class="ap-payments-dialog" aria-labelledby="ap-payments-dialog-title"><form id="ap-payments-form" class="ap-stack"><div class="ap-payments-dialog-head"><h2 id="ap-payments-dialog-title">تأیید دریافت وجه</h2><button type="button" class="ap-payments-close" id="ap-payments-cancel-top" aria-label="بستن پنجره">×</button></div><div id="ap-payments-selected" class="ap-payment-summary"></div><div class="ap-callout ap-payment-warning">این عملیات وضعیت پرداخت را در دیتابیس به <code>paid</code> تغییر می‌دهد. تنها بعد از مشاهده تراکنش قطعی در حساب بانکی انجام شود.</div><label class="ap-payment-check"><input id="ap-payments-checked" type="checkbox" required> <span>ورود وجه، کد رزرو و مبلغ را با گردش واقعی حساب بانکی تطبیق داده‌ام.</span></label><label class="ap-field">برای تأیید، کد کامل رزرو را وارد کنید<input id="ap-payments-code" type="text" autocomplete="off" spellcheck="false" dir="ltr" required placeholder="AFRA-..."></label><div id="ap-payments-dialog-error" role="alert"></div><div class="ap-payments-dialog-actions"><button type="button" class="ap-btn secondary" id="ap-payments-cancel">انصراف</button><button type="submit" class="ap-btn" id="ap-payments-submit" disabled>تأیید نهایی واریز</button></div></form></dialog>`;
+ const $box=s=>$(s,box);
+ const stats=$box('#ap-payments-stats'),list=$box('#ap-payments-list'),feedback=$box('#ap-payments-feedback');
+ const selector=$box('#ap-payments-filter'),search=$box('#ap-payments-search');
+ const dialog=$box('#ap-payments-confirm'),form=$box('#ap-payments-form'),check=$box('#ap-payments-checked'),typed=$box('#ap-payments-code'),submit=$box('#ap-payments-submit');
+ const receiptDialog=$box('#ap-receipt-confirm'),receiptForm=$box('#ap-receipt-form'),receiptCheck=$box('#ap-receipt-checked'),receiptCode=$box('#ap-receipt-code'),receiptSubmit=$box('#ap-receipt-submit');
+ let records=[],selected=null,sending=false,selectedReceipt=null,receiptSending=false,requestSeq=0;
+ const resName={pending:'در انتظار بررسی',confirmed:'تأییدشده',rejected:'ردشده',cancelled:'لغوشده',expired:'منقضی‌شده'};
+ const payName={unpaid:'پرداخت‌نشده',receipt_submitted:'رسید ثبت‌شده',paid:'واریز تأیید شد',failed:'ناموفق'};
+ const readableTime=x=>{if(!x)return '—';const d=new Date(x);return Number.isNaN(d.getTime())?'—':d.toLocaleString('fa-IR');};
+ const hasPrice=r=>Number.isFinite(Number(r.payment_amount))&&Number(r.payment_amount)>0;
+ const timePending=r=>!!r.payment_deadline_at&&new Date(r.payment_deadline_at).getTime()>Date.now();
+ const canRecordReceipt=r=>r.status==='confirmed'&&r.payment_status==='unpaid'&&hasPrice(r)&&timePending(r);
+ const canConfirmPayment=r=>r.status==='confirmed'&&r.payment_status==='receipt_submitted'&&hasPrice(r);
+ const eligible=r=>canRecordReceipt(r)||canConfirmPayment(r);
+ const price=r=>Number(r.payment_amount)>0?money(r.payment_amount):'مبلغ ثبت نشده';
+ const badge=r=>r.payment_status==='paid'?'ap-payment-paid':eligible(r)?'ap-payment-waiting':'ap-payment-disabled';
+ function render(){
+  const counts={receipt:records.filter(canConfirmPayment).length,unpaid:records.filter(canRecordReceipt).length,paid:records.filter(r=>r.payment_status==='paid').length,total:records.length};
+  stats.innerHTML=`<div class="ap-stat"><strong>${fmt(counts.unpaid)}</strong><small>منتظر ثبت رسید</small></div><div class="ap-stat"><strong>${fmt(counts.receipt)}</strong><small>رسیدهای نیازمند بررسی</small></div><div class="ap-stat"><strong>${fmt(counts.paid)}</strong><small>پرداخت‌های تأییدشده</small></div><div class="ap-stat"><strong>${fmt(counts.total)}</strong><small>رزروهای خوانده‌شده</small></div>`;
+  const term=search.value.trim().toLowerCase();const filtered=records.filter(r=>(selector.value==='all'||(selector.value==='paid'?r.payment_status==='paid':selector.value==='receipt'?canConfirmPayment(r):selector.value==='unpaid'?canRecordReceipt(r):eligible(r)))&&(!term||[r.reservation_code,r.property_title,r.guest_name].some(x=>String(x||'').toLowerCase().includes(term))));
+  list.innerHTML=filtered.length?filtered.map(r=>{
+   const deadline=r.payment_deadline_at?new Date(r.payment_deadline_at).getTime():NaN;
+   const reviewDue=r.receipt_review_deadline_at?new Date(r.receipt_review_deadline_at).getTime():NaN;
+   const afterDepositDeadline=r.status==='confirmed'&&r.payment_status==='unpaid'&&Number.isFinite(deadline)&&deadline<=Date.now();
+   const reviewOverdue=canConfirmPayment(r)&&Number.isFinite(reviewDue)&&reviewDue<=Date.now();
+   const receiptAction=canRecordReceipt(r),finalAction=canConfirmPayment(r);
+   return `<article class="ap-payment-item" data-payment-id="${html(r.id)}"><div class="ap-payment-item-head"><div><div class="ap-payment-code" dir="ltr">${html(r.reservation_code||r.id)}</div><h3>${html(r.property_title||'اقامتگاه ثبت‌شده')}</h3></div><span class="ap-payment-status ${badge(r)}">${html(payName[r.payment_status]||r.payment_status||'نامشخص')}</span></div>
+    <div class="ap-payment-item-grid"><div><small>مبلغ قابل پرداخت</small><strong class="ap-payment-amount">${price(r)}</strong></div><div><small>وضعیت رزرو</small><strong>${html(resName[r.status]||r.status||'—')}</strong></div><div><small>نام مسافر</small><strong>${html(r.guest_name||'—')}</strong></div><div><small>تاریخ ورود تا خروج</small><strong>${html(jDate(r.check_in))} تا ${html(jDate(r.check_out))}</strong></div><div><small>مهلت واریز (۳۰ دقیقه)</small><strong>${html(readableTime(r.payment_deadline_at))}</strong></div><div><small>ثبت دریافت رسید</small><strong>${html(readableTime(r.receipt_submitted_at))}</strong></div><div><small>مهلت بررسی رسید (۴۰ دقیقه)</small><strong class="${reviewOverdue?'ap-payment-urgent':''}">${html(readableTime(r.receipt_review_deadline_at))}</strong></div><div><small>تأیید واریز در سیستم</small><strong>${html(readableTime(r.payment_paid_at))}</strong></div></div>
+    ${afterDepositDeadline?'<p class="ap-payment-warning-inline">مهلت ۳۰ دقیقه‌ای ثبت دریافت رسید تمام شده است؛ این رزرو دیگر از مسیر عادی قابل ثبت رسید نیست.</p>':''}
+    ${reviewOverdue?'<p class="ap-payment-warning-inline ap-payment-urgent-notice" role="status">⚠️ مهلت ۴۰ دقیقه‌ای بررسی رسید گذشته است. این رزرو خودکار منقضی نمی‌شود؛ لطفاً در اولویت بررسی بانک قرار دهید.</p>':''}
+    <div class="ap-payment-item-actions">${receiptAction?`<button type="button" class="ap-btn ap-payment-receipt" data-receipt-payment="${html(r.id)}">📩 رسید دریافت شد</button>`:''}${finalAction?`<button type="button" class="ap-btn ap-payment-review" data-verify-payment="${html(r.id)}">✓ بررسی و تأیید نهایی واریز</button>`:''}${!receiptAction&&!finalAction?`<span class="ap-muted">${r.payment_status==='paid'?'پرداخت قبلاً تأیید شده است.':r.payment_status==='receipt_submitted'?'رسید در صف بررسی قرار دارد.':'این رزرو اکنون قابل اقدام پرداخت نیست.'}</span>`:''}</div></article>`;
+  }).join(''):`<div class="ap-empty">${selector.value==='review'?'در حال حاضر رزروی با اقدام قابل انجام وجود ندارد.':'موردی مطابق فیلتر و جست‌وجو پیدا نشد.'}</div>`;
+ }
+ async function reload(){const seq=++requestSeq;const btn=$box('#ap-payments-refresh');btn.disabled=true;list.innerHTML=loading();feedback.innerHTML='';
+  try{
+   const {data,error}=await db().from('reservations').select('id,reservation_code,property_id,guest_name,check_in,check_out,status,payment_status,payment_amount,payment_deadline_at,receipt_submitted_at,receipt_review_deadline_at,payment_paid_at,payment_method,created_at').order('created_at',{ascending:false}).limit(150);
+   if(error)throw error;
+   const rows=data||[],ids=[...new Set(rows.map(r=>r.property_id).filter(Boolean))],titles={};
+   if(ids.length){const p=await db().from('properties').select('id,title').in('id',ids);if(!p.error)(p.data||[]).forEach(x=>titles[x.id]=x.title);}
+   if(seq!==requestSeq)return;
+   records=rows.map(r=>({...r,property_title:titles[r.property_id]||'اقامتگاه'}));render();
+  }catch(e){list.innerHTML=banner('دریافت رزروها موفق نبود: '+(e?.message||'خطای ارتباط'),'error');}
+  finally{if(seq===requestSeq)btn.disabled=false;}
+ }
+ function closeReceiptDialog(){if(receiptSending)return;if(receiptDialog.open)receiptDialog.close();selectedReceipt=null;}
+ function validReceipt(){const valid=!!selectedReceipt&&receiptCheck.checked&&receiptCode.value.trim().toUpperCase()===String(selectedReceipt.reservation_code||'').toUpperCase()&&!receiptSending;receiptSubmit.disabled=!valid;return valid;}
+ $box('#ap-receipt-cancel').addEventListener('click',closeReceiptDialog);$box('#ap-receipt-cancel-top').addEventListener('click',closeReceiptDialog);
+ receiptDialog.addEventListener('cancel',e=>{if(receiptSending)e.preventDefault();else selectedReceipt=null;});
+ receiptCheck.addEventListener('change',validReceipt);receiptCode.addEventListener('input',validReceipt);
+ list.addEventListener('click',e=>{const btn=e.target.closest('[data-receipt-payment]');if(!btn)return;
+  const row=records.find(x=>x.id===btn.dataset.receiptPayment);if(!row||!canRecordReceipt(row))return;
+  selectedReceipt=row;receiptCheck.checked=false;receiptCode.value='';$box('#ap-receipt-dialog-error').innerHTML='';
+  $box('#ap-receipt-selected').innerHTML=`<div>رزرو <b dir="ltr">${html(row.reservation_code)}</b></div><div>اقامتگاه: <strong>${html(row.property_title)}</strong></div><div>مبلغ اعلام‌شده: <strong>${price(row)}</strong></div><div>مهلت دریافت رسید: <strong>${html(readableTime(row.payment_deadline_at))}</strong></div>`;
+  validReceipt();receiptDialog.showModal();receiptCheck.focus();
+ });
+ receiptForm.addEventListener('submit',async e=>{e.preventDefault();if(!validReceipt())return;
+  receiptSending=true;receiptSubmit.disabled=true;$box('#ap-receipt-dialog-error').innerHTML='';
+  try{
+   const {data:latest,error:lookupError}=await db().from('reservations').select('id,reservation_code,status,payment_status,payment_amount,payment_deadline_at').eq('id',selectedReceipt.id).maybeSingle();
+   if(lookupError||!latest||!canRecordReceipt(latest)||latest.reservation_code!==selectedReceipt.reservation_code)throw new Error('مهلت ثبت رسید تمام شده یا وضعیت رزرو تغییر کرده است. تازه‌سازی کنید.');
+   const {data:ok,error}=await db().rpc('admin_mark_card_transfer_receipt_received',{p_reservation_id:selectedReceipt.id});
+   if(error)throw error;if(ok!==true)throw new Error('ثبت دریافت رسید از سوی سرور پذیرفته نشد؛ ممکن است مهلت واریز پایان یافته باشد.');
+   receiptDialog.close();selectedReceipt=null;
+   await reload();feedback.innerHTML=banner('دریافت رسید ثبت شد و مهلت بررسی ۴۰ دقیقه‌ای شروع شد. این مرحله تأیید پرداخت نیست؛ تراکنش را در بانک بررسی کنید.','success');
+  }catch(err){$box('#ap-receipt-dialog-error').innerHTML=banner('ثبت رسید ناموفق بود: '+(err?.message||'خطای سرور'),'error');}
+  finally{receiptSending=false;validReceipt();}
+ });
+ function closeDialog(){if(sending)return;if(dialog.open)dialog.close();selected=null;}
+ function validConfirm(){const valid=!!selected&&check.checked&&typed.value.trim().toUpperCase()===String(selected.reservation_code||'').toUpperCase()&&!sending;submit.disabled=!valid;return valid;}
+ $box('#ap-payments-cancel').addEventListener('click',closeDialog);$box('#ap-payments-cancel-top').addEventListener('click',closeDialog);
+ dialog.addEventListener('cancel',e=>{if(sending)e.preventDefault();else selected=null;});
+ check.addEventListener('change',validConfirm);typed.addEventListener('input',validConfirm);
+ list.addEventListener('click',e=>{const btn=e.target.closest('[data-verify-payment]');if(!btn)return;
+  const row=records.find(x=>x.id===btn.dataset.verifyPayment);if(!row||!canConfirmPayment(row))return;
+  selected=row;check.checked=false;typed.value='';$box('#ap-payments-dialog-error').innerHTML='';
+  $box('#ap-payments-selected').innerHTML=`<div>رزرو <b dir="ltr">${html(row.reservation_code)}</b></div><div>اقامتگاه: <strong>${html(row.property_title)}</strong></div><div>مبلغ برای تطبیق با بانک: <strong>${price(row)}</strong></div><div>وضعیت کنونی: <strong>${html(payName[row.payment_status]||'—')}</strong></div>`;
+  validConfirm();dialog.showModal();check.focus();
+ });
+ form.addEventListener('submit',async e=>{e.preventDefault();if(!validConfirm())return;
+  sending=true;submit.disabled=true;$box('#ap-payments-dialog-error').innerHTML='';
+  try{
+   const {data:latest,error:lookupError}=await db().from('reservations').select('id,reservation_code,status,payment_status,payment_amount').eq('id',selected.id).maybeSingle();
+   if(lookupError||!latest||!canConfirmPayment(latest)||latest.reservation_code!==selected.reservation_code){throw new Error('وضعیت رزرو تغییر کرده است. صفحه را تازه‌سازی و دوباره بررسی کنید.');}
+   const {data:ok,error}=await db().rpc('admin_mark_reservation_paid',{p_reservation_id:selected.id});
+   if(error)throw error;if(ok!==true)throw new Error('سرور تأیید پرداخت را نپذیرفت؛ ممکن است وضعیت رزرو تغییر کرده باشد.');
+   dialog.close();selected=null;feedback.innerHTML=banner('تأیید واریز در Supabase ثبت شد. ارسال پیام نهایی تلگرام به تنظیم مسیر پرداخت‌شده در Make نیاز دارد.','success');
+   await reload();feedback.innerHTML=banner('واریز تأیید و در Supabase ثبت شد. برای پیام قطعی‌شدن رزرو، مسیر وضعیت paid را در Make تکمیل کنید.','success');
+  }catch(err){$box('#ap-payments-dialog-error').innerHTML=banner('تأیید ناموفق بود: '+(err?.message||'خطای سرور'),'error');}
+  finally{sending=false;validConfirm();}
+ });
+ selector.addEventListener('change',render);search.addEventListener('input',render);$box('#ap-payments-refresh').addEventListener('click',reload);
+ // Keep receipt and deposit deadline warnings current while the administration panel remains open.
+ const deadlineRefresh=setInterval(()=>{if(!document.hidden&&records.length)render();},30000);
+ window.addEventListener('pagehide',()=>clearInterval(deadlineRefresh),{once:true});
+ await reload();
+}
+
 async function messagesPage(){
  shell('گفت‌وگوی مسافر و میزبان','گفت‌وگوها به رزرو واقعی متصل‌اند و فقط مسافر و میزبان همان رزرو به پیام‌ها دسترسی دارند.',`<div id="ap-msg" class="ap-stack">${loading()}</div>`,'پیام‌ها');
  const me=await user(),el=$('#ap-msg');if(!me){el.innerHTML=loginNeeded();return;}
@@ -547,6 +661,7 @@ function init(){document.body.appendChild(toastRoot);nav();addLegacyLinks();if(c
  switch(moduleId){case 'search':searchPage();break;case 'map':searchPage(true);break;case 'categories':categoryPage();break;case 'cities':citiesPage();break;case 'regions':regionsPage();break;
  case 'auth':case 'register':authPage();break;case 'guest':dashboardPage();break;case 'account-bookings':accountBookingsPage();break;case 'my-searches':mySearchesPage();break;case 'my-reviews':myReviewsPage();break;case 'host-reviews':hostReviewsPage();break;case 'notifications':notificationsPage();break;case 'favorites':favoritePage();break;case 'support':supportPage();break;case 'wallet':walletPage();break;case 'reviews':reviewsPage();break;case 'compare':comparePage();break;case 'booking':bookingPage();break;case 'payment':case 'result':case 'voucher':paymentPage(moduleId);break;
  case 'spec-editor':propertySpecsPage();break;case 'host-calendar':hostCalendarPage();break;case 'host-finance':hostFinancePage();break;case 'host-performance':hostFinancePage('performance');break;case 'add-property':hostRoutePage('add');break;case 'manage-property':hostRoutePage('manage');break;
+ case 'admin-payments':adminPaymentsPage();break;
  case 'messages':messagesPage();break;
  default:if(moduleId.startsWith('admin-'))adminPage(moduleId.slice(6));else if(['about','contact','rules','privacy','faq','magazine','journal','become-host','last-minute','discounts','referrals'].includes(moduleId))marketingPage(moduleId);else cardLanding('افرا سفر','صفحه مورد نظر از منوی زیر قابل دسترسی است.',menu.map(([a,b])=>[a,b,'']));
  }
