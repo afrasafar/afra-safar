@@ -357,3 +357,96 @@ html[data-afra-theme="dark"] :is(.afra-primary-search-field,.search-dropdown-pan
 @media(prefers-contrast:more){html[data-afra-theme="dark"]{--afra-ui-stroke:#818181;--afra-ui-secondary:#dedede} .afra-theme-switch,.afra-appearance-menu button{outline-offset:2px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}.afra-appearance-menu *{transition:none!important}}
 @media print{.afra-theme-switch,.afra-appearance-menu{display:none!important}html[data-afra-theme="dark"]{color-scheme:light!important} }
+
+
+
+/* AFRA SAFAR — official six-color brand palette (2026-11-16) */
+:root {
+  --afra-brand-950:#051F20;
+  --afra-brand-900:#0B2B26;
+  --afra-brand-800:#163832;
+  --afra-brand-700:#235347;
+  --afra-brand-300:#8EB69B;
+  --afra-brand-100:#DAF1DE;
+  --primary:#235347;
+  --primary-dark:#0B2B26;
+  --primary-light:#DAF1DE;
+  --accent:#8EB69B;
+  --text:#163832;
+  --muted:#58736A;
+  --background:#F7FBF8;
+  --surface:#FFFFFF;
+  --border:#D7E7DC;
+  --ap-bg:#F7FBF8;
+  --ap-panel:#FFFFFF;
+  --ap-txt:#163832;
+  --ap-sub:#58736A;
+  --ap-line:#D7E7DC;
+  --ap-brand:#235347;
+  --ap-brand-fg:#FFFFFF;
+  --ap-chip:#DAF1DE;
+  --ap-focus:#235347;
+  --afra-ui-surface:#FFFFFF;
+  --afra-ui-elevated:#F2F8F3;
+  --afra-ui-foreground:#163832;
+  --afra-ui-secondary:#58736A;
+  --afra-ui-stroke:#D7E7DC;
+  --afra-ui-control:#F7FBF8;
+  --afra-ui-focus:#235347;
+  accent-color:#235347;
+}
+html[data-afra-theme="dark"] {
+  --background:#051F20;
+  --surface:#0B2B26;
+  --text:#DAF1DE;
+  --muted:#A9C7B2;
+  --border:#235347;
+  --primary:#8EB69B;
+  --primary-dark:#051F20;
+  --primary-light:#163832;
+  --accent:#8EB69B;
+  --ap-bg:#051F20;
+  --ap-panel:#0B2B26;
+  --ap-txt:#DAF1DE;
+  --ap-sub:#A9C7B2;
+  --ap-line:#235347;
+  --ap-brand:#8EB69B;
+  --ap-brand-fg:#051F20;
+  --ap-chip:#163832;
+  --ap-focus:#8EB69B;
+  --afra-ui-surface:#0B2B26;
+  --afra-ui-elevated:#163832;
+  --afra-ui-foreground:#DAF1DE;
+  --afra-ui-secondary:#A9C7B2;
+  --afra-ui-stroke:#235347;
+  --afra-ui-control:#163832;
+  --afra-ui-focus:#8EB69B;
+  --afra-dark-bg:#051F20;
+  --afra-dark-surface:#0B2B26;
+  --afra-dark-raised:#163832;
+  --afra-dark-border:#235347;
+  --afra-dark-text:#DAF1DE;
+  --afra-dark-muted:#A9C7B2;
+  --afra-dark-green:#8EB69B;
+  color-scheme:dark;
+  accent-color:#8EB69B;
+}
+.ap-travelbar{background:#051F20;color:#DAF1DE;border-color:#235347}
+.ap-btn,.btn-primary,.primary-btn,.submit-btn,.auth-submit,button.primary,a.btn-primary{
+  background:#235347;border-color:#235347;color:#fff
+}
+.ap-btn:hover,.btn-primary:hover,.primary-btn:hover,.submit-btn:hover,.auth-submit:hover,
+button.primary:hover,a.btn-primary:hover{background:#163832;border-color:#163832}
+.ap-btn.secondary,.btn-secondary,.secondary-btn,button.secondary,a.btn-secondary{
+  background:var(--ap-panel);border-color:var(--ap-line);color:var(--ap-txt)
+}
+.ap-panel,.ap-stay,.ap-stat,.ap-linkcard,.ap-faq details,.ap-payment-item{
+  border-color:var(--ap-line)
+}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline-color:var(--ap-focus)
+}
+.afra-theme-switch{color:#163832;border-color:#8EB69B}
+.afra-theme-switch:focus-visible{outline-color:#235347}
+.ap-payment-receipt{background:#DAF1DE!important;color:#0B2B26!important;border-color:#8EB69B!important}
+html[data-afra-theme="dark"] .ap-payment-receipt{background:#163832!important;color:#DAF1DE!important;border-color:#8EB69B!important}

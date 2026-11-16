@@ -685,3 +685,11 @@ body[data-afra-page="index.html"] .stay-card .favorite-button:focus-visible{outl
 @media(prefers-reduced-motion:reduce){
  body[data-afra-page="index.html"] #regions .afra-region-real-image{transition:none!important;}
 }
+
+
+
+/* Official Afra Safar palette overrides */
+body[data-afra-page="index.html"]{--afra-ref-yellow:#8EB69B;--afra-ref-deep:#051F20}
+body[data-afra-page="index.html"] .header .logo-icon{background:#8EB69B!important;color:#051F20!important}
+body[data-afra-page="index.html"] .header #menuToggle span,
+body[data-afra-page="index.html"] #menuToggle span{background:#DAF1DE!important}
