@@ -1,0 +1,309 @@
+/* Afra Safar — restrained purple glass redesign
+   Scope: homepage visual layer only. The forest hero image, hero overlay,
+   Persian couplet placement/content, search behavior and existing page layout stay intact. */
+
+body[data-afra-page="index.html"] {
+  --afra-purple-950: #0B0720;
+  --afra-purple-900: #25134D;
+  --afra-purple-700: #6A2FC8;
+  --afra-purple-500: #9D71E8;
+  --afra-purple-300: #D1B8FF;
+  --afra-purple-100: #F2E9FF;
+  --afra-glass-border: rgba(157, 113, 232, .28);
+  --afra-glass-shadow: 0 14px 36px rgba(37, 19, 77, .10);
+  --afra-glass-light: rgba(242, 233, 255, .66);
+  --afra-glass-dark: rgba(11, 7, 32, .74);
+}
+
+/* Light theme: retain the existing geometry and make only surfaces/colors softer. */
+html[data-afra-theme="light"] body[data-afra-page="index.html"] {
+  background-color: var(--afra-purple-100) !important;
+  color: var(--afra-purple-900) !important;
+}
+html[data-afra-theme="light"] body[data-afra-page="index.html"] :is(.section,.categories,.stays,#about,.afra-home-collections,.afra-regions,.afra-reviews,.afra-feature-section) {
+  background-color: rgba(242, 233, 255, .72) !important;
+  color: var(--afra-purple-900) !important;
+}
+html[data-afra-theme="light"] body[data-afra-page="index.html"] :is(.section-heading h2,.benefits-intro h2,.category-card strong,.stay-card h3) {
+  color: var(--afra-purple-900) !important;
+}
+html[data-afra-theme="light"] body[data-afra-page="index.html"] :is(.section-heading p,.benefits-intro > p,.stay-card .card-body p) {
+  color: rgba(37, 19, 77, .72) !important;
+}
+
+/* Dark theme: use the supplied deep-purple palette without recoloring the hero photo. */
+html[data-afra-theme="dark"] body[data-afra-page="index.html"] {
+  background-color: var(--afra-purple-950) !important;
+  color: var(--afra-purple-100) !important;
+}
+html[data-afra-theme="dark"] body[data-afra-page="index.html"] :is(.section,.categories,.stays,#about,.afra-home-collections,.afra-regions,.afra-reviews,.afra-feature-section) {
+  background-color: var(--afra-purple-950) !important;
+  color: var(--afra-purple-100) !important;
+}
+html[data-afra-theme="dark"] body[data-afra-page="index.html"] :is(.section-heading h2,.benefits-intro h2,.stay-card h3,.afra-feature-card :is(h3,h4),.afra-review-card :is(h3,h4)) {
+  color: var(--afra-purple-100) !important;
+}
+html[data-afra-theme="dark"] body[data-afra-page="index.html"] :is(.section-heading p,.benefits-intro > p,.stay-card .card-body p) {
+  color: rgba(242, 233, 255, .76) !important;
+}
+
+/* Keep the original hero image, its overlay, title and poetry completely untouched. */
+body[data-afra-page="index.html"] .hero,
+body[data-afra-page="index.html"] .hero-overlay,
+body[data-afra-page="index.html"] .hero .hero-content,
+body[data-afra-page="index.html"] .hero .afra-poetry-spot,
+body[data-afra-page="index.html"] .hero .afra-poetry-lines,
+body[data-afra-page="index.html"] .hero .afra-poetry-lines > span {
+  /* Intentionally no visual overrides in this redesign layer. */
+}
+
+/* Glass surfaces: photographic card images remain sharp and retain their original colors. */
+body[data-afra-page="index.html"] :is(.stay-card,.benefit-item,.benefit-card,.contact-card,.footer-card,.afra-feature-card,.afra-review-card,.afra-faq-items details) {
+  border: 1px solid var(--afra-glass-border) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--afra-glass-shadow) !important;
+  overflow: hidden;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease !important;
+}
+html[data-afra-theme="light"] body[data-afra-page="index.html"] :is(.stay-card,.benefit-item,.benefit-card,.contact-card,.footer-card,.afra-feature-card,.afra-review-card,.afra-faq-items details) {
+  background: var(--afra-glass-light) !important;
+  color: var(--afra-purple-900) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  backdrop-filter: blur(16px) saturate(135%);
+}
+html[data-afra-theme="dark"] body[data-afra-page="index.html"] :is(.stay-card,.benefit-item,.benefit-card,.contact-card,.footer-card,.afra-feature-card,.afra-review-card,.afra-faq-items details) {
+  background: rgba(37, 19, 77, .58) !important;
+  color: var(--afra-purple-100) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  backdrop-filter: blur(18px) saturate(125%);
+}
+body[data-afra-page="index.html"] :is(.stay-card,.benefit-item,.benefit-card,.contact-card,.footer-card,.afra-feature-card,.afra-review-card):is(:hover,:focus-within) {
+  transform: translateY(-3px);
+  border-color: rgba(157, 113, 232, .58) !important;
+  box-shadow: 0 18px 42px rgba(37, 19, 77, .16) !important;
+}
+
+/* Category tiles already use real destination photography: preserve the photo layer. */
+body[data-afra-page="index.html"] #categories .category-card {
+  border: 1px solid rgba(209, 184, 255, .48) !important;
+  box-shadow: 0 8px 24px rgba(11, 7, 32, .16) !important;
+}
+body[data-afra-page="index.html"] #categories .category-card .category-icon {
+  border: 1px solid rgba(209, 184, 255, .34);
+  border-radius: 12px !important;
+  background: rgba(37, 19, 77, .56) !important;
+  color: var(--afra-purple-100) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+body[data-afra-page="index.html"] #categories .category-card:is(:hover,:focus-visible) {
+  border-color: var(--afra-purple-300) !important;
+  box-shadow: 0 13px 30px rgba(37, 19, 77, .24) !important;
+}
+body[data-afra-page="index.html"] #categories .category-card.selected {
+  border-color: var(--afra-purple-300) !important;
+  box-shadow: 0 0 0 2px rgba(157, 113, 232, .28), 0 12px 28px rgba(37, 19, 77, .2) !important;
+}
+
+/* Search glass: the field remains in its existing place and keeps all original controls. */
+body[data-afra-page="index.html"] #searchForm.afra-search-v2 .search-main-row {
+  border: 1px solid rgba(209, 184, 255, .48) !important;
+  background: rgba(11, 7, 32, .68) !important;
+  color: var(--afra-purple-100) !important;
+  box-shadow: 0 16px 42px rgba(11, 7, 32, .20), inset 0 1px 0 rgba(242, 233, 255, .12) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+  backdrop-filter: blur(22px) saturate(135%);
+}
+body[data-afra-page="index.html"] #searchForm.afra-search-v2:focus-within .search-main-row {
+  border-color: var(--afra-purple-500) !important;
+  box-shadow: 0 0 0 3px rgba(157, 113, 232, .18), 0 16px 42px rgba(11, 7, 32, .22) !important;
+}
+body[data-afra-page="index.html"] #searchForm.afra-search-v2 :is(.search-main-eyebrow,#destination) {
+  color: var(--afra-purple-100) !important;
+}
+body[data-afra-page="index.html"] #searchForm.afra-search-v2 #destination::placeholder {
+  color: rgba(242, 233, 255, .72) !important;
+  opacity: 1;
+}
+body[data-afra-page="index.html"] #searchForm .search-main-icon {
+  color: var(--afra-purple-100) !important;
+  background: rgba(106, 47, 200, .72) !important;
+  border: 1px solid rgba(209, 184, 255, .38);
+}
+body[data-afra-page="index.html"] #searchForm .search-button,
+body[data-afra-page="index.html"] #favoritesToggle[aria-pressed="true"] {
+  background: linear-gradient(135deg, var(--afra-purple-500), var(--afra-purple-700)) !important;
+  border-color: rgba(209, 184, 255, .58) !important;
+  color: #fff !important;
+  box-shadow: 0 9px 24px rgba(106, 47, 200, .28) !important;
+}
+body[data-afra-page="index.html"] #searchForm .search-button:hover,
+body[data-afra-page="index.html"] #favoritesToggle[aria-pressed="true"]:hover {
+  background: linear-gradient(135deg, #b18af0, var(--afra-purple-700)) !important;
+  box-shadow: 0 12px 28px rgba(106, 47, 200, .34) !important;
+}
+
+/* Consistent purple accents for controls outside the hero. */
+body[data-afra-page="index.html"] :is(.nav-link:hover,.nav-link.active,.eyebrow,.contact-eyebrow) {
+  color: var(--afra-purple-500) !important;
+}
+body[data-afra-page="index.html"] #favoritesToggle {
+  border-color: var(--afra-glass-border) !important;
+  color: var(--afra-purple-900) !important;
+}
+html[data-afra-theme="dark"] body[data-afra-page="index.html"] #favoritesToggle {
+  background: rgba(37, 19, 77, .62) !important;
+  color: var(--afra-purple-100) !important;
+}
+
+/* Header: hamburger stays at the far right, beside—not on top of—the logo. */
+body[data-afra-page="index.html"] .header {
+  z-index: 900 !important;
+}
+body[data-afra-page="index.html"] #menuToggle {
+  position: absolute !important;
+  top: 10px !important;
+  right: 0 !important;
+  left: auto !important;
+  z-index: 970 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  touch-action: manipulation;
+  border: 1px solid rgba(209, 184, 255, .56) !important;
+  background: rgba(37, 19, 77, .74) !important;
+  color: var(--afra-purple-100) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(11, 7, 32, .24) !important;
+}
+body[data-afra-page="index.html"] #menuToggle span {
+  background: var(--afra-purple-100) !important;
+  transition: transform .2s ease, opacity .2s ease !important;
+}
+body[data-afra-page="index.html"] #menuToggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+body[data-afra-page="index.html"] #menuToggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+body[data-afra-page="index.html"] #menuToggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+body[data-afra-page="index.html"] #mainNav.nav {
+  top: 64px !important;
+  right: 0 !important;
+  left: auto !important;
+  z-index: 980 !important;
+  pointer-events: auto !important;
+  border: 1px solid rgba(209, 184, 255, .34) !important;
+  background: rgba(11, 7, 32, .96) !important;
+  color: var(--afra-purple-100) !important;
+  box-shadow: 0 22px 54px rgba(11, 7, 32, .42) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+  backdrop-filter: blur(22px) saturate(130%);
+}
+body[data-afra-page="index.html"] #mainNav.nav.nav-open {
+  display: flex !important;
+  animation: afraMenuReveal .18s ease-out both;
+}
+body[data-afra-page="index.html"] #mainNav .nav-link {
+  color: var(--afra-purple-100) !important;
+  border-radius: 12px !important;
+}
+body[data-afra-page="index.html"] #mainNav .nav-link:is(:hover,:focus-visible,.active) {
+  background: rgba(106, 47, 200, .28) !important;
+  color: #fff !important;
+}
+body[data-afra-page="index.html"] #mainNav .afra-menu-label {
+  color: var(--afra-purple-300) !important;
+}
+@keyframes afraMenuReveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* The contact CTA and mobile call button use the supplied palette, not the old green/gold. */
+body[data-afra-page="index.html"] .contact-section {
+  background:
+    radial-gradient(ellipse at 12% 15%, rgba(157, 113, 232, .24), transparent 36%),
+    linear-gradient(125deg, var(--afra-purple-950), var(--afra-purple-900) 58%, #35166c) !important;
+  border-block: 1px solid rgba(209, 184, 255, .28) !important;
+}
+body[data-afra-page="index.html"] .contact-section :is(h2,p) {
+  color: var(--afra-purple-100) !important;
+}
+body[data-afra-page="index.html"] .contact-eyebrow {
+  color: var(--afra-purple-300) !important;
+}
+body[data-afra-page="index.html"] .contact-button,
+body[data-afra-page="index.html"] .mobile-contact {
+  background: linear-gradient(135deg, var(--afra-purple-500), var(--afra-purple-700)) !important;
+  border: 1px solid rgba(209, 184, 255, .62) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(106, 47, 200, .30) !important;
+}
+body[data-afra-page="index.html"] :is(.contact-button,.mobile-contact):hover {
+  background: linear-gradient(135deg, #b18af0, var(--afra-purple-700)) !important;
+  box-shadow: 0 14px 32px rgba(106, 47, 200, .38) !important;
+}
+
+/* Footer remains compact; only its surface and link accents change. */
+body[data-afra-page="index.html"] .afra-site-footer {
+  background: var(--afra-purple-950) !important;
+  color: rgba(242, 233, 255, .82) !important;
+  border-top: 1px solid rgba(209, 184, 255, .22) !important;
+}
+body[data-afra-page="index.html"] .afra-footer-grid :is(h3,.afra-footer-logo) {
+  color: var(--afra-purple-100) !important;
+}
+body[data-afra-page="index.html"] .afra-footer-grid a {
+  color: rgba(209, 184, 255, .88) !important;
+}
+body[data-afra-page="index.html"] .afra-footer-grid a:hover {
+  color: #fff !important;
+}
+body[data-afra-page="index.html"] :is(.afra-policy,.afra-footer-bottom) {
+  border-color: rgba(209, 184, 255, .20) !important;
+  color: rgba(242, 233, 255, .72) !important;
+}
+body[data-afra-page="index.html"] .afra-policy summary {
+  color: var(--afra-purple-300) !important;
+}
+body[data-afra-page="index.html"] .afra-policy-copy p {
+  color: rgba(242, 233, 255, .72) !important;
+}
+
+/* Accessible focus and motion settings. */
+body[data-afra-page="index.html"] :is(a,button,input,select):focus-visible {
+  outline: 3px solid var(--afra-purple-300) !important;
+  outline-offset: 3px !important;
+}
+@media (max-width: 700px) {
+  body[data-afra-page="index.html"] #menuToggle {
+    top: 10px !important;
+    right: 0 !important;
+    left: auto !important;
+  }
+  body[data-afra-page="index.html"] #mainNav.nav {
+    top: 62px !important;
+    right: 0 !important;
+    left: auto !important;
+    width: min(340px, calc(100vw - 24px)) !important;
+    max-height: calc(100dvh - 72px) !important;
+  }
+  body[data-afra-page="index.html"] .contact-inner {
+    gap: 18px;
+  }
+  body[data-afra-page="index.html"] .contact-button {
+    min-height: 48px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-afra-page="index.html"] *,
+  body[data-afra-page="index.html"] *::before,
+  body[data-afra-page="index.html"] *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
