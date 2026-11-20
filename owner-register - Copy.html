@@ -1,0 +1,444 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123d32">
+    <title>ثبت‌نام مالک اقامتگاه | افرا سفر</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background: #f3f7f4;
+            color: #19372d;
+            min-height: 100vh;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: #fff;
+            padding: 34px;
+            border-radius: 24px;
+            box-shadow: 0 15px 50px rgba(18, 61, 50, .09);
+        }
+
+        .brand {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .brand-icon {
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .brand h1 {
+            color: #123d32;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .brand p {
+            color: #718078;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .heading {
+            margin-bottom: 23px;
+        }
+
+        .heading h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #718078;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #dce6df;
+            border-radius: 12px;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            background: #fcfdfc;
+            transition: .2s;
+        }
+
+        input:focus {
+            border-color: #246b53;
+            box-shadow: 0 0 0 3px rgba(36, 107, 83, .08);
+        }
+
+        .hint {
+            display: block;
+            color: #7b8981;
+            font-size: 11px;
+            margin-top: 6px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #123d32;
+            color: white;
+            border: 0;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .submit-btn:disabled {
+            opacity: .6;
+            cursor: wait;
+        }
+
+        .message {
+            display: none;
+            margin-top: 17px;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 2;
+            overflow-wrap: anywhere;
+        }
+
+        .message.success {
+            display: block;
+            color: #17603e;
+            background: #eaf7ef;
+        }
+
+        .message.error {
+            display: block;
+            color: #a52c2c;
+            background: #fff0f0;
+        }
+
+        .bottom {
+            margin-top: 22px;
+            text-align: center;
+            font-size: 13px;
+            color: #718078;
+        }
+
+        a {
+            color: #246b53;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 14px;
+            }
+
+            .container {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <header class="brand">
+            <div class="brand-icon">🌿</div>
+            <h1>افرا سفر</h1>
+            <p>سفر، آرامش، خاطره</p>
+        </header>
+
+        <section class="heading">
+            <h2>ثبت‌نام مالک اقامتگاه</h2>
+            <p>
+                صاحب ویلا یا کلبه هستی؟ حساب خودت رو بساز تا پس از تأیید مدیریت،
+                بتونی اقامتگاهت رو در افرا سفر ثبت کنی.
+            </p>
+        </section>
+
+        <form id="registerForm">
+            <div class="field">
+                <label for="fullName">نام و نام خانوادگی</label>
+                <input
+                    type="text"
+                    id="fullName"
+                    autocomplete="name"
+                    required
+                    maxlength="100"
+                    placeholder="نام کامل شما"
+                >
+            </div>
+
+            <div class="field">
+                <label for="phone">شماره تماس</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    autocomplete="tel"
+                    required
+                    maxlength="20"
+                    placeholder="مثلاً 09123456789"
+                >
+            </div>
+
+            <div class="field">
+                <label for="email">ایمیل</label>
+                <input
+                    type="email"
+                    id="email"
+                    autocomplete="email"
+                    required
+                    maxlength="254"
+                    placeholder="example@email.com"
+                >
+            </div>
+
+            <div class="field">
+                <label for="password">رمز عبور</label>
+                <input
+                    type="password"
+                    id="password"
+                    autocomplete="new-password"
+                    required
+                    minlength="8"
+                    maxlength="72"
+                    placeholder="حداقل ۸ کاراکتر"
+                >
+                <span class="hint">
+                    رمز عبور را در اختیار دیگران قرار نده.
+                </span>
+            </div>
+
+            <div class="field">
+                <label for="confirmPassword">تکرار رمز عبور</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    autocomplete="new-password"
+                    required
+                    minlength="8"
+                    maxlength="72"
+                    placeholder="رمز عبور را دوباره وارد کن"
+                >
+            </div>
+
+            <button class="submit-btn" id="submitBtn" type="submit">
+                ایجاد حساب مالک
+            </button>
+
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite"
+            ></div>
+        </form>
+
+        <div class="bottom">
+            قبلاً ثبت‌نام کردی؟
+            <a href="owner-login.html">ورود به حساب مالک</a>
+        </div>
+
+        <a class="back" href="index.html">← بازگشت به صفحه اصلی</a>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <script>
+        const form = document.getElementById("registerForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const message = document.getElementById("message");
+
+        function showMessage(text, type) {
+            message.textContent = text;
+            message.className = "message " + type;
+        }
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const fullName =
+                document.getElementById("fullName").value.trim();
+
+            const phone =
+                document.getElementById("phone").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            if (!fullName || !phone || !email) {
+                showMessage(
+                    "لطفاً تمام اطلاعات را وارد کن.",
+                    "error"
+                );
+                return;
+            }
+
+            if (password.length < 8) {
+                showMessage(
+                    "رمز عبور باید حداقل ۸ کاراکتر باشد.",
+                    "error"
+                );
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showMessage(
+                    "رمز عبور و تکرار آن یکسان نیستند.",
+                    "error"
+                );
+                return;
+            }
+
+            if (
+                !afraSupabase ||
+                !afraSupabase.auth
+            ) {
+                showMessage(
+                    "ارتباط با سرویس ثبت‌نام برقرار نشد. فایل supabase.js و اتصال اینترنت را بررسی کن.",
+                    "error"
+                );
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "در حال ایجاد حساب...";
+            message.className = "message";
+
+            try {
+                const { data, error } =
+                    await afraSupabase.auth.signUp({
+                        email: email,
+                        password: password,
+                        options: {
+                            data: {
+                                account_type: "owner",
+                                full_name: fullName,
+                                phone: phone
+                            }
+                        }
+                    });
+
+                if (error) {
+                    throw error;
+                }
+
+                if (!data.user) {
+                    throw new Error(
+                        "حساب ساخته نشد. لطفاً دوباره تلاش کن."
+                    );
+                }
+
+                /*
+                 * پروفایل مالک توسط Trigger دیتابیس ساخته می‌شود.
+                 * در این صفحه نباید دوباره owner_profiles را درج کنیم.
+                 */
+
+                if (!data.session) {
+                    showMessage(
+                        "حساب ثبت شد. ایمیلت را بررسی کن و لینک تأیید را باز کن. پس از تأیید ایمیل می‌توانی وارد حساب شوی. وضعیت مالک تا تأیید مدیریت در انتظار می‌ماند.",
+                        "success"
+                    );
+
+                    form.reset();
+                    return;
+                }
+
+                showMessage(
+                    "حساب با موفقیت ساخته شد. پروفایل مالک ثبت شده و وضعیت آن در انتظار تأیید مدیریت است. تا زمان تأیید، امکان ثبت اقامتگاه نداری.",
+                    "success"
+                );
+
+                form.reset();
+
+            } catch (error) {
+                console.error(
+                    "Owner registration error:",
+                    error
+                );
+
+                let errorText =
+                    error.message ||
+                    "خطایی رخ داد. دوباره تلاش کن.";
+
+                const normalizedError =
+                    errorText.toLowerCase();
+
+                if (
+                    normalizedError.includes("already registered") ||
+                    normalizedError.includes("user already registered")
+                ) {
+                    errorText =
+                        "این ایمیل قبلاً ثبت‌نام کرده است. از صفحه ورود استفاده کن.";
+                } else if (
+                    normalizedError.includes("password should be")
+                ) {
+                    errorText =
+                        "رمز عبور انتخاب‌شده شرایط لازم را ندارد.";
+                } else if (
+                    normalizedError.includes("failed to fetch")
+                ) {
+                    errorText =
+                        "ارتباط با سرور برقرار نشد. اتصال اینترنت را بررسی کن و دوباره تلاش کن.";
+                }
+
+                showMessage(errorText, "error");
+
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "ایجاد حساب مالک";
+            }
+        });
+    </script>
+</body>
+</html>
+```

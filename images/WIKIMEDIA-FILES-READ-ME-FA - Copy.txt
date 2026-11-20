@@ -1,0 +1,4 @@
+تصاویر واقعی Wikimedia Commons برای ۱۳ شهر شمالی، پس از اجرای RUN_WIKIMEDIA_DOWNLOAD_WINDOWS.bat
+در این پوشه ذخیره می‌شوند. فایل‌های اصلی در زیرپوشه wikimedia-originals قرار می‌گیرند.
+فایل index.html فقط برای تصاویر واقعاً دانلودشده به آدرس محلی تغییر می‌کند.
+برای ایجاد فایل‌های WebP کم‌حجم می‌توانید Pillow را با دستور python -m pip install Pillow نصب کنید.

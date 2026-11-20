@@ -1,0 +1,18 @@
+{
+  "name": "افرا سفر",
+  "short_name": "افرا سفر",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f7f8",
+  "theme_color": "#195b45",
+  "icons": [
+    {
+      "src": "assets/afra-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

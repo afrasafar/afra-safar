@@ -1,0 +1,50 @@
+/* Afra Safar — Dedicated administrator payment verification */
+.ap-payments-admin{display:grid;gap:18px;min-width:0}
+.ap-payments-links{display:flex;gap:9px;flex-wrap:wrap}
+.ap-payment-notice p{margin:7px 0 0;line-height:1.9;font-size:13px}
+.ap-payments-board{min-width:0}
+.ap-payments-titlebar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.ap-payments-titlebar h2{font-size:22px;margin:0 0 5px}
+.ap-payments-titlebar p{margin:0;font-size:13px}
+.ap-payments-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 20px}
+.ap-payments-filter{display:grid;grid-template-columns:minmax(175px,250px) minmax(200px,1fr);gap:12px;margin:0 0 18px}
+.ap-payments-list{display:grid;gap:13px;min-width:0}
+.ap-payment-item{border:1px solid var(--ap-line);border-radius:16px;padding:18px;background:var(--ap-panel);min-width:0}
+.ap-payment-item-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.ap-payment-item-head h3{margin:7px 0 0;font-size:17px;color:var(--ap-txt)}
+.ap-payment-code{direction:ltr;text-align:right;font-size:12px;letter-spacing:.04em;color:var(--ap-sub);overflow-wrap:anywhere}
+.ap-payment-status{display:inline-flex;align-items:center;justify-content:center;padding:6px 11px;border-radius:22px;font-weight:800;font-size:12px;white-space:normal}
+.ap-payment-waiting{background:rgba(196,137,32,.14);color:#a2730d}
+.ap-payment-paid{background:rgba(26,135,87,.14);color:#167c50}
+.ap-payment-disabled{background:var(--ap-chip);color:var(--ap-sub)}
+html[data-afra-theme="dark"] .ap-payment-waiting{color:#f1cb76}
+html[data-afra-theme="dark"] .ap-payment-paid{color:#88dcb4}
+.ap-payment-item-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px 17px}
+.ap-payment-item-grid>div{min-width:0;overflow-wrap:anywhere}
+.ap-payment-item-grid small{display:block;color:var(--ap-sub);font-size:11px;margin-bottom:5px}
+.ap-payment-item-grid strong{display:block;color:var(--ap-txt);font-size:13px;font-weight:700;line-height:1.7}
+.ap-payment-item-grid .ap-payment-amount{font-size:16px;color:var(--ap-brand)}
+.ap-payment-item-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px solid var(--ap-line);margin-top:16px;padding-top:15px;font-size:12px}
+.ap-payment-warning-inline{padding:9px 13px;background:rgba(190,130,28,.10);color:var(--ap-txt);font-size:12px;border-radius:10px;line-height:1.9;margin:14px 0 0}
+.ap-payments-dialog{position:fixed;inset:0;margin:auto;padding:0;border:1px solid var(--ap-line);border-radius:18px;width:min(92vw,540px);max-height:90dvh;overflow-y:auto;color:var(--ap-txt);background:var(--ap-panel);box-shadow:0 30px 90px rgba(0,0,0,.32);direction:rtl;font:inherit}
+.ap-payments-dialog::backdrop{background:rgba(4,12,9,.65)}
+.ap-payments-dialog form{padding:24px}
+.ap-payments-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.ap-payments-dialog-head h2{margin:0;font-size:21px}
+.ap-payments-close{border:1px solid var(--ap-line);border-radius:10px;background:var(--ap-chip);color:var(--ap-txt);font-size:26px;width:38px;height:38px;cursor:pointer}
+.ap-payment-summary{border:1px solid var(--ap-line);border-radius:12px;padding:12px 15px;display:grid;gap:8px;overflow-wrap:anywhere;font-size:13px;line-height:1.9}
+.ap-payment-warning{background:rgba(190,130,28,.10);border-right-color:#bf8629;font-size:12px;line-height:1.9}
+.ap-payment-check{display:flex;align-items:flex-start;gap:9px;line-height:1.9;font-size:13px;color:var(--ap-txt);cursor:pointer}
+.ap-payment-check input{margin-top:7px;width:17px;height:17px;flex:none;accent-color:var(--ap-brand)}
+.ap-payments-dialog-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px}
+.ap-payments-dialog-actions .ap-btn{flex:0 1 auto}
+#ap-payments-code,#ap-receipt-code{direction:ltr;text-align:left;font-family:inherit}
+.ap-payment-receipt{background:#d7e8e0!important;color:#154638!important;border:1px solid #b2d4c4!important;font-weight:800}
+.ap-payment-receipt:hover{background:#c4decf!important}
+html[data-afra-theme="dark"] .ap-payment-receipt{background:#234a3d!important;color:#e2f5ea!important;border-color:#436c59!important}
+.ap-payment-urgent{color:#b85629!important}
+html[data-afra-theme="dark"] .ap-payment-urgent{color:#ffa66f!important}
+.ap-payment-urgent-notice{border:1px solid rgba(202,104,45,.33);background:rgba(202,104,45,.1)}
+@media(max-width:900px){.ap-payment-item-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.ap-payments-titlebar>.ap-btn{width:100%}.ap-payments-stats{grid-template-columns:1fr 1fr}.ap-payments-stats .ap-stat{padding:12px}.ap-payments-stats strong{font-size:19px}.ap-payments-filter{grid-template-columns:1fr}.ap-payment-item{padding:14px}.ap-payment-item-grid{grid-template-columns:1fr 1fr;gap:11px}.ap-payment-item-grid strong{font-size:12px}.ap-payment-item-grid .ap-payment-amount{font-size:14px}.ap-payment-item-actions .ap-btn{width:100%}.ap-payments-dialog form{padding:17px}.ap-payments-dialog-actions .ap-btn{flex:1 1 100%}}
+@media(max-width:360px){.ap-payment-item-grid{grid-template-columns:1fr}.ap-payments-stats{grid-template-columns:1fr}}

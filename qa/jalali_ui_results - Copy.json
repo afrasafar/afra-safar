@@ -1,0 +1,355 @@
+{
+  "checks": [
+    {
+      "name": "320 hydrated static fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 date conversion",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 no horizontal overflow",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 calendar visible",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 stores Gregorian ISO",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 label displays Jalali",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 toggle dark",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 settings menu",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 classic dark applied",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "320 hydrated dynamic fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 hydrated static fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 date conversion",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 no horizontal overflow",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 calendar visible",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 stores Gregorian ISO",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 label displays Jalali",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 toggle dark",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 settings menu",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 classic dark applied",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "375 hydrated dynamic fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 hydrated static fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 date conversion",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 no horizontal overflow",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 calendar visible",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 stores Gregorian ISO",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 label displays Jalali",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 toggle dark",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 settings menu",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 classic dark applied",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "390 hydrated dynamic fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 hydrated static fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 date conversion",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 no horizontal overflow",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 calendar visible",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 stores Gregorian ISO",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 label displays Jalali",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 toggle dark",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 settings menu",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 classic dark applied",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "430 hydrated dynamic fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 hydrated static fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 date conversion",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 no horizontal overflow",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 calendar visible",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 stores Gregorian ISO",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 label displays Jalali",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 toggle dark",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 settings menu",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 classic dark applied",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "768 hydrated dynamic fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 hydrated static fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 date conversion",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 no horizontal overflow",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 calendar visible",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 stores Gregorian ISO",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 label displays Jalali",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 toggle dark",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 settings menu",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 classic dark applied",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1024 hydrated dynamic fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 hydrated static fields",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 date conversion",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 no horizontal overflow",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 calendar visible",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 stores Gregorian ISO",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 label displays Jalali",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 toggle dark",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 settings menu",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 classic dark applied",
+      "pass": true,
+      "extra": null
+    },
+    {
+      "name": "1440 hydrated dynamic fields",
+      "pass": true,
+      "extra": null
+    }
+  ],
+  "exceptions": []
+}

@@ -1,0 +1,648 @@
+/* Afra Safar • Compact cards + responsive design system • 2026-11-13
+   This CSS is linked last on active pages. Keep it last for future edits.
+   Keep the glass hero search, shared travelbar, and theme palette outside
+   card selectors so their dedicated behavior and styling remain intact. */
+:root {
+  --afra-card-radius: 14px;
+  --afra-card-gap: 12px;
+  --afra-card-pad: 14px;
+  --afra-card-photo: 158px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html,body { max-width: 100%; }
+/* Prevent grid and flex children from widening the viewport. */
+:where(.ap-page,.ap-container,.ap-main-layout,.ap-grid,.ap-results-grid,.ap-cards,.ap-panel,
+ .ap-stay,.ap-linkcard,.ap-stay__body,.stays-grid,.stay-card,.card-body,
+ .afra-feature-grid,.afra-feature-card,.afra-feature-body,.afra-regions-grid,
+ .afra-review-card,.category-card,.panel,.property-card,.reservation-card,
+ .auth-card,.stats,.stat,.grid,.property-info,.afra-card-end,
+ .afv-section,.afv-booking-card,.cottage-section,.luxury-panel) { min-width:0; }
+:where(.ap-page,.container,.ap-container,.panel,.ap-panel,.reservation-card,.property-card) :is(p,h2,h3,span,strong,small,a) {overflow-wrap:break-word;}
+:where(.ap-page,.ap-container,.container,.owner-panel,.dashboard-section) img { max-width:100%; }
+:where(.ap-page,.ap-container,.container) :is(input,select,textarea) {max-width:100%;}
+/* New platform: compact property cards, link cards, statistics and internal panels. */
+.ap-page {font-size:13px;line-height:1.85;}
+.ap-container {width:min(1136px,calc(100% - 32px));}
+.ap-page h2 {font-size:19px;}
+.ap-page h3 {font-size:15px;}
+.ap-main-layout {grid-template-columns:250px minmax(0,1fr);gap:14px;}
+.ap-panel {padding:var(--afra-card-pad);border-radius:var(--afra-card-radius);box-shadow:0 7px 23px rgba(22,38,31,.045);}
+.ap-section {margin-top:18px;}
+.ap-grid,.ap-stack {gap:var(--afra-card-gap);}
+.ap-grid.autofit {grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));}
+.ap-cards {grid-template-columns:repeat(auto-fill,minmax(min(100%,174px),1fr));gap:10px;}
+.ap-linkcard {padding:13px 14px;border-radius:12px;gap:3px;}
+.ap-linkcard strong {font-size:13px;}
+.ap-linkcard span {font-size:11px;}
+.ap-stat {padding:12px 10px;border-radius:12px;}
+.ap-stat strong {font-size:20px;overflow-wrap:anywhere;line-height:1.5;}
+.ap-stat small {font-size:11px;}
+.ap-results-grid {gap:12px;}
+.ap-stay {border-radius:var(--afra-card-radius);}
+.ap-stay__photo {height:var(--afra-card-photo);}
+.ap-stay__body {padding:11px;gap:5px;}
+.ap-stay__body h3 {font-size:13px;line-height:1.6;}
+.ap-stay__meta {font-size:11px;}
+.ap-stay__price {font-size:13px;}
+.ap-stay__actions {gap:8px;padding-top:9px;align-items:center;}
+.ap-stay__actions .ap-inline-actions {gap:5px;}
+.ap-stay__actions .ap-btn.small {min-height:34px;padding:5px 9px;}
+.ap-stay__fav {width:32px;height:32px;}
+.ap-stay__badge {font-size:10px;padding:2px 8px;}
+.ap-faq details {padding:12px 14px;}
+.ap-map {max-width:100%;}
+.ap-table-wrap {max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;}
+/* Original home: denser grids, shorter photos, less tall cards. */
+.category-grid {grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;}
+.category-card {min-height:114px;padding:12px 14px;gap:5px;border-radius:14px;}
+.category-icon {width:39px;height:39px;font-size:21px;border-radius:11px;margin-bottom:2px;}
+.category-card strong {font-size:12px;}
+.category-card small {font-size:10px;}
+.stays-grid {grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important;}
+.stay-card {border-radius:14px;}
+.stay-card .card-image {height:174px;}
+.stay-card .card-body {padding:12px;}
+.stay-card .card-body h3 {font-size:13px;min-height:40px;line-height:1.6;margin-top:6px;}
+.stay-card .card-features {margin-top:9px;padding-bottom:11px;gap:5px;}
+.stay-card .card-features span {padding:3px 6px;font-size:9px;}
+.stay-card .card-footer {padding-top:11px;gap:7px;min-width:0;}
+.stay-card .card-button {min-height:36px;padding:7px 9px;font-size:10px;}
+.stay-card .favorite-button {width:34px;height:34px;font-size:19px;}
+.stay-card .image-badge {top:9px;right:9px;padding:4px 7px;}
+.afra-feature-grid {grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+.afra-feature-card {border-radius:14px;}
+.afra-feature-image {aspect-ratio:1.72;}
+.afra-feature-body {padding:11px;}
+.afra-feature-body h3 {min-height:36px;font-size:13px;line-height:1.65;margin:5px 0;}
+.afra-card-meta {font-size:10px;gap:6px;}
+.afra-card-end {padding-top:8px;margin-top:8px;gap:6px;min-width:0;}
+.afra-card-end b {font-size:12px;white-space:normal;overflow-wrap:anywhere;}
+.afra-feature-action {font-size:10px;padding:6px 8px;white-space:normal;text-align:center;}
+.afra-reviews-grid {gap:12px;}
+.afra-review-card {padding:15px;min-height:142px;border-radius:14px;gap:8px;}
+.afra-review-card>p {font-size:12px;line-height:1.85;}
+.afra-regions-grid {gap:9px;}
+.afra-region-card {min-height:111px;padding:10px 8px;border-radius:13px;}
+.afra-region-card>span {font-size:24px;}
+.afra-region-card strong {font-size:14px;}
+/* Keep detail pages usable: shrink feature/summary cards, NOT date pickers. */
+.afv-feature,.cottage-feature,.luxury-feature {padding:10px 12px;border-radius:12px;}
+.afv-booking-card,.cottage-booking,.luxury-booking {padding:clamp(14px,2vw,20px);}
+.afv-info-item,.afv-highlight {padding:10px 12px;}
+.cottage-section,.luxury-panel,.afv-section {padding:clamp(14px,2vw,19px);}
+.cottage-related {gap:11px;}
+.cottage-related a {min-width:0;}
+/* Classic legacy owner/admin/booking cards. */
+.stats {gap:10px;}
+.stats>.stat,.stat {padding:13px 14px;border-radius:12px;}
+.stat strong {font-size:21px;}
+.panel:not(.booking):not(.calendar-panel) {padding:clamp(13px,1.5vw,18px);border-radius:14px;}
+.property-card,.reservation-card,.owner-card,.reservation {padding:12px;border-radius:12px;}
+.reservation-detail,.detail {padding:8px 9px;}
+/* Grid thresholds: choose fitting columns rather than compressing text. */
+@media (min-width:1320px) {
+  .afra-feature-grid {grid-template-columns:repeat(5,minmax(0,1fr));}
+  .ap-results-grid {grid-template-columns:repeat(4,minmax(0,1fr));}
+}
+@media (max-width:1199px) {
+  .category-grid {grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+  .stays-grid {grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+  .ap-results-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media (max-width:960px) {
+  .ap-main-layout {grid-template-columns:225px minmax(0,1fr);}
+  .ap-results-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-grid.four {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .afra-feature-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+  .afra-regions-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+  .stays-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media (max-width:760px) {
+  :root {--afra-card-pad:12px;--afra-card-gap:9px;--afra-card-photo:145px;}
+  .ap-page {padding-top:14px;}
+  .ap-container {width:calc(100% - 24px);}
+  .ap-main-layout {display:block;}
+  .ap-grid,.ap-grid.two {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .ap-grid.autofit {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-cards {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-results-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .ap-stay__photo {height:145px;}
+  .ap-stay__body {padding:10px;}
+  .ap-stay__actions {flex-wrap:wrap;}
+  .ap-stay__actions>.ap-inline-actions {width:100%;justify-content:space-between;}
+  .ap-page h2 {font-size:18px;}
+  .ap-page h1 {font-size:clamp(22px,6vw,30px);}
+  .ap-form-grid {grid-template-columns:1fr;}
+  .ap-form-grid .wide {grid-column:auto;}
+  .ap-panel {padding:12px;}
+  .category-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;}
+  .category-card {min-height:100px!important;padding:10px;}
+  .stays-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
+  .stay-card .card-image {height:155px;}
+  .stay-card .card-body {padding:10px;}
+  .stay-card .card-footer {flex-wrap:wrap;}
+  .afra-feature-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .afra-regions-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .afra-reviews-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .afra-review-card {min-height:0;padding:12px;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px;}
+  .stat,.stats>.stat {padding:11px;}
+  .panel:not(.booking):not(.calendar-panel) {padding:12px;}
+  .property-card,.reservation-card,.owner-card {padding:11px;}
+  .afv-features,.cottage-features,.luxury-features {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:480px) {
+  :root {--afra-card-photo:146px;}
+  /* Real estate cards keep readable content and a smaller centered max-width. */
+  .stays-grid,.ap-results-grid,.afra-feature-grid {grid-template-columns:minmax(0,1fr)!important;gap:12px!important;}
+  .stays-grid>.stay-card,.ap-results-grid>.ap-stay,.afra-feature-grid>.afra-feature-card {
+    width:min(100%,310px)!important;max-width:310px!important;justify-self:center;
+  }
+  .stay-card .card-image {height:157px;}
+  .stay-card .card-body h3 {min-height:0;}
+  .afra-feature-image {aspect-ratio:1.85;}
+  .ap-stay__photo {height:150px;}
+  .ap-stay__actions {flex-wrap:nowrap;}
+  .ap-stay__actions>.ap-inline-actions {width:auto;}
+  .ap-grid.four {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-grid.two {grid-template-columns:minmax(0,1fr);}
+  .ap-grid.autofit {grid-template-columns:minmax(0,1fr);}
+  .ap-grid.autofit>.ap-panel {width:min(100%,330px);justify-self:center;}
+  .ap-cards {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ap-linkcard {padding:11px;}
+  .ap-linkcard strong {font-size:12px;}
+  .afra-regions-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .afra-reviews-grid {grid-template-columns:1fr;}
+  .afra-reviews-grid>.afra-review-card {width:min(100%,310px);justify-self:center;}
+  .ap-check-list {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .afra-card-end {align-items:center;}
+  /* Avoid 320-pixel overflow from wide labels or long buttons. */
+  .ap-inline-actions {gap:6px;}
+  .ap-btn {max-width:100%;min-width:0;white-space:normal;text-align:center;}
+  .ap-stay__actions .ap-btn {font-size:11px;}
+  .category-card {min-height:94px!important;}
+  .category-icon {height:36px;width:36px;font-size:20px;}
+  .stats {grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media (max-width:360px) {
+  .ap-container {width:calc(100% - 20px);}
+  .ap-grid:not(.four):not(.autofit):has(> .ap-panel) {grid-template-columns:minmax(0,1fr);}
+  .ap-cards {gap:7px;}
+  .ap-linkcard {padding:9px;border-radius:10px;}
+  .category-grid {gap:7px!important;}
+  .afra-region-card {min-height:93px;padding:8px 5px;}
+  .afra-region-card>span {font-size:22px;}
+  .afra-region-card strong {font-size:12px;}
+  .afra-region-card small {font-size:9px;}
+  .stats>.stat strong {font-size:19px;}
+}
+/* Respect user device accessibility settings. */
+@media (prefers-reduced-motion:reduce) {
+ .stay-card,.ap-stay,.ap-linkcard,.afra-feature-card,.afra-region-card {transition:none;}
+}
+
+/* Mobile polish shared by the search, account, host, and information pages. */
+@media (max-width:760px) {
+  .ap-travelbar {
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:thin;
+    scroll-snap-type:inline proximity;
+    padding:8px 12px;
+  }
+  .ap-travelbar a {flex:0 0 auto;min-height:40px;scroll-snap-align:start;}
+  .ap-travelbar__right {margin-inline-start:auto;}
+  .ap-page {padding:16px 0 34px;}
+  .ap-intro {display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin:6px 0 18px;}
+  .ap-intro p {font-size:13px;line-height:1.9;}
+  .ap-result-head {align-items:stretch;}
+  .ap-result-head > :is(.ap-inline-actions,.ap-pills) {width:100%;}
+  .ap-inline-actions {gap:8px;}
+  .ap-page .ap-btn {min-height:44px;}
+  .ap-panel {border-radius:16px;}
+  .ap-section {margin-top:20px;}
+  .ap-field :is(input,select,textarea) {min-height:48px;}
+  .ap-table-wrap {border-radius:12px;-webkit-overflow-scrolling:touch;}
+  .ap-toast {bottom:max(14px,env(safe-area-inset-bottom));left:12px;right:12px;max-width:none;}
+}
+
+@media (max-width:480px) {
+  .ap-container {width:calc(100% - 24px);}
+  .ap-page h1 {font-size:clamp(23px,7vw,29px);line-height:1.5;}
+  .ap-page h2 {font-size:18px;line-height:1.65;}
+  .ap-page :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea) {font-size:16px;}
+  .ap-intro > :is(.ap-inline-actions,.ap-row) {width:100%;}
+  .ap-intro .ap-btn,.ap-result-head .ap-btn {flex:1 1 auto;}
+  .ap-results-grid {grid-template-columns:minmax(0,1fr)!important;gap:12px;}
+  .ap-results-grid > .ap-stay,
+  .stays-grid > .stay-card,
+  .afra-feature-grid > .afra-feature-card {
+    width:min(100%,380px)!important;
+    max-width:380px!important;
+    justify-self:center;
+  }
+  .ap-stay__photo {height:188px;}
+  .ap-stay__body {padding:13px;gap:7px;}
+  .ap-stay__body h3 {font-size:14px;}
+  .ap-stay__meta {font-size:12px;}
+  .ap-stay__price {font-size:15px;}
+  .ap-stay__actions {flex-wrap:wrap;gap:10px;}
+  .ap-stay__actions > .ap-inline-actions {width:100%;justify-content:stretch;}
+  .ap-stay__actions > .ap-inline-actions > .ap-btn {flex:1 1 auto;}
+  .ap-stay__actions .ap-btn {min-height:42px;font-size:12px;}
+  .ap-table {min-width:560px;}
+  .ap-check {min-height:40px;}
+}
+
+@media (max-width:360px) {
+  .ap-container {width:calc(100% - 20px);}
+  .ap-travelbar {padding-inline:10px;}
+  .ap-stay__photo {height:168px;}
+  .ap-stay__actions > .ap-inline-actions {flex-wrap:wrap;}
+  .ap-stay__actions > .ap-inline-actions > .ap-btn {flex-basis:100%;}
+}
+
+/* Keep the homepage hero compact and its couplet subtle on phones. */
+@media (max-width:700px) {
+  body[data-afra-page="index.html"] .hero .hero-content {
+    padding:clamp(100px,14svh,124px) 0 22px!important;
+  }
+  body[data-afra-page="index.html"] .hero .afra-poetry-spot {
+    width:min(100%,360px)!important;
+    margin:8px auto 0!important;
+  }
+  body[data-afra-page="index.html"] .hero :is(.afra-search-v2,#searchForm) {
+    margin-top:14px!important;
+  }
+  body[data-afra-page="index.html"] .hero .hero-bottom {margin-top:12px!important;}
+}
+@media (max-width:600px) {
+  body[data-afra-page="index.html"] .hero .afra-poetry-lines > span {
+    font-size:clamp(14px,4vw,16px)!important;
+    line-height:1.75!important;
+    opacity:.58!important;
+  }
+}
+
+/* Shared Afra Safar premium palette and reusable surfaces. */
+:root {
+  --afra-forest:#174d3d;
+  --afra-forest-deep:#10382e;
+  --afra-sage:#8daa98;
+  --afra-ivory:#fffdf9;
+  --afra-canvas:#f5f0e7;
+  --afra-ink:#1d2b27;
+  --afra-muted:#6d7c76;
+  --afra-line:#e9e1d5;
+  --afra-gold:#c6a66a;
+  --primary:#174d3d;
+  --primary-dark:#10382e;
+  --primary-light:#edf4ef;
+  --accent:#c6a66a;
+  --text:#1d2b27;
+  --muted:#6d7c76;
+  --background:#f5f0e7;
+  --surface:#fffdf9;
+  --border:#e9e1d5;
+  --ap-bg:#f5f0e7;
+  --ap-panel:#fff;
+  --ap-txt:#1d2b27;
+  --ap-sub:#6d7c76;
+  --ap-line:#e9e1d5;
+  --ap-brand:#174d3d;
+  --ap-brand-fg:#fff;
+  --ap-chip:#edf2ed;
+  --ap-focus:#317e60;
+  --afra-ui-surface:#fff;
+  --afra-ui-elevated:#f5f0e7;
+  --afra-ui-foreground:#1d2b27;
+  --afra-ui-secondary:#6d7c76;
+  --afra-ui-stroke:#e9e1d5;
+  --afra-ui-control:#fffdf9;
+  --afra-ui-focus:#317e60;
+  --afra-card-radius:16px;
+  --green:#174d3d;
+  --green-light:#e9f0eb;
+  --gold:#c6a66a;
+  --cream:#f5f0e7;
+  --text:#1d2b27;
+  --muted:#6d7c76;
+  --line:#e9e1d5;
+  --white:#fff;
+}
+html[data-afra-theme="dark"] {
+  --afra-dark-bg:#141a16;
+  --afra-dark-surface:#1d2520;
+  --afra-dark-raised:#29332c;
+  --afra-dark-border:#3d4a41;
+  --afra-dark-text:#edf3ee;
+  --afra-dark-muted:#b1beb4;
+  --afra-dark-green:#65b78e;
+  --afra-forest:#65b78e;
+  --afra-forest-deep:#173e2e;
+  --afra-sage:#56856b;
+  --afra-ivory:#1a231f;
+  --afra-canvas:#141a16;
+  --afra-ink:#edf3ee;
+  --afra-muted:#b1beb4;
+  --afra-line:#3d4a41;
+  --afra-gold:#d4bd8a;
+  --primary:#65b78e;
+  --primary-dark:#173e2e;
+  --primary-light:#29332c;
+  --accent:#d4bd8a;
+  --text:#edf3ee;
+  --muted:#b1beb4;
+  --background:#121712;
+  --surface:#1d2520;
+  --border:#3d4a41;
+  --ap-bg:#141a16;
+  --ap-panel:#1d2520;
+  --ap-txt:#edf3ee;
+  --ap-sub:#b1beb4;
+  --ap-line:#3d4a41;
+  --ap-brand:#2f805c;
+  --ap-brand-fg:#fff;
+  --ap-chip:#29332c;
+  --ap-focus:#82cda3;
+  --afra-ui-surface:#1d2520;
+  --afra-ui-elevated:#29332c;
+  --afra-ui-foreground:#edf3ee;
+  --afra-ui-secondary:#b1beb4;
+  --afra-ui-stroke:#3d4a41;
+  --afra-ui-control:#222b25;
+  --afra-ui-focus:#82cda3;
+  --green:#65b78e;
+  --green-light:#29332c;
+  --gold:#d4bd8a;
+  --cream:#121712;
+  --text:#edf3ee;
+  --muted:#b1beb4;
+  --line:#3d4a41;
+  --white:#1d2520;
+}
+body {font-family:"Vazirmatn",Tahoma,sans-serif;}
+.ap-travelbar {background:linear-gradient(115deg,#10382e,#174d3d);border-bottom-color:rgba(255,255,255,.12);}
+.ap-panel,.ap-stay,.ap-linkcard,.ap-stat,.ap-faq details {
+  border-color:var(--afra-line);
+  box-shadow:0 10px 28px rgba(24,56,42,.055);
+}
+.ap-btn {background-color:var(--ap-brand);border-color:var(--ap-brand);}
+.ap-page .ap-field :is(input,select,textarea),
+.field :is(input,select,textarea) {
+  border-color:var(--afra-line);
+  border-radius:12px;
+}
+:is(.panel,.card,.property-card,.reservation-card,.login-card,.login-box,.dashboard-card,.stat,.detail,.booking-card,.auth-card,.benefit-item) {
+  border-color:var(--afra-line);
+  box-shadow:0 10px 28px rgba(24,56,42,.055);
+}
+:is(.btn-primary,.primary-btn,.submit-btn,.book-btn) {
+  background-color:var(--afra-forest);
+  border-color:var(--afra-forest);
+}
+body.afra-pages-index {font-family:"Vazirmatn",Tahoma,sans-serif;background:var(--afra-ivory);color:var(--afra-ink);}
+body.afra-pages-index .hero {background:linear-gradient(120deg,#174d3d,#10382e);border-color:#8daa98;}
+body.afra-pages-index .item {background:var(--afra-ui-surface);border-color:var(--afra-ui-stroke);}
+body.afra-pages-index .item a {color:var(--afra-forest);}
+html[data-afra-theme="dark"] body.afra-pages-index .item {background:var(--afra-ui-surface);}
+html[data-afra-theme="dark"] body.afra-pages-index .item a {color:#9ed7b5;}
+@media(prefers-reduced-motion:reduce) {
+  .ap-btn,.stay-card,.ap-stay,.ap-linkcard,.afra-feature-card {transition:none!important;}
+}
+
+/* Owner dashboard: keep the classic form and data flow, refresh only its presentation. */
+html:not([data-afra-theme="dark"]) body[data-afra-page="owner-dashboard.html"] {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(198,166,106,.13), transparent 24%),
+    var(--afra-canvas);
+  color:var(--afra-ink);
+}
+body[data-afra-page="owner-dashboard.html"] .topbar {
+  background:linear-gradient(110deg,#0d2d28,#174d3d 58%,#123a2f);
+  border-bottom:1px solid rgba(198,166,106,.28);
+  box-shadow:0 10px 28px rgba(17,44,38,.1);
+}
+body[data-afra-page="owner-dashboard.html"] .brand {
+  letter-spacing:-.4px;
+}
+body[data-afra-page="owner-dashboard.html"] .top-actions a,
+body[data-afra-page="owner-dashboard.html"] .top-actions button {
+  min-height:42px;
+  border-color:rgba(255,255,255,.3);
+  border-radius:12px;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+body[data-afra-page="owner-dashboard.html"] .top-actions a:hover,
+body[data-afra-page="owner-dashboard.html"] .top-actions button:hover {
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.58);
+  transform:translateY(-1px);
+}
+body[data-afra-page="owner-dashboard.html"] .welcome {
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(231,207,157,.32);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 5% 5%,rgba(198,166,106,.22),transparent 30%),
+    linear-gradient(120deg,#0d3028,#174d3d 58%,#10382e);
+  box-shadow:0 18px 42px rgba(17,44,38,.14);
+}
+body[data-afra-page="owner-dashboard.html"] .welcome h1 {
+  letter-spacing:-.35px;
+}
+body[data-afra-page="owner-dashboard.html"] .status {
+  background:rgba(255,255,255,.11);
+  border-color:rgba(255,255,255,.28);
+}
+body[data-afra-page="owner-dashboard.html"] .stat,
+body[data-afra-page="owner-dashboard.html"] .panel {
+  border:1px solid rgba(23,77,61,.08);
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(17,44,38,.055);
+}
+body[data-afra-page="owner-dashboard.html"] .stat {
+  background:linear-gradient(145deg,#fffdf9,#fbf8f0);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+body[data-afra-page="owner-dashboard.html"] .stat:hover {
+  transform:translateY(-2px);
+  border-color:rgba(198,166,106,.42);
+  box-shadow:0 14px 34px rgba(17,44,38,.09);
+}
+body[data-afra-page="owner-dashboard.html"] .stat strong {
+  color:var(--afra-forest);
+  letter-spacing:-.4px;
+}
+body[data-afra-page="owner-dashboard.html"] .panel {
+  background:rgba(255,253,249,.94);
+}
+body[data-afra-page="owner-dashboard.html"] .panel-heading {
+  padding-bottom:13px;
+  border-bottom:1px solid rgba(23,77,61,.08);
+}
+body[data-afra-page="owner-dashboard.html"] .panel-heading h2 {
+  color:var(--afra-forest-deep);
+}
+body[data-afra-page="owner-dashboard.html"] :is(.primary-btn,.secondary-btn,.danger-btn) {
+  min-height:43px;
+  border-radius:12px;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+body[data-afra-page="owner-dashboard.html"] .primary-btn {
+  background:linear-gradient(135deg,#1c624d,#10382e);
+  box-shadow:0 7px 18px rgba(16,55,44,.14);
+}
+body[data-afra-page="owner-dashboard.html"] .primary-btn:hover:not(:disabled) {
+  background:linear-gradient(135deg,#287958,#10382e);
+  box-shadow:0 10px 22px rgba(16,55,44,.2);
+  transform:translateY(-1px);
+}
+body[data-afra-page="owner-dashboard.html"] .secondary-btn {
+  border:1px solid rgba(23,77,61,.11);
+  background:linear-gradient(135deg,rgba(23,77,61,.07),rgba(198,166,106,.12));
+  color:var(--afra-forest);
+}
+body[data-afra-page="owner-dashboard.html"] .secondary-btn:hover:not(:disabled) {
+  background:rgba(23,77,61,.12);
+  transform:translateY(-1px);
+}
+body[data-afra-page="owner-dashboard.html"] .danger-btn {
+  border:1px solid rgba(182,61,61,.12);
+}
+body[data-afra-page="owner-dashboard.html"] .field :is(input,select,textarea) {
+  border-color:rgba(23,77,61,.14);
+  border-radius:12px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+body[data-afra-page="owner-dashboard.html"] .field :is(input,select,textarea):focus {
+  border-color:#5d9275;
+  box-shadow:0 0 0 3px rgba(93,146,117,.13);
+}
+body[data-afra-page="owner-dashboard.html"] .preview-item,
+body[data-afra-page="owner-dashboard.html"] .reservation-detail {
+  border:1px solid rgba(23,77,61,.07);
+  border-radius:11px;
+}
+body[data-afra-page="owner-dashboard.html"] .reservation-detail {
+  background:linear-gradient(135deg,rgba(23,77,61,.035),rgba(198,166,106,.07));
+}
+body[data-afra-page="owner-dashboard.html"] .property-state {
+  border:1px solid rgba(198,166,106,.24);
+}
+body[data-afra-page="owner-dashboard.html"] .message {
+  border:1px solid transparent;
+  border-radius:12px;
+}
+body[data-afra-page="owner-dashboard.html"] :is(a,button,input,select,textarea):focus-visible {
+  outline:3px solid rgba(198,166,106,.75);
+  outline-offset:3px;
+}
+body[data-afra-page="booking.html"] #ap-root .ap-intro {
+  margin-bottom:22px;
+}
+body[data-afra-page="booking.html"] #ap-root .ap-intro > div {
+  padding:clamp(16px,3vw,24px);
+  border:1px solid rgba(198,166,106,.23);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 5% 5%,rgba(198,166,106,.13),transparent 30%),
+    linear-gradient(135deg,rgba(23,77,61,.045),rgba(255,253,249,.95));
+}
+body[data-afra-page="booking.html"] #ap-booking > .ap-panel {
+  max-width:860px;
+  margin-inline:auto;
+  padding:clamp(17px,3vw,28px);
+  border-radius:22px;
+  box-shadow:0 18px 45px rgba(17,44,38,.08);
+}
+body[data-afra-page="booking.html"] #ap-booking > .ap-panel > h2 {
+  margin-bottom:7px;
+  font-size:clamp(19px,2.4vw,25px);
+  letter-spacing:-.3px;
+}
+body[data-afra-page="booking.html"] #ap-booking > .ap-panel > p.ap-muted {
+  margin:0 0 22px;
+  padding:12px 14px;
+  border:1px solid rgba(23,77,61,.08);
+  border-radius:13px;
+  background:linear-gradient(135deg,rgba(23,77,61,.04),rgba(198,166,106,.07));
+  line-height:1.9;
+}
+body[data-afra-page="booking.html"] #ap-new-booking {
+  gap:15px;
+  padding-top:18px;
+  border-top:1px solid var(--afra-line);
+}
+body[data-afra-page="booking.html"] #ap-new-booking .ap-field {
+  gap:7px;
+  color:var(--afra-ink);
+}
+body[data-afra-page="booking.html"] #ap-new-booking .ap-field :is(input,select,textarea) {
+  border-color:rgba(23,77,61,.14);
+  border-radius:12px;
+  background:var(--afra-ui-control);
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+body[data-afra-page="booking.html"] #ap-new-booking .ap-field :is(input,select,textarea):focus {
+  border-color:#5d9275;
+  box-shadow:0 0 0 3px rgba(93,146,117,.13);
+}
+body[data-afra-page="booking.html"] #ap-book-quote .ap-callout {
+  border-right-color:var(--afra-gold);
+  background:linear-gradient(135deg,rgba(23,77,61,.06),rgba(198,166,106,.12));
+}
+.ap-page .ap-btn:not(.secondary):not(.ghost) {
+  border-color:var(--afra-forest);
+  background:linear-gradient(135deg,var(--afra-forest),var(--afra-forest-deep));
+  box-shadow:0 7px 18px rgba(16,55,44,.12);
+}
+.ap-page .ap-btn:not(.secondary):not(.ghost):hover:not(:disabled) {
+  box-shadow:0 10px 24px rgba(16,55,44,.18);
+}
+@media (max-width:650px) {
+  body[data-afra-page="owner-dashboard.html"] .topbar {
+    gap:12px;
+    padding:14px max(16px,4%);
+  }
+  body[data-afra-page="owner-dashboard.html"] .stats {
+    grid-template-columns:minmax(0,1fr);
+  }
+  body[data-afra-page="owner-dashboard.html"] .top-actions {
+    width:100%;
+  }
+  body[data-afra-page="owner-dashboard.html"] .top-actions :is(a,button) {
+    flex:1 1 auto;
+    justify-content:center;
+    text-align:center;
+  }
+  body[data-afra-page="owner-dashboard.html"] .welcome {
+    padding:21px 18px;
+    border-radius:18px;
+  }
+  body[data-afra-page="owner-dashboard.html"] .panel-heading {
+    align-items:stretch;
+  }
+  body[data-afra-page="owner-dashboard.html"] .panel-heading :is(button,a) {
+    width:100%;
+  }
+  body[data-afra-page="booking.html"] #ap-booking > .ap-panel {
+    padding:16px 13px;
+    border-radius:17px;
+  }
+  body[data-afra-page="booking.html"] #ap-new-booking {
+    gap:12px;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  body[data-afra-page="owner-dashboard.html"] *,
+  body[data-afra-page="owner-dashboard.html"] *::before,
+  body[data-afra-page="owner-dashboard.html"] *::after {
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+  }
+}
