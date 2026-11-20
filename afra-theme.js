@@ -8,13 +8,13 @@ const media=typeof matchMedia==='function'?matchMedia('(prefers-color-scheme: da
 const moon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.3 14.4A8.5 8.5 0 0 1 9.5 3.7a8.5 8.5 0 1 0 10.8 10.7Z"/></svg>';
 const sun='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>';
 const monitor='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8m-4-4v4"/></svg>';
-function stored(){try{const x=localStorage.getItem(KEY);return ['light','dark','auto'].includes(x)?x:'auto';}catch(_){return 'auto';}}
+function stored(){try{const x=localStorage.getItem(KEY);return ['light','dark','auto'].includes(x)?x:'dark';}catch(_){return 'dark';}}
 let preference=stored();
 function scheme(){return preference==='auto'?(media?.matches?'dark':'light'):preference;}
 function meta(name,value){let el=document.head.querySelector('meta[name="'+name+'"]');if(!el){el=document.createElement('meta');el.name=name;document.head.appendChild(el);}el.content=value;}
 function apply(){const active=scheme(),old=root.dataset.afraTheme;
  root.dataset.afraTheme=active;root.dataset.afraThemeChoice=preference;
- root.style.colorScheme=active;meta('color-scheme',active);meta('theme-color',active==='dark'?'#171717':'#f8faf8');
+ root.style.colorScheme=active;meta('color-scheme',active);meta('theme-color',active==='dark'?'#0f0f23':'#f4f6fb');
  const button=document.getElementById('afraThemeToggle');if(button){
   button.querySelector('.afra-theme-switch__icon').innerHTML=active==='dark'?sun:moon;
   button.querySelector('.afra-theme-switch__label').textContent=active==='dark'?'حالت روشن':'حالت تاریک';
@@ -25,7 +25,35 @@ function apply(){const active=scheme(),old=root.dataset.afraTheme;
  if(old!==active)window.dispatchEvent(new CustomEvent('afra:themechange',{detail:{theme:active,preference}}));
 }
 function setPreference(next){preference=['auto','light','dark'].includes(next)?next:'auto';try{localStorage.setItem(KEY,preference);}catch(_){}apply();closeMenu();}
-function toggle(){setPreference(scheme()==='dark'?'light':'dark');}
+let themeTransition=null;
+function toggle(event){
+ if(themeTransition)return;
+ const next=scheme()==='dark'?'light':'dark';
+ if(!document.startViewTransition||matchMedia('(prefers-reduced-motion: reduce)').matches){setPreference(next);return;}
+ const box=document.getElementById('afraThemeToggle')?.getBoundingClientRect();
+ const x=event?.clientX||((box?.left||0)+(box?.width||innerWidth)/2);
+ const y=event?.clientY||((box?.top||0)+(box?.height||innerHeight)/2);
+ const radius=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+ root.style.setProperty('--afra-wave-x',x+'px');root.style.setProperty('--afra-wave-y',y+'px');root.style.setProperty('--afra-wave-radius',radius+'px');
+ root.dataset.afraThemeCapturing='true';
+ themeTransition=document.startViewTransition(()=>setPreference(next));
+ // Animate an uneven liquid edge; the CSS circle remains a graceful fallback.
+ const transition=themeTransition;
+ transition.ready.then(()=>{
+  const effect=new KeyframeEffect(root,[],{pseudoElement:'::view-transition-new(root)'});
+  if(effect.pseudoElement!=='::view-transition-new(root)')return;
+  const frames=Array.from({length:97},(_,frame)=>{
+   const t=frame/96,r=radius*t*1.12;
+   const points=Array.from({length:96},(_,i)=>{
+    const angle=i*Math.PI/48;
+    const ripple=1+(1-t)*(.035*Math.sin(angle*5)+.012*Math.sin(angle*9));
+    return (x+Math.cos(angle)*r*ripple).toFixed(2)+'px '+(y+Math.sin(angle)*r*ripple).toFixed(2)+'px';
+   });return {clipPath:'polygon('+points.join(',')+')'};
+  });
+  root.animate(frames,{duration:1450,easing:'cubic-bezier(.4,0,.2,1)',fill:'both',pseudoElement:'::view-transition-new(root)'});
+ }).catch(()=>{});
+ themeTransition.finished.catch(()=>{}).finally(()=>{themeTransition=null;delete root.dataset.afraThemeCapturing;});
+}
 function install(){let button=document.getElementById('afraThemeToggle');if(!button){
  button=document.createElement('button');button.id='afraThemeToggle';button.className='afra-theme-switch';button.type='button';
  button.innerHTML='<span class="afra-theme-switch__icon" aria-hidden="true"></span><span class="afra-theme-switch__label"></span>';
@@ -35,9 +63,17 @@ function install(){let button=document.getElementById('afraThemeToggle');if(!but
  if(target)target.appendChild(button);else{button.classList.add('afra-theme-switch--floating');document.body.appendChild(button);}
  if(['index.html','owner-login.html','owner-dashboard.html','owner-reservations.html','admin.html'].includes(page))button.classList.add('afra-theme-switch--on-dark');
  }
+ // Move the same accessible control outside backdrop/transform ancestors.
+ // A quiet placeholder preserves the original homepage header alignment.
+ if(button.parentElement?.classList.contains('auth-top-actions')&&!button.parentElement.querySelector('.afra-theme-slot')){
+  const slot=document.createElement('span');slot.className='afra-theme-slot';slot.setAttribute('aria-hidden','true');button.before(slot);
+ }
+ let dock=document.getElementById('afraAppearanceDock');
+ if(!dock){dock=document.createElement('div');dock.id='afraAppearanceDock';dock.className='afra-appearance-dock';document.body.appendChild(dock);}
+ button.classList.remove('afra-theme-switch--floating','afra-theme-switch--on-dark');dock.appendChild(button);
  if(!button.querySelector('.afra-theme-switch__icon'))button.innerHTML='<span class="afra-theme-switch__icon" aria-hidden="true"></span><span class="afra-theme-switch__label"></span>';
  let longPress=null,wasLong=false;
- button.addEventListener('click',e=>{if(wasLong){wasLong=false;return;}if(e.shiftKey){openMenu(button);return;}toggle();});
+ button.addEventListener('click',e=>{if(wasLong){wasLong=false;return;}if(e.shiftKey){openMenu(button);return;}toggle(e);});
  button.addEventListener('contextmenu',e=>{e.preventDefault();openMenu(button);});
  button.addEventListener('pointerdown',e=>{if(e.pointerType!=='touch')return;wasLong=false;longPress=setTimeout(()=>{wasLong=true;openMenu(button);},620);});
  for(const action of ['pointerup','pointercancel','pointerleave'])button.addEventListener(action,()=>{clearTimeout(longPress);});

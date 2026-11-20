@@ -1,0 +1,25 @@
+{
+  "siteHtml": 66,
+  "adminHtml": 19,
+  "totalHtml": 85,
+  "functionalChecks": 68,
+  "adminPagesAudited": 19,
+  "boundButtonsAcrossPages": 190,
+  "verifiedDestinations": 39,
+  "javascriptSyntaxChecks": 18,
+  "inlineSyntaxChecks": 103,
+  "responsiveThemeCases": 340,
+  "lightAccentText": "#235347",
+  "darkAccentRetained": true,
+  "liveSchemaReadOnlyVerified": true,
+  "productionDataWrites": 0,
+  "databaseSchemaChanges": 0,
+  "assetsPreserved": {
+    "images": true,
+    "public": true,
+    "database": true,
+    "adminFonts": true,
+    "publicApplicationScripts": true
+  },
+  "errors": []
+}

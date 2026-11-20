@@ -1,0 +1,20 @@
+.afra-mobile-only-header{display:none!important}
+.ap-travelbar.afra-header-aligned,.ap-travelbar.afra-header-aligned *{box-sizing:border-box!important}
+@media(max-width:767px){
+ html[data-afra-theme] body .ap-travelbar.afra-header-aligned{display:grid!important;direction:rtl!important;grid-template-columns:auto minmax(0,1fr)!important;gap:10px!important;align-items:center!important;padding:10px 14px!important;justify-content:start!important}
+ html[data-afra-theme] body .ap-travelbar.afra-header-aligned>.ap-nav-title{display:none!important}
+ html[data-afra-theme] body .ap-travelbar.afra-header-aligned>.ap-nav-toggle{grid-column:1!important;grid-row:1!important;justify-self:start!important;order:0;min-width:64px!important;min-height:44px!important;margin:0!important}
+ html[data-afra-theme] body .ap-travelbar.afra-header-aligned>.afra-mobile-header-brand{grid-column:2!important;grid-row:1!important;justify-self:start!important;position:static!important;inset:auto!important;transform:none!important;float:none!important;margin:0!important;width:auto!important;min-width:0!important;max-width:100%!important;flex:none!important;gap:7px!important;padding:6px 9px!important;border-radius:13px!important;text-align:right!important;line-height:1.5!important}
+ html[data-afra-theme] body .ap-travelbar.afra-header-aligned>.afra-mobile-header-brand{display:inline-flex!important;align-items:center!important}
+ html[data-afra-theme] body .afra-mobile-header-brand :is(strong,small){display:block!important;margin:0!important;color:var(--afra-ui-ink)!important;line-height:1.5!important;text-shadow:none!important;white-space:nowrap!important}
+ html[data-afra-theme] body .afra-mobile-header-brand strong{font-size:14px!important;font-weight:800!important}
+ html[data-afra-theme] body .afra-mobile-header-brand small{font-size:8px!important;font-weight:500!important}
+ html[data-afra-theme] body .afra-mobile-header-brand img.afra-brand-img{display:block!important;width:27px!important;height:31px!important;object-fit:contain!important;margin:0!important;flex:none!important}
+ html[data-afra-theme] body .ap-travelbar.afra-header-aligned>.ap-nav-links{grid-column:1/-1!important;grid-row:2!important}
+ html body .afra-mobile-empty-chrome{display:none!important}
+ html body .afra-mobile-superseded-menu{display:none!important}
+ /* The existing home hamburger keeps its handlers and its right-hand anchor. */
+ html[data-afra-theme] body[data-afra-page='index.html'] .header #menuToggle{right:0!important;left:auto!important}
+ html[data-afra-theme] body[data-afra-page='index.html'] .header .logo{right:56px!important;left:auto!important;top:10px!important;margin:0!important;max-width:150px!important;transform:none!important}
+ html[data-afra-theme] body[data-afra-page='index.html'] .header .auth-top-actions{left:0!important;right:auto!important}
+}

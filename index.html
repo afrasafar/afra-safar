@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <script id="afraThemeBootstrap">(function(){var p='auto';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
+    <script id="afraThemeBootstrap">(function(){var p='dark';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#123d32">
+    <meta name="theme-color" content="#0f0f23">
     <meta name="description" content="با افرا سفر، ویلا و کلبه دلخواهت را در شمال و سراسر ایران پیدا و برای سفر بعدی آماده شو.">
     <title>افرا سفر | رزرو ویلا و کلبه در شمال</title>
 
@@ -1358,8 +1358,8 @@
 #searchForm.afra-home-search #destination::placeholder{color:#7a8c82!important;opacity:1!important}
 @media(max-width:760px){#searchForm.afra-home-search button.afra-search-submit{min-height:55px!important}}
 </style>
-    <link rel="stylesheet" href="afra-theme.css?v=20261105j2">
-    <script defer src="afra-theme.js?v=20261105j2"></script>
+    <link rel="stylesheet" href="afra-theme.css?v=green20261117v2">
+    <script defer src="afra-theme.js?v=video20261119"></script>
   <link rel="stylesheet" href="afra-platform.css?v=20261104p5">
   <link rel="stylesheet" href="afra-home-header.css?v=20261105h1">
   <link rel="stylesheet" href="afra-responsive-cards.css?v=20261105c1">
@@ -1367,8 +1367,19 @@
 <script defer src="afra-jalali.js?v=20261105j2"></script>
   <link rel="preload" as="image" href="images/afra-hero-forest-villa.webp">
   <link rel="stylesheet" href="afra-home-reference.css?v=20261105r3">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="afra-hero-poetry.css?v=20261105p3">
+  <link rel="stylesheet" href="afra-hero-poetry.css?v=20261117v2">
+
+  <link rel="stylesheet" href="afra-glass-theme.css?v=header20261119">
+  <script defer src="afra-mobile-nav.js?v=1"></script>
+<link rel="stylesheet" href="afra-experience.css?v=header20261119">
+<script defer src="afra-experience.js?v=video20261119"></script>
+<link rel="stylesheet" href="afra-frosted.css?v=header20261119">
+<link rel="stylesheet" href="afra-mobile-layout.css?v=header20261119">
+<link rel="stylesheet" href="afra-readable.css?v=header20261119">
+<script defer src="afra-icons.js?v=header20261119"></script>
+<link rel="stylesheet" href="afra-header.css?v=header20261119">
+<link rel="stylesheet" href="admin-v2/assets/css/vazirmatn.css?v=video20261119">
+<link rel="stylesheet" href="afra-admin-v2-theme.css?v=adminfull20261120">
 </head>
 
 <body data-afra-page="index.html">
@@ -1390,7 +1401,7 @@
 
     <div class="topbar">
         <div class="container topbar-inner">
-            <span>🌿 تجربه یک اقامت متفاوت در شمال ایران</span>
+            <span><img class="afra-brand-img afra-brand-img--tiny" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true"> تجربه یک اقامت متفاوت در شمال ایران</span>
             <span class="topbar-contact">همراه شما برای یک سفر خاطره‌انگیز</span>
         </div>
     </div>
@@ -1399,7 +1410,7 @@
         <div class="container header-inner">
 
             <a href="index.html" class="logo" aria-label="صفحه اصلی افرا سفر">
-                <span class="logo-icon">🌿</span>
+                <img class="logo-icon afra-brand-img afra-brand-img--compact" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true">
                 <span class="logo-text">
                     <strong>افرا سفر</strong>
                     <small>سفر، آرامش، خاطره</small>
@@ -1417,7 +1428,7 @@
             </nav>
 
             <!-- Opened from the same hamburger at every viewport; includes the six links on mobile. -->
-            <nav class="nav" id="mainNav" aria-label="منوی کامل افرا سفر">
+            <nav class="nav" id="mainNav" inert aria-label="منوی کامل افرا سفر">
                 <span class="afra-menu-label">دسترسی‌های اصلی</span>
                 <a href="auth.html" class="nav-link">ورود / ثبت‌نام</a>
                 <a href="favorites.html" class="nav-link">علاقه‌مندی‌ها</a>
@@ -1441,7 +1452,7 @@
                 <a href="become-host.html">میزبان شوید</a>
             </nav>
 
-            <!-- Four items, stacked in one left-aligned column; theme button is added here by afra-theme.js. -->
+            <!-- Four items, stacked in one left-aligned column; theme button is added here by afra-theme.js?v=video20261119 -->
             <div class="header-actions">
                 <div class="auth-top-actions" aria-label="حساب و تنظیمات ظاهر">
                     <button type="button" class="auth-top-button" data-auth-open="login">ورود / ثبت‌نام</button>
@@ -1507,7 +1518,7 @@
     <main>
 
         <section class="hero" id="home">
-            <div class="hero-overlay"></div>
+            <img class="afra-hero-photo" src="images/afra-hero-forest-villa.webp" width="1680" height="946" alt="" fetchpriority="high">
 
             <div class="container hero-content">
 
@@ -1874,12 +1885,12 @@
     </main>
 
     <footer class="footer afra-site-footer"><div class="container afra-footer-grid">
-<div class="afra-footer-brand"><a href="index.html" class="afra-footer-logo">🌿 افرا سفر</a><p>سفر، آرامش، خاطره. مسیر ساده‌تر برای پیدا کردن ویلا و اقامتگاه در شمال ایران.</p></div>
+<div class="afra-footer-brand"><a href="index.html" class="afra-footer-logo"><img class="afra-brand-img afra-brand-img--inline" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true"> افرا سفر</a><p>سفر، آرامش، خاطره. مسیر ساده‌تر برای پیدا کردن ویلا و اقامتگاه در شمال ایران.</p></div>
 <div><h3>دسترسی سریع</h3><a href="#home">صفحه اصلی</a><a href="#stays">همه اقامتگاه‌ها</a><a href="#categories">دسته‌بندی‌ها</a><a href="#regions">مقصدها</a><a href="my-reservations.html">پیگیری رزرو</a></div>
 <div><h3>راهنما و قوانین</h3><a href="#faq">سؤالات متداول</a><a href="#sitePolicies">شرایط استفاده و رزرو</a><a href="#sitePolicies">حریم خصوصی</a><a href="#about">درباره افرا سفر</a></div>
 <div><h3>ارتباط و شبکه اجتماعی</h3><a href="tel:+989117999884" dir="ltr">09117999884</a><a href="https://t.me/+989117999884" target="_blank" rel="noopener noreferrer">تلگرام افرا سفر ↗</a><a href="#contact">تماس برای هماهنگی رزرو</a></div>
 </div><div class="container afra-policy" id="sitePolicies"><details><summary>شرایط استفاده، رزرو و حریم خصوصی</summary><div class="afra-policy-copy"><p>اطلاعات اقامتگاه‌ها و قیمت‌ها بر اساس داده‌های ثبت‌شده نمایش داده می‌شوند. ثبت درخواست یا انتخاب تاریخ به‌منزله تأیید رزرو نیست؛ شرایط و مبلغ نهایی باید پیش از پرداخت تأیید شوند.</p><p>برای پیگیری درخواست رزرو ممکن است اطلاعات تماس و کد پیگیری از شما دریافت شود. برای اطلاعات بیشتر درباره روش نگهداری و حذف داده‌های شخصی با پشتیبانی تماس بگیرید. این متن راهنمای اولیه است و جایگزین سند حقوقی نهایی سایت نیست.</p></div></details></div>
-<div class="container afra-footer-bottom"><span>© ۱۴۰۵ افرا سفر — تمامی حقوق محفوظ است.</span><span>ساخته‌شده برای سفرهای خاطره‌انگیز 🌿</span></div></footer>
+<div class="container afra-footer-bottom"><span>© ۱۴۰۵ افرا سفر — تمامی حقوق محفوظ است.</span><span>ساخته‌شده برای سفرهای خاطره‌انگیز <img class="afra-brand-img afra-brand-img--tiny" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true"></span></div></footer>
 
     <a href="tel:+989117999884" class="mobile-contact"
         aria-label="تماس با افرا سفر">
@@ -2546,35 +2557,55 @@
             closeSearchFilters();
         }));
 
-        menuToggle.addEventListener("click", () => {
-            const isOpen = mainNav.classList.toggle("nav-open");
+        function setMainMenuOpen(isOpen, restoreFocus = false) {
+            mainNav.classList.toggle("nav-open", isOpen);
+            mainNav.inert = !isOpen;
             menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute("aria-label", isOpen ? "بستن منو" : "باز کردن منو");
+            if (restoreFocus) menuToggle.focus();
+        }
+
+        setMainMenuOpen(false);
+        menuToggle.addEventListener("click", () => {
+            setMainMenuOpen(!mainNav.classList.contains("nav-open"));
         });
 
-        mainNav.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                mainNav.classList.remove("nav-open");
-                menuToggle.setAttribute("aria-expanded", "false");
-            });
+        menuToggle.addEventListener("keydown", event => {
+            if ((event.key === "Tab" && !event.shiftKey || event.key === "ArrowDown")
+                && mainNav.classList.contains("nav-open")) {
+                event.preventDefault();
+                mainNav.querySelector("a")?.focus();
+            }
+        });
+
+        mainNav.addEventListener("keydown", event => {
+            if (event.key === "Tab" && event.shiftKey &&
+                event.target === mainNav.querySelector("a")) {
+                event.preventDefault();
+                menuToggle.focus();
+            } else if (event.key === "Tab" && !event.shiftKey &&
+                event.target === mainNav.querySelector("a:last-child")) {
+                event.preventDefault();
+                setMainMenuOpen(false, true);
+            }
+        });
+
+        mainNav.addEventListener("click", event => {
+            if (event.target.closest("a")) setMainMenuOpen(false, true);
         });
 
         document.addEventListener("keydown", event => {
             if (event.key === "Escape" && mainNav.classList.contains("nav-open")) {
-                mainNav.classList.remove("nav-open");
-                menuToggle.setAttribute("aria-expanded", "false");
-                menuToggle.focus();
+                setMainMenuOpen(false, true);
             }
         });
 
         document.addEventListener("click", event => {
-            if (mainNav.classList.contains("nav-open") &&
-                !mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
-                mainNav.classList.remove("nav-open");
-                menuToggle.setAttribute("aria-expanded", "false");
+            if (mainNav.classList.contains("nav-open")
+                && !mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+                setMainMenuOpen(false);
             }
         });
-
-
 
         /* ===== احراز هویت مهمان و میزبان ===== */
         const authModal = document.getElementById("authModal");
@@ -2909,7 +2940,9 @@
         }
     })();
     </script>
-  <script defer src="afra-platform.js?v=20261105j2"></script>
+  <script defer src="afra-vector-map.js?v=20261119final7"></script>
+<script defer src="afra-platform.js?v=header20261119"></script>
   <script defer src="afra-hero-poetry.js?v=20261105p3"></script>
+<script defer src="afra-header.js?v=header20261119"></script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+/* Explicit contrast for data, overlays and controls in both shared themes. */
+:root{--afra-readable-ink:#163832;--afra-readable-muted:#3f6355;--afra-dialog-bg:rgba(250,253,250,.96);--afra-control-bg:rgba(245,252,247,.94)}
+html[data-afra-theme='dark']{--afra-readable-ink:#e4f5e8;--afra-readable-muted:#bad5c2;--afra-dialog-bg:rgba(8,35,31,.96);--afra-control-bg:rgba(15,52,44,.94)}
+html[data-afra-theme] body :is(.afra-card-location,.afra-card-meta,.card-location,.card-features,.ap-stay__meta,.afra-feature-state,.results-count){color:var(--afra-readable-muted)!important;opacity:1!important}
+html[data-afra-theme] body :is(.afra-card-meta,.card-features)>span{color:inherit!important;opacity:1!important}
+html[data-afra-theme] body :is(.afra-card-end b,.afra-card-end strong,.price strong,.price b,.ap-stay__price,.afra-feature-body h3,.afra-feature-body h3 a){color:var(--afra-readable-ink)!important;opacity:1!important;text-shadow:none!important}
+html[data-afra-theme] body :is(.afra-card-end small,.price small){color:var(--afra-readable-muted)!important;opacity:1!important}
+html[data-afra-theme] body :is(.afra-kicker,.afra-section-heading p,.afra-feature-body,.afra-card-end){color:var(--afra-readable-ink)!important}
+html[data-afra-theme] body[data-afra-page='index.html'] #searchForm .search-button{
+ background:var(--afra-control-bg)!important;color:var(--afra-readable-ink)!important;border:1px solid var(--afra-readable-muted)!important;opacity:1!important;
+}
+html[data-afra-theme] body[data-afra-page='index.html'] #searchForm .search-button svg{color:var(--afra-readable-ink)!important;opacity:1!important;stroke:currentColor!important}
+html[data-afra-theme] body[data-afra-page='index.html'] #searchForm .search-button:hover{background:var(--afra-control-bg)!important;color:var(--afra-readable-ink)!important}
+html[data-afra-theme] body #afraCouponOverlay .afra-coupon-dialog{
+ background:var(--afra-dialog-bg)!important;color:var(--afra-readable-ink)!important;border:1px solid var(--afra-glass-line)!important;
+ box-shadow:0 16px 48px rgba(0,0,0,.20)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+ max-height:calc(100dvh - 32px);overflow-y:auto;
+}
+html[data-afra-theme] body #afraCouponOverlay :is(h2,p,strong,small,code,.afra-coupon-note){color:var(--afra-readable-ink)!important;opacity:1!important;text-shadow:none!important}
+html[data-afra-theme] body #afraCouponOverlay .afra-coupon-note{color:var(--afra-readable-muted)!important}
+html[data-afra-theme] body #afraCouponOverlay .afra-coupon-code{background:transparent!important;border:0!important}
+html[data-afra-theme] body #afraCouponOverlay .afra-coupon-code-row{background:var(--afra-glass-bg)!important;border:1px dashed var(--afra-readable-muted)!important;min-width:0}
+html[data-afra-theme] body #afraCouponOverlay :is(.afra-coupon-close,.afra-coupon-copy){background:var(--afra-control-bg)!important;color:var(--afra-readable-ink)!important;border:1px solid var(--afra-glass-line)!important;box-shadow:var(--afra-glass-shadow)!important;min-height:44px;opacity:1!important}
+html[data-afra-theme] body #afraCouponOverlay .afra-coupon-close{width:44px;height:44px;display:grid;place-items:center}
+html[data-afra-theme] body #afraCouponOverlay .afra-coupon-icon{background:var(--afra-glass-bg)!important;color:var(--afra-readable-ink)!important;border:1px solid var(--afra-glass-line);box-shadow:none!important}
+html body svg.afra-ui-icon{display:inline-block!important;width:1.15em!important;height:1.15em!important;flex-shrink:0;vertical-align:-.18em;fill:none!important;stroke:currentColor!important;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;overflow:visible;pointer-events:none}
+html body :is(.afra-card-location,.afra-card-meta span,.card-location,.card-features span,.ap-stay__meta) svg.afra-ui-icon{margin-inline-end:.25em}
+html body :is(.benefit-icon,.category-icon,.status-icon,.afra-region-icon,.icon) svg.afra-ui-icon{width:1em!important;height:1em!important}
+html body #afraCouponOverlay .afra-coupon-icon svg.afra-ui-icon{width:32px!important;height:32px!important}
+html body :is(.ap-stay__fav,.favorite-button) svg.afra-ui-icon{width:21px!important;height:21px!important;vertical-align:middle}
+@media(max-width:480px){
+ html body #afraCouponOverlay{padding:14px}
+ html body #afraCouponOverlay .afra-coupon-dialog{padding:64px 18px 22px!important;width:100%;max-width:440px}
+ html body #afraCouponOverlay .afra-coupon-code-row{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+ html body #afraCouponOverlay .afra-coupon-code{grid-row:1;font-size:21px!important;line-height:1.8}
+ html body #afraCouponOverlay .afra-coupon-copy{width:100%;grid-row:2}
+ html[data-afra-theme] body :is(.afra-card-location,.afra-card-meta,.card-features,.ap-stay__meta){font-size:12px!important;line-height:1.85}
+ html[data-afra-theme] body .afra-card-end b{font-size:14px!important}
+ html[data-afra-theme] body .afra-card-end small{font-size:11px!important;line-height:1.85}
+}

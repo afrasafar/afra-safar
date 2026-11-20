@@ -1,0 +1,6145 @@
+{
+  "checks": 264,
+  "failures": [],
+  "page_errors": [],
+  "results": [
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 24.5,
+        "w": 72,
+        "h": 46
+      },
+      "brand_rect": {
+        "x": 138.546875,
+        "y": 24,
+        "w": 110.453125,
+        "h": 47
+      },
+      "page": "AfraSafar_All_Pages_Links.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 24.5,
+        "w": 72,
+        "h": 46
+      },
+      "brand_rect": {
+        "x": 138.546875,
+        "y": 24,
+        "w": 110.453125,
+        "h": 47
+      },
+      "page": "AfraSafar_All_Pages_Links.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "AfraSafar_All_Pages_Links.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 24.5,
+        "w": 72,
+        "h": 46
+      },
+      "brand_rect": {
+        "x": 138.546875,
+        "y": 24,
+        "w": 110.453125,
+        "h": 47
+      },
+      "page": "AfraSafar_All_Pages_Links.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 33.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 32,
+        "w": 109,
+        "h": 47
+      },
+      "page": "PHOTO-CREDITS-FA.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 33.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 32,
+        "w": 109,
+        "h": 47
+      },
+      "page": "PHOTO-CREDITS-FA.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "PHOTO-CREDITS-FA.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 33.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 32,
+        "w": 109,
+        "h": 47
+      },
+      "page": "PHOTO-CREDITS-FA.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "about.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "about.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "about.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "about.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "account-bookings.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "account-bookings.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "account-bookings.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "account-bookings.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "add-property.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "add-property.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "add-property.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "add-property.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-DESKTOP-7GR6IRD.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-DESKTOP-7GR6IRD.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-DESKTOP-7GR6IRD.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-DESKTOP-7GR6IRD.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-bookings.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-bookings.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-bookings.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-bookings.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-content.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-content.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-content.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-content.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-discounts.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-discounts.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-discounts.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-discounts.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-hosts.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-hosts.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-hosts.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-hosts.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-payments.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-payments.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-payments.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-payments.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-properties.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-properties.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-properties.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-properties.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-reviews.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-reviews.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-reviews.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-reviews.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-support.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-support.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-support.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-support.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-users.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-users.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin-users.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin-users.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "admin.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "admin.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "auth.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "auth.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "auth.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "auth.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "become-host.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "become-host.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "become-host.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "become-host.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "booking-voucher.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "booking-voucher.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "booking-voucher.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "booking-voucher.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "booking.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "booking.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "booking.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "booking.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "categories.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "categories.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "categories.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "categories.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "cities.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "cities.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "cities.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "cities.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "compare.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "compare.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "compare.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "compare.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "contact.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "contact.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "contact.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "contact.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "cottage.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "cottage.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "cottage.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "cottage.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "discounts.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "discounts.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "discounts.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "discounts.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "faq.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "faq.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "faq.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "faq.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "favorites.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "favorites.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "favorites.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "favorites.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "guest-dashboard.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "guest-dashboard.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "guest-dashboard.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "guest-dashboard.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-calendar.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-calendar.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "host-calendar.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-calendar.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-finance.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-finance.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "host-finance.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-finance.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-performance.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-performance.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "host-performance.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-performance.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-reviews.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-reviews.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "host-reviews.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "host-reviews.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 293,
+        "y": 11,
+        "w": 40,
+        "h": 40
+      },
+      "brand_rect": {
+        "x": 168,
+        "y": 10,
+        "w": 109,
+        "h": 44
+      },
+      "page": "index.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 293,
+        "y": 11,
+        "w": 40,
+        "h": 40
+      },
+      "brand_rect": {
+        "x": 168,
+        "y": 10,
+        "w": 109,
+        "h": 44
+      },
+      "page": "index.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 293,
+        "y": 11,
+        "w": 40,
+        "h": 40
+      },
+      "brand_rect": {
+        "x": 168,
+        "y": 10,
+        "w": 109,
+        "h": 44
+      },
+      "page": "index.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "journal-villa.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "journal-villa.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "journal-villa.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "journal-villa.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "last-minute.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "last-minute.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "last-minute.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "last-minute.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "luxury-villa.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "luxury-villa.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "luxury-villa.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "luxury-villa.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "magazine.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "magazine.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "magazine.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "magazine.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "manage-property.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "manage-property.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "manage-property.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "manage-property.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "map.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "map.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "map.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "map.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "messages.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "messages.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "messages.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "messages.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-reservations.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-reservations.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "my-reservations.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-reservations.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-reviews.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-reviews.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "my-reviews.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-reviews.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-searches.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-searches.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "my-searches.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "my-searches.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "notifications.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "notifications.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "notifications.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "notifications.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 13.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 51
+      },
+      "page": "owner-dashboard.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 13.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 51
+      },
+      "page": "owner-dashboard.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "owner-dashboard.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 13.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 51
+      },
+      "page": "owner-dashboard.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 13.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 51
+      },
+      "page": "owner-login.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 13.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 51
+      },
+      "page": "owner-login.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "owner-login.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 13.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 51
+      },
+      "page": "owner-login.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "owner-register.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "owner-register.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "owner-register.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "owner-register.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "owner-reservations.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "owner-reservations.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "owner-reservations.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "owner-reservations.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "payment-result.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "payment-result.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "payment-result.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "payment-result.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "payment.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "payment.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "payment.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "payment.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "privacy.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "privacy.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "privacy.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "privacy.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "property-settings.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "property-settings.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "property-settings.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "property-settings.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "property.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "property.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "property.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "property.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "referrals.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "referrals.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "referrals.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "referrals.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "regions.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "regions.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "regions.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "regions.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "register.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "register.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "register.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "register.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "reservation-status.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "reservation-status.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "reservation-status.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "reservation-status.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "reviews.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "reviews.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "reviews.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "reviews.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "rules.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "rules.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "rules.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "rules.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "search-results.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "search-results.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "search-results.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "search-results.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "search.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "search.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "search.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "search.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "supabase-status.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "supabase-status.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "supabase-status.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "supabase-status.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "support.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "support.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "support.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "support.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "villa.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "villa.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "villa.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "villa.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "wallet.html",
+      "theme": "light",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "wallet.html",
+      "theme": "dark",
+      "width": 345,
+      "opens": true,
+      "closes": true
+    },
+    {
+      "page": "wallet.html",
+      "width": 1440,
+      "theme": "dark",
+      "desktop_restored": true,
+      "overflow": false
+    },
+    {
+      "missing": false,
+      "menu_right": true,
+      "adjacent": true,
+      "same_row": true,
+      "menu_in_view": true,
+      "brand_in_view": true,
+      "brand_text": true,
+      "logo_loaded": true,
+      "visible_brands": 1,
+      "overflow": false,
+      "menu_rect": {
+        "x": 259,
+        "y": 11.5,
+        "w": 72,
+        "h": 44
+      },
+      "brand_rect": {
+        "x": 140,
+        "y": 10,
+        "w": 109,
+        "h": 47
+      },
+      "page": "wallet.html",
+      "width": 345,
+      "theme": "dark",
+      "resized_back": true
+    }
+  ]
+}

@@ -7,6 +7,7 @@ const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
 const html = value => String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = value => (Number(value)||0).toLocaleString('fa-IR');
 const money = v => Number(v)>0?fmt(v)+' تومان':'قیمت اعلام نشده';
+const ledgerMoney = v => v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v))?fmt(v)+' تومان':'مبلغ ثبت نشده';
 const q = (name)=>new URLSearchParams(location.search).get(name)||'';
 const db = () => typeof window.afraSupabase!=='undefined' && window.afraSupabase && typeof window.afraSupabase.from==='function' ? window.afraSupabase : null;
 const newDate = () => {const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
@@ -26,7 +27,15 @@ function nav(){
  if(currentFile==='index.html')return;
  if($('.ap-travelbar'))return;
  const bar=document.createElement('nav');bar.className='ap-travelbar';bar.setAttribute('aria-label','دسترسی سریع افرا سفر');
- bar.innerHTML=`<a class="ap-travelbar__logo" href="index.html">🌿 افرا سفر</a>${menu.slice(1).map(([href,title])=>`<a href="${href}" ${currentFile===href?'aria-current="page"':''}>${title}</a>`).join('')}`;
+ const hasNativeBrand=Array.from(document.querySelectorAll('header.brand,header .brand,header .logo,header .afv-brand,.topbar>.brand')).some(el=>el.querySelector('img.afra-brand-img')&&!el.closest('footer,.ap-travelbar'));
+ const brandMarkup=hasNativeBrand?'':`<a class="ap-travelbar__logo afra-brand-glass" href="index.html"><img class="afra-leaf-img afra-brand-img" src="images/afra-safar-logo.png?v=fix20261119" width="36" height="40" alt="" aria-hidden="true"><span><strong>افراسفر</strong><small>سفر.آرامش.خاطره</small></span></a>`;
+ bar.innerHTML=(brandMarkup||'<span class="ap-nav-title">دسترسی سریع</span>')+'<button type="button" class="ap-nav-toggle" aria-expanded="false" aria-controls="ap-navigation-links"><span>منو</span><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><div id="ap-navigation-links" class="ap-nav-links">'+menu.slice(1).map(([href,title])=>`<a href="${href}" ${currentFile===href?'aria-current="page"':''}>${title}</a>`).join('')+'</div>';
+ const toggle=bar.querySelector('.ap-nav-toggle'),links=bar.querySelector('.ap-nav-links'),mobile=matchMedia('(max-width: 767px)');
+ const setOpen=open=>{bar.classList.toggle('ap-nav-open',open);toggle.setAttribute('aria-expanded',String(open));links.inert=mobile.matches&&!open;};
+ toggle.addEventListener('click',()=>setOpen(!bar.classList.contains('ap-nav-open')));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&bar.classList.contains('ap-nav-open')){setOpen(false);toggle.focus();}});
+ document.addEventListener('click',event=>{if(!bar.contains(event.target))setOpen(false);});
+ const sync=()=>setOpen(false);mobile.addEventListener('change',sync);sync();
  const b=document.body;b.insertBefore(bar,b.firstChild);
 }
 function foot(){return `<footer class="ap-footer ap-container"><a href="index.html">صفحه اصلی</a><a href="about.html">درباره ما</a><a href="contact.html">تماس</a><a href="rules.html">قوانین</a><a href="privacy.html">حریم خصوصی</a><a href="faq.html">سؤالات متداول</a><p>© افرا سفر · اعتبار قیمت، موجودی و رزرو تنها پس از تأیید سامانه و میزبان مشخص می‌شود.</p></footer>`;}
@@ -76,7 +85,7 @@ const labelType=cat=>TYPES.find(([a])=>cat===a)?.[1]||'اقامتگاه';
 function stayCard(p){const s=p.spec||{},discount=Number(s.discount_percent)||0;const id=html(p.id);
  return `<article class="ap-stay"><a class="ap-stay__photo" href="${urlProperty(p)}"><img alt="${html(p.title)}" loading="lazy" src="${safeImg(p.image_url)}"><span class="ap-stay__badge">${discount>0?'٪'+fmt(discount)+' تخفیف':html(labelType(p.category))}</span></a><div class="ap-stay__body"><div class="ap-stay__meta">⌖ ${html(p.location||[s.city,s.province].filter(Boolean).join('، ')||'شهر ثبت نشده')}</div><h3><a href="${urlProperty(p)}">${html(p.title)}</a></h3><div class="ap-stay__meta">👤 ${fmt(p.capacity)} نفر ${s.bedrooms?' · 🛏️ '+fmt(s.bedrooms)+' اتاق':''} ${p.ratingCount?' · ⭐ '+html(p.averageRating.toFixed(1)):' · بدون امتیاز ثبت‌شده'}</div><div class="ap-stay__actions"><div><div class="ap-stay__price">${money(p.price)}</div><small class="ap-muted">هر شب</small></div><div class="ap-inline-actions"><button type="button" class="ap-stay__fav" aria-label="افزودن به علاقه‌مندی‌ها" aria-pressed="false" data-fav="${id}">♡</button><a href="${urlProperty(p)}" class="ap-btn small">جزئیات</a></div></div></div></article>`;
 }
-function safeLocalFavorites(){try{return JSON.parse(localStorage.getItem('afra-platform-favorites')||'[]')}catch{return []}}
+function safeLocalFavorites(){try{const value=JSON.parse(localStorage.getItem('afra-platform-favorites')||'[]');return Array.isArray(value)?[...new Set(value.filter(id=>(typeof id==='string'&&id.trim())||(typeof id==='number'&&Number.isFinite(id))).map(String))]:[]}catch{return []}}
 function localFavSet(ids){try{localStorage.setItem('afra-platform-favorites',JSON.stringify(ids))}catch(_){}}
 async function toggleFavorite(id,btn){const me=await user();if(me&&db()){
  let {data}=await db().from('afra_favorites').select('property_id').eq('user_id',me.id).eq('property_id',id);
@@ -133,36 +142,8 @@ function locateForMap(p){
  const found=CITY_CENTRES.find(([city])=>searchable.includes(' '+normalizeMapText(city)+' '));
  return found?{lat:found[1],lng:found[2],approx:true,key:'city-'+normalizeMapText(found[0]),city:found[0]}:null;
 }
-let activeMap=null, mapSequence=0, leafletLoader=null;
-function loadLeaflet(){
- if(window.L?.map)return Promise.resolve(window.L);
- if(leafletLoader)return leafletLoader;
- leafletLoader=new Promise((resolve,reject)=>{
-  const bases=['https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/','https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/'];
-  let index=0;
-  function attempt(){
-   if(index>=bases.length){reject(new Error('کتابخانه نقشه بارگذاری نشد'));return;}
-   const base=bases[index++],css=document.createElement('link');css.rel='stylesheet';css.href=base+'leaflet.css';css.dataset.afraLeaflet='1';document.head.appendChild(css);
-   const script=document.createElement('script');script.src=base+'leaflet.js';script.async=true;script.dataset.afraLeaflet='1';
-   let done=false;const timer=setTimeout(()=>finish(false),6500);
-   function finish(ok){if(done)return;done=true;clearTimeout(timer);if(ok&&window.L?.map)resolve(window.L);else attempt();}
-   script.onload=()=>finish(true);script.onerror=()=>finish(false);
-   document.head.appendChild(script);
-  }
-  attempt();
- }).catch(e=>{leafletLoader=null;throw e;});
- return leafletLoader;
-}
+let activeMap=null, mapSequence=0;
 function hideMap(){mapSequence++;if(activeMap){activeMap.remove();activeMap=null;}const el=$('#ap-map');if(el){el.hidden=true;el.replaceChildren();}}
-function mapFallback(el,centre){
- const [lat,lng]=centre;
- const dlat=.55,dlng=.9;
- const bbox=[lng-dlng,lat-dlat,lng+dlng,lat+dlat].map(x=>x.toFixed(4)).join('%2C');
- const iframe=document.createElement('iframe');iframe.className='ap-map ap-map-frame';iframe.title='نقشه عمومی OpenStreetMap';iframe.loading='lazy';iframe.referrerPolicy='no-referrer';
- iframe.src='https://www.openstreetmap.org/export/embed.html?bbox='+bbox+'&layer=mapnik';
- const link=document.createElement('a');link.className='ap-btn secondary ap-map-external';link.href='https://www.openstreetmap.org/?mlat='+lat.toFixed(4)+'&mlon='+lng.toFixed(4)+'#map=10/'+lat.toFixed(4)+'/'+lng.toFixed(4);link.target='_blank';link.rel='noopener noreferrer';link.textContent='بازکردن نقشه عمومی در OpenStreetMap';
- el.append(iframe,link);
-}
 async function showMap(list){
  const el=$('#ap-map');if(!el)return;
  const ticket=++mapSequence;
@@ -179,50 +160,25 @@ async function showMap(list){
  const positions=Array.from(groups.values()),centre=positions.length?[positions[0].lat,positions[0].lng]:[36.8,51.3];
  const info=document.createElement('div');info.className='ap-map-status';info.setAttribute('role','status');
  info.textContent=positions.length
-  ?`${fmt(exactCount)} اقامتگاه با مختصات تقریبی ثبت‌شده و ${fmt(approxCount)} اقامتگاه با نمایش مرکز شهر. ${noPosition?fmt(noPosition)+' اقامتگاه بدون شهر یا مختصات قابل نمایش است.':''}`
+  ?`${fmt(exactCount)} اقامتگاه با مختصات تقریبی ثبت‌شده و ${fmt(approxCount)} اقامتگاه با نمایش مرکز شهر. ${noPosition?fmt(noPosition)+' اقامتگاه به‌دلیل نداشتن شهر یا مختصات روی نقشه قابل نمایش نیست.':''}`
   :(list.length?'موقعیت جغرافیایی این نتایج ثبت نشده است؛ نقشه عمومی نمایش داده می‌شود و جای اقامتگاه‌ها مشخص نیست.':'در حال حاضر نقطه‌ای برای نمایش وجود ندارد؛ نقشه عمومی منطقه نمایش داده می‌شود.');
  const note=document.createElement('p');note.className='ap-geo-note';note.textContent='نشانگرهای دایره‌ای فقط مرکز شهر را مشخص می‌کنند، نه محل اقامتگاه. آدرس دقیق از روی این نقشه قابل تشخیص نیست.';
  const mount=document.createElement('div');mount.id='ap-leaflet';mount.className='ap-map';
  const fallback=document.createElement('div');fallback.className='ap-map-fallback';
  el.append(info,mount,note,fallback);
- let L;
- try{L=await loadLeaflet();}catch(e){
-  if(ticket!==mapSequence||el.hidden)return;
-  mount.remove();fallback.appendChild(document.createTextNode('کتابخانه نقشه بارگذاری نشد؛ نسخه عمومی جایگزین در پایین قابل استفاده است.'));
-  mapFallback(fallback,centre);return;
- }
- if(ticket!==mapSequence||el.hidden)return;
  try{
-  const map=L.map(mount,{scrollWheelZoom:false});activeMap=map;
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(map);
-  const bounds=[];
-  for(const group of positions){
-   const ll=[group.lat,group.lng];bounds.push(ll);
-   const marker=group.approx
-    ?L.circleMarker(ll,{radius:10,weight:2,color:'#2f72aa',fillColor:'#71abdc',fillOpacity:.78}).addTo(map)
-    :L.marker(ll).addTo(map);
-   const popup=document.createElement('div');popup.className='ap-map-popup';
-   const title=document.createElement('strong');title.textContent=group.approx?'مرکز شهر '+group.city:'موقعیت تقریبی ثبت‌شده';popup.appendChild(title);
-   const sub=document.createElement('p');sub.textContent=group.approx?'موقعیت دقیق این اقامتگاه‌ها مشخص نیست.':'موقعیت تقریبی ثبت‌شده توسط میزبان';popup.appendChild(sub);
-   const ul=document.createElement('ul');for(const p of group.properties.slice(0,30)){
-    const li=document.createElement('li'),a=document.createElement('a');a.href=urlProperty(p);a.textContent=p.title;li.appendChild(a);ul.appendChild(li);
-   }popup.appendChild(ul);
-   if(group.properties.length>30){const extra=document.createElement('p');extra.textContent=fmt(group.properties.length-30)+' اقامتگاه دیگر در فهرست نتایج';popup.appendChild(extra);}
-   marker.bindPopup(popup,{maxWidth:260});
-  }
-  if(bounds.length===1)map.setView(bounds[0],10);else if(bounds.length>1)map.fitBounds(bounds,{padding:[45,45],maxZoom:11});else map.setView(centre,7);
-  // Leaflet is initialized after the container is visible; force a layout recalculation.
-  requestAnimationFrame(()=>{if(ticket===mapSequence&&!el.hidden)map.invalidateSize();});
- }catch(e){
-  console.error('Afra map:',e);
-  if(activeMap){try{activeMap.remove();}catch(_){/* best effort */}activeMap=null;}
+  await window.AfraVectorMap.load();
   if(ticket!==mapSequence||el.hidden)return;
-  mount.remove();fallback.appendChild(document.createTextNode('بارگذاری نمای تعاملی ناموفق بود؛ نقشه عمومی جایگزین:'));
-  mapFallback(fallback,centre);
+  activeMap=window.AfraVectorMap.mount(mount,positions,centre);
+ }catch(e){
+  if(ticket!==mapSequence||el.hidden)return;
+  mount.remove();fallback.textContent='بارگذاری نقشه ممکن نشد. اتصال اینترنت را بررسی کنید.';
+  const retry=document.createElement('button');retry.type='button';retry.className='ap-btn';retry.textContent='تلاش دوباره';retry.addEventListener('click',()=>showMap(list));fallback.appendChild(retry);
  }
+
 }
-async function searchPage(onlyMap=false){shell(onlyMap?'نقشه اقامتگاه‌ها':'جست‌وجوی پیشرفته اقامتگاه‌ها','مقصد، بودجه، امکانات و شرایط اقامت را تنظیم کن تا گزینه‌های واقعی موجود در سایت نمایش داده شوند.',`<div class="ap-main-layout"><aside class="ap-side" id="ap-side">${filtersHTML()}</aside><section><div class="ap-result-head"><div><h2 id="ap-count" style="margin:0">در حال جست‌وجو…</h2><small class="ap-muted">قیمت هر شب به تومان است.</small></div><div class="ap-inline-actions"><button class="ap-btn secondary ap-mobile-filter" id="ap-toggle-filters" type="button">فیلترها</button><button class="ap-btn secondary" id="ap-toggle-map" type="button" aria-controls="ap-map" aria-pressed="${onlyMap}">${onlyMap?'بستن نقشه':'نمایش روی نقشه'}</button><button class="ap-btn secondary" id="ap-save-search" type="button">ذخیره جست‌وجو</button><label class="ap-field">مرتب‌سازی<select id="ap-sort"><option value="new">جدیدترین</option><option value="cheap">ارزان‌ترین</option><option value="expensive">گران‌ترین</option><option value="popular">محبوب‌ترین</option><option value="rating">بالاترین امتیاز</option><option value="discount">بیشترین تخفیف</option></select></label></div></div><div id="ap-map" hidden aria-label="نمایش نقشه اقامتگاه‌ها"></div><div id="ap-results" class="ap-results-grid">${loading()}</div></section></div>`,'جست‌وجو و فیلترها');
- $('#ap-toggle-filters').addEventListener('click',()=>$('#ap-side').classList.toggle('ap-open'));
+async function searchPage(onlyMap=false){shell(onlyMap?'نقشه اقامتگاه‌ها':'جست‌وجوی پیشرفته اقامتگاه‌ها','مقصد، بودجه، امکانات و شرایط اقامت را تنظیم کن تا گزینه‌های واقعی موجود در سایت نمایش داده شوند.',`<div class="ap-main-layout"><aside class="ap-side" id="ap-side">${filtersHTML()}</aside><section><div class="ap-result-head"><div><h2 id="ap-count" style="margin:0">در حال جست‌وجو…</h2><small class="ap-muted">قیمت هر شب به تومان است.</small></div><div class="ap-inline-actions"><button class="ap-btn secondary ap-mobile-filter" id="ap-toggle-filters" type="button" aria-controls="ap-side" aria-expanded="false">فیلترها</button><button class="ap-btn secondary" id="ap-toggle-map" type="button" aria-controls="ap-map" aria-pressed="${onlyMap}">${onlyMap?'بستن نقشه':'نمایش روی نقشه'}</button><button class="ap-btn secondary" id="ap-save-search" type="button">ذخیره جست‌وجو</button><label class="ap-field">مرتب‌سازی<select id="ap-sort"><option value="new">جدیدترین</option><option value="cheap">ارزان‌ترین</option><option value="expensive">گران‌ترین</option><option value="popular">محبوب‌ترین</option><option value="rating">بالاترین امتیاز</option><option value="discount">بیشترین تخفیف</option></select></label></div></div><div id="ap-map" hidden aria-label="نمایش نقشه اقامتگاه‌ها"></div><div id="ap-results" class="ap-results-grid">${loading()}</div></section></div>`,'جست‌وجو و فیلترها');
+ $('#ap-toggle-filters').addEventListener('click',()=>{const open=$('#ap-side').classList.toggle('ap-open');$('#ap-toggle-filters').setAttribute('aria-expanded',String(open));});
  const target=$('#ap-results');let all=[],dataError=null,mapOn=onlyMap;
  try{all=await properties();}catch(e){dataError=e;console.warn('Afra properties:',e);}
  const matching=()=>{const state=readFilters();return sortList(all.filter(p=>matches(p,state)),state.sort);};
@@ -287,7 +243,7 @@ async function dashboardPage(){shell('پنل مسافر','حساب خود، عل
  $('#ap-profile-form').addEventListener('submit',async e=>{e.preventDefault();const payload={user_id:me.id,full_name:$('#ap-fullname').value.trim(),phone:$('#ap-contact').value.trim(),city:$('#ap-profilecity').value.trim()};const {error}=await db().from('afra_profiles').upsert(payload,{onConflict:'user_id'});$('#ap-profile-message').innerHTML=error?banner('ذخیره انجام نشد. ابتدا SQL توسعه را روی دیتابیس اجرا کنید. '+error.message,'error'):banner('اطلاعات پروفایل ذخیره شد.','success');});
  $('#ap-signout').addEventListener('click',async()=>{await db()?.auth.signOut();location.href='index.html';});}
 async function favoritePage(){shell('علاقه‌مندی‌های من','اقامتگاه‌های منتخب را برای مقایسه و رزرو سریع پیدا کن.',`<div id="ap-favorites" class="ap-results-grid">${loading()}</div>`,'پنل مسافر');const me=await user();let ids=safeLocalFavorites();if(me&&db()){const {data,error}=await db().from('afra_favorites').select('property_id').eq('user_id',me.id);if(!error)ids=[...new Set([...ids,...(data||[]).map(r=>r.property_id)])];}
- try{const p=(await properties()).filter(x=>ids.includes(x.id));$('#ap-favorites').innerHTML=p.length?p.map(stayCard).join(''):banner('هنوز اقامتگاهی به علاقه‌مندی‌ها اضافه نکرده‌ای.');bindFavorite($('#ap-favorites'));}catch(e){$('#ap-favorites').innerHTML=banner(e.message,'error');}}
+ try{const p=(await properties()).filter(x=>ids.includes(String(x.id)));$('#ap-favorites').innerHTML=p.length?p.map(stayCard).join(''):banner('هنوز اقامتگاهی به علاقه‌مندی‌ها اضافه نکرده‌ای.');bindFavorite($('#ap-favorites'));}catch(e){$('#ap-favorites').innerHTML=banner(e.message,'error');}}
 async function supportPage(){
  shell('پشتیبانی افرا سفر','درخواست‌ها و پاسخ‌های مدیریت تنها در حساب خودتان نمایش داده می‌شوند.',`<div class="ap-grid two"><section class="ap-panel"><h2>ثبت درخواست</h2><form id="ap-ticket" class="ap-stack">${field('موضوع','ap-ticket-title','text','','required minlength="5" maxlength="120"')}<label class="ap-field">نوع درخواست<select id="ap-ticket-type"><option value="booking">رزرو</option><option value="payment">پرداخت</option><option value="host">میزبانی</option><option value="complaint">شکایت</option><option value="other">سایر</option></select></label><label class="ap-field">شرح<textarea id="ap-ticket-body" required minlength="10" maxlength="4000"></textarea></label><button class="ap-btn" type="submit">ارسال درخواست</button><div id="ap-ticket-msg" role="status"></div></form></section><section class="ap-panel"><div class="ap-row"><h2>درخواست‌های من</h2><button id="ap-ticket-refresh" type="button" class="ap-btn small secondary">تازه‌سازی</button></div><div id="ap-tickets">${loading()}</div></section></div>`,'پشتیبانی');
  const me=await user();if(!me){$('#ap-ticket-msg').innerHTML=loginNeeded();$('#ap-ticket').querySelector('button').disabled=true;$('#ap-tickets').innerHTML=loginNeeded();return;}
@@ -295,7 +251,7 @@ async function supportPage(){
  await reload();$('#ap-ticket-refresh').addEventListener('click',reload);
  $('#ap-ticket').addEventListener('submit',async e=>{e.preventDefault();const btn=e.target.querySelector('button[type="submit"]');btn.disabled=true;const payload={user_id:me.id,subject:$('#ap-ticket-title').value.trim(),category:$('#ap-ticket-type').value,message:$('#ap-ticket-body').value.trim()};const {error}=await db().from('afra_support_tickets').insert(payload);btn.disabled=false;$('#ap-ticket-msg').innerHTML=error?banner('ارسال ناموفق: '+error.message,'error'):banner('درخواست ثبت شد.','success');if(!error){e.target.reset();await reload();}});
 }
-async function walletPage(){shell('کیف پول و تراکنش‌ها','فقط تراکنش‌های واقعی تأییدشده در سرور، اعتبار کیف پول محسوب می‌شوند.',`<div id="ap-wallet">${loading()}</div>`,'مالی مسافر');const me=await user();const box=$('#ap-wallet');if(!me){box.innerHTML=loginNeeded();return;}const {data,error}=await db().from('afra_wallet_entries').select('amount,kind,description,created_at').eq('user_id',me.id).order('created_at',{ascending:false});if(error){box.innerHTML=banner('دریافت اطلاعات کیف پول نیاز به فعال‌سازی جداول SQL دارد.','error');return;}const rows=data||[];const balance=rows.reduce((sum,x)=>sum+Number(x.amount||0),0);box.innerHTML=`<div class="ap-grid two"><div class="ap-stat"><strong>${money(balance)}</strong><small>مانده ثبت‌شده</small></div><div class="ap-stat"><strong>${fmt(rows.length)}</strong><small>تعداد عملیات</small></div></div>${section('سوابق تراکنش',rows.length?`<div class="ap-table-wrap"><table class="ap-table"><thead><tr><th>تاریخ</th><th>شرح</th><th>مبلغ</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${new Date(r.created_at).toLocaleDateString('fa-IR')}</td><td>${html(r.description||r.kind)}</td><td>${money(r.amount)}</td></tr>`).join('')}</tbody></table></div>`:'هنوز تراکنشی ثبت نشده است.')}`;}
+async function walletPage(){shell('کیف پول و تراکنش‌ها','فقط تراکنش‌های واقعی تأییدشده در سرور، اعتبار کیف پول محسوب می‌شوند.',`<div id="ap-wallet">${loading()}</div>`,'مالی مسافر');const me=await user();const box=$('#ap-wallet');if(!me){box.innerHTML=loginNeeded();return;}const {data,error}=await db().from('afra_wallet_entries').select('amount,kind,description,created_at').eq('user_id',me.id).order('created_at',{ascending:false});if(error){box.innerHTML=banner('دریافت اطلاعات کیف پول نیاز به فعال‌سازی جداول SQL دارد.','error');return;}const rows=data||[];const balance=rows.reduce((sum,x)=>sum+Number(x.amount||0),0);box.innerHTML=`<div class="ap-grid two"><div class="ap-stat"><strong>${ledgerMoney(balance)}</strong><small>مانده ثبت‌شده</small></div><div class="ap-stat"><strong>${fmt(rows.length)}</strong><small>تعداد عملیات</small></div></div>${section('سوابق تراکنش',rows.length?`<div class="ap-table-wrap"><table class="ap-table"><thead><tr><th>تاریخ</th><th>شرح</th><th>مبلغ</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${new Date(r.created_at).toLocaleDateString('fa-IR')}</td><td>${html(r.description||r.kind)}</td><td>${ledgerMoney(r.amount)}</td></tr>`).join('')}</tbody></table></div>`:'هنوز تراکنشی ثبت نشده است.')}`;}
 async function reviewsPage(){
  shell('نظرات مسافران','فقط نظرهای تأییدشده مربوط به اقامت‌های تأیید و پرداخت‌شده منتشر می‌شوند.',`<div id="ap-reviews">${loading()}</div>`,'اعتماد و شفافیت');
  const el=$('#ap-reviews');if(!db()){el.innerHTML=missingDb();return;}
@@ -306,7 +262,7 @@ async function reviewsPage(){
  const byId=new Map((replies.data||[]).map(r=>[r.review_id,r.body]));
  el.innerHTML=`<div class="ap-grid autofit">${rows.map(r=>`<article class="ap-panel"><span class="ap-rating">${'★'.repeat(Math.max(1,Math.min(5,Number(r.score)||1)))}</span><p>${html(r.body)}</p>${byId.has(r.id)?`<div class="ap-callout"><strong>پاسخ میزبان</strong><p>${html(byId.get(r.id))}</p></div>`:''}<small class="ap-muted">${new Date(r.created_at).toLocaleDateString('fa-IR')}</small><p><a class="ap-btn small secondary" href="property.html?id=${encodeURIComponent(r.property_id)}">جزئیات اقامتگاه</a></p></article>`).join('')}</div>`;
 }
-async function comparePage(){shell('مقایسه اقامتگاه‌ها','برای مقایسه، ابتدا اقامتگاه‌ها را در فهرست علاقه‌مندی‌ها ذخیره کن.',`<div id="ap-compare">${loading()}</div>`,'مقایسه');try{const ids=safeLocalFavorites();const r=(await properties()).filter(x=>ids.includes(x.id)).slice(0,4);$('#ap-compare').innerHTML=r.length?`<div class="ap-table-wrap ap-panel"><table class="ap-table"><thead><tr><th>ویژگی</th>${r.map(x=>`<th>${html(x.title)}</th>`).join('')}</tr></thead><tbody>${[['شهر',x=>x.location],['قیمت هر شب',x=>money(x.price)],['ظرفیت',x=>fmt(x.capacity)+' نفر'],['اتاق خواب',x=>x.spec?.bedrooms||'ثبت نشده'],['استخر',x=>specTruth(x,'pool')?'بله':'ثبت نشده'],['تخفیف',x=>Number(x.spec?.discount_percent||0)?fmt(x.spec.discount_percent)+'٪':'ثبت نشده'],['جزئیات',x=>`<a class="ap-btn small" href="${urlProperty(x)}">مشاهده</a>`]].map(([key,fn])=>`<tr><th>${key}</th>${r.map(x=>`<td>${fn(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:banner('برای مقایسه، ابتدا اقامتگاه‌ها را به علاقه‌مندی‌ها اضافه کنید.');}catch(e){$('#ap-compare').innerHTML=banner(e.message,'error');}}
+async function comparePage(){shell('مقایسه اقامتگاه‌ها','برای مقایسه، ابتدا اقامتگاه‌ها را در فهرست علاقه‌مندی‌ها ذخیره کن.',`<div id="ap-compare">${loading()}</div>`,'مقایسه');try{const ids=safeLocalFavorites();const r=(await properties()).filter(x=>ids.includes(String(x.id))).slice(0,4);$('#ap-compare').innerHTML=r.length?`<div class="ap-table-wrap ap-panel"><table class="ap-table"><thead><tr><th>ویژگی</th>${r.map(x=>`<th>${html(x.title)}</th>`).join('')}</tr></thead><tbody>${[['شهر',x=>html(x.location||'ثبت نشده')],['قیمت هر شب',x=>money(x.price)],['ظرفیت',x=>fmt(x.capacity)+' نفر'],['اتاق خواب',x=>html(x.spec?.bedrooms??'ثبت نشده')],['استخر',x=>specTruth(x,'pool')?'بله':'ثبت نشده'],['تخفیف',x=>Number(x.spec?.discount_percent||0)?fmt(x.spec.discount_percent)+'٪':'ثبت نشده'],['جزئیات',x=>`<a class="ap-btn small" href="${urlProperty(x)}">مشاهده</a>`]].map(([key,fn])=>`<tr><th>${key}</th>${r.map(x=>`<td>${fn(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:banner('برای مقایسه، ابتدا اقامتگاه‌ها را به علاقه‌مندی‌ها اضافه کنید.');}catch(e){$('#ap-compare').innerHTML=banner(e.message,'error');}}
 async function bookingPage(){
  const id=q('id');
  shell('درخواست رزرو با حساب مسافر','این فرم به جدول واقعی reservations و تابع رزرو فعلی متصل است. درخواست ثبت‌شده ممکن است برای میزبان اعلان ارسال کند؛ رزرو تا تأیید و پرداخت قطعی نیست.',`<div id="ap-booking" class="ap-stack">${loading()}</div>`,'رزرو اقامتگاه');
@@ -377,7 +333,7 @@ function paymentPage(kind){const title=kind==='payment'?'پرداخت رزرو':
 async function hostCalendarPage(){shell('تقویم میزبان','تاریخ‌های غیرقابل رزرو را فقط برای اقامتگاه‌های متعلق به خودت ثبت کن.',`<div id="ap-hostcal">${loading()}</div>`,'پنل میزبان');const me=await user(),box=$('#ap-hostcal');if(!me){box.innerHTML=loginNeeded();return;}const {data:rows,error}=await db().from('properties').select('id,title').eq('owner_id',me.id);if(error){box.innerHTML=banner(error.message,'error');return;}if(!rows?.length){box.innerHTML=banner('هنوز اقامتگاهی برای این حساب ثبت نشده است.')+'<a href="owner-dashboard.html" class="ap-btn">پنل میزبان</a>';return;}
  box.innerHTML=`<section class="ap-panel"><h2>بستن تاریخ</h2><form class="ap-form-grid" id="ap-block-form"><label class="ap-field">اقامتگاه<select id="ap-block-property">${rows.map(p=>`<option value="${html(p.id)}">${html(p.title)}</option>`).join('')}</select></label>${field('از تاریخ','ap-block-start','date','','required')}${field('تا تاریخ (انحصاری)','ap-block-end','date','','required')}<label class="ap-field wide">علت مسدودکردن<input id="ap-block-reason" maxlength="180" placeholder="مثلاً تعمیرات یا استفاده شخصی"></label><button type="submit" class="ap-btn">ثبت بازه مسدود</button></form><p id="ap-block-msg" role="status"></p></section><section class="ap-panel"><h2>بازه‌های بسته‌شده</h2><div id="ap-block-list">${loading()}</div></section><section class="ap-panel"><h2>قیمت ویژه هر شب</h2><form id="ap-rate-form" class="ap-form-grid">${field('تاریخ','ap-rate-date','date','','required')}${field('قیمت آن شب (تومان)','ap-rate-price','number','','min="0" required step="10000"')}${field('توضیح','ap-rate-note','text','','maxlength="160"')}<button class="ap-btn" type="submit">ذخیره قیمت</button></form><div id="ap-rate-msg" role="status"></div><div id="ap-rate-list" style="margin-top:12px">${loading()}</div></section><section class="ap-panel"><h2>درخواست‌های رزرو با حساب کاربری</h2><div id="ap-host-orders">${loading()}</div></section>`;
  async function reload(){const id=$('#ap-block-property').value;const {data,error}=await db().from('afra_property_blocks').select('id,start_date,end_date,reason').eq('property_id',id).order('start_date',{ascending:false});$('#ap-block-list').innerHTML=error?banner('برای مدیریت تقویم، migration دیتابیس را اجرا کنید.','error'):(data?.length?data.map(b=>`<div class="ap-row" style="padding:9px;border-bottom:1px solid var(--ap-line)"><span>${html(jDate(b.start_date))} تا ${html(jDate(b.end_date))} — ${html(b.reason||'بدون توضیح')}</span><button type="button" class="ap-btn small secondary" data-unblock="${html(b.id)}">بازکردن تاریخ</button></div>`).join(''):banner('بازه‌ای مسدود نشده است.'));}
- $('#ap-block-property').addEventListener('change',()=>{reload();loadRates();});$('#ap-block-form').addEventListener('submit',async e=>{e.preventDefault();const a=$('#ap-block-start').value,b=$('#ap-block-end').value;if(!a||!b||b<=a){$('#ap-block-msg').innerHTML=banner('تاریخ پایان باید پس از شروع باشد.','error');return;}const {error}=await db().from('afra_property_blocks').insert({property_id:$('#ap-block-property').value,start_date:a,end_date:b,reason:$('#ap-block-reason').value.trim()});$('#ap-block-msg').innerHTML=error?banner(error.message,'error'):banner('تاریخ‌ها مسدود شدند.','success');if(!error){e.target.reset();reload();}});$('#ap-block-list').addEventListener('click',async e=>{const b=e.target.closest('[data-unblock]');if(!b)return;if(!confirm('این بازه را دوباره باز می‌کنی؟'))return;const {error}=await db().from('afra_property_blocks').delete().eq('id',b.dataset.unblock);if(error)toast(error.message,true);else reload()});reload();async function loadRates(){const property=$('#ap-block-property').value;const {data,error}=await db().from('afra_special_rates').select('property_id,stay_date,night_price,note').eq('property_id',property).order('stay_date',{ascending:true}).limit(100);$('#ap-rate-list').innerHTML=error?banner('قیمت‌های ویژه بعد از اجرای SQL فعال می‌شوند.','error'):(data?.length?data.map(x=>`<div class="ap-row" style="border-bottom:1px solid var(--ap-line);padding:7px"><span>${html(jDate(x.stay_date))} · ${money(x.night_price)} · ${html(x.note||'')}</span><button class="ap-btn small secondary" data-delete-rate="${html(jDate(x.stay_date))}">حذف</button></div>`).join(''):banner('برای این اقامتگاه، قیمت روزانه ویژه‌ای ثبت نشده است.'));}
+ $('#ap-block-property').addEventListener('change',()=>{reload();loadRates();});$('#ap-block-form').addEventListener('submit',async e=>{e.preventDefault();const a=$('#ap-block-start').value,b=$('#ap-block-end').value;if(!a||!b||b<=a){$('#ap-block-msg').innerHTML=banner('تاریخ پایان باید پس از شروع باشد.','error');return;}const {error}=await db().from('afra_property_blocks').insert({property_id:$('#ap-block-property').value,start_date:a,end_date:b,reason:$('#ap-block-reason').value.trim()});$('#ap-block-msg').innerHTML=error?banner(error.message,'error'):banner('تاریخ‌ها مسدود شدند.','success');if(!error){e.target.reset();reload();}});$('#ap-block-list').addEventListener('click',async e=>{const b=e.target.closest('[data-unblock]');if(!b)return;if(!confirm('این بازه را دوباره باز می‌کنی؟'))return;const {error}=await db().from('afra_property_blocks').delete().eq('id',b.dataset.unblock);if(error)toast(error.message,true);else reload()});reload();async function loadRates(){const property=$('#ap-block-property').value;const {data,error}=await db().from('afra_special_rates').select('property_id,stay_date,night_price,note').eq('property_id',property).order('stay_date',{ascending:true}).limit(100);$('#ap-rate-list').innerHTML=error?banner('قیمت‌های ویژه بعد از اجرای SQL فعال می‌شوند.','error'):(data?.length?data.map(x=>`<div class="ap-row" style="border-bottom:1px solid var(--ap-line);padding:7px"><span>${html(jDate(x.stay_date))} · ${money(x.night_price)} · ${html(x.note||'')}</span><button class="ap-btn small secondary" data-delete-rate="${html(x.stay_date)}">حذف</button></div>`).join(''):banner('برای این اقامتگاه، قیمت روزانه ویژه‌ای ثبت نشده است.'));}
 $('#ap-rate-form').addEventListener('submit',async e=>{e.preventDefault();const payload={property_id:$('#ap-block-property').value,stay_date:$('#ap-rate-date').value,night_price:Number($('#ap-rate-price').value),note:$('#ap-rate-note').value.trim()};const {error}=await db().from('afra_special_rates').upsert(payload,{onConflict:'property_id,stay_date'});$('#ap-rate-msg').innerHTML=error?banner(error.message,'error'):banner('قیمت ویژه ذخیره شد.','success');if(!error){e.target.reset();loadRates();}});
 $('#ap-rate-list').addEventListener('click',async e=>{const btn=e.target.closest('[data-delete-rate]');if(!btn)return;if(!confirm('قیمت ویژه این روز حذف شود؟'))return;const {error}=await db().from('afra_special_rates').delete().eq('property_id',$('#ap-block-property').value).eq('stay_date',btn.dataset.deleteRate);if(error)toast(error.message,true);else loadRates();});loadRates();async function loadHostOrders(){
  const {data,error}=await db().from('reservations').select('id,reservation_code,property_id,check_in,check_out,guest_count,payment_amount,status,payment_status,guest_user_id,created_at').in('property_id',rows.map(x=>x.id)).order('created_at',{ascending:false}).limit(100);
@@ -414,6 +370,120 @@ async function adminPage(which){shell('مدیریت '+({'users':'کاربران'
  }
 
  const [table,cols]=map[which];const {data,error}=await db().from(table).select(cols).limit(100);box.innerHTML=`<div class="ap-panel" style="margin-bottom:20px">${linkList(links)}</div>${error?banner('امکان خواندن جدول وجود ندارد: '+error.message,'error'):`<section class="ap-panel"><h2>آخرین رکوردها (حداکثر ۱۰۰)</h2>${(data||[]).length?`<div class="ap-table-wrap"><table class="ap-table"><thead><tr>${Object.keys(data[0]).map(k=>`<th>${html(k)}</th>`).join('')}</tr></thead><tbody>${data.map(r=>`<tr>${Object.values(r).map(v=>`<td>${html(typeof v==='object'?JSON.stringify(v):v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:banner('رکوردی ثبت نشده است.')}</section>`}${which==='reviews'?'<div class="ap-panel"><h2>تأیید / رد نظر</h2><form id="ap-review-mod" class="ap-form-grid"><label class="ap-field">شناسه نظر<input id="ap-mod-id" required placeholder="UUID"></label><label class="ap-field">تصمیم<select id="ap-mod-status"><option value="approved">تأیید</option><option value="rejected">رد</option></select></label><button class="ap-btn" type="submit">ثبت تصمیم</button></form><div id="ap-mod-msg"></div></div>':''}${banner('برای عملیات حساس مانند تأیید پرداخت، احراز هویت و استرداد وجه، فقط ابزارهای امن سروری قابل استفاده‌اند. این صفحات اجازه جعل تراکنش ندارند.')}`;if(which==='reviews'&&!error){$('#ap-review-mod').addEventListener('submit',async e=>{e.preventDefault();const {error}=await db().from('afra_reviews').update({moderation_status:$('#ap-mod-status').value,moderated_at:new Date().toISOString()}).eq('id',$('#ap-mod-id').value.trim());$('#ap-mod-msg').innerHTML=error?banner(error.message,'error'):banner('وضعیت نظر به‌روزرسانی شد.','success');});}}
+// Dedicated administrator-only bank transfer verification. No browser-side paid updates.
+async function adminPaymentsPage(){
+ shell('مدیریت پرداخت‌ها','مرحله اول: ثبت دریافت رسید کارت‌به‌کارت؛ مرحله دوم: بررسی تراکنش بانکی و تأیید واریز.',`<div id="ap-payments-admin" class="ap-payments-admin">${loading()}</div>`,'پنل مدیریت');
+ const box=$('#ap-payments-admin');
+ if(!db()){box.innerHTML=missingDb();return;}
+ const me=await user();if(!me){box.innerHTML=loginNeeded();return;}
+ const {data:isAdmin,error:adminError}=await db().rpc('is_admin');
+ if(adminError||isAdmin!==true){box.innerHTML=banner('دسترسی به تأیید پرداخت فقط برای مدیر مجاز است.','error');return;}
+ box.innerHTML=`<div class="ap-payments-links"><a class="ap-btn secondary small" href="admin.html">داشبورد مدیریت</a><a class="ap-btn secondary small" href="admin-bookings.html">سوابق رزروها</a></div>
+ <div class="ap-callout ap-payment-notice"><strong>پرداخت کارت‌به‌کارت؛ ۳۰ دقیقه واریز + ۴۰ دقیقه بررسی</strong><p>مسافر از لحظه تأیید درخواست، ۳۰ دقیقه فرصت واریز و ارسال رسید دارد. وقتی تصویر رسید را در واتس‌اپ/تلگرام دریافت کردید، با دکمه «رسید دریافت شد» دریافت آن را ثبت کنید تا فرصت بررسی ۴۰ دقیقه‌ای شروع شود. رسید به‌تنهایی اثبات واریز نیست؛ بعد از تطبیق با تراکنش واقعی بانک، «تأیید نهایی واریز» را بزنید. اگر بررسی بیش از ۴۰ دقیقه طول بکشد، رزرو دارای رسید منقضی نمی‌شود و برای پیگیری مدیر باقی می‌ماند.</p></div>
+ <section class="ap-panel ap-payments-board"><div class="ap-payments-titlebar"><div><h2>بررسی پرداخت رزروها</h2><p class="ap-muted">ثبت رسید و تأیید واریز دو اقدام مجزا هستند و فقط برای مدیر سایت نمایش داده می‌شوند.</p></div><button type="button" class="ap-btn secondary" id="ap-payments-refresh">↻ تازه‌سازی</button></div>
+ <div id="ap-payments-stats" class="ap-payments-stats" aria-label="آمار پرداخت‌ها"></div>
+ <div class="ap-payments-filter"><label class="ap-field">وضعیت نمایش<select id="ap-payments-filter"><option value="review">اقدام لازم</option><option value="receipt">رسیدهای در انتظار بررسی</option><option value="unpaid">در انتظار دریافت رسید</option><option value="paid">پرداخت‌های تأییدشده</option><option value="all">تمام رزروها</option></select></label><label class="ap-field">جست‌وجوی کد رزرو یا اقامتگاه<input id="ap-payments-search" type="search" autocomplete="off" placeholder="مثلاً AFRA-..."></label></div>
+ <div id="ap-payments-list" class="ap-payments-list" aria-live="polite">${loading()}</div></section>
+ <div id="ap-payments-feedback" role="status" aria-live="polite"></div>
+ <dialog id="ap-receipt-confirm" class="ap-payments-dialog" aria-labelledby="ap-receipt-dialog-title"><form id="ap-receipt-form" class="ap-stack"><div class="ap-payments-dialog-head"><h2 id="ap-receipt-dialog-title">ثبت دریافت رسید</h2><button type="button" class="ap-payments-close" id="ap-receipt-cancel-top" aria-label="بستن پنجره">×</button></div><div id="ap-receipt-selected" class="ap-payment-summary"></div><div class="ap-callout ap-payment-warning">این مرحله فقط دریافت تصویر رسید را ثبت می‌کند و <strong>پرداخت را تأیید نمی‌کند</strong>. مهلت بررسی مدیر از همین لحظه ۴۰ دقیقه خواهد بود؛ حتی پس از پایان این مهلت، رزرو دارای رسید برای تصمیم مدیر باقی می‌ماند.</div><label class="ap-payment-check"><input id="ap-receipt-checked" type="checkbox" required> <span>تصویر رسید مربوط به همین کد رزرو را واقعاً در واتس‌اپ یا تلگرام دریافت و بررسی اولیه کرده‌ام.</span></label><label class="ap-field">برای ثبت دریافت، کد کامل رزرو را وارد کنید<input id="ap-receipt-code" type="text" autocomplete="off" spellcheck="false" dir="ltr" required placeholder="AFRA-..."></label><div id="ap-receipt-dialog-error" role="alert"></div><div class="ap-payments-dialog-actions"><button type="button" class="ap-btn secondary" id="ap-receipt-cancel">انصراف</button><button type="submit" class="ap-btn" id="ap-receipt-submit" disabled>ثبت دریافت رسید و آغاز بررسی ۴۰ دقیقه‌ای</button></div></form></dialog>
+ <dialog id="ap-payments-confirm" class="ap-payments-dialog" aria-labelledby="ap-payments-dialog-title"><form id="ap-payments-form" class="ap-stack"><div class="ap-payments-dialog-head"><h2 id="ap-payments-dialog-title">تأیید دریافت وجه</h2><button type="button" class="ap-payments-close" id="ap-payments-cancel-top" aria-label="بستن پنجره">×</button></div><div id="ap-payments-selected" class="ap-payment-summary"></div><div class="ap-callout ap-payment-warning">این عملیات وضعیت پرداخت را در دیتابیس به <code>paid</code> تغییر می‌دهد. تنها بعد از مشاهده تراکنش قطعی در حساب بانکی انجام شود.</div><label class="ap-payment-check"><input id="ap-payments-checked" type="checkbox" required> <span>ورود وجه، کد رزرو و مبلغ را با گردش واقعی حساب بانکی تطبیق داده‌ام.</span></label><label class="ap-field">برای تأیید، کد کامل رزرو را وارد کنید<input id="ap-payments-code" type="text" autocomplete="off" spellcheck="false" dir="ltr" required placeholder="AFRA-..."></label><div id="ap-payments-dialog-error" role="alert"></div><div class="ap-payments-dialog-actions"><button type="button" class="ap-btn secondary" id="ap-payments-cancel">انصراف</button><button type="submit" class="ap-btn" id="ap-payments-submit" disabled>تأیید نهایی واریز</button></div></form></dialog>`;
+ const $box=s=>$(s,box);
+ const stats=$box('#ap-payments-stats'),list=$box('#ap-payments-list'),feedback=$box('#ap-payments-feedback');
+ const selector=$box('#ap-payments-filter'),search=$box('#ap-payments-search');
+ const dialog=$box('#ap-payments-confirm'),form=$box('#ap-payments-form'),check=$box('#ap-payments-checked'),typed=$box('#ap-payments-code'),submit=$box('#ap-payments-submit');
+ const receiptDialog=$box('#ap-receipt-confirm'),receiptForm=$box('#ap-receipt-form'),receiptCheck=$box('#ap-receipt-checked'),receiptCode=$box('#ap-receipt-code'),receiptSubmit=$box('#ap-receipt-submit');
+ let records=[],selected=null,sending=false,selectedReceipt=null,receiptSending=false,requestSeq=0;
+ const resName={pending:'در انتظار بررسی',confirmed:'تأییدشده',rejected:'ردشده',cancelled:'لغوشده',expired:'منقضی‌شده'};
+ const payName={unpaid:'پرداخت‌نشده',receipt_submitted:'رسید ثبت‌شده',paid:'واریز تأیید شد',failed:'ناموفق'};
+ const readableTime=x=>{if(!x)return '—';const d=new Date(x);return Number.isNaN(d.getTime())?'—':d.toLocaleString('fa-IR');};
+ const hasPrice=r=>Number.isFinite(Number(r.payment_amount))&&Number(r.payment_amount)>0;
+ const timePending=r=>!!r.payment_deadline_at&&new Date(r.payment_deadline_at).getTime()>Date.now();
+ const canRecordReceipt=r=>r.status==='confirmed'&&r.payment_status==='unpaid'&&hasPrice(r)&&timePending(r);
+ const canConfirmPayment=r=>r.status==='confirmed'&&r.payment_status==='receipt_submitted'&&hasPrice(r);
+ const eligible=r=>canRecordReceipt(r)||canConfirmPayment(r);
+ const price=r=>Number(r.payment_amount)>0?money(r.payment_amount):'مبلغ ثبت نشده';
+ const badge=r=>r.payment_status==='paid'?'ap-payment-paid':eligible(r)?'ap-payment-waiting':'ap-payment-disabled';
+ function render(){
+  const counts={receipt:records.filter(canConfirmPayment).length,unpaid:records.filter(canRecordReceipt).length,paid:records.filter(r=>r.payment_status==='paid').length,total:records.length};
+  stats.innerHTML=`<div class="ap-stat"><strong>${fmt(counts.unpaid)}</strong><small>منتظر ثبت رسید</small></div><div class="ap-stat"><strong>${fmt(counts.receipt)}</strong><small>رسیدهای نیازمند بررسی</small></div><div class="ap-stat"><strong>${fmt(counts.paid)}</strong><small>پرداخت‌های تأییدشده</small></div><div class="ap-stat"><strong>${fmt(counts.total)}</strong><small>رزروهای خوانده‌شده</small></div>`;
+  const term=search.value.trim().toLowerCase();const filtered=records.filter(r=>(selector.value==='all'||(selector.value==='paid'?r.payment_status==='paid':selector.value==='receipt'?canConfirmPayment(r):selector.value==='unpaid'?canRecordReceipt(r):eligible(r)))&&(!term||[r.reservation_code,r.property_title,r.guest_name].some(x=>String(x||'').toLowerCase().includes(term))));
+  list.innerHTML=filtered.length?filtered.map(r=>{
+   const deadline=r.payment_deadline_at?new Date(r.payment_deadline_at).getTime():NaN;
+   const reviewDue=r.receipt_review_deadline_at?new Date(r.receipt_review_deadline_at).getTime():NaN;
+   const afterDepositDeadline=r.status==='confirmed'&&r.payment_status==='unpaid'&&Number.isFinite(deadline)&&deadline<=Date.now();
+   const reviewOverdue=canConfirmPayment(r)&&Number.isFinite(reviewDue)&&reviewDue<=Date.now();
+   const receiptAction=canRecordReceipt(r),finalAction=canConfirmPayment(r);
+   return `<article class="ap-payment-item" data-payment-id="${html(r.id)}"><div class="ap-payment-item-head"><div><div class="ap-payment-code" dir="ltr">${html(r.reservation_code||r.id)}</div><h3>${html(r.property_title||'اقامتگاه ثبت‌شده')}</h3></div><span class="ap-payment-status ${badge(r)}">${html(payName[r.payment_status]||r.payment_status||'نامشخص')}</span></div>
+    <div class="ap-payment-item-grid"><div><small>مبلغ قابل پرداخت</small><strong class="ap-payment-amount">${price(r)}</strong></div><div><small>وضعیت رزرو</small><strong>${html(resName[r.status]||r.status||'—')}</strong></div><div><small>نام مسافر</small><strong>${html(r.guest_name||'—')}</strong></div><div><small>تاریخ ورود تا خروج</small><strong>${html(jDate(r.check_in))} تا ${html(jDate(r.check_out))}</strong></div><div><small>مهلت واریز (۳۰ دقیقه)</small><strong>${html(readableTime(r.payment_deadline_at))}</strong></div><div><small>ثبت دریافت رسید</small><strong>${html(readableTime(r.receipt_submitted_at))}</strong></div><div><small>مهلت بررسی رسید (۴۰ دقیقه)</small><strong class="${reviewOverdue?'ap-payment-urgent':''}">${html(readableTime(r.receipt_review_deadline_at))}</strong></div><div><small>تأیید واریز در سیستم</small><strong>${html(readableTime(r.payment_paid_at))}</strong></div></div>
+    ${afterDepositDeadline?'<p class="ap-payment-warning-inline">مهلت ۳۰ دقیقه‌ای ثبت دریافت رسید تمام شده است؛ این رزرو دیگر از مسیر عادی قابل ثبت رسید نیست.</p>':''}
+    ${reviewOverdue?'<p class="ap-payment-warning-inline ap-payment-urgent-notice" role="status">⚠️ مهلت ۴۰ دقیقه‌ای بررسی رسید گذشته است. این رزرو خودکار منقضی نمی‌شود؛ لطفاً در اولویت بررسی بانک قرار دهید.</p>':''}
+    <div class="ap-payment-item-actions">${receiptAction?`<button type="button" class="ap-btn ap-payment-receipt" data-receipt-payment="${html(r.id)}">📩 رسید دریافت شد</button>`:''}${finalAction?`<button type="button" class="ap-btn ap-payment-review" data-verify-payment="${html(r.id)}">✓ بررسی و تأیید نهایی واریز</button>`:''}${!receiptAction&&!finalAction?`<span class="ap-muted">${r.payment_status==='paid'?'پرداخت قبلاً تأیید شده است.':r.payment_status==='receipt_submitted'?'رسید در صف بررسی قرار دارد.':'این رزرو اکنون قابل اقدام پرداخت نیست.'}</span>`:''}</div></article>`;
+  }).join(''):`<div class="ap-empty">${selector.value==='review'?'در حال حاضر رزروی با اقدام قابل انجام وجود ندارد.':'موردی مطابق فیلتر و جست‌وجو پیدا نشد.'}</div>`;
+ }
+ async function reload(){const seq=++requestSeq;const btn=$box('#ap-payments-refresh');btn.disabled=true;list.innerHTML=loading();feedback.innerHTML='';
+  try{
+   const {data,error}=await db().from('reservations').select('id,reservation_code,property_id,guest_name,check_in,check_out,status,payment_status,payment_amount,payment_deadline_at,receipt_submitted_at,receipt_review_deadline_at,payment_paid_at,payment_method,created_at').order('created_at',{ascending:false}).limit(150);
+   if(error)throw error;
+   const rows=data||[],ids=[...new Set(rows.map(r=>r.property_id).filter(Boolean))],titles={};
+   if(ids.length){const p=await db().from('properties').select('id,title').in('id',ids);if(!p.error)(p.data||[]).forEach(x=>titles[x.id]=x.title);}
+   if(seq!==requestSeq)return;
+   records=rows.map(r=>({...r,property_title:titles[r.property_id]||'اقامتگاه'}));render();
+  }catch(e){list.innerHTML=banner('دریافت رزروها موفق نبود: '+(e?.message||'خطای ارتباط'),'error');}
+  finally{if(seq===requestSeq)btn.disabled=false;}
+ }
+ function closeReceiptDialog(){if(receiptSending)return;if(receiptDialog.open)receiptDialog.close();selectedReceipt=null;}
+ function validReceipt(){const valid=!!selectedReceipt&&receiptCheck.checked&&receiptCode.value.trim().toUpperCase()===String(selectedReceipt.reservation_code||'').toUpperCase()&&!receiptSending;receiptSubmit.disabled=!valid;return valid;}
+ $box('#ap-receipt-cancel').addEventListener('click',closeReceiptDialog);$box('#ap-receipt-cancel-top').addEventListener('click',closeReceiptDialog);
+ receiptDialog.addEventListener('cancel',e=>{if(receiptSending)e.preventDefault();else selectedReceipt=null;});
+ receiptCheck.addEventListener('change',validReceipt);receiptCode.addEventListener('input',validReceipt);
+ list.addEventListener('click',e=>{const btn=e.target.closest('[data-receipt-payment]');if(!btn)return;
+  const row=records.find(x=>x.id===btn.dataset.receiptPayment);if(!row||!canRecordReceipt(row))return;
+  selectedReceipt=row;receiptCheck.checked=false;receiptCode.value='';$box('#ap-receipt-dialog-error').innerHTML='';
+  $box('#ap-receipt-selected').innerHTML=`<div>رزرو <b dir="ltr">${html(row.reservation_code)}</b></div><div>اقامتگاه: <strong>${html(row.property_title)}</strong></div><div>مبلغ اعلام‌شده: <strong>${price(row)}</strong></div><div>مهلت دریافت رسید: <strong>${html(readableTime(row.payment_deadline_at))}</strong></div>`;
+  validReceipt();receiptDialog.showModal();receiptCheck.focus();
+ });
+ receiptForm.addEventListener('submit',async e=>{e.preventDefault();if(!validReceipt())return;
+  receiptSending=true;receiptSubmit.disabled=true;$box('#ap-receipt-dialog-error').innerHTML='';
+  try{
+   const {data:latest,error:lookupError}=await db().from('reservations').select('id,reservation_code,status,payment_status,payment_amount,payment_deadline_at').eq('id',selectedReceipt.id).maybeSingle();
+   if(lookupError||!latest||!canRecordReceipt(latest)||latest.reservation_code!==selectedReceipt.reservation_code)throw new Error('مهلت ثبت رسید تمام شده یا وضعیت رزرو تغییر کرده است. تازه‌سازی کنید.');
+   const {data:ok,error}=await db().rpc('admin_mark_card_transfer_receipt_received',{p_reservation_id:selectedReceipt.id});
+   if(error)throw error;if(ok!==true)throw new Error('ثبت دریافت رسید از سوی سرور پذیرفته نشد؛ ممکن است مهلت واریز پایان یافته باشد.');
+   receiptDialog.close();selectedReceipt=null;
+   await reload();feedback.innerHTML=banner('دریافت رسید ثبت شد و مهلت بررسی ۴۰ دقیقه‌ای شروع شد. این مرحله تأیید پرداخت نیست؛ تراکنش را در بانک بررسی کنید.','success');
+  }catch(err){$box('#ap-receipt-dialog-error').innerHTML=banner('ثبت رسید ناموفق بود: '+(err?.message||'خطای سرور'),'error');}
+  finally{receiptSending=false;validReceipt();}
+ });
+ function closeDialog(){if(sending)return;if(dialog.open)dialog.close();selected=null;}
+ function validConfirm(){const valid=!!selected&&check.checked&&typed.value.trim().toUpperCase()===String(selected.reservation_code||'').toUpperCase()&&!sending;submit.disabled=!valid;return valid;}
+ $box('#ap-payments-cancel').addEventListener('click',closeDialog);$box('#ap-payments-cancel-top').addEventListener('click',closeDialog);
+ dialog.addEventListener('cancel',e=>{if(sending)e.preventDefault();else selected=null;});
+ check.addEventListener('change',validConfirm);typed.addEventListener('input',validConfirm);
+ list.addEventListener('click',e=>{const btn=e.target.closest('[data-verify-payment]');if(!btn)return;
+  const row=records.find(x=>x.id===btn.dataset.verifyPayment);if(!row||!canConfirmPayment(row))return;
+  selected=row;check.checked=false;typed.value='';$box('#ap-payments-dialog-error').innerHTML='';
+  $box('#ap-payments-selected').innerHTML=`<div>رزرو <b dir="ltr">${html(row.reservation_code)}</b></div><div>اقامتگاه: <strong>${html(row.property_title)}</strong></div><div>مبلغ برای تطبیق با بانک: <strong>${price(row)}</strong></div><div>وضعیت کنونی: <strong>${html(payName[row.payment_status]||'—')}</strong></div>`;
+  validConfirm();dialog.showModal();check.focus();
+ });
+ form.addEventListener('submit',async e=>{e.preventDefault();if(!validConfirm())return;
+  sending=true;submit.disabled=true;$box('#ap-payments-dialog-error').innerHTML='';
+  try{
+   const {data:latest,error:lookupError}=await db().from('reservations').select('id,reservation_code,status,payment_status,payment_amount').eq('id',selected.id).maybeSingle();
+   if(lookupError||!latest||!canConfirmPayment(latest)||latest.reservation_code!==selected.reservation_code){throw new Error('وضعیت رزرو تغییر کرده است. صفحه را تازه‌سازی و دوباره بررسی کنید.');}
+   const {data:ok,error}=await db().rpc('admin_mark_reservation_paid',{p_reservation_id:selected.id});
+   if(error)throw error;if(ok!==true)throw new Error('سرور تأیید پرداخت را نپذیرفت؛ ممکن است وضعیت رزرو تغییر کرده باشد.');
+   dialog.close();selected=null;feedback.innerHTML=banner('تأیید واریز در Supabase ثبت شد. ارسال پیام نهایی تلگرام به تنظیم مسیر پرداخت‌شده در Make نیاز دارد.','success');
+   await reload();feedback.innerHTML=banner('واریز تأیید و در Supabase ثبت شد. برای پیام قطعی‌شدن رزرو، مسیر وضعیت paid را در Make تکمیل کنید.','success');
+  }catch(err){$box('#ap-payments-dialog-error').innerHTML=banner('تأیید ناموفق بود: '+(err?.message||'خطای سرور'),'error');}
+  finally{sending=false;validConfirm();}
+ });
+ selector.addEventListener('change',render);search.addEventListener('input',render);$box('#ap-payments-refresh').addEventListener('click',reload);
+ // Keep receipt and deposit deadline warnings current while the administration panel remains open.
+ const deadlineRefresh=setInterval(()=>{if(!document.hidden&&records.length)render();},30000);
+ window.addEventListener('pagehide',()=>clearInterval(deadlineRefresh),{once:true});
+ await reload();
+}
+
 async function messagesPage(){
  shell('گفت‌وگوی مسافر و میزبان','گفت‌وگوها به رزرو واقعی متصل‌اند و فقط مسافر و میزبان همان رزرو به پیام‌ها دسترسی دارند.',`<div id="ap-msg" class="ap-stack">${loading()}</div>`,'پیام‌ها');
  const me=await user(),el=$('#ap-msg');if(!me){el.innerHTML=loginNeeded();return;}
@@ -547,6 +617,7 @@ function init(){document.body.appendChild(toastRoot);nav();addLegacyLinks();if(c
  switch(moduleId){case 'search':searchPage();break;case 'map':searchPage(true);break;case 'categories':categoryPage();break;case 'cities':citiesPage();break;case 'regions':regionsPage();break;
  case 'auth':case 'register':authPage();break;case 'guest':dashboardPage();break;case 'account-bookings':accountBookingsPage();break;case 'my-searches':mySearchesPage();break;case 'my-reviews':myReviewsPage();break;case 'host-reviews':hostReviewsPage();break;case 'notifications':notificationsPage();break;case 'favorites':favoritePage();break;case 'support':supportPage();break;case 'wallet':walletPage();break;case 'reviews':reviewsPage();break;case 'compare':comparePage();break;case 'booking':bookingPage();break;case 'payment':case 'result':case 'voucher':paymentPage(moduleId);break;
  case 'spec-editor':propertySpecsPage();break;case 'host-calendar':hostCalendarPage();break;case 'host-finance':hostFinancePage();break;case 'host-performance':hostFinancePage('performance');break;case 'add-property':hostRoutePage('add');break;case 'manage-property':hostRoutePage('manage');break;
+ case 'admin-payments':adminPaymentsPage();break;
  case 'messages':messagesPage();break;
  default:if(moduleId.startsWith('admin-'))adminPage(moduleId.slice(6));else if(['about','contact','rules','privacy','faq','magazine','journal','become-host','last-minute','discounts','referrals'].includes(moduleId))marketingPage(moduleId);else cardLanding('افرا سفر','صفحه مورد نظر از منوی زیر قابل دسترسی است.',menu.map(([a,b])=>[a,b,'']));
  }

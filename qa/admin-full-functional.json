@@ -1,0 +1,281 @@
+{
+  "checks": 68,
+  "failures": [],
+  "pageErrors": [],
+  "results": [
+    {
+      "check": "index.html bright text green",
+      "ok": true
+    },
+    {
+      "check": "index.html dark gold retained",
+      "ok": true
+    },
+    {
+      "check": "search.html bright text green",
+      "ok": true
+    },
+    {
+      "check": "search.html dark gold retained",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html bright text green",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html dark gold retained",
+      "ok": true
+    },
+    {
+      "check": "category passed to new property",
+      "ok": true
+    },
+    {
+      "check": "legacy active checkbox default",
+      "ok": true
+    },
+    {
+      "check": "create complete data including zero price",
+      "ok": true
+    },
+    {
+      "check": "cover upload uses current storage",
+      "ok": true
+    },
+    {
+      "check": "gallery attached to saved property",
+      "ok": true
+    },
+    {
+      "check": "three independent image uploads",
+      "ok": true
+    },
+    {
+      "check": "inactive record has no public link",
+      "ok": true
+    },
+    {
+      "check": "saved editor has stable URL",
+      "ok": true
+    },
+    {
+      "check": "saved editor shows edit mode",
+      "ok": true
+    },
+    {
+      "check": "save again updates rather than duplicates",
+      "ok": true
+    },
+    {
+      "check": "no duplicate gallery on repeat save",
+      "ok": true
+    },
+    {
+      "check": "editing preserves property owner",
+      "ok": true
+    },
+    {
+      "check": "gallery failure explicitly reports saved property",
+      "ok": true
+    },
+    {
+      "check": "partial save retains edit URL",
+      "ok": true
+    },
+    {
+      "check": "gallery retry creates property once",
+      "ok": true
+    },
+    {
+      "check": "gallery retry reuses uploaded files",
+      "ok": true
+    },
+    {
+      "check": "gallery retry commits both records",
+      "ok": true
+    },
+    {
+      "check": "failed cover upload does not create property",
+      "ok": true
+    },
+    {
+      "check": "failed cover upload re-enables save",
+      "ok": true
+    },
+    {
+      "check": "cover retry creates exactly one property",
+      "ok": true
+    },
+    {
+      "check": "SVG upload rejected",
+      "ok": true
+    },
+    {
+      "check": "light validation error readable",
+      "ok": true
+    },
+    {
+      "check": "corrupt image rejected",
+      "ok": true
+    },
+    {
+      "check": "gallery batch limit enforced",
+      "ok": true
+    },
+    {
+      "check": "oversize image rejected",
+      "ok": true
+    },
+    {
+      "check": "invalid capacity produces no write",
+      "ok": true
+    },
+    {
+      "check": "invalid image URL produces no write",
+      "ok": true
+    },
+    {
+      "check": "revoked admin cannot save",
+      "ok": true
+    },
+    {
+      "check": "category-linked list filtered",
+      "ok": true
+    },
+    {
+      "check": "escaped property text stays text",
+      "ok": true
+    },
+    {
+      "check": "search and filters combine",
+      "ok": true
+    },
+    {
+      "check": "matching combined filters restore rows",
+      "ok": true
+    },
+    {
+      "check": "activation updates real property field",
+      "ok": true
+    },
+    {
+      "check": "delete confirmation reports dependent bookings",
+      "ok": true
+    },
+    {
+      "check": "cancelled delete retains property",
+      "ok": true
+    },
+    {
+      "check": "confirmed delete targets chosen property",
+      "ok": true
+    },
+    {
+      "check": "deleting one preserves other properties",
+      "ok": true
+    },
+    {
+      "check": "admin confirmation changes booking status",
+      "ok": true
+    },
+    {
+      "check": "confirmation never marks payment paid",
+      "ok": true
+    },
+    {
+      "check": "full booking message copied",
+      "ok": true
+    },
+    {
+      "check": "Telegram remains a prepared share link",
+      "ok": true
+    },
+    {
+      "check": "booking search combines status",
+      "ok": true
+    },
+    {
+      "check": "confirmed booking can be rejected",
+      "ok": true
+    },
+    {
+      "check": "tracking link pre-fills correct form",
+      "ok": true
+    },
+    {
+      "check": "overlap rejection does not confirm booking",
+      "ok": true
+    },
+    {
+      "check": "failed confirmation re-enables button",
+      "ok": true
+    },
+    {
+      "check": "stale decision does not overwrite another admin",
+      "ok": true
+    },
+    {
+      "check": "host approval updates expected field",
+      "ok": true
+    },
+    {
+      "check": "review moderation connected",
+      "ok": true
+    },
+    {
+      "check": "support save connected",
+      "ok": true
+    },
+    {
+      "check": "backup includes gallery metadata",
+      "ok": true
+    },
+    {
+      "check": "signout returns to admin login",
+      "ok": true
+    },
+    {
+      "check": "guest cannot see data shell",
+      "ok": true
+    },
+    {
+      "check": "guest cannot write",
+      "ok": true
+    },
+    {
+      "check": "denied cannot see data shell",
+      "ok": true
+    },
+    {
+      "check": "denied cannot write",
+      "ok": true
+    },
+    {
+      "check": "invalid login stays outside data shell",
+      "ok": true
+    },
+    {
+      "check": "admin login reaches current dashboard",
+      "ok": true
+    },
+    {
+      "check": "four category creation actions",
+      "ok": true
+    },
+    {
+      "check": "public category links use correct query",
+      "ok": true
+    },
+    {
+      "check": "subdirectory installation keeps editor path",
+      "ok": true
+    },
+    {
+      "check": "mobile editor stays inside viewport",
+      "ok": true
+    }
+  ],
+  "backend": "synthetic in-memory only",
+  "productionWrites": 0
+}

@@ -1,0 +1,567 @@
+{
+  "checks": 14,
+  "failures": [],
+  "page_errors": [],
+  "results": [
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(255, 255, 255, 0.33), rgba(218, 241, 222, 0.18))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 320,
+      "theme": "light",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(35, 83, 71, 0.32), rgba(5, 31, 32, 0.24))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 320,
+      "theme": "dark",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(255, 255, 255, 0.33), rgba(218, 241, 222, 0.18))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 375,
+      "theme": "light",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(35, 83, 71, 0.32), rgba(5, 31, 32, 0.24))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 375,
+      "theme": "dark",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(255, 255, 255, 0.33), rgba(218, 241, 222, 0.18))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 390,
+      "theme": "light",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(35, 83, 71, 0.32), rgba(5, 31, 32, 0.24))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 390,
+      "theme": "dark",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(255, 255, 255, 0.33), rgba(218, 241, 222, 0.18))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 430,
+      "theme": "light",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(35, 83, 71, 0.32), rgba(5, 31, 32, 0.24))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 430,
+      "theme": "dark",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(255, 255, 255, 0.33), rgba(218, 241, 222, 0.18))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 768,
+      "theme": "light",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(35, 83, 71, 0.32), rgba(5, 31, 32, 0.24))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 768,
+      "theme": "dark",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(255, 255, 255, 0.33), rgba(218, 241, 222, 0.18))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 1024,
+      "theme": "light",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(35, 83, 71, 0.32), rgba(5, 31, 32, 0.24))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 1024,
+      "theme": "dark",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(255, 255, 255, 0.46)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.46
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(255, 255, 255, 0.33), rgba(218, 241, 222, 0.18))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 1440,
+      "theme": "light",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    },
+    {
+      "shadow_removed": true,
+      "glass": [
+        {
+          "cls": "logo afra-brand-glass",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "hero-description",
+          "bg": "rgba(5, 31, 32, 0.56)",
+          "image": "none",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0.56
+        },
+        {
+          "cls": "search-main-row",
+          "bg": "rgba(0, 0, 0, 0)",
+          "image": "linear-gradient(135deg, rgba(35, 83, 71, 0.32), rgba(5, 31, 32, 0.24))",
+          "blur": "blur(20px) saturate(1.15)",
+          "alpha": 0
+        }
+      ],
+      "links_clear": true,
+      "link_text_fits": true,
+      "overflow": false,
+      "width": 1440,
+      "theme": "dark",
+      "search_opens": true,
+      "menu_opens": true,
+      "toggle_works_after_scroll": true,
+      "theme_menu_visible": true,
+      "theme_menu_in_view": true
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "pages": 19,
+  "buttonsBound": 190,
+  "uniqueDestinations": 39,
+  "javascriptChecked": 18,
+  "errors": [],
+  "results": [
+    {
+      "page": "admin-v2/index.html",
+      "links": 29,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "links": 24,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "links": 25,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "links": 25,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "links": 25,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "links": 30,
+      "buttons": 14,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "links": 27,
+      "buttons": 12,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "links": 24,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "links": 37,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "links": 26,
+      "buttons": 11,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "links": 29,
+      "buttons": 14,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "links": 24,
+      "buttons": 11,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "links": 24,
+      "buttons": 10,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "links": 24,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "links": 24,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "links": 24,
+      "buttons": 10,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "links": 24,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "links": 24,
+      "buttons": 9,
+      "unbound": []
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "links": 24,
+      "buttons": 9,
+      "unbound": []
+    }
+  ],
+  "destinations": [
+    "/admin-payments.html",
+    "/admin-v2/index.html",
+    "/admin-v2/pages/analytics.html",
+    "/admin-v2/pages/finance/invoices.html",
+    "/admin-v2/pages/finance/revenue.html",
+    "/admin-v2/pages/finance/transactions.html",
+    "/admin-v2/pages/orders/history.html",
+    "/admin-v2/pages/orders/new.html",
+    "/admin-v2/pages/orders/reports.html",
+    "/admin-v2/pages/products/categories.html",
+    "/admin-v2/pages/products/create.html",
+    "/admin-v2/pages/products/create.html?category=forest",
+    "/admin-v2/pages/products/create.html?category=luxury",
+    "/admin-v2/pages/products/create.html?category=pool",
+    "/admin-v2/pages/products/create.html?category=villa",
+    "/admin-v2/pages/products/create.html?edit=11111111-1111-4111-8111-111111111111",
+    "/admin-v2/pages/products/create.html?edit=44444444-4444-4444-8444-444444444444",
+    "/admin-v2/pages/products/index.html",
+    "/admin-v2/pages/products/index.html?category=forest",
+    "/admin-v2/pages/products/index.html?category=luxury",
+    "/admin-v2/pages/products/index.html?category=pool",
+    "/admin-v2/pages/products/index.html?category=villa",
+    "/admin-v2/pages/reviews.html",
+    "/admin-v2/pages/settings/backup.html",
+    "/admin-v2/pages/settings/general.html",
+    "/admin-v2/pages/support.html",
+    "/admin-v2/pages/users/create.html",
+    "/admin-v2/pages/users/index.html",
+    "/admin-v2/pages/users/roles.html",
+    "/index.html",
+    "/map.html",
+    "/my-reservations.html?code=QA-1001&phone=09120000000",
+    "/my-reservations.html?code=QA-1002&phone=09120000000",
+    "/property.html?id=11111111-1111-4111-8111-111111111111",
+    "/search.html",
+    "/search.html?type=forest",
+    "/search.html?type=luxury",
+    "/search.html?type=pool",
+    "/search.html?type=villa"
+  ]
+}

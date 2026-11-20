@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "version": "frosted",
+      "corrupt_favorites_recovers": false,
+      "numeric_favorite_shows": false,
+      "compare_escapes_location": false,
+      "wallet_zero_and_negative_visible": false,
+      "rate_delete_uses_iso": false,
+      "filter_expanded_announced": false,
+      "search_filter": true,
+      "search_reset": true,
+      "errors": []
+    },
+    {
+      "version": "clear",
+      "corrupt_favorites_recovers": true,
+      "numeric_favorite_shows": true,
+      "compare_escapes_location": true,
+      "wallet_zero_and_negative_visible": true,
+      "rate_delete_uses_iso": true,
+      "filter_expanded_announced": true,
+      "search_filter": true,
+      "search_reset": true,
+      "errors": []
+    }
+  ],
+  "new_version_passed": true
+}

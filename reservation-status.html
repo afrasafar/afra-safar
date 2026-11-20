@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+  <script id="afraThemeBootstrap">(function(){var p='dark';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#123d32">
+  <meta name="theme-color" content="#0f0f23">
   <meta name="description" content="پیگیری وضعیت رزرو ویلا و کلبه در افرا سفر">
   <title>پیگیری رزرو | افرا سفر</title>
 
@@ -388,17 +390,31 @@
     @media (max-width: 520px) { .payment-grid { grid-template-columns: 1fr; } .payment-actions { display: grid; } .payment-actions button, .payment-actions a { min-width: 0; } }
 
 </style>
+
+  <link rel="stylesheet" href="afra-theme.css?v=green20261117v2">
+  <script defer src="afra-theme.js?v=video20261119"></script>
+  <link rel="stylesheet" href="afra-glass-theme.css?v=header20261119">
+  <script defer src="afra-mobile-nav.js?v=1"></script>
+<link rel="stylesheet" href="afra-experience.css?v=header20261119">
+<script defer src="afra-experience.js?v=video20261119"></script>
+<link rel="stylesheet" href="afra-frosted.css?v=header20261119">
+<link rel="stylesheet" href="afra-mobile-layout.css?v=header20261119">
+<link rel="stylesheet" href="afra-readable.css?v=header20261119">
+<script defer src="afra-icons.js?v=header20261119"></script>
+<link rel="stylesheet" href="afra-header.css?v=header20261119">
+<link rel="stylesheet" href="admin-v2/assets/css/vazirmatn.css?v=video20261119">
+<link rel="stylesheet" href="afra-admin-v2-theme.css?v=adminfull20261120">
 </head>
 
-<body>
+<body data-afra-page="reservation-status.html">
   <div class="topbar">
-    🌿 افرا سفر؛ همراه شما برای یک اقامت خاطره‌انگیز
+    <img class="afra-brand-img afra-brand-img--tiny" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true"> افرا سفر؛ همراه شما برای یک اقامت خاطره‌انگیز
   </div>
 
   <header>
     <nav class="nav">
       <a href="index.html" class="brand">
-        <div class="brand-icon">🌿</div>
+        <img class="brand-icon afra-brand-img afra-brand-img--standard" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true">
         <div>
           <div class="brand-name">افرا سفر</div>
           <div class="brand-subtitle">سفر، آرامش، خاطره</div>
@@ -981,5 +997,6 @@
       }
     });
   </script>
+<script defer src="afra-header.js?v=header20261119"></script>
 </body>
 </html>

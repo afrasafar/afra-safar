@@ -1,0 +1,268 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "title": "افرا سفر"
+    },
+    {
+      "path": "/afra-safar/PHOTO-CREDITS-FA.html",
+      "title": "منابع تصاویر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/about.html",
+      "title": "درباره افرا سفر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/account-bookings.html",
+      "title": "رزروهای حساب من | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/add-property.html",
+      "title": "ثبت اقامتگاه جدید | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-bookings.html",
+      "title": "مدیریت رزروها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-content.html",
+      "title": "مدیریت محتوای سایت | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-discounts.html",
+      "title": "مدیریت تخفیف‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-hosts.html",
+      "title": "مدیریت میزبان‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-payments.html",
+      "title": "مدیریت پرداخت‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-properties.html",
+      "title": "مدیریت اقامتگاه‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-reviews.html",
+      "title": "مدیریت نظرات | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-support.html",
+      "title": "مدیریت پشتیبانی | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-users.html",
+      "title": "مدیریت کاربران | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin.html",
+      "title": "پنل مدیریت | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/auth.html",
+      "title": "ورود و ثبت‌نام مسافر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/become-host.html",
+      "title": "میزبان شوید | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/booking-voucher.html",
+      "title": "سند رزرو | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/booking.html",
+      "title": "درخواست رزرو | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/categories.html",
+      "title": "دسته‌بندی اقامتگاه‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/cities.html",
+      "title": "شهرهای گردشگری | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/compare.html",
+      "title": "مقایسه اقامتگاه‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/contact.html",
+      "title": "تماس با ما | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/cottage.html",
+      "title": "کلبه جنگلی رامسر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/discounts.html",
+      "title": "تخفیف‌ها و پیشنهادها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/faq.html",
+      "title": "سؤالات متداول | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/favorites.html",
+      "title": "علاقه‌مندی‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/guest-dashboard.html",
+      "title": "پنل مسافر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/host-calendar.html",
+      "title": "تقویم میزبان | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/host-finance.html",
+      "title": "درآمد و تسویه میزبان | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/host-performance.html",
+      "title": "آمار عملکرد میزبان | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/host-reviews.html",
+      "title": "نظرات میزبان | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/index.html",
+      "title": "افرا سفر | رزرو ویلا و کلبه در شمال"
+    },
+    {
+      "path": "/afra-safar/journal-villa.html",
+      "title": "راهنمای رزرو مطمئن | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/last-minute.html",
+      "title": "اقامتگاه‌های تخفیف‌دار | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/luxury-villa.html",
+      "title": "ویلای لوکس نوشهر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/magazine.html",
+      "title": "مجله سفر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/manage-property.html",
+      "title": "مدیریت اقامتگاه‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/map.html",
+      "title": "نقشه اقامتگاه‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/messages.html",
+      "title": "گفت‌وگو و پیام‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/my-reservations.html",
+      "title": "رزروهای من | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/my-reviews.html",
+      "title": "ثبت نظر اقامت | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/my-searches.html",
+      "title": "جست‌وجوهای ذخیره‌شده | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/notifications.html",
+      "title": "اعلان‌های من | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/owner-dashboard.html",
+      "title": "پنل مالک | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/owner-login.html",
+      "title": "ورود مالکان | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/owner-register.html",
+      "title": "ثبت‌نام مالک اقامتگاه | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/owner-reservations.html",
+      "title": "درخواست‌های رزرو | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/payment-result.html",
+      "title": "نتیجه پرداخت | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/payment.html",
+      "title": "پرداخت رزرو | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/privacy.html",
+      "title": "حریم خصوصی | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/property-settings.html",
+      "title": "تکمیل امکانات اقامتگاه | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/property.html",
+      "title": "جزئیات اقامتگاه | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/referrals.html",
+      "title": "معرفی دوستان | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/regions.html",
+      "title": "مناطق گردشگری | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/register.html",
+      "title": "ساخت حساب مسافر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/reservation-status.html",
+      "title": "پیگیری رزرو | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/reviews.html",
+      "title": "نظرات مسافران | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/rules.html",
+      "title": "قوانین و مقررات | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/search-results.html",
+      "title": "نتایج جست‌وجو | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/search.html",
+      "title": "جست‌وجوی پیشرفته اقامتگاه‌ها | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/supabase-status.html",
+      "title": "آزمایش اتصال Supabase | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/support.html",
+      "title": "پشتیبانی افرا سفر | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/villa.html",
+      "title": "ویلای سخاوه استخردار فرهنگ | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/wallet.html",
+      "title": "کیف پول | افرا سفر"
+    },
+    {
+      "path": "/afra-safar/admin-DESKTOP-7GR6IRD.html",
+      "title": "مدیریت افرا سفر | نسخهٔ دسکتاپ"
+    }
+  ]
+}

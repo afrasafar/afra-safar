@@ -1,0 +1,29 @@
+{
+  "site_html_pages": 66,
+  "integrated_admin_html_pages": 19,
+  "all_html_pages": 85,
+  "theme_viewport_cases": 340,
+  "theme_modes": [
+    "dark",
+    "light"
+  ],
+  "viewport_widths": [
+    390,
+    1440
+  ],
+  "mobile_navigation_width": 320,
+  "interaction_checks": 470,
+  "final_checks": 49,
+  "text_contrast_checks": 14384,
+  "legacy_palette_surfaces": 0,
+  "javascript_files_checked": 15,
+  "inline_scripts_checked": 102,
+  "preserved_assets": {
+    "images": true,
+    "public": true,
+    "database": true
+  },
+  "html_bodies_preserved": 65,
+  "real_database_writes": 0,
+  "failures": []
+}

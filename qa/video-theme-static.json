@@ -1,0 +1,12 @@
+{
+  "javascriptChecked": 15,
+  "inlineScriptsChecked": 102,
+  "htmlFiles": 85,
+  "preserved": {
+    "images": true,
+    "public": true,
+    "database": true
+  },
+  "htmlBodiesUnchanged": 65,
+  "errors": []
+}

@@ -1,0 +1,511 @@
+{
+  "checks": 72,
+  "failures": [],
+  "page_errors": [],
+  "results": [
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-dashboard",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-dashboard",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-dashboard",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-dashboard",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-dashboard",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-dashboard",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-reservations",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-reservations",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-reservations",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-reservations",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-reservations",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "owner-reservations",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-calendar",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-calendar",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-calendar",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-calendar",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-calendar",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-calendar",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-finance",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-finance",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-finance",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-finance",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-finance",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "host-finance",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "property-settings",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "property-settings",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "property-settings",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "property-settings",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "property-settings",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "property-settings",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "guest-dashboard",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "guest-dashboard",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "guest-dashboard",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "guest-dashboard",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "guest-dashboard",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "guest-dashboard",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "account-bookings",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "account-bookings",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "account-bookings",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "account-bookings",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "account-bookings",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "account-bookings",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "my-searches",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "my-searches",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "my-searches",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "my-searches",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "my-searches",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "my-searches",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "wallet",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "wallet",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "wallet",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "wallet",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "wallet",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "wallet",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "messages",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "messages",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "messages",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "messages",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "messages",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "messages",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "support",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "support",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "support",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "support",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "support",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "support",
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "booking",
+      "width": 320,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "booking",
+      "width": 320,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "booking",
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "booking",
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "booking",
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "overflow": false,
+      "fields_fit": true,
+      "page": "booking",
+      "width": 768,
+      "theme": "dark"
+    }
+  ]
+}

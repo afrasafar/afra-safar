@@ -1,0 +1,267 @@
+{
+  "checks": 49,
+  "failures": [],
+  "results": [
+    {
+      "check": "admin email contained 320",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 320",
+      "ok": true
+    },
+    {
+      "check": "admin leaf clear of menu 320",
+      "ok": true,
+      "detail": {
+        "leaf": {
+          "x": 208,
+          "y": 25,
+          "width": 36,
+          "height": 40
+        },
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        }
+      }
+    },
+    {
+      "check": "admin brand home target 320",
+      "ok": true
+    },
+    {
+      "check": "admin email contained 390",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 390",
+      "ok": true
+    },
+    {
+      "check": "admin leaf clear of menu 390",
+      "ok": true,
+      "detail": {
+        "leaf": {
+          "x": 278,
+          "y": 25,
+          "width": 36,
+          "height": 40
+        },
+        "menu": {
+          "x": 330,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        }
+      }
+    },
+    {
+      "check": "admin brand home target 390",
+      "ok": true
+    },
+    {
+      "check": "admin email contained 768",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 768",
+      "ok": true
+    },
+    {
+      "check": "admin leaf clear of menu 768",
+      "ok": true,
+      "detail": {
+        "leaf": {
+          "x": 656,
+          "y": 25,
+          "width": 36,
+          "height": 40
+        },
+        "menu": {
+          "x": 708,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        }
+      }
+    },
+    {
+      "check": "admin brand home target 768",
+      "ok": true
+    },
+    {
+      "check": "admin email contained 1440",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 1440",
+      "ok": true
+    },
+    {
+      "check": "admin brand home target 1440",
+      "ok": true
+    },
+    {
+      "check": "admin brand opens main site",
+      "ok": true
+    },
+    {
+      "check": "search.html:theme toggle",
+      "ok": true
+    },
+    {
+      "check": "search.html:theme visible after scroll",
+      "ok": true,
+      "detail": {
+        "x": 12,
+        "y": 720,
+        "width": 46,
+        "height": 46
+      }
+    },
+    {
+      "check": "search.html:theme persisted",
+      "ok": true
+    },
+    {
+      "check": "owner-login.html:theme toggle",
+      "ok": true
+    },
+    {
+      "check": "owner-login.html:theme visible after scroll",
+      "ok": true,
+      "detail": {
+        "x": 12,
+        "y": 720,
+        "width": 46,
+        "height": 46
+      }
+    },
+    {
+      "check": "owner-login.html:theme persisted",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html:theme toggle",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html:theme visible after scroll",
+      "ok": true,
+      "detail": {
+        "x": 18,
+        "y": 785,
+        "width": 46,
+        "height": 46
+      }
+    },
+    {
+      "check": "admin-v2/index.html:theme persisted",
+      "ok": true
+    },
+    {
+      "check": "guest:access gate",
+      "ok": true
+    },
+    {
+      "check": "guest:no table reads",
+      "ok": true
+    },
+    {
+      "check": "guest:one persistent appearance button",
+      "ok": true
+    },
+    {
+      "check": "guest:readable auth view",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "denied:access gate",
+      "ok": true
+    },
+    {
+      "check": "denied:no table reads",
+      "ok": true
+    },
+    {
+      "check": "denied:one persistent appearance button",
+      "ok": true
+    },
+    {
+      "check": "denied:readable auth view",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "Jalali picker opens",
+      "ok": true
+    },
+    {
+      "check": "Jalali picker contrast",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "Jalali selection closes picker",
+      "ok": true
+    },
+    {
+      "check": "Coupon opens through search",
+      "ok": true
+    },
+    {
+      "check": "Coupon contrast",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "Coupon copy works",
+      "ok": true
+    },
+    {
+      "check": "Coupon closes",
+      "ok": true
+    },
+    {
+      "check": "Desktop card hover distance",
+      "ok": true,
+      "detail": "0px -4px"
+    },
+    {
+      "check": "Animated theme completes",
+      "ok": true
+    },
+    {
+      "check": "Admin dynamic cards receive shared animation",
+      "ok": true
+    },
+    {
+      "check": "Touch has no hover styling",
+      "ok": true
+    },
+    {
+      "check": "Reduced motion content visible",
+      "ok": true
+    },
+    {
+      "check": "Active mobile icon contrasts with gold",
+      "ok": true
+    },
+    {
+      "check": "Voucher print uses white paper",
+      "ok": true
+    },
+    {
+      "check": "Voucher print heading readable",
+      "ok": true
+    },
+    {
+      "check": "No real data writes",
+      "ok": true
+    }
+  ]
+}

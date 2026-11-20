@@ -1,0 +1,1208 @@
+{
+  "panel_pages": 19,
+  "renders": 76,
+  "failures": [],
+  "geometry_or_text_changes": [],
+  "auth_failures": [],
+  "page_errors": [],
+  "results": [
+    {
+      "page": "admin-v2/index.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/index.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/index.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/index.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.324039487121934,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.324039487121934,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.324039487121934,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.324039487121934
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.129188837792952,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.129188837792952,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.835737817365695
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.129188837792952,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.129188837792952,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.129188837792952,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.129188837792952,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 4.572449835277424
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 320,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 390,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 768,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059,
+      "menu_opens": true,
+      "menu_closes": true
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 1440,
+      "overflow": false,
+      "shell_loaded": true,
+      "low_contrast": [],
+      "minimum_contrast": 5.426415313989059
+    }
+  ],
+  "comparisons": [
+    {
+      "page": "admin-v2/index.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/index.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/index.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/index.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/analytics.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/invoices.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/revenue.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/finance/transactions.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/history.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/new.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/orders/reports.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/categories.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/create.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/products/index.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/reviews.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/backup.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/config.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/settings/general.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/support.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/create.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/index.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 320,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 390,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 768,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    },
+    {
+      "page": "admin-v2/pages/users/roles.html",
+      "width": 1440,
+      "geometry_unchanged": true,
+      "text_unchanged": true
+    }
+  ],
+  "auth": [
+    {
+      "mode": "guest",
+      "redirect_works": true,
+      "auth_view": true,
+      "no_shell": true,
+      "data_not_queried": true,
+      "low_contrast": []
+    },
+    {
+      "mode": "denied",
+      "redirect_works": true,
+      "auth_view": true,
+      "no_shell": true,
+      "data_not_queried": true,
+      "low_contrast": []
+    }
+  ]
+}

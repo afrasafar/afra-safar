@@ -1,0 +1,20 @@
+{
+  "panel_pages": 19,
+  "desktop_mobile_checks": 76,
+  "viewport_widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "geometry_and_text_unchanged": true,
+  "javascript_and_fonts_unchanged": true,
+  "minimum_tested_text_contrast": 4.572449835277424,
+  "role_views_tested": [
+    "authorized synthetic admin",
+    "signed out",
+    "non-admin"
+  ],
+  "live_database_or_payment_operations": false,
+  "errors": []
+}

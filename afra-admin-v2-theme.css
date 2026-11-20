@@ -1,0 +1,1118 @@
+/*
+ * Afra Safar — ADMIN-V2 visual theme, navy and gold palette from the reference video
+ * Shared visual layer: palette, typography, surfaces, readable emphasis,
+ * focus and dashboard motion. Existing page geometry and data flows are retained.
+ * Load this file after the existing Afra Safar stylesheets on every page.
+ */
+
+html:root {
+  color-scheme: dark;
+
+  /* ADMIN-V2 design tokens shared with the reference dashboard. */
+  --bg: #0f0f23;
+  --surface: #1a1a2e;
+  --surface-2: #16213e;
+  --accent: #ffd700;
+  --accent-soft: #ffed4e;
+  --accent-dark: #b7791f;
+  --text: #f3f4f6;
+  --muted: #aeb6c5;
+  --line: rgba(255, 215, 0, .20);
+  --danger: #f87171;
+  --success: #4ade80;
+  --info: #60a5fa;
+
+  /* Existing Afra Safar variables, retained so every existing component maps
+     to the same theme without changing its markup or dimensions. */
+  --primary: #ffd700;
+  --primary-dark: #806000;
+  --primary-light: #edf0f8;
+  --afra-night: #0f0f23;
+  --afra-deep-green: #1a1a2e;
+  --afra-forest: #ffd700;
+  --afra-leaf: #806000;
+  --afra-mist: #ffed4e;
+  --afra-paper: #f3f4f6;
+  --afra-page: #0f0f23;
+  --afra-surface: #1a1a2e;
+  --afra-ui-ink: #f3f4f6;
+  --afra-ui-muted: #aeb6c5;
+  --afra-surface-rgb: 26, 26, 46;
+  --afra-raised-rgb: 15, 15, 35;
+  --afra-accent-rgb: 255, 215, 0;
+  --afra-text-rgb: 243, 244, 246;
+  --afra-glass-bg: rgba(26, 26, 46, .72);
+  --afra-glass-bg-strong: rgba(26, 26, 46, .94);
+  --afra-glass-line: rgba(255, 215, 0, .23);
+  --afra-glass-highlight: rgba(255, 255, 255, .08);
+  --afra-glass-shadow: 0 12px 35px rgba(0, 0, 0, .20);
+  --afra-glass-gradient: linear-gradient(145deg, rgba(26, 30, 51, .96), rgba(26, 26, 46, .90));
+  --afra-action-gradient: linear-gradient(135deg, #ffd700, #b7791f);
+  --afra-page-glow: rgba(255, 215, 0, .16);
+  --afra-error-ink: #ffd5dc;
+  --afra-error-bg: #46202d;
+  --afra-success-ink: #c8f7d8;
+  --afra-success-bg: #183e2c;
+
+  --afra-dark-bg: #0f0f23;
+  --afra-dark-surface: #1a1a2e;
+  --afra-dark-raised: #16213e;
+  --afra-dark-border: #3b4058;
+  --afra-dark-text: #f3f4f6;
+  --afra-dark-muted: #aeb6c5;
+  --afra-dark-green: #ffed4e;
+  --afra-dark-gold: #ffe96b;
+
+  --afra-readable-ink: #f3f4f6;
+  --afra-readable-muted: #b9c2d2;
+  --afra-dialog-bg: rgba(26, 26, 46, .97);
+  --afra-control-bg: rgba(22, 33, 62, .84);
+
+  --ap-bg: var(--afra-page);
+  --ap-panel: var(--afra-glass-bg);
+  --ap-txt: var(--afra-ui-ink);
+  --ap-sub: var(--afra-ui-muted);
+  --ap-line: var(--afra-glass-line);
+  --ap-brand: var(--afra-forest);
+  --ap-brand-fg: #ffffff;
+  --ap-chip: rgba(var(--afra-accent-rgb), .18);
+  --ap-shadow: var(--afra-glass-shadow);
+  --ap-focus: var(--afra-mist);
+
+  --background: #0f0f23;
+  --surface: #1a1a2e;
+  --white: #1a1a2e;
+  --cream: #0f0f23;
+  --text: #f3f4f6;
+  --muted: #aeb6c5;
+  --border: #3b4058;
+  --line: rgba(255, 215, 0, .20);
+  --green-light: #16213e;
+  --villa-background: #0f0f23;
+  --villa-text: #f3f4f6;
+  --villa-muted: #aeb6c5;
+  --villa-white: #1a1a2e;
+  --villa-border: #3b4058;
+  --villa-primary-light: #273655;
+  --afra-sage: #16213e;
+  --afra-cream: #0f0f23;
+  --afra-ink: #f3f4f6;
+  --afra-gold: #ffed4e;
+  --afra-hero-copper: #ffe96b;
+  --afra-hero-ink: #f3f4f6;
+  --afra-ref-deep: #806000;
+  --afra-ref-yellow: #ffed4e;
+
+  --shadow: 0 12px 35px rgba(0, 0, 0, .20);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, .28);
+}
+
+/* Keep the existing light/dark switch functional; both modes preserve the navy/gold visual system. */
+html:root[data-afra-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f0f23;
+  --surface: #1a1a2e;
+  --surface-2: #16213e;
+  --accent: #ffd700;
+  --accent-soft: #ffed4e;
+  --accent-dark: #b7791f;
+  --text: #f3f4f6;
+  --muted: #aeb6c5;
+  --line: rgba(255, 215, 0, .20);
+  --afra-page: #0f0f23;
+  --afra-surface: #1a1a2e;
+  --afra-ui-ink: #f3f4f6;
+  --afra-ui-muted: #aeb6c5;
+  --afra-surface-rgb: 26, 26, 46;
+  --afra-raised-rgb: 15, 15, 35;
+  --afra-accent-rgb: 255, 215, 0;
+  --afra-text-rgb: 243, 244, 246;
+  --afra-glass-bg: rgba(26, 26, 46, .72);
+  --afra-glass-bg-strong: rgba(26, 26, 46, .94);
+  --afra-glass-line: rgba(255, 215, 0, .23);
+  --afra-glass-highlight: rgba(255, 255, 255, .08);
+  --afra-glass-shadow: 0 12px 35px rgba(0, 0, 0, .20);
+  --afra-glass-gradient: linear-gradient(145deg, rgba(26, 30, 51, .96), rgba(26, 26, 46, .90));
+  --afra-action-gradient: linear-gradient(135deg, #ffd700, #b7791f);
+  --afra-dark-bg: #0f0f23;
+  --afra-dark-surface: #1a1a2e;
+  --afra-dark-raised: #16213e;
+  --afra-dark-border: #3b4058;
+  --afra-dark-text: #f3f4f6;
+  --afra-dark-muted: #aeb6c5;
+  --afra-readable-ink: #f3f4f6;
+  --afra-readable-muted: #b9c2d2;
+  --afra-dialog-bg: rgba(26, 26, 46, .97);
+  --afra-control-bg: rgba(22, 33, 62, .84);
+  --ap-bg: var(--afra-page);
+  --ap-panel: var(--afra-glass-bg);
+  --ap-txt: var(--afra-ui-ink);
+  --ap-sub: var(--afra-ui-muted);
+  --ap-line: var(--afra-glass-line);
+  --ap-brand: #ffd700;
+  --ap-brand-fg: #ffffff;
+  --ap-chip: rgba(255, 215, 0, .18);
+  --ap-shadow: var(--afra-glass-shadow);
+  --ap-focus: #ffed4e;
+  --background: #0f0f23;
+  --surface: #1a1a2e;
+  --white: #1a1a2e;
+  --cream: #0f0f23;
+  --text: #f3f4f6;
+  --muted: #aeb6c5;
+  --border: #3b4058;
+  --line: rgba(255, 215, 0, .20);
+  --villa-background: #0f0f23;
+  --villa-text: #f3f4f6;
+  --villa-muted: #aeb6c5;
+  --villa-white: #1a1a2e;
+  --villa-border: #3b4058;
+  --villa-primary-light: #273655;
+  --afra-sage: #16213e;
+  --afra-cream: #0f0f23;
+  --afra-ink: #f3f4f6;
+  --afra-gold: #ffed4e;
+  --afra-hero-copper: #ffe96b;
+  --afra-hero-ink: #f3f4f6;
+  --afra-ref-deep: #806000;
+  --afra-ref-yellow: #ffed4e;
+}
+
+html:root[data-afra-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #edf0f8;
+  --accent: #876100;
+  --accent-soft: #876100;
+  --accent-dark: #b7791f;
+  --text: #1a2035;
+  --muted: #555f73;
+  --line: rgba(255, 215, 0, .18);
+  --afra-page: #f4f6fb;
+  --afra-surface: #ffffff;
+  --afra-ui-ink: #1a2035;
+  --afra-ui-muted: #555f73;
+  --afra-surface-rgb: 255, 255, 255;
+  --afra-raised-rgb: 244, 246, 251;
+  --afra-accent-rgb: 255, 215, 0;
+  --afra-text-rgb: 26, 32, 53;
+  --afra-glass-bg: rgba(255, 255, 255, .74);
+  --afra-glass-bg-strong: rgba(250, 247, 255, .96);
+  --afra-glass-line: rgba(255, 215, 0, .18);
+  --afra-glass-highlight: rgba(255, 255, 255, .86);
+  --afra-glass-shadow: 0 12px 32px rgba(15, 20, 45, .10);
+  --afra-glass-gradient: linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(237, 240, 248, .82));
+  --afra-action-gradient: linear-gradient(135deg, #876100, #665810);
+  --afra-dark-bg: #f4f6fb;
+  --afra-dark-surface: #ffffff;
+  --afra-dark-raised: #edf0f8;
+  --afra-dark-border: #d4dbea;
+  --afra-dark-text: #1a2035;
+  --afra-dark-muted: #555f73;
+  --afra-readable-ink: #1a2035;
+  --afra-readable-muted: #555f73;
+  --afra-dialog-bg: rgba(255, 255, 255, .97);
+  --afra-control-bg: rgba(250, 247, 255, .96);
+  --ap-bg: var(--afra-page);
+  --ap-panel: var(--afra-glass-bg);
+  --ap-txt: var(--afra-ui-ink);
+  --ap-sub: var(--afra-ui-muted);
+  --ap-line: var(--afra-glass-line);
+  --ap-brand: #876100;
+  --ap-brand-fg: #ffffff;
+  --ap-chip: rgba(255, 215, 0, .10);
+  --ap-shadow: var(--afra-glass-shadow);
+  --ap-focus: #876100;
+  --background: #f4f6fb;
+  --surface: #ffffff;
+  --white: #ffffff;
+  --cream: #f4f6fb;
+  --text: #1a2035;
+  --muted: #555f73;
+  --border: #d4dbea;
+  --line: rgba(255, 215, 0, .18);
+  --villa-background: #f4f6fb;
+  --villa-text: #1a2035;
+  --villa-muted: #555f73;
+  --villa-white: #ffffff;
+  --villa-border: #d4dbea;
+  --villa-primary-light: #edf0f8;
+  --afra-sage: #edf0f8;
+  --afra-cream: #f4f6fb;
+  --afra-ink: #1a2035;
+  --afra-gold: #876100;
+  --afra-hero-copper: #ffe96b;
+  --afra-hero-ink: #ffffff;
+  --afra-ref-deep: #806000;
+  --afra-ref-yellow: #876100;
+  --afra-dark-bg: #eef1f8;
+  --afra-dark-surface: #ffffff;
+  --afra-dark-raised: #edf0f8;
+  --afra-dark-text: #1a2035;
+  --afra-dark-muted: #555f73;
+}
+
+
+html, html:root[data-afra-theme] { background-color: var(--afra-page) !important; }
+html body {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-page) !important;
+  background-image:
+    radial-gradient(circle at 12% 5%, rgba(var(--afra-accent-rgb), .075), transparent 25rem),
+    linear-gradient(135deg, var(--afra-page), var(--afra-surface) 52%, rgb(var(--afra-raised-rgb))) !important;
+}
+html body { --afra-raised-rgb: 22, 33, 62; }
+html:root[data-afra-theme="light"] body { --afra-raised-rgb: 237, 240, 248; }
+
+::selection { background: #665810 !important; color: #ffffff !important; }
+html:root[data-afra-theme] body :focus-visible { outline-color: var(--afra-mist) !important; }
+html:root[data-afra-theme] body :is(hr, .divider) { border-color: var(--afra-glass-line) !important; }
+html:root[data-afra-theme] body :is(h1, h2, h3, h4, h5, h6, legend) {
+  color: var(--afra-ui-ink) !important;
+  text-decoration-color: var(--afra-glass-line);
+}
+html:root[data-afra-theme] body :is(p, small, .muted, .subtitle, .hint, .description, .help-text, .section-subtitle) {
+  color: var(--afra-ui-muted) !important;
+}
+html:root[data-afra-theme] body a:not(.btn):not(.ap-btn):not(.button):not(.nav-link):not(.afra-theme-switch):not(.header-button):not(.contact-button):not(.mobile-contact):not(.card-button):not(.afv-action-button) {
+  color: var(--afra-mist);
+}
+html:root[data-afra-theme] body button:not(.maplibregl-marker) {
+  color: var(--afra-ui-ink);
+  background-color: var(--afra-dark-raised);
+  border-color: var(--afra-glass-line);
+}
+html:root[data-afra-theme] body :is(input[type="checkbox"], input[type="radio"]) { accent-color: var(--accent); }
+html:root[data-afra-theme] body .hero :is(h1, h2, h3, h4, p, small, a),
+html:root[data-afra-theme] body .contact-section :is(h1, h2, h3, h4, p, small, a),
+html:root[data-afra-theme] body .afra-region-card :is(h1, h2, h3, h4, p, small, strong, a) {
+  color: #ffffff !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #menuToggle {
+  background: rgba(183, 121, 31, .72) !important;
+  border-color: rgba(255, 237, 78, .55) !important;
+}
+
+
+/* Site chrome: preserve the homepage header over its original hero photograph. */
+html:root[data-afra-theme] body :is(.topbar, .site-header, .afv-header, header.nav, .nav, .admin-sidebar, .ap-travelbar, .afra-mobile-nav) {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .12) !important;
+}
+html:root[data-afra-theme] body:not([data-afra-page="index.html"]) .header {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-glass-gradient) !important;
+  border-bottom-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] .header {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html:root[data-afra-theme] body :is(.logo-text strong, .afv-brand-name, .brand-name) { color: var(--afra-ui-ink) !important; }
+html:root[data-afra-theme] body :is(.logo-text small, .topbar, .header .nav-link, .afv-breadcrumb, .afv-title-area) { color: var(--afra-ui-muted); }
+html:root[data-afra-theme] body :is(.nav-link:hover, .nav-link.active, .header .nav-link:hover, .header .nav-link.active) {
+  color: var(--afra-mist) !important;
+}
+html:root[data-afra-theme] body .nav-link.active::after,
+html:root[data-afra-theme] body .nav-link:hover::after { background-color: var(--accent) !important; }
+
+/* Section surfaces and homepage search retain their exact geometry and imagery. */
+html:root[data-afra-theme] body :is(.section, .categories, .stays, #about, #regions, .afra-home-collections, .afra-regions, .afra-reviews, .afra-feature-section) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-page) !important;
+}
+html:root[data-afra-theme] body :is(.section-heading h2, .benefits-intro h2, .section-head h2, .section-head h3, .eyebrow, .section-subtitle, .afra-kicker) {
+  color: var(--afra-mist) !important;
+}
+html:root[data-afra-theme] body #searchForm.afra-search-v2 .search-main-row,
+html:root[data-afra-theme] body #searchForm .search-dropdown-panel,
+html:root[data-afra-theme] body :is(.search-box, .search-panel, .advanced-filters-panel, .afra-advanced-panel, .search-refinements) {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm .search-button {
+  color: #ffffff !important;
+  background: var(--afra-action-gradient) !important;
+  border-color: rgba(255, 215, 0, .48) !important;
+  box-shadow: 0 8px 22px rgba(183, 121, 31, .20) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm .search-button:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffed4e, #ffd700) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm #destination,
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm #destination::placeholder {
+  color: var(--afra-ui-ink) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm .search-main-icon,
+html:root[data-afra-theme] body[data-afra-page="index.html"] :is(.field-icon, .filter-field-icon) {
+  color: var(--afra-mist) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] .header :is(.logo-text strong, .logo-text small) { color: #ffffff !important; }
+html:root[data-afra-theme] body[data-afra-page="index.html"] #mainNav.nav {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body #favoritesToggle,
+html:root[data-afra-theme] body .refinements-toggle,
+html:root[data-afra-theme] body .afra-coupon-prompt {
+  color: var(--afra-ui-ink) !important;
+  background: rgba(var(--afra-accent-rgb), .12) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body .image-badge { background: var(--accent-dark) !important; color: #ffffff !important; }
+
+/* The theme switch keeps its original placement and interaction. */
+html:root[data-afra-theme] body .afra-theme-switch {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-glass-bg-strong) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow) !important;
+}
+html:root[data-afra-theme] body .afra-theme-switch:hover {
+  color: #ffffff !important;
+  background: var(--afra-action-gradient) !important;
+  border-color: var(--accent) !important;
+}
+
+/* ADMIN-V2 surface language, applied to existing Afra cards without changing layout. */
+html:root[data-afra-theme] body :is(
+  .card, .panel, .login-card, .login-box, .reservation-card, .property-card, .stay-card,
+  .dashboard-card, .stat-card, .container-card, .booking-card, .booking-form,
+  .booking-summary, .auth-card, .category-card, .benefit-item, .benefit-card,
+  .afv-section, .afv-booking-card, .afv-highlight, .cottage-section, .cottage-booking,
+  .cottage-main, .luxury-panel, .afra-feature-card, .afra-review-card,
+  .afra-faq-items details, .ap-panel, .ap-stay, .ap-result-head, .ap-stat,
+  .ap-linkcard, .ap-empty, .ap-callout, .afra-ref-quick-item, .form-card,
+  .table-wrap, .empty-state, .admin-card, .file-box, .reservation-detail,
+  .afra-payment-panel, .payment-info, .payment-grid > div
+) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-surface) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+}
+html:root[data-afra-theme] body :is(
+  .card, .panel, .login-card, .login-box, .reservation-card, .property-card, .stay-card,
+  .dashboard-card, .booking-card, .booking-form, .auth-card, .category-card,
+  .benefit-item, .benefit-card, .afv-section, .afv-booking-card, .afv-highlight,
+  .cottage-section, .cottage-booking, .cottage-main, .luxury-panel,
+  .afra-feature-card, .afra-review-card, .ap-panel, .ap-stay, .ap-result-head,
+  .ap-stat, .ap-linkcard, .ap-empty, .ap-callout, .form-card, .admin-card,
+  .file-box, .reservation-detail, .afra-payment-panel
+) :is(h1, h2, h3, h4, h5, h6, legend, .title, .card-title, .section-title, .panel-title) {
+  color: var(--afra-ui-ink) !important;
+}
+html:root[data-afra-theme] body :is(
+  .card, .panel, .login-card, .login-box, .reservation-card, .property-card, .stay-card,
+  .dashboard-card, .booking-card, .booking-form, .auth-card, .category-card,
+  .benefit-item, .benefit-card, .afv-section, .afv-booking-card, .afv-highlight,
+  .cottage-section, .cottage-booking, .cottage-main, .luxury-panel,
+  .afra-feature-card, .afra-review-card, .ap-panel, .ap-stay, .ap-result-head,
+  .ap-stat, .ap-linkcard, .ap-empty, .ap-callout, .form-card, .admin-card,
+  .file-box, .reservation-detail, .afra-payment-panel
+) :is(p, small, .muted, .subtitle, .hint, .description, .card-location, .card-features, .afra-card-meta, .afra-card-location) {
+  color: var(--afra-ui-muted) !important;
+}
+
+/* Gold primary actions and neutral secondary controls. */
+html:root[data-afra-theme] body :is(
+  .primary, .btn-primary, .primary-btn, .submit-btn, .book-btn, .search-button,
+  .cottage-submit, .luxury-submit, .auth-submit, .auth-top-button.primary,
+  .card-button, .afra-feature-action, .contact-button, .header-button,
+  .mobile-contact, .ap-btn-primary, .ap-primary, .afv-action-button
+) {
+  color: #ffffff !important;
+  background: var(--afra-action-gradient) !important;
+  border-color: rgba(255, 215, 0, .42) !important;
+  box-shadow: 0 8px 22px rgba(183, 121, 31, .20), inset 0 1px 0 rgba(255, 255, 255, .12) !important;
+}
+html:root[data-afra-theme] body :is(
+  .primary, .btn-primary, .primary-btn, .submit-btn, .book-btn, .search-button,
+  .cottage-submit, .luxury-submit, .auth-submit, .auth-top-button.primary,
+  .card-button, .afra-feature-action, .contact-button, .header-button,
+  .mobile-contact, .ap-btn-primary, .ap-primary, .afv-action-button
+):hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #ffed4e, #ffd700) !important;
+  border-color: rgba(255, 237, 78, .62) !important;
+}
+html:root[data-afra-theme] body :is(.secondary, .btn-secondary, .secondary-btn, .reset-search-button, .clear-advanced-filters, .filter-chip, .afra-action-secondary) {
+  color: var(--afra-ui-ink) !important;
+  background-color: rgba(var(--afra-accent-rgb), .12) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.filter-chip.active, .tab.active, .admin-tab.active, .nav-tab.active, [aria-selected="true"]) {
+  color: #ffffff !important;
+  background-color: rgba(var(--afra-accent-rgb), .28) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Inputs: colors only; original dimensions, labels and validation remain intact. */
+html:root[data-afra-theme] body :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-control-bg) !important;
+  border-color: var(--afra-glass-line) !important;
+  caret-color: var(--accent) !important;
+}
+html:root[data-afra-theme] body :is(input, textarea)::placeholder { color: var(--afra-ui-muted) !important; opacity: 1; }
+html:root[data-afra-theme] body :is(input, select, textarea):focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(var(--afra-accent-rgb), .16) !important;
+}
+html:root[data-afra-theme] body :is(input, select, textarea):disabled { opacity: .58; }
+html:root[data-afra-theme] body option { color: var(--afra-ui-ink); background: var(--afra-surface); }
+html:root[data-afra-theme] body :is(label, .field label, .form-field label, .auth-field label, .afv-form-group label, .luxury-field label) {
+  color: var(--afra-ui-ink);
+}
+
+/* Tables, filters, tabs and pagination. */
+html:root[data-afra-theme] body :is(table, th, td, .data-table) { border-color: var(--afra-glass-line) !important; }
+html:root[data-afra-theme] body :is(table, td, th) { color: var(--afra-ui-ink) !important; }
+html:root[data-afra-theme] body :is(th, thead, .data-table th) { background-color: var(--afra-dark-raised) !important; color: var(--afra-ui-muted) !important; }
+html:root[data-afra-theme] body tr:nth-child(even) { background-color: rgba(var(--afra-accent-rgb), .035); }
+html:root[data-afra-theme] body :is(.page-btn.active, .page-btn:hover) { color: #ffffff !important; background: var(--afra-action-gradient) !important; border-color: var(--accent) !important; }
+html:root[data-afra-theme] body :is(.action-btn, .icon-button, .calendar-nav, .month-btn, .gallery-arrow, .lightbox-close) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-raised) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.action-btn:hover, .icon-button:hover, .calendar-nav:hover, .month-btn:hover, .gallery-arrow:hover, .lightbox-close:hover) {
+  color: #ffffff !important;
+  background-color: var(--accent-dark) !important;
+}
+
+/* Dates and calendar widgets. */
+html:root[data-afra-theme] body :is(.calendar-wrap, .calendar-top, .calendar-selected, .thumbnails, .jalali-calendar) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-surface) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.calendar-nav, .calendar-day, .day, .date-cell) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-raised) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.calendar-day, .day, .date-cell).selected {
+  color: #ffffff !important;
+  background: var(--afra-action-gradient) !important;
+  border-color: var(--accent) !important;
+}
+html:root[data-afra-theme] body :is(.calendar-month, .calendar-head, .calendar-weekdays) { color: var(--afra-ui-ink) !important; }
+
+/* Status semantics remain recognizable; only neutral/warning states use gold. */
+html:root[data-afra-theme] body :is(.badge, .tag, .status-pill, .afra-feature-badge, .afv-status, .reservation-status, .property-state) {
+  border-color: var(--afra-glass-line);
+}
+html:root[data-afra-theme] body :is(.badge.warning, .status-pill, .tag, .afra-feature-badge, .afv-status:not(.is-success):not(.is-error), .admin-tab) {
+  color: #fff0a4 !important;
+  background-color: rgba(255, 215, 0, .18) !important;
+  border-color: rgba(255, 215, 0, .28) !important;
+}
+html:root[data-afra-theme] body :is(.badge.success, .message.success, .form-message.success, .afv-status.is-success, .reservation-status.confirmed, .owner-approve) {
+  color: #c8f7d8 !important;
+  background-color: rgba(34, 197, 94, .14) !important;
+  border-color: rgba(74, 222, 128, .28) !important;
+}
+html:root[data-afra-theme] body :is(.badge.danger, .message.error, .form-message.error, .afv-status.is-error) {
+  color: #ffd5dc !important;
+  background-color: rgba(239, 68, 68, .14) !important;
+  border-color: rgba(248, 113, 113, .30) !important;
+}
+html:root[data-afra-theme] body :is(.badge.info, .message.info) {
+  color: #dbeafe !important;
+  background-color: rgba(59, 130, 246, .14) !important;
+  border-color: rgba(96, 165, 250, .28) !important;
+}
+
+/* Payment, coupon, login and support overlays. */
+html:root[data-afra-theme] body :is(.afra-payment-panel, .afra-card-details, .payment-info, .payment-grid > div, .telegram-direct-box, .telegram-connect-panel, .guidance, .notice, .status-box, .detail, .preview-item, .afra-feature-state) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-raised) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.afra-coupon-dialog, .afra-coupon-card, .auth-card, .modal, .afra-appearance-menu) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-surface) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+}
+html:root[data-afra-theme] body :is(.afra-coupon-dialog, .afra-coupon-card, .auth-card, .modal, .afra-appearance-menu) :is(h1, h2, h3, p, small, strong, span, label) {
+  color: inherit;
+}
+html:root[data-afra-theme] body :is(.afra-coupon-icon, .afra-coupon-close, .afra-coupon-copy, .auth-close, .auth-logout) {
+  color: #ffffff !important;
+  background: var(--afra-action-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.afra-coupon-code, .afra-card-details) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-raised) !important;
+  border-color: var(--accent) !important;
+}
+html:root[data-afra-theme] body .afra-coupon-overlay { background: rgba(8, 10, 20, .78) !important; }
+
+/* Footer, contact blocks, owner/admin panels and site-specific components. */
+html:root[data-afra-theme] body :is(footer, .footer, .afra-site-footer, .afra-footer, .afv-footer, .site-footer) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-bg) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body .contact-section {
+  color: #ffffff !important;
+  background: radial-gradient(circle at 8% 7%, rgba(255, 215, 0, .18), transparent 34%), linear-gradient(125deg, #1a1a2e, #16213e 58%, #0f0f23) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.footer, footer, .afra-site-footer, .afra-footer, .afv-footer, .site-footer) :is(h1, h2, h3, h4, strong) {
+  color: var(--afra-ui-ink) !important;
+}
+html:root[data-afra-theme] body :is(.footer, footer, .afra-site-footer, .afra-footer, .afv-footer, .site-footer) :is(p, small, li, .muted) {
+  color: var(--afra-ui-muted) !important;
+}
+html:root[data-afra-theme] body :is(.footer, footer, .afra-site-footer, .afra-footer, .afv-footer, .site-footer) a:hover {
+  color: var(--afra-mist) !important;
+}
+html:root[data-afra-theme] body :is(.afv-action-button, .afv-form-control, .afv-info-item, .afv-feature, .afv-booking-card, .afv-section, .cottage-price, .cottage-message, .luxury-price, .luxury-message, .cottage-related a, .cottage-booking, .luxury-panel) {
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.afv-booking-divider, .afv-booking-summary, .reservation-detail, .guidance) { border-color: var(--afra-glass-line) !important; }
+html:root[data-afra-theme] body :is(.crumb, .cottage-breadcrumb, .luxury-breadcrumb, .afv-breadcrumb) { color: var(--afra-ui-muted) !important; }
+html:root[data-afra-theme] body :is(.crumb, .cottage-breadcrumb, .luxury-breadcrumb, .afv-breadcrumb) a { color: var(--afra-mist) !important; }
+html:root[data-afra-theme] body :is(.welcome, .admin-tab.active) { background: var(--afra-action-gradient) !important; color: #ffffff !important; }
+html:root[data-afra-theme] body :is(.admin-tab, .login-box, .panel, .file-box, .reservation-card) { border-color: var(--afra-glass-line) !important; }
+
+/* ADMIN-V2 component color tokens, when these existing classes are present. */
+html:root[data-afra-theme] body :is(.app-sidebar, .sidebar-profile, .app-header, .modal, .toast, .sidebar-overlay) {
+  color: var(--afra-ui-ink) !important;
+  background-color: var(--afra-dark-surface) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body :is(.brand-mark, .stat-icon, .list-icon, .entity-avatar, .menu-button) {
+  color: #ffffff !important;
+  background: var(--afra-action-gradient) !important;
+}
+html:root[data-afra-theme] body :is(.app-sidebar .brand strong, .page-title h1, .section-head h2, .section-head h3, .modal-head h2, .stat-value) {
+  color: var(--afra-mist) !important;
+}
+html:root[data-afra-theme] body :is(.nav-link, .nav-group-toggle, .icon-button, .action-btn, .page-btn) {
+  color: var(--afra-ui-ink) !important;
+}
+html:root[data-afra-theme] body :is(.nav-link:hover, .nav-group-toggle:hover, .nav-link.active, .page-btn.active, .page-btn:hover) {
+  color: #ffffff !important;
+  background-color: rgba(var(--afra-accent-rgb), .18) !important;
+}
+html:root[data-afra-theme] body :is(.chart, .progress) { border-color: var(--afra-glass-line) !important; }
+html:root[data-afra-theme] body .chart-bar,
+html:root[data-afra-theme] body .progress > span { background: linear-gradient(135deg, #b7791f, #ffed4e) !important; }
+html:root[data-afra-theme] body .toast { box-shadow: var(--afra-glass-shadow) !important; }
+
+/* Brand and map controls are recolored; source photos and map tiles are untouched. */
+html:root[data-afra-theme] body img.afra-leaf-img {
+  filter: brightness(0) saturate(100%) invert(44%) sepia(53%) saturate(3227%) hue-rotate(238deg) brightness(100%) contrast(96%) !important;
+}
+html:root[data-afra-theme] body .maplibregl-ctrl-group {
+  background: var(--afra-glass-bg-strong) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow) !important;
+}
+html:root[data-afra-theme] body .maplibregl-popup-content {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-dark-surface) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body .maplibregl-popup-tip { border-top-color: var(--afra-dark-surface) !important; }
+html:root[data-afra-theme] body .maplibregl-ctrl-attrib { background: rgba(26, 26, 46, .90) !important; color: #fff0a4 !important; }
+html:root[data-afra-theme] body .maplibregl-ctrl-attrib a { color: #ffe96b !important; }
+html:root[data-afra-theme] body .afra-map-point { background: #ffd700 !important; color: #ffffff !important; border-color: #ffed4e !important; }
+html:root[data-afra-theme] body .afra-map-alert { background: var(--afra-dark-surface) !important; color: var(--afra-ui-ink) !important; border-color: var(--afra-glass-line) !important; }
+
+/* Mobile: same color system on the existing responsive layout and controls. */
+@media (max-width: 900px) {
+  html:root[data-afra-theme] body :is(.afra-mobile-nav, .afra-mobile-contact, .ap-travelbar, .ap-nav-links, .sidebar-overlay, .afra-appearance-menu) {
+    border-color: var(--afra-glass-line) !important;
+  }
+  html:root[data-afra-theme] body :is(.afra-mobile-nav, .afra-mobile-contact, .ap-travelbar, .afra-appearance-menu) {
+    color: var(--afra-ui-ink) !important;
+    background-color: var(--afra-glass-bg-strong) !important;
+  }
+  html:root[data-afra-theme] body :is(.afra-mobile-nav, .ap-nav-links) a,
+  html:root[data-afra-theme] body .afra-mobile-contact a { color: var(--afra-ui-ink) !important; }
+  html:root[data-afra-theme] body .afra-mobile-nav a.active { color: var(--afra-mist) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:root[data-afra-theme] body :focus-visible { outline-color: var(--afra-mist) !important; }
+}
+
+/* One local font and one dashboard palette, including dynamically rendered UI. */
+html:root {
+  --afra-ui-font: "Vazirmatn", "Afra Vazirmatn", Tahoma, sans-serif;
+  --afra-on-accent: #0f0f23;
+  --afra-title: #ffd700;
+  --afra-card-bg: linear-gradient(145deg, rgba(26,26,46,.98), rgba(22,33,62,.90));
+  --afra-glass-bg: rgba(26,26,46,.70);
+  --afra-glass-bg-strong: rgba(26,26,46,.95);
+  --afra-glass-gradient: rgba(26,26,46,.70);
+  --afra-control-bg: rgba(15,15,35,.78);
+  --afra-ui-surface: #1a1a2e;
+  --afra-ui-foreground: #f3f4f6;
+  --afra-ui-secondary: #aeb6c5;
+  --afra-ui-stroke: rgba(255,215,0,.24);
+}
+html:root[data-afra-theme="dark"] {
+  --afra-title: #ffd700;
+  --afra-on-accent: #0f0f23;
+  --afra-glass-bg: rgba(26,26,46,.70);
+  --afra-glass-bg-strong: rgba(26,26,46,.95);
+  --afra-glass-gradient: rgba(26,26,46,.70);
+  --afra-control-bg: rgba(15,15,35,.78);
+  --afra-ui-surface: #1a1a2e;
+  --afra-ui-foreground: #f3f4f6;
+  --afra-ui-secondary: #aeb6c5;
+}
+html:root[data-afra-theme="light"] {
+  --afra-title: #235347;
+  --afra-mist: #235347;
+  --afra-gold: #235347;
+  --afra-ref-yellow: #235347;
+  --afra-on-accent: #0f0f23;
+  --afra-card-bg: linear-gradient(145deg, #ffffff, #edf0f8);
+  --afra-glass-bg: rgba(255,255,255,.76);
+  --afra-glass-bg-strong: rgba(255,255,255,.96);
+  --afra-glass-gradient: rgba(255,255,255,.76);
+  --afra-control-bg: rgba(255,255,255,.94);
+  --afra-ui-surface: #ffffff;
+  --afra-ui-foreground: #1a2035;
+  --afra-ui-secondary: #555f73;
+  --afra-ui-stroke: rgba(135,97,0,.26);
+  --afra-action-gradient: linear-gradient(135deg,#ffd700,#ffed4e);
+}
+html:root[data-afra-theme] body {
+  font-family: var(--afra-ui-font) !important;
+}
+html:root[data-afra-theme] body :is(button,input,textarea,select) {
+  font-family: var(--afra-ui-font) !important;
+}
+/* Keep icon fonts independent of the Persian text font. */
+html:root[data-afra-theme] body :is(i.fa,i.fas,i.far,i.fab) {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free" !important;
+}
+
+/* Dashboard titles, bold emphasis and numerical values use readable gold. */
+html:root[data-afra-theme] body :is(h1,h2,h3,h4,h5,h6,legend,strong,b),
+html:root[data-afra-theme] body :is(.section-head,.afra-section-heading,footer,.footer) :is(h1,h2,h3,h4,strong),
+html:root[data-afra-theme] body :is(
+  .title,.card-title,.section-title,.panel-title,.stat-value,.stat-number,
+  .stat-card .value,.stat-card .number,.ap-stat strong,.ap-stay__price,
+  .afra-card-end b,.afra-card-end strong,.price,.price-value,.price strong,.price b,
+  .cottage-price,.luxury-price,.afv-price,.afv-booking-price,.booking-total,
+  .afra-feature-body h3,.afra-feature-body h3 a,.afra-kicker,.eyebrow
+) {
+  color: var(--afra-title) !important;
+  text-shadow: none !important;
+}
+html:root[data-afra-theme] body :is(.stat-label,.stat small,.ap-stat small,.stat-card small,
+  .afra-card-meta,.afra-card-location,.ap-stay__meta,.price small,.price-note) {
+  color: var(--afra-ui-muted) !important;
+  opacity: 1 !important;
+}
+html:root[data-afra-theme] body :is(.app-sidebar .brand strong,.page-title h1,.modal-head h2) {
+  color: var(--afra-title) !important;
+}
+
+/* Replace old green gradient paint, leaving photo elements and their framing intact. */
+html:root[data-afra-theme] body :is(
+  .card,.panel,.login-card,.login-box,.reservation-card,.property-card,.stay-card,
+  .dashboard-card,.stat-card,.booking-card,.booking-form,.booking-summary,.auth-card,
+  .benefit-item,.benefit-card,.afv-section,.afv-booking-card,.cottage-section,
+  .cottage-booking,.cottage-main,.luxury-panel,.afra-feature-card,.afra-review-card,
+  .ap-panel,.ap-stay,.ap-stat,.ap-linkcard,.form-card,.admin-card,.file-box,
+  .reservation-detail,.afra-payment-panel
+) {
+  background: var(--afra-card-bg) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,.13),inset 0 1px 0 var(--afra-glass-highlight) !important;
+}
+html:root[data-afra-theme] body :is(.afra-brand-glass,.afra-mobile-header-brand,
+  .ap-travelbar,.afra-mobile-nav,.afra-hero-eyebrow,.hero-description,
+  #searchForm.afra-search-v2 .search-main-row,.search-dropdown-panel,.afra-appearance-menu) {
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+  backdrop-filter: blur(16px) saturate(110%);
+  -webkit-backdrop-filter: blur(16px) saturate(110%);
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] .hero :is(h1,h1 span) {
+  color: #ffd700 !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] .hero .hero-description {
+  color: var(--afra-ui-ink) !important;
+  text-shadow: none !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm #destination {
+  background: transparent !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm .search-button,
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm .search-button svg {
+  color: var(--afra-on-accent) !important;
+  background: var(--afra-action-gradient) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] #searchForm .search-button svg {
+  background: transparent !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] .header :is(.logo-text strong,.afra-brand-glass strong) {
+  color: #ffd700 !important;
+}
+html:root[data-afra-theme] body[data-afra-page="index.html"] .header :is(.logo-text small,.afra-brand-glass small) {
+  color: var(--afra-ui-ink) !important;
+}
+
+/* Primary buttons have dark text on gold; secondary buttons remain navy and gold. */
+html:root[data-afra-theme] body :is(
+  .primary,.btn-primary,.primary-btn,.submit-btn,.book-btn,.search-button,
+  .cottage-submit,.luxury-submit,.auth-submit,.auth-top-button.primary,
+  .card-button,.afra-feature-action,.contact-button,.header-button,.mobile-contact,
+  .ap-btn:not(.secondary):not(.ghost),.ap-btn-primary,.ap-primary,.afv-action-button,
+  .brand-mark,.menu-button,.page-btn.active,.calendar-day.selected
+) {
+  color: var(--afra-on-accent) !important;
+  background: var(--afra-action-gradient) !important;
+  border-color: rgba(255,215,0,.45) !important;
+}
+html:root[data-afra-theme] body :is(.btn-primary,.primary-btn,.submit-btn,.book-btn,
+  .ap-btn:not(.secondary):not(.ghost),.contact-button,.header-button,.mobile-contact,
+  .afv-action-button,.afra-feature-action,.card-button) :is(span,strong,b,small,i,svg) {
+  color: inherit !important;
+}
+html:root[data-afra-theme] body :is(.btn-secondary,.secondary-btn,.ap-btn.secondary,.ap-btn.ghost) {
+  color: var(--afra-title) !important;
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body #afraCouponOverlay :is(h2,strong) {
+  color: var(--afra-title) !important;
+}
+html:root[data-afra-theme] body #afraCouponOverlay :is(p,small,.afra-coupon-note) {
+  color: var(--afra-ui-muted) !important;
+}
+html:root[data-afra-theme] body .contact-section :is(h2,strong) {
+  color: #ffd700 !important;
+}
+html:root[data-afra-theme] body .contact-section p { color: #d6dce7 !important; }
+html:root[data-afra-theme] body .image-badge { background: #16213e !important; color: #ffd700 !important; }
+html:root[data-afra-theme="light"] body :is(.badge.warning,.tag,.status-pill,.afra-feature-badge) {
+  color: #6c4c00 !important;
+  background: #fff2bd !important;
+}
+html:root[data-afra-theme="light"] body :is(.badge.success,.message.success,.ap-success) {
+  color: #17613d !important; background: #e5f5eb !important;
+}
+html:root[data-afra-theme="light"] body :is(.badge.danger,.message.error,.form-message.error,.ap-error) {
+  color: #9a263a !important; background: #fff0f2 !important;
+}
+html:root[data-afra-theme="light"] body :is(.badge.info,.message.info) {
+  color: #1e4e87 !important; background: #eaf2ff !important;
+}
+
+/* The real Afra leaf replaces both the crown and the generic profile avatar. */
+html:root[data-afra-theme] body img:is(.afra-brand-img,.afra-leaf-img,.afra-admin-leaf) {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(96%) saturate(1511%) hue-rotate(359deg) brightness(104%) contrast(105%) !important;
+}
+html:root[data-afra-theme] body .brand-mark:has(.afra-admin-leaf) {
+  background: rgba(255,215,0,.08) !important;
+  box-shadow: none !important;
+}
+.afra-admin-leaf { object-fit: contain; flex-shrink: 0; }
+.app-sidebar .brand .afra-admin-leaf { display: block; width: 36px; height: 40px; }
+.sidebar-profile { min-width: 0; }
+.sidebar-profile > .profile { min-width: 0; flex: 1; }
+.sidebar-profile .profile-email {
+  display: block; max-width: 100%; overflow-wrap: anywhere;
+  word-break: normal; text-align: right; unicode-bidi: plaintext;
+  font-size: .78rem; line-height: 1.8;
+}
+.sidebar-profile small { display: block; }
+.sidebar-profile > img,.sidebar-profile > .profile-status { flex-shrink: 0; }
+.sidebar-profile > img { border-radius: 0; padding: 2px; }
+
+/* Consistent, gentle dashboard motion; touch screens do not get sticky hover. */
+@media (prefers-reduced-motion: no-preference) {
+  html:root[data-afra-theme] body .afra-motion-enter {
+    animation: afra-dashboard-enter .55s cubic-bezier(.22,1,.36,1) both;
+    animation-delay: var(--afra-motion-delay,0ms);
+  }
+  html:root[data-afra-theme] body :is(.lift,.ap-stay,.stay-card,.category-card,
+    .afra-region-card,.ap-linkcard,.stat-card,.afra-feature-card,.ap-stat) {
+    transition: translate .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s !important;
+  }
+  html:root[data-afra-theme] body :is(.btn,.ap-btn,.card-button,.submit-btn) {
+    transition: translate .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,background-color .2s,border-color .2s !important;
+  }
+  @media (hover:hover) and (pointer:fine) {
+    html:root[data-afra-theme] body :is(.lift,.ap-stay,.stay-card,.category-card,
+      .afra-region-card,.ap-linkcard,.stat-card,.afra-feature-card,.ap-stat):hover {
+      transform: none !important; translate: 0 -4px !important;
+      border-color: rgba(255,215,0,.38) !important;
+      box-shadow: 0 18px 40px rgba(0,0,0,.23),0 0 20px rgba(255,215,0,.06) !important;
+    }
+    html:root[data-afra-theme] body :is(.btn,.ap-btn,.card-button,.submit-btn):not(:disabled):hover {
+      transform: none !important; translate: 0 -2px !important;
+    }
+    html:root[data-afra-theme] body :is(.nav-link,.nav-group-toggle):hover {
+      translate: -2px 0;
+    }
+  }
+}
+@keyframes afra-dashboard-enter {
+  from { opacity: .2; transform: translateY(15px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:root[data-afra-theme] body *,html:root[data-afra-theme] body *::before,
+  html:root[data-afra-theme] body *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+  html:root[data-afra-theme] body :is(.reveal,.afra-motion-enter) { opacity: 1 !important; transform: none !important; }
+}
+
+/* Admin pages use the same persistent appearance control as the rest of the site. */
+body[data-page] #afraAppearanceDock {
+  position: fixed; left: 18px; right: auto; bottom: max(18px,env(safe-area-inset-bottom));
+  top: auto; z-index: 90; width: auto; padding: 0;
+}
+body[data-page] #afraAppearanceDock #afraThemeToggle {
+  display: grid !important; place-items: center; width: 46px !important; min-width: 46px !important;
+  height: 46px !important; padding: 0 !important; margin: 0 !important; border-radius: 50%;
+}
+body[data-page] #afraAppearanceDock #afraThemeToggle .afra-theme-switch__label { display: none !important; }
+body[data-page] #afraAppearanceDock #afraThemeToggle svg { width: 22px; height: 22px; }
+body[data-page] .afra-appearance-menu { max-width: calc(100vw - 24px); }
+@media (max-width: 900px) {
+  .app-sidebar { width: min(16rem,calc(100vw - 1rem)); }
+  body[data-page] .app-header { min-width: 0; }
+  body[data-page] .page-title { min-width: 0; }
+  body[data-page] .page-title h1 { overflow-wrap: anywhere; }
+  body[data-page] .header-actions { flex-shrink: 0; }
+}
+@supports not (backdrop-filter: blur(1px)) {
+  html:root[data-afra-theme] body :is(.afra-brand-glass,.ap-travelbar,.afra-mobile-nav,
+    .hero-description,.search-main-row,.afra-appearance-menu) { background: var(--afra-glass-bg-strong) !important; }
+}
+@media print {
+  html:root[data-afra-theme] body,html:root[data-afra-theme] body :is(.card,.panel,.ap-panel) {
+    background: #fff !important; color: #111 !important; box-shadow: none !important;
+  }
+  html:root[data-afra-theme] body :is(h1,h2,h3,h4,h5,h6,p,small,strong,b,td,th) { color: #111 !important; }
+}
+
+/* Resolve legacy component selectors that otherwise retain their old paint. */
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(
+  h1,h2,h3,h4,h5,h6,legend,strong,b,.title,.stat-value,.stat-number,
+  .ap-stat strong,.ap-stay__price,.price,.price-value,.price strong,.price b,
+  .afra-card-end b,.afra-card-end strong
+) { color: var(--afra-title) !important; }
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.welcome) {
+  background: var(--afra-card-bg) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) .welcome p {
+  color: var(--afra-ui-muted) !important; opacity: 1 !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.results-count,.status) {
+  background: var(--afra-glass-bg-strong) !important;
+  color: var(--afra-title) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.card-features,.afra-card-meta)>span {
+  background: rgba(var(--afra-accent-rgb),.06) !important;
+  color: var(--afra-ui-muted) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.ap-nav-toggle,.header-actions button:not(.btn-primary)) {
+  background: var(--afra-glass-bg-strong) !important;
+  color: var(--afra-title) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.ap-nav-toggle,.header-actions button:not(.btn-primary)) :is(span,i,svg) {
+  color: inherit !important;
+}
+html:root[data-afra-theme="light"] body:is([data-afra-page],[data-page]) :is(.trend,.trend.down) {
+  color: #17613d !important;
+}
+html:root[data-afra-theme="light"] body:is([data-afra-page],[data-page]) :is(.badge.warning,.tag,.status-pill,.afra-feature-badge) {
+  color: #6c4c00 !important; background: #fff2bd !important;
+}
+html:root[data-afra-theme="light"] body[data-afra-page="index.html"] .header :is(.logo-text strong,.afra-brand-glass strong) {
+  color: var(--afra-title) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(#logoutButton,.afra-jdate-trigger) {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-control-bg) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body .afra-jdate-trigger :is(span,svg) { color: inherit !important; }
+
+/* Native buttons and auxiliary pages also participate in the shared theme. */
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) button {
+  background: var(--afra-control-bg) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) button[type="submit"] {
+  background: var(--afra-action-gradient) !important;
+  color: var(--afra-on-accent) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.admin-tab,.admin-tab.active) {
+  background: var(--afra-glass-bg-strong) !important;
+  color: var(--afra-title) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) .admin-tab.active {
+  border-color: var(--afra-title) !important;
+  box-shadow: inset 0 -2px 0 var(--afra-title) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.luxury-location,.links,.bottom) {
+  color: var(--afra-ui-muted) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) .ap-rating { color: var(--afra-title) !important; }
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) .cottage-tag {
+  background: var(--afra-dark-raised) !important; color: var(--afra-title) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) .data-table.responsive tr {
+  background: rgba(var(--afra-accent-rgb),.035) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.day.selected,.afra-jcal-day.is-selected) {
+  background: var(--afra-action-gradient) !important; color: var(--afra-on-accent) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) .afra-jcal-dialog {
+  background: var(--afra-dark-surface) !important; color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.afra-jcal-weekdays,.afra-jcal-caption) {
+  color: var(--afra-ui-muted) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.afra-jcal-head,.afra-jcal-actions) button {
+  color: var(--afra-title) !important; background: var(--afra-control-bg) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body[data-page] .brand-mark:has(img.afra-admin-leaf) {
+  background: var(--afra-dark-raised) !important;
+}
+html:root[data-afra-theme="light"] body:is([data-afra-page],[data-page]) .afv-status:not(.is-success):not(.is-error) {
+  color: #6c4c00 !important; background: #fff2bd !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.stat-icon,.list-icon,.entity-avatar,.category-icon) {
+  color: var(--afra-title) !important;
+  background: rgba(var(--afra-accent-rgb),.09) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.luxury-heading,.cottage-heading) {
+  background: var(--afra-glass-gradient) !important;
+}
+html:root[data-afra-theme] body[data-afra-page="owner-register.html"]>.container {
+  background: var(--afra-card-bg) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme="dark"] body[data-afra-page="supabase-status.html"] #db-core {
+  color: #b9c2d2 !important;
+}
+html:root[data-afra-theme] body[data-page] .admin-mobile-brand { display: none; }
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(
+  .card,.panel,.login-card,.login-box,.ap-panel,.ap-stay,.ap-stat,.afra-feature-card,
+  .booking-card,.booking-summary,.reservation-card,.auth-card,.luxury-panel,.cottage-main
+) { background-color: var(--afra-dark-surface) !important; }
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(
+  .cottage-feature,.cottage-price,.luxury-price,.luxury-feature,.fact,.afv-feature,
+  .afv-info-item,.empty,.cottage-related a
+) {
+  background: var(--afra-dark-raised) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(.cottage-page,.luxury-page) {
+  background: transparent !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) .afv-mobile-contact {
+  background: var(--afra-glass-bg-strong) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html:root[data-afra-theme] body:is([data-afra-page],[data-page]) button.afv-booking-button>span {
+  color: inherit !important;
+}
+html:root {
+  --afra-theme-duration: 1450ms;
+  --afra-theme-ease: cubic-bezier(.4,0,.2,1);
+}
+@keyframes afra-wave-reveal {
+  from { clip-path: circle(0 at var(--afra-wave-x) var(--afra-wave-y)); }
+  to { clip-path: circle(var(--afra-wave-radius) at var(--afra-wave-x) var(--afra-wave-y)); }
+}
+::view-transition-group(root) { animation-duration: var(--afra-theme-duration); animation-timing-function: var(--afra-theme-ease); }
+::view-transition-old(root) { animation: none; z-index: 1; }
+::view-transition-new(root) { animation: afra-wave-reveal var(--afra-theme-duration) var(--afra-theme-ease); mix-blend-mode: normal; z-index: 2; }
+html[data-afra-theme-capturing] *,html[data-afra-theme-capturing] *::before,html[data-afra-theme-capturing] *::after {
+  transition-duration: 0s !important; transition-delay: 0s !important;
+}
+@media (max-width:900px) {
+  body[data-page] .app-sidebar .brand { padding-inline-start: 4.5rem; padding-inline-end: 1rem; gap: .5rem; }
+  html:root[data-afra-theme] body[data-page] .app-header {
+    display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center;
+    gap: .45rem .65rem;
+  }
+  html:root[data-afra-theme] body[data-page] .admin-mobile-brand {
+    display: inline-flex; align-items: center; gap: 7px; min-width: 0;
+    grid-column: 1; grid-row: 1; width: fit-content; max-width: 100%;
+  }
+  html:root[data-afra-theme] body[data-page] .admin-mobile-brand img { width: 27px; height: 31px; }
+  html:root[data-afra-theme] body[data-page] .admin-mobile-brand strong { display: block; font-size: 14px; white-space: nowrap; }
+  html:root[data-afra-theme] body[data-page] .admin-mobile-brand small { display: block; font-size: 8px; white-space: nowrap; }
+  html:root[data-afra-theme] body[data-page] .app-header .header-actions { grid-column: 2; grid-row: 1; }
+  html:root[data-afra-theme] body[data-page] .app-header .page-title { grid-column: 1/-1; grid-row: 2; }
+  html:root[data-afra-theme] body[data-page] .app-header .page-title h1 { font-size: 1.1rem; }
+}
+html:root[data-afra-theme] body[data-page] .nav-group-toggle {
+  background: transparent !important; color: var(--afra-ui-ink) !important;
+}
+html:root[data-afra-theme] body[data-page] :is(.nav-group-toggle:hover,.nav-link:hover) {
+  background: rgba(var(--afra-accent-rgb),.07) !important;
+  color: var(--afra-title) !important;
+}
+html:root[data-afra-theme] body[data-page] .nav-link.active {
+  background: linear-gradient(90deg,rgba(var(--afra-accent-rgb),.12),rgba(var(--afra-accent-rgb),.04)) !important;
+  color: var(--afra-title) !important;
+}
+html:root[data-afra-theme] body .afra-mobile-nav :is([aria-current],a:focus-visible) .afra-mobile-nav__icon {
+  color: var(--afra-on-accent) !important;
+}
+html:root[data-afra-theme] body .afra-mobile-nav :is([aria-current],a:focus-visible) .afra-mobile-nav__icon svg {
+  color: inherit !important; stroke: currentColor !important;
+}
+html:root[data-afra-theme="light"] body img:is(.afra-brand-img,.afra-leaf-img,.afra-admin-leaf) {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(94%) saturate(700%) hue-rotate(11deg) brightness(88%) contrast(103%) !important;
+}
+@media print {
+  html:root[data-afra-theme] {
+    background: #fff !important; color-scheme: light !important;
+    --afra-title: #111; --afra-ui-ink: #111; --afra-readable-ink: #111;
+    --afra-mist: #111; --afra-ui-muted: #333; --afra-readable-muted: #333;
+    --afra-dark-bg: #fff; --afra-dark-surface: #fff; --afra-dark-raised: #fff;
+    --afra-glass-bg: #fff; --afra-glass-bg-strong: #fff;
+    --afra-glass-gradient: #fff; --text: #111; --muted: #333;
+  }
+  html:root[data-afra-theme] body:is([data-afra-page],[data-page]),
+  html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(main,.card,.panel,.ap-panel,.booking-summary,table,thead,th,td) {
+    background: #fff !important; color: #111 !important; box-shadow: none !important;
+  }
+  html:root[data-afra-theme] body:is([data-afra-page],[data-page]) :is(h1,h2,h3,h4,h5,h6,p,small,strong,b,.title,.price,.stat-value,a,span,td,th) {
+    color: #111 !important;
+  }
+  html:root[data-afra-theme] body:is([data-afra-page],[data-page]) img:is(.afra-brand-img,.afra-leaf-img,.afra-admin-leaf) {
+    filter: brightness(0) !important;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "metadataOnly": true,
+  "propertiesColumnsMatched": true,
+  "categoryValues": [
+    "villa",
+    "forest",
+    "pool",
+    "luxury"
+  ],
+  "galleryTable": "property_images",
+  "galleryPropertyIdType": "text",
+  "galleryAutomaticIdentity": true,
+  "imageBucket": "property-images",
+  "adminRlsPoliciesPresent": true,
+  "bookingOverlapExclusionPresent": true,
+  "schemaWrites": 0,
+  "productionDataWrites": 0
+}

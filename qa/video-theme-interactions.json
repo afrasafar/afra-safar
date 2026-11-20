@@ -1,0 +1,3226 @@
+{
+  "checks": 470,
+  "failures": [],
+  "results": [
+    {
+      "check": "AfraSafar_All_Pages_Links.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "AfraSafar_All_Pages_Links.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "AfraSafar_All_Pages_Links.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 25.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 24,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "AfraSafar_All_Pages_Links.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "AfraSafar_All_Pages_Links.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "PHOTO-CREDITS-FA.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "PHOTO-CREDITS-FA.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "PHOTO-CREDITS-FA.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 33.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 32,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "PHOTO-CREDITS-FA.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "PHOTO-CREDITS-FA.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "about.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "about.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "about.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "about.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "about.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "account-bookings.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "account-bookings.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "account-bookings.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "account-bookings.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "account-bookings.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "add-property.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "add-property.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "add-property.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "add-property.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "add-property.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-DESKTOP-7GR6IRD.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-DESKTOP-7GR6IRD.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-DESKTOP-7GR6IRD.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-DESKTOP-7GR6IRD.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-DESKTOP-7GR6IRD.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-bookings.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-bookings.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-bookings.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-bookings.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-bookings.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-content.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-content.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-content.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-content.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-content.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-discounts.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-discounts.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-discounts.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-discounts.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-discounts.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-hosts.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-hosts.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-hosts.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-hosts.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-hosts.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-payments.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-payments.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-payments.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-payments.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-payments.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-properties.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-properties.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-properties.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-properties.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-properties.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-reviews.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-reviews.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-reviews.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-reviews.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-reviews.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-support.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-support.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-support.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-support.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-support.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-users.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-users.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-users.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "admin-users.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-users.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/index.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/index.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/analytics.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/analytics.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/analytics.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/analytics.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/analytics.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/invoices.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/finance/invoices.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/invoices.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/finance/invoices.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/invoices.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/revenue.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/finance/revenue.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/revenue.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/finance/revenue.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/revenue.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/transactions.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/finance/transactions.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/transactions.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/finance/transactions.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/finance/transactions.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/history.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/orders/history.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/history.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/orders/history.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/history.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/new.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/orders/new.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/new.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/orders/new.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/new.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/reports.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/orders/reports.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/reports.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/orders/reports.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/orders/reports.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/categories.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/products/categories.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/categories.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/products/categories.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/categories.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/create.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/products/create.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/create.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/products/create.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/create.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/index.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/products/index.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/index.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/products/index.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/products/index.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/reviews.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/reviews.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/reviews.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/reviews.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/reviews.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/backup.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/settings/backup.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/backup.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/settings/backup.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/backup.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/config.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/settings/config.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/config.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/settings/config.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/config.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/general.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/settings/general.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/general.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/settings/general.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/settings/general.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/support.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/support.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/support.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/support.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/support.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/create.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/users/create.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/create.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/users/create.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/create.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/index.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/users/index.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/index.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/users/index.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/index.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/roles.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin-v2/pages/users/roles.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/roles.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin-v2/pages/users/roles.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/pages/users/roles.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "admin.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "admin.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        },
+        "brand": {
+          "x": 162.203125,
+          "y": 17.59375,
+          "width": 89,
+          "height": 34
+        }
+      }
+    },
+    {
+      "check": "admin.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "admin.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "auth.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "auth.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "auth.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "auth.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "auth.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "become-host.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "become-host.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "become-host.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "become-host.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "become-host.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "booking-voucher.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "booking-voucher.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "booking-voucher.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "booking-voucher.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "booking-voucher.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "booking.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "booking.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "booking.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "booking.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "booking.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "categories.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "categories.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "categories.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "categories.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "categories.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "cities.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "cities.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "cities.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "cities.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "cities.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "compare.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "compare.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "compare.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "compare.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "compare.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "contact.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "contact.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "contact.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "contact.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "contact.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "cottage.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "cottage.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "cottage.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "cottage.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "cottage.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "discounts.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "discounts.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "discounts.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "discounts.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "discounts.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "faq.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "faq.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "faq.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "faq.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "faq.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "favorites.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "favorites.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "favorites.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "favorites.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "favorites.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "guest-dashboard.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "guest-dashboard.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "guest-dashboard.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "guest-dashboard.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "guest-dashboard.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "host-calendar.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "host-calendar.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "host-calendar.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "host-calendar.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "host-calendar.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "host-finance.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "host-finance.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "host-finance.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "host-finance.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "host-finance.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "host-performance.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "host-performance.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "host-performance.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "host-performance.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "host-performance.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "host-reviews.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "host-reviews.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "host-reviews.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "host-reviews.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "host-reviews.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "index.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "index.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "index.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 268,
+          "y": 11,
+          "width": 40,
+          "height": 40
+        },
+        "brand": {
+          "x": 143,
+          "y": 10,
+          "width": 109,
+          "height": 44
+        }
+      }
+    },
+    {
+      "check": "index.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "index.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "journal-villa.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "journal-villa.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "journal-villa.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "journal-villa.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "journal-villa.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "last-minute.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "last-minute.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "last-minute.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "last-minute.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "last-minute.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "luxury-villa.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "luxury-villa.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "luxury-villa.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "luxury-villa.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "luxury-villa.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "magazine.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "magazine.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "magazine.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "magazine.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "magazine.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "manage-property.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "manage-property.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "manage-property.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "manage-property.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "manage-property.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "map.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "map.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "map.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "map.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "map.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "messages.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "messages.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "messages.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "messages.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "messages.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "my-reservations.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "my-reservations.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "my-reservations.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "my-reservations.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "my-reservations.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "my-reviews.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "my-reviews.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "my-reviews.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "my-reviews.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "my-reviews.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "my-searches.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "my-searches.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "my-searches.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "my-searches.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "my-searches.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "notifications.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "notifications.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "notifications.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "notifications.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "notifications.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "owner-dashboard.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "owner-dashboard.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "owner-dashboard.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "owner-dashboard.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "owner-dashboard.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "owner-login.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "owner-login.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "owner-login.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 13.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 51
+        }
+      }
+    },
+    {
+      "check": "owner-login.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "owner-login.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "owner-register.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "owner-register.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "owner-register.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "owner-register.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "owner-register.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "owner-reservations.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "owner-reservations.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "owner-reservations.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "owner-reservations.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "owner-reservations.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "payment-result.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "payment-result.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "payment-result.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "payment-result.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "payment-result.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "payment.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "payment.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "payment.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "payment.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "payment.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "privacy.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "privacy.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "privacy.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "privacy.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "privacy.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "property-settings.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "property-settings.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "property-settings.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "property-settings.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "property-settings.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "property.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "property.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "property.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "property.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "property.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "referrals.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "referrals.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "referrals.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "referrals.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "referrals.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "regions.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "regions.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "regions.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "regions.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "regions.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "register.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "register.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "register.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "register.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "register.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "reservation-status.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "reservation-status.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "reservation-status.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "reservation-status.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "reservation-status.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "reviews.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "reviews.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "reviews.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "reviews.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "reviews.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "rules.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "rules.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "rules.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "rules.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "rules.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "search-results.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "search-results.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "search-results.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "search-results.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "search-results.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "search.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "search.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "search.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "search.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "search.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "supabase-status.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "supabase-status.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "supabase-status.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "supabase-status.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "supabase-status.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "support.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "support.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "support.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "support.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "support.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "villa.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "villa.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "villa.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "villa.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "villa.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "wallet.html:320px overflow",
+      "ok": true,
+      "detail": 320
+    },
+    {
+      "check": "wallet.html:mobile brand",
+      "ok": true
+    },
+    {
+      "check": "wallet.html:menu right and adjacent brand",
+      "ok": true,
+      "detail": {
+        "menu": {
+          "x": 234,
+          "y": 11.5,
+          "width": 72,
+          "height": 44
+        },
+        "brand": {
+          "x": 115,
+          "y": 10,
+          "width": 109,
+          "height": 47
+        }
+      }
+    },
+    {
+      "check": "wallet.html:menu expanded",
+      "ok": true
+    },
+    {
+      "check": "wallet.html:menu Escape",
+      "ok": true
+    },
+    {
+      "check": "admin email contained 320",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 320",
+      "ok": true
+    },
+    {
+      "check": "admin leaf clear of menu 320",
+      "ok": true,
+      "detail": {
+        "leaf": {
+          "x": 208,
+          "y": 25,
+          "width": 36,
+          "height": 40
+        },
+        "menu": {
+          "x": 260,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        }
+      }
+    },
+    {
+      "check": "admin brand home target 320",
+      "ok": true
+    },
+    {
+      "check": "admin email contained 390",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 390",
+      "ok": true
+    },
+    {
+      "check": "admin leaf clear of menu 390",
+      "ok": true,
+      "detail": {
+        "leaf": {
+          "x": 278,
+          "y": 25,
+          "width": 36,
+          "height": 40
+        },
+        "menu": {
+          "x": 330,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        }
+      }
+    },
+    {
+      "check": "admin brand home target 390",
+      "ok": true
+    },
+    {
+      "check": "admin email contained 768",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 768",
+      "ok": true
+    },
+    {
+      "check": "admin leaf clear of menu 768",
+      "ok": true,
+      "detail": {
+        "leaf": {
+          "x": 656,
+          "y": 25,
+          "width": 36,
+          "height": 40
+        },
+        "menu": {
+          "x": 708,
+          "y": 16,
+          "width": 44,
+          "height": 44
+        }
+      }
+    },
+    {
+      "check": "admin brand home target 768",
+      "ok": true
+    },
+    {
+      "check": "admin email contained 1440",
+      "ok": true
+    },
+    {
+      "check": "admin real leaf loaded 1440",
+      "ok": true
+    },
+    {
+      "check": "admin brand home target 1440",
+      "ok": true
+    },
+    {
+      "check": "admin brand opens main site",
+      "ok": true
+    },
+    {
+      "check": "search.html:theme toggle",
+      "ok": true
+    },
+    {
+      "check": "search.html:theme visible after scroll",
+      "ok": true,
+      "detail": {
+        "x": 12,
+        "y": 720,
+        "width": 46,
+        "height": 46
+      }
+    },
+    {
+      "check": "search.html:theme persisted",
+      "ok": true
+    },
+    {
+      "check": "owner-login.html:theme toggle",
+      "ok": true
+    },
+    {
+      "check": "owner-login.html:theme visible after scroll",
+      "ok": true,
+      "detail": {
+        "x": 12,
+        "y": 720,
+        "width": 46,
+        "height": 46
+      }
+    },
+    {
+      "check": "owner-login.html:theme persisted",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html:theme toggle",
+      "ok": true
+    },
+    {
+      "check": "admin-v2/index.html:theme visible after scroll",
+      "ok": true,
+      "detail": {
+        "x": 18,
+        "y": 785,
+        "width": 46,
+        "height": 46
+      }
+    },
+    {
+      "check": "admin-v2/index.html:theme persisted",
+      "ok": true
+    },
+    {
+      "check": "guest:access gate",
+      "ok": true
+    },
+    {
+      "check": "guest:no table reads",
+      "ok": true
+    },
+    {
+      "check": "guest:one persistent appearance button",
+      "ok": true
+    },
+    {
+      "check": "guest:readable auth view",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "denied:access gate",
+      "ok": true
+    },
+    {
+      "check": "denied:no table reads",
+      "ok": true
+    },
+    {
+      "check": "denied:one persistent appearance button",
+      "ok": true
+    },
+    {
+      "check": "denied:readable auth view",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "Jalali picker opens",
+      "ok": true
+    },
+    {
+      "check": "Jalali picker contrast",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "Jalali selection closes picker",
+      "ok": true
+    },
+    {
+      "check": "Coupon opens through search",
+      "ok": true
+    },
+    {
+      "check": "Coupon contrast",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "Coupon copy works",
+      "ok": true
+    },
+    {
+      "check": "Coupon closes",
+      "ok": true
+    },
+    {
+      "check": "Desktop card hover distance",
+      "ok": true,
+      "detail": "0px -4px"
+    },
+    {
+      "check": "Animated theme completes",
+      "ok": true
+    },
+    {
+      "check": "Touch has no hover styling",
+      "ok": true
+    },
+    {
+      "check": "Reduced motion content visible",
+      "ok": true
+    },
+    {
+      "check": "No real data writes",
+      "ok": true
+    }
+  ]
+}

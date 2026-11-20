@@ -1,0 +1,13 @@
+{
+  "pages": 66,
+  "page_render_checks": 264,
+  "interaction_checks": 14,
+  "contrast_minimums": {
+    "card_contrast": 6.401382830288955,
+    "search_contrast": 12.174826237962094,
+    "coupon_contrast": 6.130893563860967
+  },
+  "threshold": 4.5,
+  "all_checks_passed": true,
+  "live_backend_mutations": false
+}

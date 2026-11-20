@@ -1,0 +1,19 @@
+{
+  "pages": 66,
+  "page_renders": 528,
+  "viewport_widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "interaction_cases": 18,
+  "populated_panel_cases": 72,
+  "errors": [],
+  "database_modified": false,
+  "real_account_booking_payment_mutations": false
+}

@@ -5,8 +5,8 @@
   "dir": "rtl",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f6f7f8",
-  "theme_color": "#195b45",
+  "background_color": "#f5faf6",
+  "theme_color": "#235347",
   "icons": [
     {
       "src": "assets/afra-icon.svg",

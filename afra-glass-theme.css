@@ -1,0 +1,1025 @@
+@font-face {
+  font-family: "Afra Vazirmatn";
+  src: url("public/fonts/vazirmatn-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200E, U+FB50-FDFF, U+FE70-FEFF;
+}
+@font-face {
+  font-family: "Afra Vazirmatn";
+  src: url("public/fonts/vazirmatn-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0000-024F, U+2000-200B, U+200F-206F;
+}
+@font-face {
+  font-family: "Afra Nastaliq";
+  src: url("public/fonts/noto-nastaliq-urdu-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Afra Safar shared palette and glass surfaces. */
+:root {
+  --afra-ui-font: "IRANSans", "IRANSansX", "Iran Sans", "Afra Vazirmatn", Tahoma, sans-serif;
+  --afra-night: #051F20;
+  --afra-deep-green: #0B2B26;
+  --afra-forest: #235347;
+  --afra-leaf: #163832;
+  --afra-mist: #8EB69B;
+  --afra-paper: #DAF1DE;
+  --afra-page: #f5faf6;
+  --afra-surface: #fcfdfb;
+  --afra-ui-ink: var(--afra-leaf);
+  --afra-ui-muted: #3f6355;
+  --afra-surface-rgb: 253, 255, 253;
+  --afra-raised-rgb: 244, 250, 245;
+  --afra-accent-rgb: 142, 182, 155;
+  --afra-text-rgb: 22, 56, 50;
+  --afra-glass-bg: rgba(255, 255, 255, .72);
+  --afra-glass-bg-strong: rgba(244, 250, 245, .96);
+  --afra-glass-line: rgba(35, 83, 71, .18);
+  --afra-glass-highlight: rgba(255, 255, 255, .8);
+  --afra-glass-shadow: 0 12px 32px rgba(35, 83, 71, .09);
+  --afra-glass-gradient: linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(218, 241, 222, .68));
+  --afra-action-gradient: linear-gradient(145deg, rgba(218, 241, 222, .94), rgba(142, 182, 155, .43));
+  --afra-page-glow: rgba(142, 182, 155, .16);
+  --afra-error-ink: #812538;
+  --afra-error-bg: #fff0f2;
+  --afra-success-ink: #235347;
+  --afra-success-bg: #e3f4e7;
+  --ap-bg: var(--afra-page);
+  --ap-panel: var(--afra-glass-bg);
+  --ap-txt: var(--afra-ui-ink);
+  --ap-sub: var(--afra-ui-muted);
+  --ap-line: var(--afra-glass-line);
+  --ap-brand: var(--afra-forest);
+  --ap-brand-fg: #f5faf6;
+  --ap-chip: rgba(var(--afra-accent-rgb), .18);
+  --ap-shadow: var(--afra-glass-shadow);
+  --ap-focus: var(--afra-ui-muted);
+  color-scheme: light;
+}
+
+html[data-afra-theme="dark"] {
+  --afra-page: var(--afra-night);
+  --afra-surface: var(--afra-deep-green);
+  --afra-ui-ink: var(--afra-paper);
+  --afra-ui-muted: #aacbb3;
+  --afra-surface-rgb: 11, 43, 38;
+  --afra-raised-rgb: 5, 31, 32;
+  --afra-accent-rgb: 35, 83, 71;
+  --afra-text-rgb: 218, 241, 222;
+  --afra-glass-bg: rgba(11, 43, 38, .65);
+  --afra-glass-bg-strong: rgba(11, 43, 38, .95);
+  --afra-glass-line: rgba(142, 182, 155, .26);
+  --afra-glass-highlight: rgba(218, 241, 222, .13);
+  --afra-glass-shadow: 0 18px 48px rgba(5, 31, 32, .32);
+  --afra-glass-gradient: linear-gradient(145deg, rgba(35, 83, 71, .72), rgba(11, 43, 38, .88) 55%, rgba(5, 31, 32, .9));
+  --afra-action-gradient: linear-gradient(145deg, rgba(35, 83, 71, .76), rgba(11, 43, 38, .84));
+  --afra-page-glow: rgba(35, 83, 71, .38);
+  --afra-error-ink: #ffd9e4;
+  --afra-error-bg: #512431;
+  --afra-success-ink: #e0ffe9;
+  --afra-success-bg: #204938;
+  --ap-bg: var(--afra-page);
+  --ap-panel: var(--afra-glass-bg);
+  --ap-txt: var(--afra-ui-ink);
+  --ap-sub: var(--afra-ui-muted);
+  --ap-line: var(--afra-glass-line);
+  --ap-brand: var(--afra-forest);
+  --ap-chip: rgba(var(--afra-accent-rgb), .36);
+  --ap-focus: var(--afra-ui-muted);
+  color-scheme: dark;
+}
+
+html,
+html[data-afra-theme] { background: var(--afra-page) !important; }
+
+html body,
+html[data-afra-theme] body {
+  background: radial-gradient(ellipse at 86% 0%, var(--afra-page-glow), transparent 45%),
+    var(--afra-page) !important;
+  color: var(--afra-ui-ink) !important;
+  font-family: var(--afra-ui-font) !important;
+}
+
+/* Use one Persian UI family consistently; inline legacy font declarations are overridden. */
+html body :not(svg):not(path):not(circle):not(rect):not(line):not(polyline) {
+  font-family: var(--afra-ui-font) !important;
+}
+
+html body :is(h1, h2, h3, h4, h5, h6, p, li, label, strong, small, summary, blockquote, .field-label, .eyebrow) {
+  color: var(--afra-ui-ink) !important;
+}
+
+html body :is(a, .nav-link, .header a, .topbar, .afra-site-footer a) {
+  color: var(--afra-ui-ink);
+}
+
+html body main,
+html body :is(.section, .categories, .stays, #about, .afra-home-collections, .afra-regions,
+  .afra-reviews, .afra-feature-section, .contact-section, .afra-ref-quick-section, #faq) {
+  background-color: transparent !important;
+  color: var(--afra-ui-ink) !important;
+}
+/* The legacy homepage sets these two sections by ID plus page-data selectors with !important. */
+html body[data-afra-page="index.html"] #regions.afra-regions,
+html body[data-afra-page="index.html"] #categories.categories {
+  background: transparent !important;
+  color: var(--afra-ui-ink) !important;
+}
+
+html body :is(.section-heading h2, .benefits-intro h2, .afra-section-heading h2,
+  .afra-ref-section-title h2, .afra-ref-kicker, .afra-ref-all-search, .eyebrow,
+  .afra-region-title, .afra-feature-card h3, .afra-faq-items summary) {
+  color: var(--afra-ui-muted) !important;
+}
+
+/* Glass cards and panels: appearance only; no dimensions, margins or positioning are changed. */
+html body :is(.ap-panel, .ap-stay, .ap-result-head, .ap-stat, .ap-empty, .ap-callout,
+  .ap-linkcard, .ap-faq details, .ap-map-status, .ap-chat-bubble, .ap-geo-note,
+  .ap-pill, .ap-stay__badge, .ap-chips a,
+  .stay-card, .benefit-item, .benefit-card, .afra-feature-card, .afra-review-card,
+  .afra-faq-items details, .afra-home-search, .afra-primary-search-field,
+  .search-box, .search-dropdown-panel, .advanced-filters-panel, .auth-card,
+  .afra-coupon-dialog, .login-card, .login-box, .property-card, .reservation-card,
+  .reservation-detail, .booking-card, .booking-summary, .form-card, .guidance,
+  .panel, .file-box, .afra-ref-quick-item, .afra-home-search .search-filter-field,
+  .afra-region-panel, .afra-feature-panel, .afra-review-panel) {
+  background-color: var(--afra-glass-bg) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+
+/* Keep image-led tiles/photos intact; add a clear glass edge instead of replacing their image. */
+html body :is(.category-card, .afra-region-card, .afra-feature-image, .card-image, .afra-stay-image) {
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: 0 15px 38px rgba(5, 31, 32, 0.30), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(9px) saturate(120%) !important;
+  backdrop-filter: blur(9px) saturate(120%) !important;
+}
+html body :is(.category-card, .afra-region-card) { isolation: isolate; }
+html body :is(.category-card, .afra-region-card)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(140deg, rgba(var(--afra-accent-rgb), 0.16), rgba(var(--afra-surface-rgb), 0.34));
+  -webkit-backdrop-filter: blur(2px) saturate(125%);
+  backdrop-filter: blur(2px) saturate(125%);
+  pointer-events: none;
+}
+html body :is(.category-card, .afra-region-card) > * { position: relative; z-index: 1; }
+html body :is(.category-card, .afra-region-card):hover { transform: none !important; }
+
+html body[data-afra-page="index.html"] .afra-ref-quick-item {
+  background: rgba(var(--afra-surface-rgb), 0.50) !important;
+  color: var(--afra-ui-ink) !important;
+  border: 1px solid var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(135%) !important;
+  backdrop-filter: blur(15px) saturate(135%) !important;
+}
+
+html body[data-afra-page="index.html"] .afra-ref-quick-item:hover,
+html body[data-afra-page="index.html"] .afra-ref-quick-item:focus-visible {
+  background: rgba(var(--afra-accent-rgb), 0.35) !important;
+  border-color: rgba(142, 182, 155, 0.48) !important;
+  transform: none !important;
+}
+
+html body[data-afra-page="index.html"] .afra-ref-icon,
+html body[data-afra-page="index.html"] .afra-ref-quick-item small,
+html body[data-afra-page="index.html"] .afra-ref-quick-item strong {
+  color: var(--afra-ui-ink) !important;
+  filter: none !important;
+}
+
+/* Buttons retain their existing footprint and location. */
+html body :is(button:not(.category-card):not(.afra-region-card):not(.maplibregl-marker), .ap-btn, .btn, .button, .btn-primary, .primary-btn, .submit-btn,
+  .book-btn, .search-button, .auth-submit, .auth-top-button, .contact-button,
+  .card-button, .dropdown-submit-button, .afra-feature-action, .afra-search-submit, .ap-stay__fav,
+  .afra-coupon-copy, .auth-logout, .owner-approve, .admin-tab, .mobile-contact a) {
+  color: var(--afra-ui-ink) !important;
+  background: var(--afra-action-gradient) !important;
+  border: 1px solid rgba(142, 182, 155, 0.42) !important;
+  box-shadow: 0 9px 26px rgba(5, 31, 32, 0.25), inset 0 1px 0 rgba(218, 241, 222, 0.16) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  text-shadow: none !important;
+}
+
+html body :is(button:not(.category-card):not(.afra-region-card):not(.maplibregl-marker), .ap-btn, .btn, .button, .btn-primary, .primary-btn, .submit-btn,
+  .book-btn, .search-button, .auth-submit, .auth-top-button, .contact-button,
+  .card-button, .dropdown-submit-button, .afra-feature-action, .afra-search-submit, .ap-stay__fav,
+  .afra-coupon-copy, .auth-logout, .owner-approve, .admin-tab, .mobile-contact a):hover {
+  background: linear-gradient(140deg, rgba(var(--afra-accent-rgb), 0.50), rgba(var(--afra-accent-rgb), 0.55)) !important;
+  border-color: rgba(218, 241, 222, 0.62) !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+html body[data-afra-page="index.html"] .header .auth-top-actions > .auth-top-button,
+html body[data-afra-page="index.html"] #menuToggle {
+  color: var(--afra-paper) !important;
+  background: rgba(var(--afra-surface-rgb), 0.46) !important;
+  border-color: rgba(142, 182, 155, 0.50) !important;
+  box-shadow: inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(135%) !important;
+  backdrop-filter: blur(15px) saturate(135%) !important;
+}
+
+html body[data-afra-page="index.html"] .hero h1 span { color: var(--afra-ui-muted) !important; }
+html body[data-afra-page="index.html"] .hero .afra-hero-eyebrow {
+  background: rgba(5, 31, 32, .66) !important;
+  border-color: rgba(142, 182, 155, 0.50) !important;
+  color: var(--afra-paper) !important;
+}
+html body[data-afra-page="index.html"] .hero .afra-hero-eyebrow::before { background: var(--afra-mist) !important; }
+html body[data-afra-page="index.html"] .header .logo-icon {
+  background: rgba(var(--afra-accent-rgb), 0.78) !important;
+  color: var(--afra-ui-ink) !important;
+}
+html body[data-afra-page="index.html"] .afra-ref-kicker,
+html body[data-afra-page="index.html"] .afra-ref-all-search {
+  color: var(--afra-ui-muted) !important;
+}
+html body[data-afra-page="index.html"] #searchForm.afra-search-v2 .search-main-row {
+  background: rgba(var(--afra-surface-rgb), 0.58) !important;
+  border: 1px solid rgba(142, 182, 155, 0.48) !important;
+  box-shadow: 0 18px 48px rgba(5, 31, 32, 0.30), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+  backdrop-filter: blur(18px) saturate(145%) !important;
+}
+html body[data-afra-page="index.html"] #searchForm #destination,
+html body[data-afra-page="index.html"] #searchForm #destination::placeholder {
+  color: var(--afra-ui-ink) !important;
+  background: transparent !important;
+}
+html body[data-afra-page="index.html"] #searchForm .search-button {
+  background: rgba(var(--afra-accent-rgb), 0.62) !important;
+  border: 1px solid rgba(142, 182, 155, 0.55) !important;
+  color: var(--afra-ui-ink) !important;
+}
+
+html body :is(input, select, textarea, .form-control, .form-field input, .form-field select) {
+  color: var(--afra-ui-ink) !important;
+  background-color: rgba(var(--afra-surface-rgb), 0.46) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: inset 0 1px 0 rgba(218, 241, 222, 0.07) !important;
+}
+html body :is(input, textarea)::placeholder { color: rgba(var(--afra-text-rgb), 0.62) !important; opacity: 1; }
+html body select option { background: var(--afra-surface); color: var(--afra-ui-ink); }
+html body :is(.search-divider, .ap-stay__actions, .ap-filter-section, .ap-footer, .afra-policy) {
+  border-color: var(--afra-glass-line) !important;
+}
+html body :is(.afra-site-footer, .ap-footer, .footer, footer) {
+  background: rgba(var(--afra-raised-rgb), 0.76) !important;
+  color: var(--afra-ui-muted) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html body :is(.nav, .ap-travelbar, .afra-travelbar, .admin-sidebar) {
+  background: rgba(var(--afra-raised-rgb), 0.72) !important;
+  border-color: var(--afra-glass-line) !important;
+  color: var(--afra-ui-ink) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+html body :is(.ap-toast, .toast, .notification, .afra-toast) {
+  background: rgba(var(--afra-surface-rgb), 0.88) !important;
+  color: var(--afra-ui-ink) !important;
+  border: 1px solid var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  backdrop-filter: blur(16px) !important;
+}
+html body :is(.mobile-contact, .mobile-contact-bar, .afra-mobile-contact) {
+  background: rgba(var(--afra-surface-rgb), 0.84) !important;
+  color: var(--afra-ui-ink) !important;
+  border: 1px solid var(--afra-glass-line) !important;
+  box-shadow: 0 -10px 35px rgba(5, 31, 32, 0.25), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+html body[data-afra-page="index.html"] .mobile-contact {
+  background: rgba(var(--afra-surface-rgb), 0.84) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+
+html body :is(.ap-error, .message.error, .form-message.error, .status.error) {
+  color: var(--afra-error-ink) !important;
+  background: var(--afra-error-bg) !important;
+  border-color: rgba(255, 146, 184, 0.40) !important;
+}
+html body :is(.ap-success, .message.success, .form-message.success, .status.success) {
+  color: var(--afra-success-ink) !important;
+  background: var(--afra-success-bg) !important;
+  border-color: rgba(155, 240, 205, 0.36) !important;
+}
+html body :focus-visible { outline-color: var(--afra-mist) !important; }
+
+@media (prefers-reduced-transparency: reduce) {
+  html body :is(.ap-panel, .ap-stay, .ap-stat, .ap-linkcard, .afra-ref-quick-item, .auth-card, .search-box) {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background-color: rgba(var(--afra-surface-rgb), 0.94) !important;
+  }
+}
+
+
+/* Coverage for every standalone page template in the complete Afra Safar set.
+   Visual surfaces only: no positioning, sizing, flex/grid, or hero spacing changes. */
+html body :is(.afv-booking-card, .afv-booking-summary, .afv-feature, .afv-info-item,
+  .afv-highlight, .afv-status, .afv-telegram, .afv-secondary, .afv-status,
+  .cottage-booking, .cottage-feature, .cottage-rules, .cottage-form, .cottage-message,
+  .luxury-panel, .luxury-booking, .luxury-rules, .owner-panel, .reservation-panel,
+  .reservation-card, .reservation-detail, .booking-card, .booking-summary,
+  .form-card, .form-panel, .dashboard-section, .stat, .stats, .fact, .facts,
+  .state, .status-box, .status-card, .notice, .result, .details, .detail,
+  .payment-info, .payment-notice, .guidance, .file-box, .welcome, .empty,
+  .card, .table-wrap, .admin-panel, .admin-card, .property-list, .reservation-list,
+  .afv-booking-summary, .afv-status, .calendar-wrap, .calendar-selected,
+  .telegram-connect-panel, .telegram-direct-box, .telegram-note, .upload-status) {
+  background-color: var(--afra-glass-bg) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+
+/* Dark glass navigation surfaces across the homepage, guest, host and admin pages. */
+html body :is(.header, .site-header, .afv-header, .nav, .main-nav, .topbar,
+  .admin-sidebar, .header-inner, .afv-header-inner, .topbar-inner) {
+  background-color: rgba(var(--afra-raised-rgb), 0.70) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+html body :is(.brand, .brand-icon, .brand-name, .brand-subtitle, .logo-text strong,
+  .header-phone, .topbar-contact, .back, .location, .per-night, .price-label,
+  .muted, .hint, .help, .note, .form-help, .description, .status-description,
+  .status-label, .detail-label, .section-note, .calendar-description, .calendar-status,
+  .telegram-note, .afv-brand-caption, .afv-footer-text, .afv-breadcrumb,
+  .cottage-description, .luxury-description, .luxury-disclaimer) {
+  color: var(--afra-ui-muted) !important;
+}
+html body :is(.brand, .brand-name, .logo-text strong, .price, .luxury-price,
+  .cottage-price, .title, .section-title, .panel-heading, .afv-booking-heading,
+  .cottage-heading, .luxury-heading, .calendar-heading, .calendar-month) {
+  color: var(--afra-ui-ink) !important;
+}
+
+/* Glass buttons preserve their original footprint and position. */
+html body :is(.btn-secondary, .secondary, .secondary-btn, .btn-secondary a,
+  .btn.secondary, button.secondary, .clear-dates, .refresh-dates, .month-btn,
+  .gallery-arrow, .gallery-prev, .gallery-next, .lightbox-close, .thumbnail,
+  .afv-back-link, .back, .home-link) {
+  color: var(--afra-ui-ink) !important;
+  background-color: rgba(var(--afra-surface-rgb), 0.45) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+}
+html body :is(.afv-action-button, .afv-booking-button, .afv-telegram,
+  .cottage-call, .cottage-submit, .luxury-submit, .telegram-direct-btn,
+  .logout-btn, .new-reservation-link, .reset-search-button) {
+  color: var(--afra-ui-ink) !important;
+  background: linear-gradient(140deg, rgba(var(--afra-accent-rgb), 0.43), rgba(var(--afra-surface-rgb), 0.76)) !important;
+  border-color: rgba(142, 182, 155, 0.42) !important;
+  box-shadow: 0 9px 26px rgba(5, 31, 32, 0.25), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+}
+
+/* Preserve distinct booking-calendar semantics while bringing controls into the palette. */
+html body button.day, html body button.calendar-day {
+  color: var(--afra-ui-ink) !important;
+  background: rgba(var(--afra-surface-rgb), 0.42) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html body button.day.booked, html body button.calendar-day.booked {
+  color: #ffe7ee !important;
+  background: rgba(122, 28, 64, 0.78) !important;
+  border-color: rgba(255, 150, 186, 0.70) !important;
+}
+html body button.day.selected, html body button.calendar-day.selected {
+  color: #fff !important;
+  background: var(--afra-forest) !important;
+  border-color: var(--afra-mist) !important;
+}
+html body button.day.range, html body button.calendar-day.range {
+  color: var(--afra-ui-ink) !important;
+  background: rgba(var(--afra-accent-rgb), 0.34) !important;
+  border-color: rgba(142, 182, 155, 0.36) !important;
+}
+html body :is(.calendar-legend, .legend-item, .calendar-actions) { color: var(--afra-ui-muted) !important; }
+
+/* Tables, dividers and statuses. */
+html body :is(th, td, .table-wrap, .table-container) { border-color: var(--afra-glass-line) !important; }
+html body th { background: rgba(var(--afra-accent-rgb), 0.24) !important; color: var(--afra-ui-ink) !important; }
+html body :is(hr, .divider, .booking-divider, .afv-booking-divider) { border-color: var(--afra-glass-line) !important; background-color: var(--afra-glass-line) !important; }
+html body :is(.message.error, .form-message.error, .status.error, .notice.error, .status-box.error) {
+  color: var(--afra-error-ink) !important; background: var(--afra-error-bg) !important; border-color: rgba(255, 146, 184, 0.48) !important;
+}
+html body :is(.message.success, .form-message.success, .status.success, .notice.success, .status-box.success) {
+  color: var(--afra-success-ink) !important; background: var(--afra-success-bg) !important; border-color: rgba(155, 240, 205, 0.40) !important;
+}
+html body :is(input, select, textarea, .afv-form-control) {
+  color: var(--afra-ui-ink) !important;
+  background-color: rgba(var(--afra-surface-rgb), 0.48) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+html body :is(input, textarea, select)::placeholder { color: rgba(var(--afra-text-rgb), 0.66) !important; }
+html body :focus-visible { outline-color: var(--afra-mist) !important; }
+
+
+/* Last-mile overrides for opaque legacy surfaces discovered in visual QA. */
+html body :is(.afv-section, .cottage-main, .cottage-booking, .luxury-price,
+  .afra-feature-state, .thumbnails, .preview-item, .reservation-detail,
+  .reservation-card, .table-wrap, .table-container, .admin-panel, .admin-card) {
+  background: var(--afra-glass-bg) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+html body header {
+  background: rgba(var(--afra-raised-rgb), 0.72) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+html body #favoritesToggle,
+html body :is(.favorites-toggle, .favorite-button, .afv-favorite-button) {
+  color: var(--afra-ui-ink) !important;
+  background: rgba(var(--afra-surface-rgb), 0.58) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(135%) !important;
+  backdrop-filter: blur(14px) saturate(135%) !important;
+}
+html body table { background: rgba(var(--afra-surface-rgb), 0.42) !important; color: var(--afra-ui-ink) !important; border-color: var(--afra-glass-line) !important; }
+html body table :is(thead, tbody, tr, th, td) { background-color: transparent !important; color: var(--afra-ui-ink) !important; border-color: var(--afra-glass-line) !important; }
+html body table th { background: rgba(var(--afra-accent-rgb), 0.26) !important; }
+html body :is(.cottage-main, .afv-section) p,
+html body :is(.afv-section, .cottage-main, .luxury-price, .afra-feature-state) :is(span, strong, small, label) {
+  color: var(--afra-ui-ink) !important;
+}
+
+
+/* Final template-specific glass coverage from the complete 66-page audit. */
+html body :is(.cottage-section, .cottage-feature, .cottage-price,
+  .cottage-related a, .luxury-feature, .luxury-price, .luxury-panel,
+  .gallery, .thumbnails, .afra-feature-state, .afv-section,
+  .afv-highlight, .afv-feature, .afv-info-grid, .afv-booking-card) {
+  background: var(--afra-glass-bg) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(17px) saturate(135%) !important;
+  backdrop-filter: blur(17px) saturate(135%) !important;
+}
+html body :is(.cottage-section, .cottage-feature, .cottage-price, .cottage-related a,
+  .luxury-feature, .luxury-price, .afv-section, .afv-highlight, .afv-feature,
+  .afv-info-grid, .afv-booking-card) :is(h2, h3, p, strong, span, small, label, li) {
+  color: var(--afra-ui-ink) !important;
+}
+html body .cottage-call,
+html body a[href^="tel:"] {
+  color: var(--afra-ui-ink) !important;
+  background: rgba(var(--afra-surface-rgb), 0.55) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(135%) !important;
+  backdrop-filter: blur(14px) saturate(135%) !important;
+}
+
+
+html body .afv-header-contact {
+  color: var(--afra-ui-ink) !important;
+  background: linear-gradient(140deg, rgba(var(--afra-accent-rgb), 0.48), rgba(var(--afra-surface-rgb), 0.78)) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: 0 9px 26px rgba(5, 31, 32, 0.25), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+}
+html body .afv-gallery-label {
+  color: var(--afra-ui-ink) !important;
+  background: rgba(var(--afra-surface-rgb), 0.76) !important;
+  border: 1px solid var(--afra-glass-line) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(135%) !important;
+  backdrop-filter: blur(12px) saturate(135%) !important;
+}
+
+
+/* Supplied transparent maple mark: preserve each existing header/footer slot, scale only the image. */
+html body img.afra-brand-img {
+  display: inline-block;
+  flex: 0 0 auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: middle;
+  color: transparent !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 2px 7px rgba(142, 182, 155, 0.18));
+}
+html body img.afra-brand-img--compact { width: 38px; height: 38px; }
+html body img.afra-brand-img--standard { width: 42px; height: 42px; }
+html body img.afra-brand-img--villa { width: 45px; height: 45px; }
+html body img.afra-brand-img--inline { width: 38px; height: 38px; margin-inline-end: 5px; }
+html body img.afra-brand-img--tiny { width: 21px; height: 21px; margin-inline-end: 5px; }
+html body .afra-footer-logo { display: inline-flex; align-items: center; gap: 5px; }
+@media (max-width: 600px) {
+  html body img.afra-brand-img--compact { width: 32px; height: 32px; }
+  html body img.afra-brand-img--standard,
+  html body img.afra-brand-img--inline { width: 36px; height: 36px; }
+  html body img.afra-brand-img--villa { width: 36px; height: 36px; }
+  html body img.afra-brand-img--tiny { width: 19px; height: 19px; }
+}
+
+
+/* Keep the wordmark readable beside the teal transparent mark on dark glass headers. */
+html body :is(.afv-brand-name, .brand-name, .logo-text strong) {
+  color: var(--afra-ui-ink) !important;
+}
+html body :is(.afv-brand-caption, .brand-subtitle, .brand small) {
+  color: var(--afra-ui-muted) !important;
+}
+
+/* Shared glass cards. Leave image-led cards to their existing media styles. */
+html body :is(.ap-linkcard, .ap-panel, .ap-stat, .ap-faq details, .ap-callout,
+  .benefit-item, .benefit-card, .afra-ref-quick-item, .afra-review-card,
+  .afra-faq-items details, .auth-card, .login-card, .login-box,
+  .form-card, .booking-summary, .reservation-card, .admin-card,
+  .dashboard-section, .owner-panel, .calendar-wrap, .afra-coupon-dialog)
+  :is(h2, h3, p) {
+  color: var(--afra-ui-ink) !important;
+}
+
+html body :is(.ap-linkcard, .ap-panel, .ap-stat, .ap-faq details, .ap-callout,
+  .benefit-item, .benefit-card, .afra-ref-quick-item, .afra-review-card,
+  .afra-faq-items details, .auth-card, .login-card, .login-box,
+  .form-card, .booking-summary, .reservation-card, .admin-card,
+  .dashboard-section, .owner-panel, .calendar-wrap, .afra-coupon-dialog,
+  .stat-card, .quick-card, .info-card, .card):not(:has(img:not(.afra-brand-img), picture, video, .card-image, .cover, .gallery)) {
+  background: var(--afra-glass-gradient) !important;
+  border: 1px solid var(--afra-glass-line) !important;
+  box-shadow: var(--afra-glass-shadow), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+html body :is(.ap-travelbar, .ap-footer, .afra-site-footer, .site-footer, footer) {
+  background: linear-gradient(125deg, var(--afra-page), var(--afra-surface)) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+
+html body[data-afra-page="index.html"] {
+  --afra-hero-copper: var(--afra-mist);
+  --afra-hero-clay: var(--afra-forest);
+  --afra-gold: var(--afra-mist);
+}
+
+html body[data-afra-page="index.html"] .hero {
+  position: relative !important;
+  isolation: isolate;
+  background: var(--afra-page) !important;
+}
+
+html body[data-afra-page="index.html"] .hero .afra-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+html body[data-afra-page="index.html"] .hero :is(h1, h1 span, .hero-description) {
+  color: var(--afra-paper) !important;
+  text-shadow: 0 2px 4px #051F20, 0 3px 20px rgba(5, 31, 32, .8) !important;
+}
+
+html body[data-afra-page="index.html"] .hero .afra-poetry-lines,
+html body[data-afra-page="index.html"] .hero .afra-poetry-lines > span {
+  font-family: "Afra Nastaliq", "IranNastaliq", serif !important;
+  font-weight: 400 !important;
+  color: var(--afra-paper) !important;
+}
+
+html body[data-afra-page="index.html"] .hero .afra-poetry-lines > span {
+  opacity: .98 !important;
+  -webkit-text-stroke: .45px var(--afra-night);
+  paint-order: stroke fill;
+  text-shadow: 0 1px 3px var(--afra-night), 0 2px 12px var(--afra-night) !important;
+}
+
+html body[data-afra-page="index.html"] .afra-ref-quick-section {
+  border-top-color: var(--afra-forest) !important;
+}
+
+html body[data-afra-page="index.html"] :is(#menuToggle, .afra-quick-nav a, .auth-top-actions button):focus-visible {
+  outline-color: var(--afra-mist) !important;
+}
+
+html body[data-afra-page="index.html"] :is(#searchForm.afra-search-v2 .search-main-row, #searchDropdown),
+html[data-afra-theme="dark"] body[data-afra-page="index.html"] #searchForm.afra-search-v2 .search-main-row {
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+
+html[data-afra-theme] body[data-afra-page="index.html"] #searchForm .search-button {
+  background: linear-gradient(135deg, var(--afra-mist), var(--afra-paper)) !important;
+  color: var(--afra-night) !important;
+}
+
+html body[data-afra-page="index.html"] .header {
+  background: linear-gradient(180deg, rgba(5, 31, 32, .68), rgba(5, 31, 32, .32) 54%, transparent) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-color: var(--afra-glass-line) !important;
+}
+
+html body[data-afra-page="index.html"] .header .header-inner {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html body[data-afra-page="index.html"] #mainNav.nav,
+html body[data-afra-page="index.html"] #mainNav.nav:not(.nav-open) {
+  display: flex !important;
+  flex-direction: column !important;
+  border-radius: 24px !important;
+  scrollbar-color: var(--afra-forest) transparent;
+  background: radial-gradient(ellipse at 95% 0%, rgba(142, 182, 155, .21), transparent 60%),
+    linear-gradient(155deg, var(--afra-glass-bg-strong), var(--afra-surface) 80%) !important;
+  border-color: var(--afra-glass-line) !important;
+  box-shadow: 0 24px 65px rgba(5, 31, 32, .55), inset 0 1px 0 var(--afra-glass-highlight) !important;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-10px) scale(.97) !important;
+  transform-origin: top right;
+  clip-path: inset(0 0 88% 0 round 24px);
+  transition: opacity .26s ease, transform .38s cubic-bezier(.22, 1, .36, 1),
+    clip-path .44s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .44s !important;
+}
+
+html body[data-afra-page="index.html"] #mainNav.nav.nav-open {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0) scale(1) !important;
+  clip-path: inset(0 0 0 0 round 24px);
+  transition-delay: 0s !important;
+}
+
+html body[data-afra-page="index.html"] #mainNav .nav-link {
+  border-radius: 12px;
+  color: var(--afra-ui-ink) !important;
+}
+
+html body[data-afra-page="index.html"] #mainNav .nav-link:is(:hover, :focus-visible, .active) {
+  background: rgba(142, 182, 155, .15) !important;
+}
+
+html body[data-afra-page="index.html"] #mainNav .afra-menu-label {
+  color: var(--afra-ui-muted) !important;
+}
+
+html body[data-afra-page="index.html"] #menuToggle {
+  gap: 4px !important;
+}
+
+html body[data-afra-page="index.html"] #menuToggle span {
+  display: block !important;
+  width: 18px !important;
+  height: 2px !important;
+  margin: 0 !important;
+  background: var(--afra-paper) !important;
+  transition: transform .36s cubic-bezier(.22, 1, .36, 1), opacity .16s ease;
+}
+
+html body[data-afra-page="index.html"] #menuToggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+html body[data-afra-page="index.html"] #menuToggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+html body[data-afra-page="index.html"] #menuToggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@keyframes afra-enter {
+  from { opacity: 0; translate: 0 10px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html body[data-afra-page="index.html"] #mainNav.nav-open > * {
+    animation: afra-enter .36s cubic-bezier(.22, 1, .36, 1) both;
+    animation-delay: var(--afra-reveal-delay, 65ms);
+  }
+  html body[data-afra-page="index.html"] #mainNav.nav-open > :nth-child(n+4) { --afra-reveal-delay: 110ms; }
+  html body[data-afra-page="index.html"] #mainNav.nav-open > :nth-child(n+8) { --afra-reveal-delay: 155ms; }
+  html body[data-afra-page="index.html"] #mainNav.nav-open > :nth-child(n+12) { --afra-reveal-delay: 200ms; }
+
+  html body[data-afra-page="index.html"] .hero :is(.afra-hero-eyebrow, h1, .hero-description, .search-main-row) {
+    animation: afra-enter .68s cubic-bezier(.22, 1, .36, 1) both;
+  }
+  html body[data-afra-page="index.html"] .hero h1 { animation-delay: .06s; }
+  html body[data-afra-page="index.html"] .hero .hero-description { animation-delay: .13s; }
+  html body[data-afra-page="index.html"] .hero .search-main-row { animation-delay: .20s; }
+
+  html body :is(.auth-modal.is-open .auth-card, #searchDropdown:not([hidden]), dialog[open], .ap-faq details[open] > :not(summary)) {
+    animation: afra-enter .30s cubic-bezier(.22, 1, .36, 1) both;
+  }
+  html body :is(.ap-linkcard, .afra-ref-quick-item, .ap-btn, .card-button, .ap-stay, .stay-card) {
+    transition: translate .23s ease, border-color .23s ease, opacity .23s ease !important;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    html body :is(.ap-linkcard, .afra-ref-quick-item, .ap-btn, .card-button, .ap-stay, .stay-card):hover {
+      translate: 0 -3px;
+      border-color: var(--afra-mist) !important;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    html body :is(.afra-section-heading, .afra-ref-section-title, .ap-intro, .benefits-intro) {
+      animation: afra-section-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 82%;
+    }
+  }
+}
+
+@keyframes afra-section-enter {
+  from { opacity: .55; translate: 0 12px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (max-width: 600px) {
+  html body[data-afra-page="index.html"] .hero .afra-hero-photo { object-position: 62% center; }
+  html body[data-afra-page="index.html"] #mainNav.nav { max-height: min(73dvh, 670px) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body[data-afra-page="index.html"] #mainNav.nav,
+  html body[data-afra-page="index.html"] #mainNav.nav:not(.nav-open),
+  html body[data-afra-page="index.html"] #mainNav.nav.nav-open,
+  html body[data-afra-page="index.html"] #menuToggle span {
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  html body :is(.ap-panel, .ap-linkcard, .ap-stat, .afra-ref-quick-item, .auth-card, .login-card,
+    .afra-review-card, .ap-callout, .booking-summary, .calendar-wrap) {
+    background: var(--afra-surface) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* Homepage chrome sits over the same photograph, with contrast local to the controls. */
+html[data-afra-theme] body[data-afra-page="index.html"] .header :is(.logo-text strong, .logo-text small, .afra-ref-links a, .afra-quick-nav a) {
+  color: var(--afra-paper) !important;
+  text-shadow: 0 1px 5px var(--afra-night);
+}
+
+html[data-afra-theme] body[data-afra-page="index.html"] .header :is(#menuToggle, #afraThemeToggle, .auth-top-button) {
+  background: var(--afra-glass-bg-strong) !important;
+  color: var(--afra-ui-ink) !important;
+  border-color: var(--afra-glass-line) !important;
+}
+
+html body[data-afra-page="index.html"] #menuToggle span {
+  background: var(--afra-paper) !important;
+}
+
+html[data-afra-theme] body[data-afra-page="index.html"] .afra-ref-quick-section {
+  background: linear-gradient(180deg, var(--afra-surface), var(--afra-page)) !important;
+  border-top: 1px solid var(--afra-glass-line) !important;
+  color: var(--afra-ui-ink) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] :is(#regions.afra-regions, #categories.categories) {
+  background: transparent !important;
+  color: var(--afra-ui-ink) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] .afra-ref-quick-item {
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+  color: var(--afra-ui-ink) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] .afra-ref-quick-item:hover {
+  background: var(--afra-action-gradient) !important;
+  border-color: var(--afra-mist) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] :is(.afra-ref-quick-item small, .afra-ref-icon, .afra-ref-kicker, .afra-ref-all-search, #regions .afra-region-credits-note) {
+  color: var(--afra-ui-muted) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] #searchForm :is(.search-dropdown-panel, .search-main-row, .search-filter-field) {
+  background: var(--afra-glass-gradient) !important;
+  border-color: var(--afra-glass-line) !important;
+  color: var(--afra-ui-ink) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] #searchForm :is(.field-label, .filter-field-content, .search-dropdown-heading strong, .search-dropdown-heading p, .search-filter-field input, .search-filter-field select, .search-filter-field .jalali-date-trigger) {
+  color: var(--afra-ui-ink) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] #searchForm .filter-field-icon {
+  background: var(--afra-action-gradient) !important;
+  color: var(--afra-ui-ink) !important;
+}
+html[data-afra-theme] body[data-afra-page="index.html"] #searchForm #destination,
+html[data-afra-theme] body[data-afra-page="index.html"] #searchForm #destination::placeholder {
+  color: var(--afra-ui-ink) !important;
+}
+
+.afra-mobile-nav { display: none; }
+
+@media (max-width: 767px) {
+  html body:has(> .afra-mobile-nav) {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  html body .afra-mobile-nav {
+    position: fixed;
+    z-index: 1000;
+    inset: auto 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2px;
+    padding: 6px max(5px, env(safe-area-inset-right, 0px))
+      calc(7px + env(safe-area-inset-bottom, 0px)) max(5px, env(safe-area-inset-left, 0px));
+    background: var(--afra-glass-bg-strong);
+    border-block-start: 1px solid var(--afra-glass-line);
+    border-radius: 19px 19px 0 0;
+    box-shadow: 0 -12px 32px rgba(5, 31, 32, .15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  html body .afra-mobile-nav a {
+    display: grid;
+    grid-template-rows: 30px auto;
+    justify-items: center;
+    align-items: center;
+    gap: 3px;
+    min-height: 49px;
+    min-width: 0;
+    padding: 2px;
+    color: var(--afra-ui-muted) !important;
+    text-decoration: none;
+    text-align: center;
+    font-size: clamp(9px, 2.5vw, 11px);
+    font-weight: 650;
+    line-height: 1.34;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .afra-mobile-nav__icon {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 30px;
+    border-radius: 999px;
+  }
+  .afra-mobile-nav__icon svg { width: 21px; height: 21px; }
+  html body .afra-mobile-nav [aria-current] { color: var(--afra-ui-ink) !important; font-weight: 820; }
+  .afra-mobile-nav [aria-current] .afra-mobile-nav__icon,
+  .afra-mobile-nav a:focus-visible .afra-mobile-nav__icon { background: var(--afra-action-gradient); }
+
+  html body[data-afra-page="index.html"]:has(> .afra-mobile-nav) .mobile-contact { display: none !important; }
+  html body:has(.auth-modal.is-open, .afra-coupon-overlay.is-visible, dialog[open]) > .afra-mobile-nav { display: none; }
+
+  html body[data-afra-page="index.html"] .hero,
+  html body[data-afra-page="index.html"] .hero .hero-content {
+    min-height: 0 !important;
+  }
+  html body[data-afra-page="index.html"] .hero .hero-content {
+    width: min(calc(100% - 26px), 560px) !important;
+    padding: 84px 0 40px !important;
+    justify-content: flex-start !important;
+    gap: 9px;
+  }
+  html body[data-afra-page="index.html"] #searchForm.afra-search-v2 {
+    order: -3;
+    margin: 0 auto 14px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  html body[data-afra-page="index.html"] #searchFeedback {
+    order: -2;
+    margin: 0 !important;
+  }
+  html body[data-afra-page="index.html"] .hero .afra-hero-eyebrow {
+    margin: 0 !important;
+    background: rgba(5, 31, 32, .66) !important;
+  }
+  html body[data-afra-page="index.html"] .hero .hero-description { margin-block: 0 !important; }
+  html body[data-afra-page="index.html"] .hero .hero-content .hero-bottom { margin-block-start: 6px !important; }
+
+  html body[data-afra-page="index.html"] .afra-ref-quick-section { padding: 25px 0 28px !important; }
+  html body[data-afra-page="index.html"] .afra-ref-quick-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  html body[data-afra-page="index.html"] .afra-ref-quick-item {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: start !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 9px 3px !important;
+    gap: 5px !important;
+    min-width: 0 !important;
+    min-height: 72px !important;
+    border-radius: 12px !important;
+  }
+  html body[data-afra-page="index.html"] .afra-ref-quick-item :is(strong, small) {
+    white-space: normal !important;
+    line-height: 1.4 !important;
+  }
+  html body[data-afra-page="index.html"] .afra-ref-quick-item strong { font-size: clamp(9px, 2.55vw, 12px) !important; }
+  html body[data-afra-page="index.html"] .afra-ref-quick-item small { display: none !important; }
+  html body[data-afra-page="index.html"] .afra-ref-quick-item .afra-ref-icon { width: 23px !important; height: 23px !important; }
+  html body[data-afra-page="index.html"] #regions .afra-regions-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+  }
+  html body[data-afra-page="index.html"] #regions .afra-region-card { min-height: clamp(78px, 24vw, 150px) !important; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html body .afra-mobile-nav { animation: afra-enter .28s cubic-bezier(.2, .8, .3, 1) both; }
+    .afra-mobile-nav__icon { transition: scale .17s ease-out, translate .17s ease-out; }
+    .afra-mobile-nav a:active .afra-mobile-nav__icon { scale: .83; translate: 0 2px; }
+    .afra-mobile-nav [aria-current] .afra-mobile-nav__icon { animation: afra-tab-settle .35s cubic-bezier(.2, .8, .3, 1) both; }
+  }
+}
+@keyframes afra-tab-settle {
+  from { scale: .8; translate: 0 3px; }
+  64% { scale: 1.13; translate: 0 -2px; }
+  to { scale: 1; translate: 0 0; }
+}
+@media print { html body .afra-mobile-nav { display: none !important; } }
+/* Theme coverage corrections: remove remaining fixed light-only colors. */
+html[data-afra-theme] body .ap-eyebrow,
+html[data-afra-theme] body :is(.contact-eyebrow,.afv-breadcrumb-separator,.copyright,.afra-footer-bottom span){color:var(--afra-ui-muted)!important}
+html[data-afra-theme] body :is(.afv-footer-title,.afra-footer-logo){color:var(--afra-ui-ink)!important}
+html[data-afra-theme] body :is(.benefit-icon,.intro-icon,.login-card .icon,.login-box .icon,.results-count,.cottage-tag){
+ background:var(--afra-action-gradient)!important;color:var(--afra-ui-ink)!important;border-color:var(--afra-glass-line)!important;
+}
+html[data-afra-theme] body .header-button{background:var(--afra-action-gradient)!important;color:var(--afra-ui-ink)!important;border-color:var(--afra-glass-line)!important}
+html[data-afra-theme] body[data-afra-page='index.html'] .header .afra-ref-links a,
+html[data-afra-theme] body[data-afra-page='index.html'] .header .auth-top-actions>.auth-top-button,
+html[data-afra-theme] body[data-afra-page='index.html'] .header .auth-top-actions>#afraThemeToggle{
+ color:var(--afra-ui-ink)!important;text-shadow:none!important;
+}
+html[data-afra-theme] body[data-afra-page='index.html'] .header .auth-top-actions>.auth-top-button,
+html[data-afra-theme] body[data-afra-page='index.html'] #menuToggle,
+html[data-afra-theme] body[data-afra-page='index.html'] .header .auth-top-actions>#afraThemeToggle{
+ background:var(--afra-glass-bg-strong)!important;border-color:var(--afra-glass-line)!important;
+}
+html[data-afra-theme] body[data-afra-page='index.html'] .header #menuToggle span{background:var(--afra-ui-ink)!important}
+html[data-afra-theme] body[data-afra-page='index.html'] .hero .afra-hero-eyebrow{
+ background:var(--afra-glass-bg-strong)!important;color:var(--afra-ui-ink)!important;border-color:var(--afra-glass-line)!important;
+}
+html[data-afra-theme] body .maplibregl-ctrl-attrib{background:var(--afra-glass-bg-strong)!important;color:var(--afra-ui-ink)!important}
+html[data-afra-theme] body .maplibregl-ctrl-attrib a{color:var(--afra-ui-ink)!important}
+/* Logo pixels use ordinary image loading on hosted and locally opened pages. */
+html body img.afra-brand-img{filter:brightness(0) saturate(100%) invert(26%) sepia(24%) saturate(809%) hue-rotate(111deg) brightness(90%) contrast(89%)!important}
+html[data-afra-theme='dark'] body img.afra-brand-img{filter:brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(339%) hue-rotate(77deg) brightness(101%) contrast(89%)!important}
+/* The standalone page directory now follows the same appearance preference. */
+html[data-afra-theme] body[data-afra-page='AfraSafar_All_Pages_Links.html'] :is(.hero,.item){background:var(--afra-glass-gradient)!important;border-color:var(--afra-glass-line)!important;color:var(--afra-ui-ink)!important}
+html[data-afra-theme] body[data-afra-page='AfraSafar_All_Pages_Links.html'] :is(.item a,.path,.foot,.muted){color:var(--afra-ui-ink)!important}
+html[data-afra-theme] body[data-afra-page='AfraSafar_All_Pages_Links.html'] .hero{padding-inline-end:70px!important}
+
+/* Keep the page directory's original typefaces while sharing only its theme colors. */
+body[data-afra-page='AfraSafar_All_Pages_Links.html']{--afra-ui-font:Tahoma,'Vazirmatn',sans-serif}
+html body[data-afra-page='AfraSafar_All_Pages_Links.html'] .path{font-family:ui-monospace,monospace!important}

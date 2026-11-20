@@ -1,0 +1,109 @@
+/* Shared frosted surfaces: actual scene transmission, restrained edge and shadow. */
+:root{
+ --afra-glass-bg:rgba(255,255,255,.12);
+ --afra-glass-bg-strong:rgba(255,255,255,.24);
+ --afra-glass-line:rgba(255,255,255,.34);
+ --afra-glass-highlight:rgba(255,255,255,.32);
+ --afra-glass-shadow:0 2px 8px rgba(5,31,32,.04);
+ --afra-glass-gradient:rgba(255,255,255,.12);
+ --afra-action-gradient:rgba(255,255,255,.16);
+ --afra-frost-blur:blur(12px) saturate(100%);
+}
+html[data-afra-theme='dark']{
+ --afra-glass-bg:rgba(5,20,18,.16);
+ --afra-glass-bg-strong:rgba(5,20,18,.32);
+ --afra-glass-line:rgba(218,241,222,.22);
+ --afra-glass-highlight:rgba(218,241,222,.18);
+ --afra-glass-shadow:0 2px 8px rgba(0,0,0,.08);
+ --afra-glass-gradient:rgba(5,20,18,.16);
+ --afra-action-gradient:rgba(5,20,18,.16);
+}
+html body :is(.afra-brand-glass,.ap-panel,.ap-stay,.ap-result-head,.ap-stat,.ap-linkcard,.ap-empty,.ap-callout,.afra-ref-quick-item,.afra-feature-card,.afra-review-card,.benefit-item,.benefit-card,.login-card,.login-box,.panel,.card,.booking-card,.booking-summary,.reservation-card,.reservation-detail,.afra-coupon-dialog,.auth-card,.search-dropdown-panel,.advanced-filters-panel,.afra-appearance-menu,.maplibregl-popup-content){
+ background:var(--afra-glass-gradient)!important;
+ border-color:var(--afra-glass-line)!important;
+ box-shadow:var(--afra-glass-shadow),inset 0 1px 0 var(--afra-glass-highlight)!important;
+ backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important;
+}
+html body header:not(.afra-brand-glass),html body :is(.ap-travelbar,.header,.site-header,.afv-header,.nav,.topbar,.admin-sidebar){
+ background:var(--afra-glass-bg)!important;
+ backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important;
+ box-shadow:inset 0 1px 0 var(--afra-glass-highlight)!important;
+}
+html body :is(.header-inner,.afv-header-inner,.topbar-inner){background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html body :is(button:not(.maplibregl-marker),.ap-btn,.btn,.button,.auth-top-button,.header-button,.contact-button,.afra-mobile-contact a){
+ box-shadow:0 3px 10px rgba(5,31,32,.07),inset 0 1px 0 var(--afra-glass-highlight)!important;
+ backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important;
+}
+html body :is(input,select,textarea){background-color:rgba(var(--afra-surface-rgb),.17)!important;box-shadow:inset 0 1px 0 var(--afra-glass-highlight)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important}
+/* Homepage header remains on the photograph; its contents keep their established positions. */
+html[data-afra-theme] body[data-afra-page='index.html'] .header{background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html[data-afra-theme] body[data-afra-page='index.html'] .header .afra-brand-glass,
+html[data-afra-theme] body[data-afra-page='index.html'] .header .auth-top-actions>.auth-top-button,
+html[data-afra-theme] body[data-afra-page='index.html'] .header #menuToggle,
+html[data-afra-theme] body[data-afra-page='index.html'] .hero .afra-hero-eyebrow,
+html[data-afra-theme] body[data-afra-page='index.html'] .hero .hero-description{
+ background:var(--afra-glass-bg-strong)!important;border-color:var(--afra-glass-line)!important;
+ backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important;
+ box-shadow:var(--afra-glass-shadow),inset 0 1px 0 var(--afra-glass-highlight)!important;
+}
+html[data-afra-theme] body[data-afra-page='index.html'] .hero h1,
+html[data-afra-theme] body[data-afra-page='index.html'] .hero h1 span{text-shadow:none!important;filter:none!important}
+html[data-afra-theme] body[data-afra-page='index.html'] #searchForm.afra-search-v2 .search-main-row{
+ background:var(--afra-glass-gradient)!important;backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important;
+ border:1px solid var(--afra-glass-line)!important;box-shadow:var(--afra-glass-shadow),inset 0 1px 0 var(--afra-glass-highlight)!important;
+}
+/* Two separate complete capsules, instead of an edge-to-edge shared box. */
+html[data-afra-theme] body[data-afra-page='index.html'] .header .afra-ref-links{
+ background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;gap:10px!important;
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;overflow:visible!important;
+}
+html[data-afra-theme] body[data-afra-page='index.html'] .header .afra-ref-links a{
+ padding:8px 12px!important;min-height:40px!important;box-sizing:border-box!important;border:1px solid var(--afra-glass-line)!important;border-radius:15px!important;
+ background:var(--afra-glass-bg-strong)!important;backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important;
+ box-shadow:var(--afra-glass-shadow),inset 0 1px 0 var(--afra-glass-highlight)!important;color:var(--afra-ui-ink)!important;text-shadow:none!important;
+}
+/* One actual toggle, fixed to the viewport independently of every header. */
+html body .afra-appearance-dock{
+ position:fixed!important;left:max(18px,env(safe-area-inset-left))!important;right:auto!important;top:auto!important;
+ bottom:calc(20px + env(safe-area-inset-bottom))!important;z-index:1200!important;
+ margin:0!important;padding:0!important;transform:none!important;background:transparent!important;
+}
+html body #afraAppearanceDock #afraThemeToggle{
+ position:relative!important;inset:auto!important;display:grid!important;place-items:center!important;flex:none!important;
+ width:48px!important;min-width:48px!important;height:48px!important;min-height:48px!important;padding:0!important;margin:0!important;border-radius:50%!important;
+ background:var(--afra-glass-bg-strong)!important;border:1px solid var(--afra-glass-line)!important;color:var(--afra-ui-ink)!important;
+ box-shadow:0 5px 18px rgba(5,31,32,.12),inset 0 1px 0 var(--afra-glass-highlight)!important;
+ backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important;transform:none!important;
+}
+html body #afraAppearanceDock #afraThemeToggle .afra-theme-switch__label{display:none!important}
+html body #afraAppearanceDock #afraThemeToggle .afra-theme-switch__icon{display:grid!important;width:22px!important;height:22px!important}
+html body #afraAppearanceDock #afraThemeToggle .afra-theme-switch__icon svg{width:22px!important;height:22px!important}
+html body .afra-theme-slot{display:block;flex:0 0 41px;width:41px;height:41px;visibility:hidden;pointer-events:none}
+html body .ap-travelbar{padding-inline-end:12px!important}
+html body .maplibregl-map .afra-map-point{background:var(--afra-glass-bg-strong)!important;color:var(--afra-ui-ink)!important;border-color:var(--afra-glass-line)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;box-shadow:var(--afra-glass-shadow)!important}
+@media(max-width:900px){html body .afra-appearance-dock{left:max(12px,env(safe-area-inset-left))!important;bottom:calc(84px + env(safe-area-inset-bottom))!important}}
+@media(max-width:600px){html body .afra-theme-slot{flex-basis:39px;width:39px;height:39px}html body #afraAppearanceDock #afraThemeToggle{width:46px!important;min-width:46px!important;height:46px!important;min-height:46px!important}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+ :root{--afra-glass-bg:rgba(255,255,255,.84);--afra-glass-bg-strong:rgba(255,255,255,.9);--afra-glass-gradient:rgba(255,255,255,.86)}
+ html[data-afra-theme='dark']{--afra-glass-bg:rgba(11,43,38,.86);--afra-glass-bg-strong:rgba(5,31,32,.92);--afra-glass-gradient:rgba(11,43,38,.88)}
+}
+
+html body :is(.search-dropdown-panel,.afra-appearance-menu,.maplibregl-popup-content){background:var(--afra-glass-bg-strong)!important}
+:root{--afra-error-bg:rgba(255,225,232,.40);--afra-success-bg:rgba(218,241,222,.38)}
+html[data-afra-theme='dark']{--afra-error-bg:rgba(81,36,49,.58);--afra-success-bg:rgba(32,73,56,.48)}
+
+html[data-afra-theme] body[data-afra-page='index.html'] #searchForm .search-main-field,
+html[data-afra-theme] body[data-afra-page='index.html'] #searchForm #destination{background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
+/* Clear, neutral glass: no colored fill, glow, thick edge or inner colored panel. */
+html body :is(button:not(.maplibregl-marker),.ap-btn,.btn,.button,.auth-top-button,.header-button,.contact-button,.afra-mobile-contact a){border-color:var(--afra-glass-line)!important;box-shadow:var(--afra-glass-shadow),inset 0 1px 0 var(--afra-glass-highlight)!important}
+html body :is(button:not(.maplibregl-marker),.ap-btn,.btn,.button,.auth-top-button,.header-button,.contact-button,.afra-mobile-contact a):hover{background:var(--afra-glass-bg-strong)!important;border-color:var(--afra-glass-highlight)!important}
+html body :is(.ap-linkcard,.ap-stay,.stay-card,.category-card,.afra-region-card):hover{box-shadow:var(--afra-glass-shadow)!important}
+html body .afra-mobile-nav{background:var(--afra-glass-bg-strong)!important;box-shadow:0 -2px 10px rgba(5,31,32,.05)!important;backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important}
+html body :is(.category-card,.afra-region-card)::before{background:rgba(255,255,255,.04);backdrop-filter:none;-webkit-backdrop-filter:none}
+html[data-afra-theme] body[data-afra-page='index.html'] #searchForm .search-button{background:var(--afra-glass-bg-strong)!important;border-color:var(--afra-glass-line)!important}
+html body :is(.ap-faq details,.ap-map-status,.ap-chat-bubble,.ap-geo-note,.ap-pill,.ap-stay__badge,.ap-chips a,.stay-card,.afra-faq-items details,.afra-home-search,.afra-primary-search-field,.search-box,.property-card,.form-card,.guidance,.file-box,.afra-region-panel,.afra-feature-panel,.afra-review-panel){background:var(--afra-glass-bg)!important;box-shadow:var(--afra-glass-shadow),inset 0 1px 0 var(--afra-glass-highlight)!important;backdrop-filter:var(--afra-frost-blur)!important;-webkit-backdrop-filter:var(--afra-frost-blur)!important}
+@media(prefers-reduced-transparency:reduce){
+ html body :is(.afra-brand-glass,.ap-panel,.ap-stay,.ap-linkcard,.ap-stat,.card,.panel,.auth-card,.login-card,.hero-description,.afra-hero-eyebrow,.search-main-row,.search-dropdown-panel,.afra-appearance-menu,.maplibregl-popup-content,.afra-mobile-nav){--afra-glass-bg:var(--afra-surface);--afra-glass-bg-strong:var(--afra-surface);--afra-glass-gradient:var(--afra-surface);--afra-frost-blur:none}
+}
+@media print{html body #afraAppearanceDock{display:none!important}}

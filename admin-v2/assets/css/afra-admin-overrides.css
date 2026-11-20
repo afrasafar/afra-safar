@@ -1,0 +1,60 @@
+/* AfraSafar labels and forms, layered over the purchased dashboard theme. */
+.app-header { min-height: 5rem; }
+.admin-email { color: var(--muted); max-width: 18rem; overflow-wrap: anywhere; font-size: .8rem; }
+.page-content { padding-top: 1.25rem; }
+.field > span { color: var(--text); font-size: .82rem; font-weight: 500; }
+.field textarea.input { min-height: 7rem; resize: vertical; }
+.form-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; grid-column: 1 / -1; }
+.form-grid .span-2 { grid-column: 1 / -1; }
+.data-table td small { display: inline-block; color: var(--muted); max-width: 15rem; overflow-wrap: anywhere; }
+.data-table td { vertical-align: top; }
+.auth-wrap { min-height: 100vh; display: grid; place-items: center; padding: 1rem; }
+.auth-card { width: min(100%, 28rem); padding: 2rem; }
+.auth-card h1 { margin: 1rem 0 .4rem; color: var(--accent); font-size: 1.35rem; }
+.auth-card p { color: var(--muted); line-height: 1.9; }
+.auth-form { display: grid; gap: 1rem; margin-top: 1.4rem; }
+.auth-card .brand-mark { margin-inline: auto; }
+[role="status"], [role="alert"] { color: var(--muted); line-height: 1.8; }
+button:disabled { cursor: wait; opacity: .6; }
+body[data-page] [hidden] { display: none !important; }
+.admin-property-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; }
+.admin-property-actions .btn { white-space: normal; }
+.admin-property-filters { margin-bottom: 1rem; align-items: end; }
+.admin-property-thumb { flex: 0 0 54px; width: 54px; height: 42px; border-radius: .55rem; object-fit: cover; }
+#admin-property-table .entity { min-width: 0; max-width: 100%; flex: 1; }
+#admin-property-table .entity a,#admin-property-table .entity>strong { min-width: 0; flex: 1; overflow-wrap: anywhere; }
+#admin-property-table .entity strong { display: block; overflow-wrap: anywhere; }
+.admin-image-preview { display: block; width: min(100%,360px); max-height: 220px; height: auto; object-fit: cover; border: 1px solid var(--line); border-radius: .75rem; }
+.admin-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(92px,1fr)); gap: .6rem; min-width: 0; }
+.admin-gallery-grid:empty { display: none; }
+.admin-gallery-grid img { display: block; width: 100%; height: 95px; object-fit: cover; border: 1px solid var(--line); border-radius: .6rem; }
+.admin-property-visible { display: flex; gap: .6rem; align-items: center; cursor: pointer; }
+.admin-property-visible input { width: 19px; height: 19px; flex-shrink: 0; }
+#property-form-result { min-height: 1.8rem; overflow-wrap: anywhere; }
+#property-form-result[data-kind="error"] { color: var(--danger); }
+#property-form-result[data-kind="success"] { color: var(--success); }
+#property-upload-status,#property-gallery-status { overflow-wrap: anywhere; }
+body[data-page] input[type="file"]::file-selector-button { font: inherit; color: var(--afra-title); background: var(--afra-glass-bg); border: 1px solid var(--line); border-radius: .5rem; padding: .4rem .6rem; margin-inline-end: .5rem; cursor: pointer; }
+html[data-afra-theme="light"] body[data-page] #property-form-result[data-kind="error"] { color: #9a263a !important; }
+html[data-afra-theme="light"] body[data-page] #property-form-result[data-kind="success"] { color: #17613d !important; }
+.admin-guest-note { max-width: 18rem; overflow-wrap: anywhere; }
+.admin-property-actions+.admin-property-actions { margin-top: .5rem; }
+@media(max-width:640px) {
+  .admin-property-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); width: 100%; align-items: stretch; }
+  .admin-property-actions .btn { width: 100%; min-width: 0; }
+  .admin-property-filters>* { flex-basis: 100%; }
+  .data-table.responsive td[data-label="عملیات"] { display: grid; grid-template-columns: 1fr; text-align: right; }
+  .data-table.responsive td[data-label="عملیات"]::before { margin-bottom: .4rem; }
+  .form-actions { display: grid; grid-template-columns: 1fr; }
+  .form-actions .btn { width: 100%; }
+}
+@media (max-width: 1024px) {
+  .app-header { padding-right: 4.3rem; }
+  .admin-email { display: none; }
+}
+@media (max-width: 700px) {
+  .grid-4, .grid-2 { grid-template-columns: 1fr; }
+  .app-header { align-items: flex-start; }
+  .app-header .header-actions { margin-right: auto; }
+  .app-header .btn { width: auto; white-space: nowrap; }
+}

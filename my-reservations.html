@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <script id="afraThemeBootstrap">(function(){var p='auto';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
+    <script id="afraThemeBootstrap">(function(){var p='dark';try{var v=localStorage.getItem('afra-theme-preference');if(v==='dark'||v==='light'||v==='auto')p=v;}catch(e){}var d=p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;document.documentElement.setAttribute('data-afra-theme',d);document.documentElement.setAttribute('data-afra-theme-choice',p);document.documentElement.style.colorScheme=d;})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#123d32">
+  <meta name="theme-color" content="#0f0f23">
   <meta name="description" content="پیگیری وضعیت رزرو ویلا و کلبه در افرا سفر">
   <title>رزروهای من | افرا سفر</title>
 
@@ -440,23 +440,35 @@
     @media (max-width: 520px) { .payment-grid { grid-template-columns: 1fr; } .payment-actions { display: grid; } .payment-actions button, .payment-actions a { min-width: 0; } }
 
 </style>
-    <link rel="stylesheet" href="afra-theme.css?v=20261105j2">
-    <script defer src="afra-theme.js?v=20261105j2"></script>
+    <link rel="stylesheet" href="afra-theme.css?v=green20261117v2">
+    <script defer src="afra-theme.js?v=video20261119"></script>
   <link rel="stylesheet" href="afra-platform.css?v=20261104p5">
   <link rel="stylesheet" href="afra-responsive-cards.css?v=20261105c1">
 <link rel="stylesheet" href="afra-jalali.css?v=20261105j2">
 <script defer src="afra-jalali.js?v=20261105j2"></script>
+
+  <link rel="stylesheet" href="afra-glass-theme.css?v=header20261119">
+  <script defer src="afra-mobile-nav.js?v=1"></script>
+<link rel="stylesheet" href="afra-experience.css?v=header20261119">
+<script defer src="afra-experience.js?v=video20261119"></script>
+<link rel="stylesheet" href="afra-frosted.css?v=header20261119">
+<link rel="stylesheet" href="afra-mobile-layout.css?v=header20261119">
+<link rel="stylesheet" href="afra-readable.css?v=header20261119">
+<script defer src="afra-icons.js?v=header20261119"></script>
+<link rel="stylesheet" href="afra-header.css?v=header20261119">
+<link rel="stylesheet" href="admin-v2/assets/css/vazirmatn.css?v=video20261119">
+<link rel="stylesheet" href="afra-admin-v2-theme.css?v=adminfull20261120">
 </head>
 
 <body data-afra-page="my-reservations.html">
   <div class="topbar">
-    🌿 افرا سفر؛ همراه شما برای یک اقامت خاطره‌انگیز
+    <img class="afra-brand-img afra-brand-img--tiny" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true"> افرا سفر؛ همراه شما برای یک اقامت خاطره‌انگیز
   </div>
 
   <header>
     <nav class="nav">
       <a href="index.html" class="brand">
-        <div class="brand-icon">🌿</div>
+        <img class="brand-icon afra-brand-img afra-brand-img--standard" src="images/afra-safar-logo.png?v=fix20261119" alt="" aria-hidden="true">
         <div>
           <div class="brand-name">افرا سفر</div>
           <div class="brand-subtitle">سفر، آرامش، خاطره</div>
@@ -1124,6 +1136,17 @@
       }
     });
   </script>
-  <script defer src="afra-platform.js?v=20261105j2"></script>
+  <script defer src="afra-vector-map.js?v=20261119final7"></script>
+<script defer src="afra-platform.js?v=header20261119"></script>
+<script defer src="afra-header.js?v=header20261119"></script>
+<script id="afraTrackingLinkPrefill">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const code = document.getElementById('reservationCode');
+  const phone = document.getElementById('guestPhone');
+  if (code && params.has('code')) code.value = params.get('code').slice(0,128);
+  if (phone && params.has('phone')) phone.value = params.get('phone').slice(0,30);
+})();
+</script>
 </body>
 </html>
